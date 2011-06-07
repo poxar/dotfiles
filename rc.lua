@@ -28,7 +28,7 @@ terminal = "urxvtc"
 filemanager = "xfe"
 browser = "chromium"
 altbrowser = "firefox"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 screenlock_cmd = "slock"
 wiki = terminal .. " -e wiki"
@@ -118,11 +118,10 @@ mytasklist.buttons = awful.util.table.join(
                                               if client.focus then client.focus:raise() end
                                           end))
 
-for s = 1, screen.count() do
-    -- Create a promptbox for each screen
+s = screen.count();
+    -- Create a promptbox for last screen in screen.count()
     mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
+    -- Create an imagebox widget which contains an icon indicating which layout we're using.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
                            awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
@@ -149,11 +148,10 @@ for s = 1, screen.count() do
         },
         mydate,
 	myvolume,
-        s == 1 and mysystray or nil,
+        mysystray,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
-end
 -- }}}
 
 -- {{{ Key bindings
@@ -187,7 +185,7 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-    -- Standard program
+    -- Program shortcuts
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(filemanager) end),
     awful.key({ modkey,           }, "BackSpace", function () awful.util.spawn(browser) end),
@@ -233,7 +231,7 @@ for s = 1, screen.count() do
 end
 
 -- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it works on any keyboard layout.
+-- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, keynumber do
     globalkeys = awful.util.table.join(globalkeys,
@@ -317,7 +315,7 @@ client.add_signal("manage", function (c, startup)
         -- i.e. put it at the end of others instead of setting it master.
         -- awful.client.setslave(c)
 
-        -- Put windows in a smart way, only if they does not set an initial position.
+        -- Put windows in a smart way, only if they do not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
             awful.placement.no_offscreen(c)
