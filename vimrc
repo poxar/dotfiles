@@ -11,38 +11,37 @@ if v:progname =~? "evim"
 endif
 "}}}
 
-" Optionen  {{{
+" options  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ALLGEMEIN
-set nocompatible		" Vim-Settings und nicht Vi
+set nocompatible		" don't be compatible to vi
 set autoindent			" always set autoindenting on
-set shiftwidth=4		" vier Vorschübe als indent
-set showmode			" Modi anzeigen (zb Einfügen)
-set showmatch			" Klammern anzeigen/beep
+set shiftwidth=4
+set showmode
+set showmatch			" show matching parentheses
 set ruler			" show the cursor position all the time
-set nojoinspaces		" Bei J(oin) keine überflüssigen Leerzeichen einfügen
-set whichwrap=""		" nicht über zeilenränder »hüpfen«
+set nojoinspaces		" J(oin) doesn't add useless blanks
+set whichwrap=""		" don't jump over linebounds
 set nobackup			" don't use a backup file
 set showcmd			" display incomplete commands
 set incsearch			" do incremental searching
-set nohlsearch			" keine highlighting beim suchen...
-set wildmenu			" completion-menü
-set mouse=a			" Mausunterstützung
+set nohlsearch			" no highlighting for searches
+set wildmenu			" completion-menu
+set mouse=a			" use the mouse
 set backspace=indent,eol,start	" allow backspacing over everything in insert mode
-set ignorecase			" bei der suche nicht zwischen Groß/kleinschreibung unterscheiden
-set scrolloff=3			" beim scrollen drei zeilen mehr anzeigen
-set modelines=2 	        " Modelines werden nicht interpretiert
-set pastetoggle=<F4>		" Paste/nopaste überall mit F4 ändern
-set number			" Zeilennummern
-set cryptmethod=blowfish	" Verschlüsselungsmethode
+set ignorecase			" search is case insensitive
+set scrolloff=3			" show 3 extra lines when scrolling
+set modelines=2 	        " search the first and last two lines for modelines
+set pastetoggle=<F4>
+set number
+set cryptmethod=blowfish
 " Testing
-set undofile			" persistant undo
-set undodir=~/.vim/undo		" undo-infos in ~/.vim/undo speichern
+set undofile			" persistent undo
+set undodir=~/.vim/undo		" undo-infos are saved in ~/.vim/undo
 
 " SYNTAX
-colorscheme pablo		" Farbschema
+colorscheme pablo
 filetype plugin indent on	" Enable file type detection.
-syntax on			" Syntaxerkennung
+syntax on
 " Haskell
 :let hs_highlight_delimiters = 1
 :let hs_highlight_boolean = 1
@@ -51,46 +50,46 @@ syntax on			" Syntaxerkennung
 :let hs_highlight_debug = 1
 
 " PLUGINS
-:runtime! ftplugin/man.vim	" Manfiles in einem neuen Fenster ansehen
+:runtime! ftplugin/man.vim	" plugin for showing manfiles
 :let g:nips_author = 'Philipp Millar'
-":let g:SuperTabDefaultCompletionType = "context" " SuperTab soll entscheiden welche completion
-":let g:SuperTabContextDefaultCompletionType = "<c-p>" " falls das nicht möglich ist -> keyword-up
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Abkürzungen  {{{
+" abbreviations  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" c
 :iabbrev #b /*<Space>**************************************<Space>*
 :iabbrev #e **************************************<Space>*/
+" mail
 :iabbrev mfg Mit<Space>freundlichen<Space>Grüßen
 :iabbrev phmi Philipp<Space>Millar
-:iabbrev ph Philipp
 :iabbrev lg Liebe<Space>Grüße
+:iabbrev ph Philipp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Mappings {{{ 
+" mappings {{{ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Don't use Ex mode, use Q for formatting
 map Q gq
-" Cursortasten ignorieren Umbrüche
+" use cursor keys not linewise
 map <Up> gk
 map <Down> gj
-" Foldmethod
+" foldmethod
 map <F2> <esc>:set<space>foldmethod=marker<cr>
 map <F3> <esc>:set<space>foldmethod=syntax<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Autocommands & Co.  {{{
+" autocommands  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  "ausgelagerte muttrcs erkennen
-  au BufReadPost * if getline(1) =~ "#muttrc" |
-    \ set filetype=muttrc
+  "obsolete
+  "au BufReadPost * if getline(1) =~ "#muttrc" |
+  "  \ set filetype=muttrc
 
-  au BufReadPost *
-    \ set filetype=wiki
+  "au BufReadPost *
+  "  \ set filetype=wiki
   
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -119,20 +118,19 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 
 " LaTeX  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Zeuch für Vim-LaTeX
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Rechtschreibung  {{{
+" spell-check  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ein bisschen Rechtschreibung...
 nmap <Esc>A	:set spell<CR>
 nmap <Esc>?	z=
 nmap <Esc>i	zg
 nmap <Esc>q	:set nospell<CR>
 set spelllang=de
 
+" function to change the spell-language
 let spellst = ["de", "en"]
 let langcnt = 0
 
@@ -146,9 +144,9 @@ endfunction
 nmap <Esc>l	:call Sel_lang()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" andere Macros  {{{
+" stuff  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime macros/justify.vim " justify Text mit v _j
+runtime macros/justify.vim " justify text with v _j
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 
@@ -157,4 +155,4 @@ runtime macros/justify.vim " justify Text mit v _j
 " TODO	{{{
 " }}}
 
-" vim:set foldmethod=marker:
+" vim:set sw=4 foldmethod=marker:
