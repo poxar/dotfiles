@@ -12,7 +12,7 @@ if [[ ! -e /dev/shm/.transmission-run ]]; then
     touch /dev/shm/.transmission-run
 fi
 if [[ ! -e /tmp/.X0-lock && $TTY == /dev/tty1 ]]; then
-    # show PIM when first xterminal is spawned
+    # show calendar and todo when first xterminal is spawned
     touch /dev/shm/firstrun
     # start x-server and log-out if it quits
     exec startx

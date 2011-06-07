@@ -4,9 +4,9 @@
 # Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
-# Optionen {{{1
-# Konfigurationsvariablen {{{2
-# Wichtige Verzeichnisse 
+# configuration {{{1
+# configuration variables {{{2
+# important directories and files
 AURDIR=/home/build/AUR
 BUILDDIR=/home/build
 HOMETMP=$HOME/tmp
@@ -16,50 +16,48 @@ DROPBOXDIR=$DATADIR/Dropbox
 CONTACTFILE=$HOME/.contacts
 #}}}2 
 
-#Umgebungsvariablen {{{2
+# environment {{{2
 export GPG_TTY=$(tty)
 export EDITOR=vim
 export PAGER=less
 export PDFVIEWER=zathura
 export LESSHISTFILE=/dev/null	# don't use the history of less
-export PATH=/usr/lib/ccache/bin/:$PATH:$HOME/bin:/usr/bin/vendor_perl/	# use of ccache for compiling and homebin
+export PATH=/usr/lib/ccache/bin/:$PATH:$HOME/bin:/usr/bin/vendor_perl/	# use of ccache for compiling and put home/bin in path
 export BROWSER="chromium"
 export DOWNLOAD=$HOME/down
 export TODOTXT_DEFAULT_ACTION="ls" # show todo list with "t"
 export MOZ_DISABLE_PANGO=1 # disable pango for mozilla
 #}}}2
 
-#Grundsettings {{{2
+# settings {{{2
+bindkey -v	# use vi key bindings 
+umask 066	# initialize new files with -rw-------
+
+setopt autocd		# change directories easily
+setopt no_beep		# disable annoying beeps
+setopt complete_in_word
+setopt correct		# try to find misspellings
+setopt auto_pushd	# always use the directory stack
+
+#History
 HISTFILE="$HOME/.histfile" # where to put the history
 HISTSIZE=10000
 SAVEHIST=12000
-bindkey -v	# Vi-Keybindings
-umask 066	# init new files with -rw-------
+setopt share_history 		# share the history over multiple instances
+setopt extended_history 	# put the time into history
+setopt hist_no_store 		# don't save history commands
+setopt hist_reduce_blanks 	# delete unneeded blanks
+setopt hist_ignore_all_dups 	# never duplicate entries
+setopt hist_ignore_space 	# don't but commands starting with a blank into history
+setopt hist_verify 		# show history-completed commands before execution
+
+
+autoload -U colors && colors	# use colours
+autoload -U zmv			# great batch-renaming tool
+eval `dircolors`		# use directory colours
 #}}}2
 
-# Shell-Optionen {{{2
-setopt autocd		# einfaches wechseln des Verzeichnises
-setopt no_beep		# kein piependes nerven
-setopt complete_in_word	# auch im wort vervollständigen
-setopt correct		# rechtschreibfehler erkennen
-setopt auto_pushd	# automatisch den directory-heap erstellen
-
-#History
-setopt share_history 		# Geteilte History für alle Instanzen von zsh
-setopt extended_history 	# Zeitangaben in der history
-setopt hist_no_store 		# history kommandos nicht speichern
-setopt hist_reduce_blanks 	# unnötige leerzeichen entfernen
-setopt hist_ignore_all_dups 	# keine Duplikate
-setopt hist_ignore_space 	# befehle mit einem leerzeichen am anfang nicht speichern
-setopt hist_verify 		# mit !-kommandos hervorgeholte einträge erst bestätigen
-
-
-autoload -U colors && colors	# Farben verwenden
-autoload -U zmv			# einfach nur noch ein tolles tool für batch-rename
-eval `dircolors`
-#}}}2
-
-# Completion {{{2
+# completion {{{2
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
 zmodload -i zsh/complist
@@ -76,7 +74,7 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored patterns
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' select-prompt '%SMatch %M    %P%s'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-# keybindings for completion
+# key bindings for completion
 bindkey -M menuselect 'h' backward-char
 bindkey -M menuselect 'j' down-line-or-history
 bindkey -M menuselect 'k' up-line-or-history
@@ -85,14 +83,14 @@ bindkey -M menuselect 'l' forward-char
 zle -C hist-complete complete-word _generic
 zstyle ':completion:hist-complete:*' completer _history
 bindkey '^X^X' hist-complete
-# processlist for "kill"
+# list processes when completing "kill"
 zstyle ':completion:*:kill:*' command 'ps xf -u $USER -o pid,%cpu,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 #}}}2
 
-# Prompt {{{2
+# prompt {{{2
 PROMPT="%m %B%0(#.%{$fg[red]%}#.%{$fg[white]%}>) %b"
-# aktuelles Verzeichnis, jobzahl und :( bei misserfolg
+# current directory, jobcount and :( (from grml)
 RPROMPT="%0(5c,%c,%~) %1(j.(%j%).) %(?..%B%{$fg[red]%}:(%{$fg[white]%}%b)"
 # Set urgent on completed jobs
 precmd() (
@@ -103,47 +101,48 @@ precmd() (
 
 #}}}1
 
-# Aliase {{{1
-# Rootaliase {{{2
+# aliases {{{1
+# just for root {{{2
 if [[ $UID = 0 ]]; then
 
-	# nur helo {{{3
+	# just on host helo {{{3
 	if [[ $HOST = helo ]]; then
-	   #MyBook abgleichen
+	   # synchronize MyBook
 	   alias syncMyBook="mount /media/MyBook/ && rsync -rhu --ignore-existing --progress --delete /media/storage/Filme/ /media/MyBook/Filme/ && rsync -rhu --ignore-existing --progress --delete /media/storage/iso/ /media/MyBook/iso/"
 	fi # }}}3
 
-   	# ArchLinux - Packetverwaltung
+   	# ArchLinux - packages
 	alias update="pacman -Syu"
 	alias install="pacman -S"
 	alias remove="pacman -Rsun"
-	# Intrusion Detection / Sicherheitsüberwachung
+	# show open connections
 	alias hullbreak="netstat --all --numeric --programs --inet"
-	# OpenVPN der Uni
+	# VPN university
 	alias UniVPN="openvpn --config /etc/openvpn/openvpn-2.1.client.conf"
 fi
 # }}}2
 
-# sudo Aliase {{{2
+# aliases with sudo {{{2
+# never use them when root!
 if [[ $UID != 0 ]];then
-   	# ArchLinux - Packetverwaltung
+	# ArchLinux - packages
 	alias update="sudo pacman -Syu && cower -c -v -u"
 	alias install="sudo pacman -S"
 	alias remove="sudo pacman -Rsun"
-	# Rechner abschalten/neu starten
+	# System
 	alias poweroff="sudo poweroff"
 	alias reboot="sudo reboot"
-	# Intrusion Detection / Sicherheitsüberwachung
+	# show open connections
 	alias hullbreak="sudo netstat --all --numeric --programs --inet"
-	# OpenVPN der Uni
+	# VPN university
 	alias UniVPN="sudo openvpn --config /etc/openvpn/openvpn-2.1.client.conf"
 fi
 #}}}2
 
-# Aliase {{{2
-# nur helo {{{3
+# normal aliases {{{2
+# just on helo {{{3
 if [[ $HOST = helo ]]; then
-   # Spiele
+   # games
    alias nwn="cd /home/philipp/.spiele/nwn/ && ./nwn && cd -"
    alias nwn2="cd /home/philipp/.spiele/nwn2/drive_c/Programme/Atari/Neverwinter\ Nights\ 2/ && WINEPREFIX='/home/philipp/.spiele/nwn2/' wine nwn2.exe && cd -"
    alias BaldursGate='WINEPREFIX="/home/philipp/.spiele/BaldursGate/" wine E:\Autorun.exe'
@@ -151,54 +150,49 @@ if [[ $HOST = helo ]]; then
    alias DragonAge='WINEPREFIX="/home/philipp/.spiele/DragonAgeOrigins/" wine "C:\Programme\Dragon Age\bin_ship\daorigins.exe"'
    alias AssassinsCreed="cd /home/philipp/.spiele/AssassinsCreed/drive_c/Programme/Ubisoft/Assassins\ Creed/ && WINEPREFIX='/home/philipp/.spiele/AssassinsCreed/' wine AssassinsCreed_Dx9.exe && cd -"
 fi #  }}}3
-# nur spitfire {{{3
+# just on spitfire {{{3
 if [[ $HOST = spitfire ]]; then
-   # unison synx
+   # unison synchronization
    alias usync="unison default"
    alias usyncbatch="unison -batch default"
    alias msync="unison -batch musik"
 fi #  }}}3
 
-# Startup {{{3
-# Startskript
-# Falls nach startx noch keine zshell geöffnet wurde werden interresante
-# Informationen angezeigt. TODO: schönere Lösung?!
+# startup {{{3
+# the first terminal spawned after startx shows a calendar and todo list
+# TODO: better solution?
 if [[ -e /dev/shm/firstrun && $TTY != /dev/tty1
                            && $TTY != /dev/tty2
 			   && $TTY != /dev/tty3 ]]; then
-   rem -cl+2 -w160 -m -b1 && echo "\\n--" && 
+   rem -c+2 -w160 -m -b1 && echo "\\n--" && 
     $HOME/bin/todo.sh -d $HOME/.todo/config ls && echo ""
    rm -f /dev/shm/firstrun
 fi
 #}}}3
 
-# Zsh {{{3
-# Directory Stack
+# zsh-tools {{{3
+# directory stack
 alias d="dirs -v" # list dir-stack
 #jobs
 alias j="jobs -l" # list active jobs
-# History
-alias hist="history | grep" # find history-command (delete?)
-# schnelles cd
+# fast cd
 alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
-# Autoextrahieren
+# zsh as archive manager
 alias -s 7z="7z x"
 alias -s bz2="pbzip2 -d"
 alias -s gz="gzip -d"
 alias -s tar="tar xvf"
 alias -s rar="unrar"
 alias -s zip="unzip"
-# Suffix-Aliase
+# suffix-aliases
 alias -s txt="vim"
 alias -s de=$BROWSER com=$BROWSER org=$BROWSER net=$BROWSER
 alias -s pdf=$PDFVIEWER PDF=$PDFVIEWER
-# keine history anlegen
-alias inkognito="fc -p"
 #}}}3
 
-# Coreutils & Erweiterungen {{{3
+# coreutils & stuff {{{3
 # ls
 alias ls="ls --color=auto"
 alias l="ls -lhFB"
@@ -218,18 +212,20 @@ alias du="du -ch"
 # screen
 alias sr="screen -r"
 alias sls="screen -ls"
-# paketverwaltung
+# packages & aur
 alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
 alias mpkg="makepkg -cis"
 alias cower="cower -c -v -t ~aur"
 #}}}3
 
 # PIM {{{3
-# Uni-Stundenplan
+# university-stuff
 alias stundenplan="cat $HOME/.stundenplan"
-# Kalender
+
+# show calendar and todo list
 alias pim="clear && rem -c+2 -w160 -m -b1 && echo '\n--' && $HOME/bin/todo.sh -d $HOME/.todo/config ls && echo"
 
+# calendar
 alias cal="cal -3"
 alias kalender="rem -c+2 -w160 -m -b1"
 alias monat="rem -c+4 -w160 -m -b1"
@@ -248,21 +244,19 @@ alias t="todo.sh -d $HOME/.todo/config"
 alias note="cd $WIKIDIR && vim ScratchPad.wiki && cd -"
 #}}}3
 
-# Unsortiert {{{3
-# Pastebin
+# unsorted {{{3
+# pastebin
 alias pastebin="curl -F 'sprunge=<-' http://sprunge.us"
 # cclive - Youtube download
 alias cclive="cclive --output-dir $HOME/down"
-# hust
+# well...
 alias totalbullshit="cmatrix -u 2 -a -x"
 # irssi
 alias irssi="screen -S irssi irssi"
-# bit.ly
-#alias surl="surl -s bit.ly -c"
 #}}}3
 #}}}2
 
-# benannte Verzeichnise {{{2
+# directory shortcuts {{{2
 hash -d doc=/usr/share/doc
 hash -d howto=/usr/share/linux-howtos
 hash -d log=/var/log
@@ -277,20 +271,20 @@ hash -d data=$DATADIR
 # }}}2
 #}}}1
 
-# Funktionen {{{1
-# AUR-Pakete downloaden {{{2
+# functions {{{1
+# download aur-packages {{{2
 aur() {
-        cd $AURDIR && # Verzeichnis
-	rm -rf $1 && # alte Daten löschen
+        cd $AURDIR &&
+	rm -rf $1 && # delete old data
 	#aria2c -x 2 -d $AURDIR http://aur.archlinux.org/packages/$1/$1.tar.gz && # download
-	#tar -xzvf $1.tar.gz && # entpacken
-	#rm $1.tar.gz && # verpacktes löschen
+	#tar -xzvf $1.tar.gz && # extract
+	#rm $1.tar.gz &&
 	cower -c -v -t ~aur -d -d $1 &&
-	cd $1 && # Verzeichnis
+	cd $1 &&
 	vim PKGBUILD # user-check
 } #}}}2
 
-# Die Einträge in einem Ordner zählen {{{2
+# count the files/folders in a directory {{{2
 countentry() {
    count=0
    for i in *; do
@@ -299,19 +293,19 @@ countentry() {
    print $count
 } #}}}2
 
-# Ein Taschenrechner in verschiedenen Zahlensystemen {{{2
+# a simple calculator {{{2
 zcalc ()  { print $(( ans = ${1:-ans} )) }
 zcalch () { print $(( [#16] ans = ${1:-ans} )) }
 zcalcd () { print $(( [#10] ans = ${1:-ans} )) }
 zcalco () { print $(( [#8] ans = ${1:-ans} )) }
 zcalcb () { print $(( [#2] ans = ${1:-ans} )) }
-# ascii - Wert eines characters
+# calculate ascii value
 zcalcasc () { print $(( [#16] ans = ##${1:-ans} )) }
-#keybinding
+
 bindkey -s '\C-xd' "zcalc \'"
 #http://www.zsh.org/mla/users/2003/msg00163.html }}}2
 
-# Contactmanager {{{2
+# contact manager {{{2
 # searches the contacts
 c() { 
     awk "BEGIN { RS = \"###\" } /$*/" $CONTACTFILE
@@ -335,7 +329,7 @@ ce() {
 #######################################################################
 
 # TODO {{{1
-# - schönere Lösung für das Startupskript
+# - better solution for the startup-skript
 # }}}1
 
-# vim:set foldmethod=marker:
+# vim:set sw=4 foldmethod=marker:
