@@ -4,18 +4,7 @@
 # Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
-# configuration {{{1
-# configuration variables {{{2
-# important directories and files
-AURDIR=/home/build/AUR
-BUILDDIR=/home/build
-HOMETMP=$HOME/tmp
-DATADIR=$HOME/data
-WIKIDIR=$DATADIR/Wiki
-DROPBOXDIR=$DATADIR/Dropbox
-CONTACTFILE=$HOME/.contacts
-#}}}2 
-
+# variables {{{1
 # environment {{{2
 export GPG_TTY=$(tty)
 export EDITOR=vim
@@ -29,17 +18,55 @@ export TODOTXT_DEFAULT_ACTION="ls" # show todo list with "t"
 export MOZ_DISABLE_PANGO=1 # disable pango for mozilla
 #}}}2
 
-# settings {{{2
-bindkey -v	# use vi key bindings 
-umask 066	# initialize new files with -rw-------
+# files and folders {{{2
+AURDIR=/home/build/AUR
+BUILDDIR=/home/build
+HOMETMP=$HOME/tmp
+DATADIR=$HOME/data
+WIKIDIR=$DATADIR/Wiki
+DROPBOXDIR=$DATADIR/Dropbox
+CONTACTFILE=$HOME/.contacts
+#}}}2 
+# }}}1
 
+# configuration {{{1
 setopt autocd		# change directories easily
 setopt no_beep		# disable annoying beeps
 setopt complete_in_word
 setopt correct		# try to find misspellings
 setopt auto_pushd	# always use the directory stack
 
-#History
+unsetopt flowcontrol	# deactivate "freezing"
+
+autoload -U colors && colors	# use colours
+autoload -U zmv			# great batch-renaming tool
+eval `dircolors`		# use directory colours
+
+umask 066	# initialize new files with -rw-------
+
+# keys {{{2
+bindkey -e	# i don't like zsh's vi-mode
+
+# vim-like history "completion" with arrow keys
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+# special keys
+bindkey '\e[2~' yank 		# Ins
+bindkey '\e[3~' delete-char	# Del
+bindkey '\e[5~' up-line-or-history	# PgDown
+bindkey '\e[6~' down-line-or-history	# PgUp
+bindkey '\e[7~' beginning-of-line # Home
+bindkey '\e[8~' end-of-line	  # End
+
+# key bindings for completion
+bindkey -M menuselect 'h' backward-char
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' forward-char
+#}}}2
+
+# history {{{2
 HISTFILE="$HOME/.histfile" # where to put the history
 HISTSIZE=10000
 SAVEHIST=12000
@@ -50,11 +77,6 @@ setopt hist_reduce_blanks 	# delete unneeded blanks
 setopt hist_ignore_all_dups 	# never duplicate entries
 setopt hist_ignore_space 	# don't but commands starting with a blank into history
 setopt hist_verify 		# show history-completed commands before execution
-
-
-autoload -U colors && colors	# use colours
-autoload -U zmv			# great batch-renaming tool
-eval `dircolors`		# use directory colours
 #}}}2
 
 # completion {{{2
@@ -74,15 +96,6 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored patterns
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' select-prompt '%SMatch %M    %P%s'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-# key bindings for completion
-bindkey -M menuselect 'h' backward-char
-bindkey -M menuselect 'j' down-line-or-history
-bindkey -M menuselect 'k' up-line-or-history
-bindkey -M menuselect 'l' forward-char
-# history-completion with ^x^x
-zle -C hist-complete complete-word _generic
-zstyle ':completion:hist-complete:*' completer _history
-bindkey '^X^X' hist-complete
 # list processes when completing "kill"
 zstyle ':completion:*:kill:*' command 'ps xf -u $USER -o pid,%cpu,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
@@ -96,9 +109,19 @@ RPROMPT="%0(5c,%c,%~) %1(j.(%j%).) %(?..%B%{$fg[red]%}:(%{$fg[white]%}%b)"
 precmd() (
   echo -ne '\a'
 )
-#}}}3
 #}}}2
 
+# startup {{{2
+# the first terminal spawned after startx shows a calendar and todo list
+# TODO: better solution?
+if [[ -e /dev/shm/firstrun && $TTY != /dev/tty1
+                           && $TTY != /dev/tty2
+			   && $TTY != /dev/tty3 ]]; then
+   rem -c+2 -w160 -m -b1 && echo "\\n--" && 
+    $HOME/bin/todo.sh -d $HOME/.todo/config ls && echo ""
+   rm -f /dev/shm/firstrun
+fi
+#}}}2
 #}}}1
 
 # aliases {{{1
@@ -158,21 +181,30 @@ if [[ $HOST = spitfire ]]; then
    alias msync="unison -batch musik"
 fi #  }}}3
 
-# startup {{{3
-# the first terminal spawned after startx shows a calendar and todo list
-# TODO: better solution?
-if [[ -e /dev/shm/firstrun && $TTY != /dev/tty1
-                           && $TTY != /dev/tty2
-			   && $TTY != /dev/tty3 ]]; then
-   rem -c+2 -w160 -m -b1 && echo "\\n--" && 
-    $HOME/bin/todo.sh -d $HOME/.todo/config ls && echo ""
-   rm -f /dev/shm/firstrun
-fi
+# coreutils etc {{{3
+# ls
+alias ls="ls --color=auto"
+alias l="ls -lhFB"
+alias la="ls -lAhB"
+alias ll="ls -lAhB | less -F"
+# diff
+alias diff="colordiff"
+# grep
+alias grep="grep -i --color=auto"
+alias -g G="| grep"
+# less
+alias more="less"
+alias -g L="| less"
+# df/du
+alias df="df -hT --total"
+alias du="du -ch"
 #}}}3
 
-# zsh-tools {{{3
+# zsh and suffix aliases {{{3
 # directory stack
 alias d="dirs -v" # list dir-stack
+# history
+alias h="history" # list recent commands
 #jobs
 alias j="jobs -l" # list active jobs
 # fast cd
@@ -190,32 +222,6 @@ alias -s zip="unzip"
 alias -s txt="vim"
 alias -s de=$BROWSER com=$BROWSER org=$BROWSER net=$BROWSER
 alias -s pdf=$PDFVIEWER PDF=$PDFVIEWER
-#}}}3
-
-# coreutils & stuff {{{3
-# ls
-alias ls="ls --color=auto"
-alias l="ls -lhFB"
-alias la="ls -lAhB"
-alias ll="ls -lAhB | less -F"
-# diff
-alias diff="colordiff"
-# grep
-alias grep="grep -i --color=auto"
-alias -g G="| grep"
-# less
-alias more="less"
-alias -g L="| less"
-# df/du
-alias df="df -hT --total"
-alias du="du -ch"
-# screen
-alias sr="screen -r"
-alias sls="screen -ls"
-# packages & aur
-alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
-alias mpkg="makepkg -cis"
-alias cower="cower -c -v -t ~aur"
 #}}}3
 
 # PIM {{{3
@@ -244,7 +250,13 @@ alias t="todo.sh -d $HOME/.todo/config"
 alias note="cd $WIKIDIR && vim ScratchPad.wiki && cd -"
 #}}}3
 
-# unsorted {{{3
+# screen
+alias sr="screen -r"
+alias sls="screen -ls"
+# packages & aur
+alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
+alias mpkg="makepkg -cis"
+alias cower="cower -c -v -t ~aur"
 # pastebin
 alias pastebin="curl -F 'sprunge=<-' http://sprunge.us"
 # cclive - Youtube download
@@ -253,10 +265,9 @@ alias cclive="cclive --output-dir $HOME/down"
 alias totalbullshit="cmatrix -u 2 -a -x"
 # irssi
 alias irssi="screen -S irssi irssi"
-#}}}3
 #}}}2
 
-# directory shortcuts {{{2
+# named directories {{{2
 hash -d doc=/usr/share/doc
 hash -d howto=/usr/share/linux-howtos
 hash -d log=/var/log
