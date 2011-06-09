@@ -1,7 +1,7 @@
 
 "
 " vimrc
-" Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+" Maintainer: Philipp Millar <philipp.millar@gmx.de>
 "
 
 " evim {{{
@@ -11,21 +11,29 @@ if v:progname =~? "evim"
 endif
 "}}}
 
-" options  {{{
+" settings  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on	" Enable file type detection.
+
+set autochdir			" always switch to the current file directory
 set nocompatible		" don't be compatible to vi
 set autoindent			" always set autoindenting on
 set shiftwidth=4
+set smarttab			" insert shiftwidth at beginning of line
 set showmode
 set showmatch			" show matching parentheses
 set ruler			" show the cursor position all the time
 set nojoinspaces		" J(oin) doesn't add useless blanks
 set whichwrap=""		" don't jump over linebounds
-set nobackup			" don't use a backup file
+set backup			" use a backup file
+set backupdir=~/.vim/backup	" where to put backup files
+set directory=~/.vim/tmp	" directory to place swap files in
+set fileformats=unix,dos,mac	" support all three, in this order
 set showcmd			" display incomplete commands
 set incsearch			" do incremental searching
 set nohlsearch			" no highlighting for searches
 set wildmenu			" completion-menu
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set mouse=a			" use the mouse
 set backspace=indent,eol,start	" allow backspacing over everything in insert mode
 set ignorecase			" search is case insensitive
@@ -34,24 +42,37 @@ set modelines=2 	        " search the first and last two lines for modelines
 set pastetoggle=<F4>
 set number
 set cryptmethod=blowfish
-" Testing
 set undofile			" persistent undo
 set undodir=~/.vim/undo		" undo-infos are saved in ~/.vim/undo
+set laststatus=2		" always show the status line
+set lazyredraw			" do not redraw while running macros
+set listchars=tab:>-,trail:-	" show tabs and trailing spaces when list is set
+set report=0			" report anything
+set title			" show title in console title bar
 
-" SYNTAX
+" syntax
 colorscheme pablo
-filetype plugin indent on	" Enable file type detection.
 syntax on
-" Haskell
-:let hs_highlight_delimiters = 1
-:let hs_highlight_boolean = 1
-:let hs_highlight_types = 1
-:let hs_highlight_more_types = 1
-:let hs_highlight_debug = 1
+" haskell
+let hs_highlight_delimiters = 1
+let hs_highlight_boolean = 1
+let hs_highlight_types = 1
+let hs_highlight_more_types = 1
+let hs_highlight_debug = 1
 
-" PLUGINS
-:runtime! ftplugin/man.vim	" plugin for showing manfiles
-:let g:nips_author = 'Philipp Millar'
+" plugins
+runtime macros/justify.vim	" justify text with v _j
+runtime! ftplugin/man.vim	" plugin for showing manfiles
+let g:nips_author = 'Philipp Millar'
+"taglist
+let Tlist_Auto_Open = 0		" let the tag list open automagically
+let Tlist_Compact_Format = 1	" show small menu
+let Tlist_Ctags_Cmd = 'ctags'	" location of ctags
+let Tlist_Exist_OnlyWindow = 1	" if you are the last, kill yourself
+let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
+"latex
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
@@ -77,6 +98,25 @@ map <Down> gj
 " foldmethod
 map <F2> <esc>:set<space>foldmethod=marker<cr>
 map <F3> <esc>:set<space>foldmethod=syntax<cr>
+" map auto complete of (, ", ', [, etc
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+inoremap $t <><esc>i
+" enclose visual block with (, ". ', etc
+vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+vnoremap $q <esc>`>a'<esc>`<i'<esc>
+vnoremap $e <esc>`>a"<esc>`<i"<esc>
+" cope
+map <leader>co :botright cope<cr>
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " autocommands  {{{
@@ -116,12 +156,6 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	 	\ | wincmd p | diffthis
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" LaTeX  {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
-
 " spell-check  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Esc>A	:set spell<CR>
@@ -143,12 +177,6 @@ endfunction
 
 nmap <Esc>l	:call Sel_lang()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
-
-" stuff  {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime macros/justify.vim " justify text with v _j
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
