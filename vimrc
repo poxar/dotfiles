@@ -8,6 +8,7 @@
 " 	* nerdcommenter
 " 	* snipmate
 " 	* taglist
+" 	* vimwiki
 "
 
 " evim {{{
@@ -85,6 +86,12 @@ let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
 " LaTeX
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+
+" VimWiki
+let g:vimwiki_list = [{'path': '~/data/Wiki/',
+	    \ 'path_html': '/srv/http/wiki',
+	    \ 'auto_export': 1,
+	    \ 'index': 'WikiHome'}]
 "}}}2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
