@@ -101,6 +101,12 @@ let g:vimwiki_list = [{'path': '~/data/Wiki/',
 " c
 iabbrev #b /*<Space>**************************************<Space>*
 iabbrev #e **************************************<Space>*/
+" zsh
+iabbrev #z #!/bin/zsh<cr>
+" sh
+iabbrev #s #!/bin/sh<cr>
+" python
+iabbrev #p #!/usr/bin/env<Space>python<cr>#<Space>-*-<Space>coding:<Space>utf-8<Space>-*-
 " mail
 iabbrev mfg Mit<Space>freundlichen<Space>Grüßen
 iabbrev phmi Philipp<Space>Millar
@@ -133,6 +139,9 @@ vnoremap $3 <esc>`>a}<esc>`<i{<esc>
 vnoremap $$ <esc>`>a"<esc>`<i"<esc>
 vnoremap $q <esc>`>a'<esc>`<i'<esc>
 vnoremap $e <esc>`>a"<esc>`<i"<esc>
+" python """ """
+nnoremap <leader>" <esc>i"""<cr><cr>"""<esc>ki
+vnoremap <leader>" <esc>`>a"""<esc>`<i"""<esc>
 " cope
 map <leader>co :botright cope<cr>
 map <leader>n :cn<cr>
