@@ -44,28 +44,6 @@ eval `dircolors`		# use directory colours
 
 umask 066	# initialize new files with -rw-------
 
-# keys {{{2
-bindkey -e	# i don't like zsh's vi-mode
-
-# vim-like history "completion" with arrow keys
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
-
-# special keys
-bindkey '\e[2~' yank 		# Ins
-bindkey '\e[3~' delete-char	# Del
-bindkey '\e[5~' up-line-or-history	# PgDown
-bindkey '\e[6~' down-line-or-history	# PgUp
-bindkey '\e[7~' beginning-of-line # Home
-bindkey '\e[8~' end-of-line	  # End
-
-# key bindings for completion
-bindkey -M menuselect 'h' backward-char
-bindkey -M menuselect 'j' down-line-or-history
-bindkey -M menuselect 'k' up-line-or-history
-bindkey -M menuselect 'l' forward-char
-#}}}2
-
 # history {{{2
 HISTFILE="$HOME/.histfile" # where to put the history
 HISTSIZE=10000
@@ -99,6 +77,28 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # list processes when completing "kill"
 zstyle ':completion:*:kill:*' command 'ps xf -u $USER -o pid,%cpu,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
+#}}}2
+
+# keys {{{2
+bindkey -e	# i don't like zsh's vi-mode
+
+# vim-like history "completion" with arrow keys
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+# special keys
+bindkey '\e[2~' yank 		# Ins
+bindkey '\e[3~' delete-char	# Del
+bindkey '\e[5~' up-line-or-history	# PgDown
+bindkey '\e[6~' down-line-or-history	# PgUp
+bindkey '\e[7~' beginning-of-line # Home
+bindkey '\e[8~' end-of-line	  # End
+
+# key bindings for completion
+bindkey -M menuselect 'h' backward-char
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' forward-char
 #}}}2
 
 # prompt {{{2
@@ -333,6 +333,20 @@ ca() {
 # edit the contacts
 ce() {
     $EDITOR $CONTACTFILE
+}
+# }}}2
+
+# colourful man{{{2
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;37m") \
+		LESS_TERMCAP_md=$(printf "\e[1;37m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;47;30m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[0;36m") \
+			man "$@"
 }
 # }}}2
 #}}}1
