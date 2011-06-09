@@ -250,6 +250,21 @@ alias t="todo.sh -d $HOME/.todo/config"
 alias note="cd $WIKIDIR && vim ScratchPad.wiki && cd -"
 #}}}3
 
+# git {{{3
+alias ga="git add"
+alias gp="git push"
+
+alias gci="git commit"
+alias gcia="git commit -a"
+
+alias gco="git checkout"
+alias gcl="git clone"
+
+alias gl="git log"
+alias gs="git status"
+alias gd="git diff"
+# }}}3
+
 # screen
 alias sr="screen -r"
 alias sls="screen -ls"
