@@ -92,20 +92,20 @@ let g:tex_flavor = "latex"
 " abbreviations  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " c
-:iabbrev #b /*<Space>**************************************<Space>*
-:iabbrev #e **************************************<Space>*/
+iabbrev #b /*<Space>**************************************<Space>*
+iabbrev #e **************************************<Space>*/
 " mail
-:iabbrev mfg Mit<Space>freundlichen<Space>Grüßen
-:iabbrev phmi Philipp<Space>Millar
-:iabbrev lg Liebe<Space>Grüße
-:iabbrev ph Philipp
+iabbrev mfg Mit<Space>freundlichen<Space>Grüßen
+iabbrev phmi Philipp<Space>Millar
+iabbrev lg Liebe<Space>Grüße
+iabbrev ph Philipp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " mappings {{{ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Don't use Ex mode, use Q for formatting
 map Q gq
-" use cursor keys not linewise
+" use cursor keys to jump over wrapped lines
 map <Up> gk
 map <Down> gj
 " foldmethod
@@ -130,6 +130,9 @@ vnoremap $e <esc>`>a"<esc>`<i"<esc>
 map <leader>co :botright cope<cr>
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
+" remind
+map <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
+map <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " autocommands  {{{
