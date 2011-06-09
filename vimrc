@@ -77,10 +77,10 @@ runtime! ftplugin/man.vim	" plugin for showing manfiles
 let g:nips_author = 'Philipp Millar'
 
 " taglist
-let Tlist_Auto_Open = 0		" let the tag list open automagically
+let Tlist_Auto_Open = 1	" let the tag list open automagically
 let Tlist_Compact_Format = 1	" show small menu
 let Tlist_Ctags_Cmd = 'ctags'	" location of ctags
-let Tlist_Exist_OnlyWindow = 1	" if you are the last, kill yourself
+let Tlist_Exit_OnlyWindow = 1	" if you are the last, kill yourself
 let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
 
 " LaTeX
@@ -140,6 +140,8 @@ map <leader>p :cp<cr>
 " remind
 map <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
 map <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
+" taglist
+nnoremap <silent> <F8> :TlistToggle<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " autocommands  {{{
