@@ -3,6 +3,12 @@
 " vimrc
 " Maintainer: Philipp Millar <philipp.millar@gmx.de>
 "
+" Plugins:
+" 	* latexsuite
+" 	* nerdcommenter
+" 	* snipmate
+" 	* taglist
+"
 
 " evim {{{
 " When started as "evim", evim.vim will already have done these settings.
@@ -14,65 +20,72 @@ endif
 " settings  {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on	" Enable file type detection.
+syntax on
+colorscheme pablo
 
-set autochdir			" always switch to the current file directory
 set nocompatible		" don't be compatible to vi
-set autoindent			" always set autoindenting on
-set shiftwidth=4
-set smarttab			" insert shiftwidth at beginning of line
-set showmode
-set showmatch			" show matching parentheses
-set ruler			" show the cursor position all the time
-set nojoinspaces		" J(oin) doesn't add useless blanks
-set whichwrap=""		" don't jump over linebounds
 set backup			" use a backup file
-set backupdir=~/.vim/backup	" where to put backup files
+set undofile			" persistent undo
 set directory=~/.vim/tmp	" directory to place swap files in
+set backupdir=~/.vim/backup	" directory to place backup files in
+set undodir=~/.vim/undo		" directory to place undo files in
 set fileformats=unix,dos,mac	" support all three, in this order
-set showcmd			" display incomplete commands
-set incsearch			" do incremental searching
-set nohlsearch			" no highlighting for searches
-set wildmenu			" completion-menu
-set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
-set mouse=a			" use the mouse
-set backspace=indent,eol,start	" allow backspacing over everything in insert mode
-set ignorecase			" search is case insensitive
-set scrolloff=3			" show 3 extra lines when scrolling
+set autochdir			" always switch to the current file directory
 set modelines=2 	        " search the first and last two lines for modelines
 set pastetoggle=<F4>
-set number
 set cryptmethod=blowfish
-set undofile			" persistent undo
-set undodir=~/.vim/undo		" undo-infos are saved in ~/.vim/undo
-set laststatus=2		" always show the status line
-set lazyredraw			" do not redraw while running macros
-set listchars=tab:>-,trail:-	" show tabs and trailing spaces when list is set
-set report=0			" report anything
-set title			" show title in console title bar
 
-" syntax
-colorscheme pablo
-syntax on
+set mouse=a			" use the mouse
+set shiftwidth=4		" use 4 blanks as indent
+set autoindent			" always set autoindenting on
+set smarttab			" insert shiftwidth at beginning of line
+set nojoinspaces		" J(oin) doesn't add useless blanks
+set whichwrap=""		" don't jump over linebounds
+set backspace=indent,eol,start	" allow backspacing over everything in insert mode
+
+set ignorecase			" search is case insensitive
+set incsearch			" do incremental searching
+set nohlsearch			" no highlighting for searches
+
+set title			" show title in console title bar
+set laststatus=2		" always show the status line
+set ruler			" show the cursor position all the time
+set number			" show line numbers
+set showmode			" show the mode we're in
+set showmatch			" show matching parentheses
+set showcmd			" display incomplete commands
+set report=0			" report anything
+set listchars=tab:>-,trail:-	" show tabs and trailing spaces when list is set
+set scrolloff=3			" show 3 extra lines when scrolling
+set lazyredraw			" do not redraw while running macros
+set wildmenu			" completion-menu
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+
+" syntax {{{2
 " haskell
 let hs_highlight_delimiters = 1
 let hs_highlight_boolean = 1
 let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 let hs_highlight_debug = 1
+" }}}2
 
-" plugins
+" plugins {{{2
 runtime macros/justify.vim	" justify text with v _j
 runtime! ftplugin/man.vim	" plugin for showing manfiles
 let g:nips_author = 'Philipp Millar'
-"taglist
+
+" taglist
 let Tlist_Auto_Open = 0		" let the tag list open automagically
 let Tlist_Compact_Format = 1	" show small menu
 let Tlist_Ctags_Cmd = 'ctags'	" location of ctags
 let Tlist_Exist_OnlyWindow = 1	" if you are the last, kill yourself
 let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
-"latex
+
+" LaTeX
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+"}}}2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
@@ -177,10 +190,5 @@ endfunction
 
 nmap <Esc>l	:call Sel_lang()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" TODO	{{{
-" }}}
 
 " vim:set sw=4 foldmethod=marker:
