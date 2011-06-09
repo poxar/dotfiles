@@ -280,6 +280,9 @@ alias cclive="cclive --output-dir $HOME/down"
 alias totalbullshit="cmatrix -u 2 -a -x"
 # irssi
 alias irssi="screen -S irssi irssi"
+# vim
+alias vixml="vim -c \"so $HOME/.vim/plugin/xml.vim\""
+
 #}}}2
 
 # named directories {{{2
