@@ -124,21 +124,12 @@ map <Down> gj
 " foldmethod
 map <F2> <esc>:set<space>foldmethod=marker<cr>
 map <F3> <esc>:set<space>foldmethod=syntax<cr>
-" map auto complete of (, ", ', [, etc
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
-inoremap $t <><esc>i
 " enclose visual block with (, ". ', etc
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
+vnoremap <leader>1 <esc>`>a)<esc>`<i(<esc>
+vnoremap <leader>2 <esc>`>a]<esc>`<i[<esc>
+vnoremap <leader>3 <esc>`>a}<esc>`<i{<esc>
+vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
+vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
 " python """ """
 nnoremap <leader>" <esc>i"""<cr><cr>"""<esc>ki
 vnoremap <leader>" <esc>`>a"""<esc>`<i"""<esc>
