@@ -6,6 +6,7 @@
 
 # variables {{{1
 # environment {{{2
+export SHELL='/bin/zsh'
 export GPG_TTY=$(tty)
 export EDITOR=vim
 export PAGER=less
@@ -16,6 +17,14 @@ export BROWSER="chromium"
 export DOWNLOAD=$HOME/down
 export TODOTXT_DEFAULT_ACTION="ls" # show todo list with "t"
 export MOZ_DISABLE_PANGO=1 # disable pango for mozilla
+# colours in less
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 #}}}2
 
 # files and folders {{{2
@@ -32,15 +41,18 @@ CONTACTFILE=$HOME/.contacts
 # configuration {{{1
 setopt autocd		# change directories easily
 setopt no_beep		# disable annoying beeps
-setopt complete_in_word
+setopt complete_in_word # also do complete in words
 setopt correct		# try to find misspellings
 setopt auto_pushd	# always use the directory stack
+setopt pushd_ignore_dups # never duplicate entries
+setopt extended_glob	# use # ~ and ^ for filename generation
+setopt longlistjobs	# display PID when suspending processes as well
 
 unsetopt flowcontrol	# deactivate "freezing"
 
 autoload -U colors && colors	# use colours
 autoload -U zmv			# great batch-renaming tool
-eval `dircolors`		# use directory colours
+eval $(dircolors -b)		# colours for ls
 
 umask 066	# initialize new files with -rw-------
 
@@ -83,8 +95,22 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 bindkey -e	# i don't like zsh's vi-mode
 
 # vim-like history "completion" with arrow keys
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
+bindkey "^[[A" up-line-or-search
+bindkey "^[[B" down-line-or-search
+
+# jump behind the first word on the cmdline.
+function jump_after_first_word() {
+    local words
+    words=(${(z)BUFFER})
+
+    if (( ${#words} <= 1 )) ; then
+        CURSOR=${#BUFFER}
+    else
+        CURSOR=${#${words[1]}}
+    fi
+}
+zle -N jump_after_first_word
+bindkey '^xa' jump_after_first_word
 
 # special keys
 bindkey '\e[2~' yank 		# Ins
@@ -103,11 +129,11 @@ bindkey -M menuselect 'l' forward-char
 
 # prompt {{{2
 PROMPT="%m %B%0(#.%{$fg[red]%}#.%{$fg[white]%}>) %b"
-# current directory, jobcount and :( (from grml)
-RPROMPT="%0(5c,%c,%~) %1(j.(%j%).) %(?..%B%{$fg[red]%}:(%{$fg[white]%}%b)"
+# current directory, jobcount and return value
+RPROMPT="%0(5c,%c,%~) %1(j.(%j%).) %(?..%B%{$fg[red]%}%?%{$fg[white]%}%b)"
 # Set urgent on completed jobs
 precmd() (
-  echo -ne '\a'
+    echo -ne '\a'
 )
 #}}}2
 
@@ -125,9 +151,8 @@ fi
 #}}}1
 
 # aliases {{{1
-# just for root {{{2
+# root {{{2
 if [[ $UID = 0 ]]; then
-
 	# just on host helo {{{3
 	if [[ $HOST = helo ]]; then
 	   # synchronize MyBook
@@ -145,7 +170,7 @@ if [[ $UID = 0 ]]; then
 fi
 # }}}2
 
-# aliases with sudo {{{2
+# sudo {{{2
 # never use them when root!
 if [[ $UID != 0 ]];then
 	# ArchLinux - packages
@@ -181,12 +206,11 @@ if [[ $HOST = spitfire ]]; then
    alias msync="unison -batch musik"
 fi #  }}}3
 
-# coreutils etc {{{3
 # ls
 alias ls="ls --color=auto"
 alias l="ls -lhFB"
 alias la="ls -lAhB"
-alias ll="ls -lAhB | less -F"
+alias ll="ls -lAhB | less"
 # diff
 alias diff="colordiff"
 # grep
@@ -198,31 +222,36 @@ alias -g L="| less"
 # df/du
 alias df="df -hT --total"
 alias du="du -ch"
-#}}}3
-
-# zsh and suffix aliases {{{3
+# chown
+alias c6="chmod 600"
+alias c7="chmod 700"
+# mkdir
+alias md="mkdir -p"
 # directory stack
-alias d="dirs -v" # list dir-stack
-# history
-alias h="history" # list recent commands
+alias d="dirs -v"
 #jobs
-alias j="jobs -l" # list active jobs
-# fast cd
-alias -g ...="../.."
-alias -g ....="../../.."
-alias -g .....="../../../.."
-# zsh as archive manager
-alias -s 7z="7z x"
-alias -s bz2="pbzip2 -d"
-alias -s gz="gzip -d"
-alias -s tar="tar xvf"
-alias -s rar="unrar"
-alias -s zip="unzip"
+alias j="jobs -l"
+
+# packages & aur
+alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
+alias mpkg="makepkg -cis"
+alias cower="cower -cvt ~aur"
+
+# screen
+alias sr="screen -r"
+alias sls="screen -ls"
+# irssi
+alias irssi="screen -S irssi irssi"
+
+# cclive - Youtube download
+alias cclive="cclive --output-dir $HOME/down"
+# well...
+alias totalbullshit="cmatrix -u 2 -a -x"
+
 # suffix-aliases
 alias -s txt="vim"
 alias -s de=$BROWSER com=$BROWSER org=$BROWSER net=$BROWSER
 alias -s pdf=$PDFVIEWER PDF=$PDFVIEWER
-#}}}3
 
 # PIM {{{3
 # university-stuff
@@ -251,6 +280,8 @@ alias note="cd $WIKIDIR && vim ScratchPad.wiki && cd -"
 #}}}3
 
 # git {{{3
+alias g="git"
+
 alias ga="git add"
 alias gp="git push"
 
@@ -264,25 +295,6 @@ alias gl="git log"
 alias gs="git status"
 alias gd="git diff"
 # }}}3
-
-# screen
-alias sr="screen -r"
-alias sls="screen -ls"
-# packages & aur
-alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
-alias mpkg="makepkg -cis"
-alias cower="cower -c -v -t ~aur"
-# pastebin
-alias pastebin="curl -F 'sprunge=<-' http://sprunge.us"
-# cclive - Youtube download
-alias cclive="cclive --output-dir $HOME/down"
-# well...
-alias totalbullshit="cmatrix -u 2 -a -x"
-# irssi
-alias irssi="screen -S irssi irssi"
-# vim
-alias vixml="vim -c \"so $HOME/.vim/plugin/xml.vim\""
-
 #}}}2
 
 # named directories {{{2
@@ -301,6 +313,12 @@ hash -d data=$DATADIR
 #}}}1
 
 # functions {{{1
+# cd to directory and list files {{{2
+cl() {
+    cd $1 && l
+}
+#}}}2
+
 # download aur-packages {{{2
 aur() {
         cd $AURDIR &&
@@ -354,25 +372,51 @@ ce() {
 }
 # }}}2
 
-# colourful man{{{2
-man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;37m") \
-		LESS_TERMCAP_md=$(printf "\e[1;37m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;47;30m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[0;36m") \
-			man "$@"
+# archive manager {{{2
+# extract archives into a new directory
+ae () {
+    if [[ -f $1 ]] ; then
+	EXTRACTDIR=$1_extracted
+	mkdir $EXTRACTDIR
+	mv $1 $EXTRACTDIR
+	cd $EXTRACTDIR
+        case $1 in
+            *.tar)      tar -xvf $1 ;;
+	    # GZip
+            *.tar.gz)   tar -zxvf $1 ;;
+	    *.tgz)      tar -zxvf $1 ;;
+            *.gz)       gzip -d   $1 ;;
+	    # BZip
+	    *.tar.bz2)  tar -jxvf $1 ;;
+	    *.tbz2)     tar -jxvf $1 ;;
+            *.bz2)      pbzip2 -d $1 ;;
+	    # others
+	    *.7z)       7z x  $1 ;;
+            *.rar)      unrar $1 ;;
+            *.zip)      unzip $1 ;;
+            *)          echo "Error: unknown fileending $1" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# easily build an archive
+a() {
+    if [[ -n $2 ]] ; then
+        case $2 in
+            t | tar)             tar -cvf$1.tar $1 ;;
+            tg | tgz | tar.gz)   tar -zcvf$1.tar.gz $1 ;;
+            tb | tbz2 | tar.bz2) tar -cvf$1.tar $1 && pbzip2 $1.tar ;;
+            g | gz | gzip)       gzip $1 ;;
+            b | bz2 | bzip2)     pbzip2 $1 ;;
+            *)                   echo "Error: $2 is not a valid compression type" ;;
+        esac
+    else
+        smartcompress $1 tar.gz
+    fi
 }
 # }}}2
-#}}}1
-
-#######################################################################
-
-# TODO {{{1
-# - better solution for the startup-skript
 # }}}1
 
 # vim:set sw=4 foldmethod=marker:
