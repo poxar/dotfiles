@@ -17,14 +17,6 @@ export BROWSER="chromium"
 export DOWNLOAD=$HOME/down
 export TODOTXT_DEFAULT_ACTION="ls" # show todo list with "t"
 export MOZ_DISABLE_PANGO=1 # disable pango for mozilla
-# colours in less
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
 #}}}2
 
 # files and folders {{{2
@@ -47,6 +39,9 @@ setopt auto_pushd	# always use the directory stack
 setopt pushd_ignore_dups # never duplicate entries
 setopt extended_glob	# use # ~ and ^ for filename generation
 setopt longlistjobs	# display PID when suspending processes as well
+setopt braceccl		# use advanced brace expasion like {a-b}
+setopt nohup		# don't send hup when shell terminates
+setopt transient_rprompt # TODO: testing; comment
 
 unsetopt flowcontrol	# deactivate "freezing"
 
@@ -73,6 +68,7 @@ setopt hist_verify 		# show history-completed commands before execution
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
 zmodload -i zsh/complist
+
 zstyle ':completion::complete:*' rehash true
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' verbose yes
@@ -86,6 +82,12 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored patterns
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' select-prompt '%SMatch %M    %P%s'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# expand global aliases
+zstyle ':completion:*:expand-alias:*' global true
+# insert/complete sections for man pages
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:manuals.*' insert-sections true
+zstyle ':completion:*:man:*' menu yes select
 # list processes when completing "kill"
 zstyle ':completion:*:kill:*' command 'ps xf -u $USER -o pid,%cpu,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
@@ -112,6 +114,11 @@ function jump_after_first_word() {
 zle -N jump_after_first_word
 bindkey '^xa' jump_after_first_word
 
+# prepend sudo
+run-with-sudo () { LBUFFER="sudo $LBUFFER" }
+zle -N run-with-sudo
+bindkey '^Xs' run-with-sudo
+
 # special keys
 bindkey '\e[2~' yank 		# Ins
 bindkey '\e[3~' delete-char	# Del
@@ -121,10 +128,17 @@ bindkey '\e[7~' beginning-of-line # Home
 bindkey '\e[8~' end-of-line	  # End
 
 # key bindings for completion
+# navigation
 bindkey -M menuselect 'h' backward-char
 bindkey -M menuselect 'j' down-line-or-history
 bindkey -M menuselect 'k' up-line-or-history
 bindkey -M menuselect 'l' forward-char
+# insert, but accept further completions
+bindkey -M menuselect 'i' accept-and-menu-complete
+# insert, and show menu with further possible completions
+bindkey -M menuselect 'o' accept-and-next-history
+# undo
+bindkey -M menuselect 'u' undo
 #}}}2
 
 # prompt {{{2
@@ -173,6 +187,9 @@ fi
 # sudo {{{2
 # never use them when root!
 if [[ $UID != 0 ]];then
+	# better prompt
+	alias sudo="sudo -p '%u -> %U, enter password: ' "
+
 	# ArchLinux - packages
 	alias update="sudo pacman -Syu && cower -c -v -u"
 	alias install="sudo pacman -S"
@@ -227,10 +244,19 @@ alias c6="chmod 600"
 alias c7="chmod 700"
 # mkdir
 alias md="mkdir -p"
+# xargs
+alias -g X="| xargs"
 # directory stack
 alias d="dirs -v"
 #jobs
 alias j="jobs -l"
+
+# no errors
+alias -g NE="2>|/dev/null"
+# no output
+alias -g NO="&>|/dev/null"
+# null
+alias -g DN="/dev/null"
 
 # packages & aur
 alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
@@ -242,9 +268,15 @@ alias sr="screen -r"
 alias sls="screen -ls"
 # irssi
 alias irssi="screen -S irssi irssi"
+# start bc without startup-message
+alias bc="bc -q"
 
 # cclive - Youtube download
 alias cclive="cclive --output-dir $HOME/down"
+# find out own ip
+alias myip="lynx -dump tnx.nl/ip"
+# lookup network traffic
+alias traffic="vnstat -tr"
 # well...
 alias totalbullshit="cmatrix -u 2 -a -x"
 
