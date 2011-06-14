@@ -124,10 +124,18 @@ map <Down> gj
 " foldmethod
 map <F2> <esc>:set<space>foldmethod=marker<cr>
 map <F3> <esc>:set<space>foldmethod=syntax<cr>
-" enclose visual block with (, ". ', etc
+" autocomplete (, ", ', etc
+inoremap (( ()<esc>i
+inoremap [[ []<esc>i
+inoremap {{ {}<esc>i
+inoremap c<< <><esc>i
+inoremap '' ''<esc>i
+inoremap "" ""<esc>i
+" enclose visual block with (, ", ', etc
 vnoremap <leader>1 <esc>`>a)<esc>`<i(<esc>
 vnoremap <leader>2 <esc>`>a]<esc>`<i[<esc>
 vnoremap <leader>3 <esc>`>a}<esc>`<i{<esc>
+vnoremap <leader>4 <esc>`>a><esc>`<i<<esc>
 vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
 vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
 " python """ """
