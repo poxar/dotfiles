@@ -207,16 +207,6 @@ fi
 #}}}2
 
 # normal aliases {{{2
-# just on helo {{{3
-if [[ $HOST = helo ]]; then
-   # games
-   alias nwn="cd /home/philipp/.spiele/nwn/ && ./nwn && cd -"
-   alias nwn2="cd /home/philipp/.spiele/nwn2/drive_c/Programme/Atari/Neverwinter\ Nights\ 2/ && WINEPREFIX='/home/philipp/.spiele/nwn2/' wine nwn2.exe && cd -"
-   alias BaldursGate='WINEPREFIX="/home/philipp/.spiele/BaldursGate/" wine E:\Autorun.exe'
-   alias BaldursGate2='WINEPREFIX="/home/philipp/.spiele/BaldursGate2/" wine E:\baldur.exe'
-   alias DragonAge='WINEPREFIX="/home/philipp/.spiele/DragonAgeOrigins/" wine "C:\Programme\Dragon Age\bin_ship\daorigins.exe"'
-   alias AssassinsCreed="cd /home/philipp/.spiele/AssassinsCreed/drive_c/Programme/Ubisoft/Assassins\ Creed/ && WINEPREFIX='/home/philipp/.spiele/AssassinsCreed/' wine AssassinsCreed_Dx9.exe && cd -"
-fi #  }}}3
 # ls
 alias ls="ls --color=auto"
 alias l="ls -lhFB"
