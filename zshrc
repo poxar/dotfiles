@@ -410,10 +410,6 @@ ce() {
 # extract archives into a new directory
 ae () {
     if [[ -f $1 ]] ; then
-	EXTRACTDIR=$1_extracted
-	mkdir $EXTRACTDIR
-	mv $1 $EXTRACTDIR
-	cd $EXTRACTDIR
         case $1 in
             *.tar)      tar -xvf $1 ;;
 	    # GZip
@@ -426,7 +422,7 @@ ae () {
             *.bz2)      pbzip2 -d $1 ;;
 	    # others
 	    *.7z)       7z x  $1 ;;
-            *.rar)      unrar $1 ;;
+            *.rar)      unrar e $1 ;;
             *.zip)      unzip $1 ;;
             *)          echo "Error: unknown fileending $1" ;;
         esac
@@ -447,7 +443,7 @@ a() {
             *)                   echo "Error: $2 is not a valid compression type" ;;
         esac
     else
-        smartcompress $1 tar.gz
+        a $1 tar.gz
     fi
 }
 # }}}2
