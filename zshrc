@@ -100,8 +100,9 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 bindkey -e	# i don't like zsh's vi-mode
 
 # vim-like history "completion" with arrow keys
-bindkey "^[[A" up-line-or-search
-bindkey "^[[B" down-line-or-search
+# using C-r for searching works better
+#bindkey "^[[A" up-line-or-search
+#bindkey "^[[B" down-line-or-search
 
 # jump behind the first word on the cmdline.
 function jump_after_first_word() {
