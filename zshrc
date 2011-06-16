@@ -42,6 +42,7 @@ setopt longlistjobs	# display PID when suspending processes as well
 setopt braceccl		# use advanced brace expasion like {a-b}
 setopt nohup		# don't send hup when shell terminates
 setopt transient_rprompt # TODO: testing; comment
+setopt functionargzero	# set $0 to the function call
 
 unsetopt flowcontrol	# deactivate "freezing"
 
@@ -55,12 +56,14 @@ umask 066	# initialize new files with -rw-------
 HISTFILE="$HOME/.histfile" # where to put the history
 HISTSIZE=10000
 SAVEHIST=12000
+HISTIGNORE="exit"
+
 setopt share_history 		# share the history over multiple instances
 setopt extended_history 	# put the time into history
 setopt hist_no_store 		# don't save history commands
 setopt hist_reduce_blanks 	# delete unneeded blanks
 setopt hist_ignore_all_dups 	# never duplicate entries
-setopt hist_ignore_space 	# don't but commands starting with a blank into history
+setopt hist_ignore_space 	# don't put commands starting with a blank into history
 setopt hist_verify 		# show history-completed commands before execution
 #}}}2
 
@@ -185,7 +188,6 @@ fi
 # }}}2
 
 # sudo {{{2
-# never use them when root!
 if [[ $UID != 0 ]];then
 	# better prompt
 	alias sudo="sudo -p '%u -> %U, enter password: ' "
@@ -215,14 +217,6 @@ if [[ $HOST = helo ]]; then
    alias DragonAge='WINEPREFIX="/home/philipp/.spiele/DragonAgeOrigins/" wine "C:\Programme\Dragon Age\bin_ship\daorigins.exe"'
    alias AssassinsCreed="cd /home/philipp/.spiele/AssassinsCreed/drive_c/Programme/Ubisoft/Assassins\ Creed/ && WINEPREFIX='/home/philipp/.spiele/AssassinsCreed/' wine AssassinsCreed_Dx9.exe && cd -"
 fi #  }}}3
-# just on spitfire {{{3
-if [[ $HOST = spitfire ]]; then
-   # unison synchronization
-   alias usync="unison default"
-   alias usyncbatch="unison -batch default"
-   alias msync="unison -batch musik"
-fi #  }}}3
-
 # ls
 alias ls="ls --color=auto"
 alias l="ls -lhFB"
@@ -317,8 +311,8 @@ alias g="git"
 alias ga="git add"
 alias gp="git push"
 
-alias gci="git commit"
-alias gcia="git commit -a"
+alias gc="git commit"
+alias gca="git commit -a"
 
 alias gco="git checkout"
 alias gcl="git clone"
@@ -328,6 +322,14 @@ alias gs="git status"
 alias gd="git diff"
 # }}}3
 #}}}2
+
+# just on spitfire {{{3
+if [[ $HOST = spitfire ]]; then
+   # unison synchronization
+   alias usync="unison default"
+   alias usyncbatch="unison -batch default"
+   alias msync="unison -batch musik"
+fi #  }}}3
 
 # named directories {{{2
 hash -d doc=/usr/share/doc
