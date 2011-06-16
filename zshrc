@@ -170,12 +170,6 @@ fi
 # aliases {{{1
 # root {{{2
 if [[ $UID = 0 ]]; then
-	# just on host helo {{{3
-	if [[ $HOST = helo ]]; then
-	   # synchronize MyBook
-	   alias syncMyBook="mount /media/MyBook/ && rsync -rhu --ignore-existing --progress --delete /media/storage/Filme/ /media/MyBook/Filme/ && rsync -rhu --ignore-existing --progress --delete /media/storage/iso/ /media/MyBook/iso/"
-	fi # }}}3
-
    	# ArchLinux - packages
 	alias update="pacman -Syu"
 	alias install="pacman -S"
