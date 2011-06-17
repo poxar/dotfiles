@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+# requires "functionargzero"
+setopt functionargzero
+
+Error() {
+    print "Error: $1"
+    exit 1
+}
+
+[[ -e $1 ]] || Error "'$1' is not a valid file"
+[[ -n $2 ]] || 2="tar.gz"
+
+case $2 in
+    t | tar)             tar -cvf $1.tar $1 ;;
+    tg | tgz | tar.gz)   tar -zcvf $1.tar.gz $1 ;;
+    tb | tbz2 | tar.bz2) tar -cv $1 | pbzip2 -c > $1.tar.bz2 ;;
+    g | gz | gzip)       gzip $1 ;;
+    b | bz2 | bzip2)     pbzip2 $1 ;;
+    *)                   Error "$2 is not a valid compression type" ;;
+esac
+
+

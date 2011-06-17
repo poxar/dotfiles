@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+# Options
+alias rsync="rsync -rhu --ignore-existing --progress --delete"
+MOUNTPOINT="/media/MyBook"
+UMOUNT=0
+
+if [[ $EUID = 0 ]]; then
+
+    # check if we're mounted
+    mountpoint $MOUNTPOINT >/dev/null
+    if [[ $? != 0 ]]; then
+	print "** mounting $MOUNTPOINT\n"
+	UMOUNT=1
+	mount $MOUNTPOINT
+    fi
+
+    # the actual synchronization
+    for i in Filme iso; do
+	print "** synchronizing $i"
+	rsync /media/storage/$i/ $MOUNTPOINT/$i/
+	print ""
+    done
+
+    # if we mounted before we umount
+    if [[ $UMOUNT = 1 ]]; then
+	print "** umounting $MOUNTPOINT"
+	umount $MOUNTPOINT
+    fi
+
+else
+    print "Sorry, you need to be superuser"
+fi
