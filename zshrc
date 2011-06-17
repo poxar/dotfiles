@@ -340,13 +340,10 @@ cl() {
 
 # download aur-packages {{{2
 aur() {
-        cd $AURDIR &&
-	rm -rf $1 && # delete old data
-	#aria2c -x 2 -d $AURDIR http://aur.archlinux.org/packages/$1/$1.tar.gz && # download
-	#tar -xzvf $1.tar.gz && # extract
-	#rm $1.tar.gz &&
-	cower -c -v -t ~aur -d -d $1 &&
-	cd $1 &&
+        cd $AURDIR
+	rm -rf $1 # delete old data
+	cower -c -v -t ~aur -d -d $1
+	cd $1
 	vim PKGBUILD # user-check
 } #}}}2
 
