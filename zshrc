@@ -392,48 +392,6 @@ ce() {
     $EDITOR $CONTACTFILE
 }
 # }}}2
-
-# archive manager {{{2
-# extract archives into a new directory
-ae () {
-    if [[ -f $1 ]] ; then
-        case $1 in
-            *.tar)      tar -xvf $1 ;;
-	    # GZip
-            *.tar.gz)   tar -zxvf $1 ;;
-	    *.tgz)      tar -zxvf $1 ;;
-            *.gz)       gzip -d   $1 ;;
-	    # BZip
-	    *.tar.bz2)  tar -jxvf $1 ;;
-	    *.tbz2)     tar -jxvf $1 ;;
-            *.bz2)      pbzip2 -d $1 ;;
-	    # others
-	    *.7z)       7z x  $1 ;;
-            *.rar)      unrar e $1 ;;
-            *.zip)      unzip $1 ;;
-            *)          echo "Error: unknown fileending $1" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
-
-# easily build an archive
-a() {
-    if [[ -n $2 ]] ; then
-        case $2 in
-            t | tar)             tar -cvf$1.tar $1 ;;
-            tg | tgz | tar.gz)   tar -zcvf$1.tar.gz $1 ;;
-            tb | tbz2 | tar.bz2) tar -cvf$1.tar $1 && pbzip2 $1.tar ;;
-            g | gz | gzip)       gzip $1 ;;
-            b | bz2 | bzip2)     pbzip2 $1 ;;
-            *)                   echo "Error: $2 is not a valid compression type" ;;
-        esac
-    else
-        a $1 tar.gz
-    fi
-}
-# }}}2
 # }}}1
 
 # vim:set sw=4 foldmethod=marker:
