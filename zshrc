@@ -242,6 +242,10 @@ alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
 alias mpkg="makepkg -cis"
 alias cower="cower -cvt ~aur"
 
+# fetch mail
+alias f="fdm f"
+# vim
+alias v="vim -p"
 # screen
 alias sr="screen -r"
 alias sls="screen -ls"
@@ -332,10 +336,11 @@ hash -d data=$DATADIR
 #}}}1
 
 # functions {{{1
-# cd to directory and list files {{{2
-cl() {
-    cd $1 && l
-}
+# one-liners {{{2
+# cd to directory and list files
+cl() { cd $1 && l }
+# create dir and cd to it
+mdc() { mkdir -p $1 && cd $1 }
 #}}}2
 
 # download aur-packages {{{2
