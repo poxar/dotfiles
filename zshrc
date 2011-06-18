@@ -137,6 +137,10 @@ bindkey '\e[5~' up-line-or-history	# PgDown
 bindkey '\e[6~' down-line-or-history	# PgUp
 bindkey '\e[7~' beginning-of-line # Home
 bindkey '\e[8~' end-of-line	  # End
+bindkey "Od" backward-word # Ctrl + <-
+bindkey "Oc" forward-word # Ctrl + ->
+
+bindkey "u" undo # undo last change
 
 # key bindings for completion
 # navigation
