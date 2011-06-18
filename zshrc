@@ -165,18 +165,6 @@ precmd() (
     echo -ne '\a'
 )
 #}}}2
-
-# startup {{{2
-# the first terminal spawned after startx shows a calendar and todo list
-# TODO: better solution?
-if [[ -e /dev/shm/firstrun && $TTY != /dev/tty1
-                           && $TTY != /dev/tty2
-			   && $TTY != /dev/tty3 ]]; then
-   rem -c+2 -w160 -m -b1 && echo "\\n--" && 
-    $HOME/bin/todo.sh -d $HOME/.todo/config ls && echo ""
-   rm -f /dev/shm/firstrun
-fi
-#}}}2
 #}}}1
 
 # aliases {{{1
