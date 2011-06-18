@@ -41,13 +41,17 @@ setopt extended_glob	# use # ~ and ^ for filename generation
 setopt longlistjobs	# display PID when suspending processes as well
 setopt braceccl		# use advanced brace expasion like {a-b}
 setopt nohup		# don't send hup when shell terminates
-setopt transient_rprompt # TODO: testing; comment
+setopt transient_rprompt # remove rprompt when command is issued
 setopt functionargzero	# set $0 to the function call
+setopt local_options	# allow functions to have local options
 
 unsetopt flowcontrol	# deactivate "freezing"
 
 autoload -U colors && colors	# use colours
 autoload -U zmv			# great batch-renaming tool
+autoload -U url-quote-magic	# smart urls
+zle -N self-insert url-quote-magic
+
 eval $(dircolors -b)		# colours for ls
 
 umask 066	# initialize new files with -rw-------
@@ -123,6 +127,9 @@ run-with-sudo () { LBUFFER="sudo $LBUFFER" }
 zle -N run-with-sudo
 bindkey '^Xs' run-with-sudo
 
+# insert last word
+bindkey 'm' copy-prev-shell-word
+
 # special keys
 bindkey '\e[2~' yank 		# Ins
 bindkey '\e[3~' delete-char	# Del
@@ -170,7 +177,7 @@ fi
 
 # aliases {{{1
 # root {{{2
-if [[ $UID = 0 ]]; then
+if [[ $EUID = 0 ]]; then
    	# ArchLinux - packages
 	alias update="pacman -Syu"
 	alias install="pacman -S"
@@ -183,7 +190,7 @@ fi
 # }}}2
 
 # sudo {{{2
-if [[ $UID != 0 ]];then
+if [[ $EUID != 0 ]];then
 	# better prompt
 	alias sudo="sudo -p '%u -> %U, enter password: ' "
 
