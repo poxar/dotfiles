@@ -5,21 +5,25 @@ Error() {
     exit 1
 }
 
-[[ -f $1 ]] || Error "'$1' is not a valid file"
+for i in $@; do
+    [[ -f $i ]] || Error "'$i' is not a valid file"
+done
 
-case $1 in
-    *.tar)      tar -xvf $1 ;;
-    # GZip
-    *.tar.gz)   tar -zxvf $1 ;;
-    *.tgz)      tar -zxvf $1 ;;
-    *.gz)       gzip -d   $1 ;;
-    # BZip
-    *.tar.bz2)  pbzip2 -dc $1 | tar -x ;;
-    *.tbz2)     pbzip2 -dc $1 | tar -x ;;
-    *.bz2)      pbzip2 -d $1 ;;
-    # others
-    *.7z)       7z x  $1 ;;
-    *.rar)      unrar e $1 ;;
-    *.zip)      unzip $1 ;;
-    *)          Error: "unknown fileending $1" ;;
-esac
+for i in $@; do
+    case $i in
+	*.tar)      tar -xvf $i ;;
+	# GZip
+	*.tar.gz)   tar -zxvf $i ;;
+	*.tgz)      tar -zxvf $i ;;
+	*.gz)       gzip -d   $i ;;
+	# BZip
+	*.tar.bz2)  pbzip2 -dc $i | tar -x ;;
+	*.tbz2)     pbzip2 -dc $i | tar -x ;;
+	*.bz2)      pbzip2 -d $i ;;
+	# others
+	*.7z)       7z x  $i ;;
+	*.rar)      unrar e $i ;;
+	*.zip)      unzip $i ;;
+	*)          Error "unknown fileending $i" ;;
+    esac
+done
