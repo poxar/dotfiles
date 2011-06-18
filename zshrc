@@ -213,7 +213,6 @@ fi
 alias ls="ls --color=auto"
 alias l="ls -lhFB"
 alias la="ls -lAhB"
-alias ll="ls -lAhB | less"
 # diff
 alias diff="colordiff"
 # grep
@@ -343,12 +342,29 @@ hash -d data=$DATADIR
 #}}}1
 
 # functions {{{1
-# one-liners {{{2
+# witty one-liners {{{2
 # cd to directory and list files
-cl() { cd $1 && l }
+cdl() { cd $1 && l }
 # create dir and cd to it
-mdc() { mkdir -p $1 && cd $1 }
+mcd() { mkdir -p $1 && cd $1 }
+# colorful ls in less
+ll() { ls -lAhB --color=always "$@" | less -r }
+# count the files/folders in a directory
+lc() { ls -A "$@" | wc -l }
+# open readme-file
+readme() { less (#ia3)readme*(-.NOL[1,3]) }
+# grep the history
+hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 #}}}2
+
+# create a dir in tmp and cd to it {{{2
+cdtmp() {
+    local t
+    t=$(mktemp -d)
+    echo $t
+    builtin cd $t
+}
+# }}}2
 
 # download aur-packages {{{2
 aur() {
@@ -359,16 +375,8 @@ aur() {
 	vim PKGBUILD # user-check
 } #}}}2
 
-# count the files/folders in a directory {{{2
-countentry() {
-   count=0
-   for i in *; do
-      count=$(($count+1))
-   done
-   print $count
-} #}}}2
-
 # a simple calculator {{{2
+# http://www.zsh.org/mla/users/2003/msg00163.html
 zcalc ()  { print $(( ans = ${1:-ans} )) }
 zcalch () { print $(( [#16] ans = ${1:-ans} )) }
 zcalcd () { print $(( [#10] ans = ${1:-ans} )) }
@@ -376,9 +384,9 @@ zcalco () { print $(( [#8] ans = ${1:-ans} )) }
 zcalcb () { print $(( [#2] ans = ${1:-ans} )) }
 # calculate ascii value
 zcalcasc () { print $(( [#16] ans = ##${1:-ans} )) }
-
+# quick access
 bindkey -s '\C-xd' "zcalc \'"
-#http://www.zsh.org/mla/users/2003/msg00163.html }}}2
+# }}}2
 
 # contact manager {{{2
 # searches the contacts
@@ -397,6 +405,21 @@ ca() {
 # edit the contacts
 ce() {
     $EDITOR $CONTACTFILE
+}
+# }}}2
+
+# decides for me {{{2
+yn(){
+    echo -ne "thinking"
+    for i in {1..4}; do
+	echo -ne "."
+	sleep 0.5
+    done
+    if [ $RANDOM -gt $RANDOM ]; then
+	    print "Yes\!"
+    else
+	    print "No\!"
+    fi
 }
 # }}}2
 # }}}1
