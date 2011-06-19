@@ -1,0 +1,56 @@
+
+#
+# .zsh/settings
+# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+#
+
+# shell-options
+setopt autocd		# change directories easily
+setopt no_beep		# disable annoying beeps
+setopt complete_in_word # also do complete in words
+setopt correct		# try to find misspellings
+setopt auto_pushd	# always use the directory stack
+setopt pushd_ignore_dups # never duplicate entries
+setopt extended_glob	# use # ~ and ^ for filename generation
+setopt longlistjobs	# display PID when suspending processes as well
+setopt braceccl		# use advanced brace expasion like {a-b}
+setopt nohup		# don't send hup when shell terminates
+setopt transient_rprompt # remove rprompt when command is issued
+setopt functionargzero	# set $0 to the function call
+setopt local_options	# allow functions to have local options
+setopt interactive_comments # allow comments in interactive shells
+			    # useful for adding "tags" to commands (for searching)
+
+unsetopt flowcontrol	# deactivate "freezing"
+
+# modules
+autoload -U colors && colors	# use colours
+autoload -U zmv			# great batch-renaming tool
+autoload -U url-quote-magic	# smart urls
+zle -N self-insert url-quote-magic
+autoload -U edit-command-line	# edit commandline in editor
+zle -N edit-command-line
+
+eval $(dircolors -b) # colours for ls
+umask 066 # initialize new files with -rw-------
+
+# prompt
+PROMPT="%m %B%0(#.%{$fg[red]%}#.%{$fg[white]%}>) %b"
+RPROMPT="%0(5c,%c,%~) %1(j.(%j%).) %(?..%B%{$fg[red]%}%?%{$fg[white]%}%b)"
+# Set urgent on completed jobs
+precmd() ( echo -ne '\a' )
+
+# hashed directories
+hash -d doc=/usr/share/doc
+hash -d howto=/usr/share/linux-howtos
+hash -d log=/var/log
+
+hash -d build=/home/build
+hash -d aur=~build/AUR
+hash -d abs=~build/ABS
+
+hash -d data=~philipp/data
+hash -d dropbox=~data/Dropbox
+hash -d uni=~data/Dokumente/Uni/4.\ Semester
+
+# vim:set sw=4 foldmethod=marker ft=zsh:

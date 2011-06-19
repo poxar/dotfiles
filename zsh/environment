@@ -1,0 +1,20 @@
+
+#
+# .zsh/environment
+# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+#
+
+export SHELL='/bin/zsh'
+export PATH=/usr/lib/ccache/bin/:$PATH:$HOME/bin:/usr/bin/vendor_perl/
+export GPG_TTY=$(tty)
+
+export EDITOR=vim
+export PAGER=less
+export PDFVIEWER=zathura
+export BROWSER=chromium
+
+export LESSHISTFILE=/dev/null
+export MOZ_DISABLE_PANGO=1
+export DOTREMINDERS=$HOME/.pim/reminders
+
+# vim:set sw=4 foldmethod=marker ft=zsh:

@@ -1,0 +1,41 @@
+
+#
+# .zsh/keys
+# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+#
+
+# i don't like zsh's vi-mode
+bindkey -e
+
+bindkey '\e[2~' yank # Ins
+bindkey '\e[3~' delete-char # Del
+bindkey '\e[5~' up-line-or-history # PgDown
+bindkey '\e[6~' down-line-or-history # PgUp
+bindkey '\e[7~' beginning-of-line # Home
+bindkey '\e[8~' end-of-line # End
+
+bindkey "Od" backward-word # Ctrl + <-
+bindkey "Oc" forward-word # Ctrl + ->
+
+bindkey 'm' copy-prev-shell-word # insert last word
+bindkey 'u' undo # undo last change
+bindkey 'e' edit-command-line # edit command line in editor
+bindkey '^xa' jump_after_first_word # jump behind the first word on the cmdline
+bindkey '^Xs' run-with-sudo # prepend sudo
+
+bindkey -s '\C-xd' "zcalc \'" # quick acces to calculator
+
+# key bindings for completion
+# navigation
+bindkey -M menuselect 'h' backward-char
+bindkey -M menuselect 'j' down-line-or-history
+bindkey -M menuselect 'k' up-line-or-history
+bindkey -M menuselect 'l' forward-char
+# insert, but accept further completions
+bindkey -M menuselect 'i' accept-and-menu-complete
+# insert, and show menu with further possible completions
+bindkey -M menuselect 'o' accept-and-next-history
+# undo
+bindkey -M menuselect 'u' undo
+
+# vim:set sw=4 foldmethod=marker ft=zsh:

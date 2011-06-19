@@ -1,0 +1,166 @@
+
+#
+# .zsh/aliases
+# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+#
+
+# configuration
+DOWNLOAD=$HOME/down
+GEBURTSTAGE=$HOME/.pim/geburtstage
+STUNDENPLAN=$HOME/.pim/stundenplan
+TODOCONF=$HOME/.pim/todorc
+
+# root {{{
+if [[ $EUID = 0 ]]; then
+   	# ArchLinux - packages
+	alias update="pacman -Syu"
+	alias install="pacman -S"
+	alias remove="pacman -Rsun"
+	# show open connections
+	alias hullbreak="netstat --all --numeric --programs --inet"
+	# VPN university
+	alias UniVPN="openvpn --config /etc/openvpn/openvpn-2.1.client.conf"
+fi
+# }}}
+
+# sudo {{{
+if [[ $EUID != 0 ]];then
+	# better prompt
+	alias sudo="sudo -p '%u -> %U, enter password: ' "
+
+	# ArchLinux - packages
+	alias update="sudo pacman -Syu && cower -c -v -u"
+	alias install="sudo pacman -S"
+	alias remove="sudo pacman -Rsun"
+	# System
+	alias poweroff="sudo poweroff"
+	alias reboot="sudo reboot"
+	# show open connections
+	alias hullbreak="sudo netstat --all --numeric --programs --inet"
+	# VPN university
+	alias UniVPN="sudo openvpn --config /etc/openvpn/openvpn-2.1.client.conf"
+fi
+#}}}
+
+# host specific {{{
+# spitfire
+if [[ $HOST = spitfire ]]; then
+   # unison synchronization
+   alias usync="unison default"
+   alias usyncbatch="unison -batch default"
+   alias msync="unison -batch musik"
+fi #  }}}
+
+# aliases {{{
+# ls
+alias ls="ls --color=auto"
+alias l="ls -lhFB"
+alias la="ls -lAhB"
+# diff
+alias diff="colordiff"
+# grep
+alias grep="grep -i --color=auto"
+# less
+alias more="less"
+# df/du
+alias df="df -hT --total"
+alias du="du -ch"
+# chown
+alias c6="chmod 600"
+alias c7="chmod 700"
+# mkdir
+alias md="mkdir -p"
+
+
+# directory stack
+alias d="dirs -v"
+#jobs
+alias j="jobs -l"
+
+
+# fetch mail
+alias f="fdm f"
+# vim
+alias v="vim -p"
+# screen
+alias sr="screen -r"
+alias sls="screen -ls"
+# irssi
+alias irssi="screen -S irssi irssi"
+# start bc without startup-message
+alias bc="bc -q"
+
+
+# cclive - Youtube download
+alias cclive="cclive --output-dir $DOWNLOAD"
+# find out own ip
+alias myip="lynx -dump tnx.nl/ip"
+# lookup network traffic
+alias traffic="vnstat -tr"
+# well...
+alias totalbullshit="cmatrix -u 2 -a -x"
+# }}}
+
+# archlinux {{{
+alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
+alias mpkg="makepkg -cis"
+alias cower="cower -cvt ~aur"
+# }}}
+
+# git {{{
+alias g="git"
+
+alias ga="git add"
+alias gp="git push"
+
+alias gc="git commit"
+alias gca="git commit -a"
+
+alias gco="git checkout"
+alias gcl="git clone"
+
+alias gbr="git branch"
+
+alias gl="git log"
+alias gs="git status"
+alias gd="git diff"
+# }}}
+
+# PIM {{{
+# todo.sh
+alias t="todo.sh -d $TODOCONF"
+# quicknote
+alias note="vim ~wiki/ScratchPad.wiki"
+# university-stuff
+alias stundenplan="cat $STUNDENPLAN"
+
+# calendar
+alias cal="cal -3"
+alias calendar="rem -c+2 -w160 -m -b1"
+alias m="rem -c+4 -w160 -m -b1"
+alias dm="rem -c+8 -w160 -m -b1"
+
+# use <++> from vimlatexsuit to form templates for remind
+alias ttermin="echo 'REM <+Datum+> AT <+Uhrzeit+> DURATION <+Dauer+> MSG %\"<+Terminbeschreibung+> %b %\"' >> $DOTREMINDERS && vim +$ $DOTREMINDERS"
+alias utermin="echo 'REM <+Datum+> MSG %\"<+Terminbeschreibung+>%\"' >> $DOTREMINDERS && vim +$ $DOTREMINDERS"
+alias termin="vim +$ $DOTREMINDERS"
+alias geburtstag="echo 'rem <+Datum+> msg %\"Geburtstag <+Name+>%\"' >> $GEBURTSTAGE && vim +$ $GEBURTSTAGE"
+
+# show calendar and todo list
+alias pim="clear && rem -c+2 -w160 -m -b1 && echo '\n--' && todo.sh -d $TODOCONF ls && echo"
+#}}}
+
+# global aliases {{{
+alias -g G="| grep"
+alias -g L="| less"
+alias -g X="| xargs"
+alias -g C="| wc -l"
+# no errors
+alias -g NE="2>|/dev/null"
+# no output
+alias -g NO="&>|/dev/null"
+# null
+alias -g DN="/dev/null"
+# }}}
+
+# vim:set sw=4 foldmethod=marker ft=zsh:

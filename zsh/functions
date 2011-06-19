@@ -1,0 +1,131 @@
+
+#
+# .zsh/functions
+# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+#
+
+# witty one-liners {{{
+# cd to directory and list files
+cdl() { cd $1 && l }
+# create dir and cd to it
+mcd() { mkdir -p $1 && cd $1 }
+# colorful ls in less
+ll() { ls -lAhB --color=always "$@" | less -r }
+# count the files/folders in a directory
+lc() { ls "$@" | wc -l }
+# open readme-file
+readme() { less (#ia3)readme*(-.NOL[1,3]) }
+# grep the history
+hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
+# content search in all files in pwd
+# recurses into subdirectories (don't try this at $HOME ;) )
+ff() { grep -RnisI "$*" * }
+# searches hidden files/dirs too
+ffa() { grep -RnisI "$*" . }
+# }}}
+
+# create a dir in tmp and cd to it {{{
+cdtmp() {
+    local t
+    t=$(mktemp -d)
+    echo $t
+    builtin cd $t
+} #}}}
+
+# download aur-packages {{{
+aur() {
+        cd ~aur
+	rm -rf $1 # delete old data
+	cower -c -v -t ~aur -d -d $1
+	cd $1
+	vim PKGBUILD # user-check
+} #}}}
+
+# a simple calculator {{{
+# http://www.zsh.org/mla/users/2003/msg00163.html
+zcalc ()  { print $(( ans = ${1:-ans} )) }
+zcalch () { print $(( [#16] ans = ${1:-ans} )) }
+zcalcd () { print $(( [#10] ans = ${1:-ans} )) }
+zcalco () { print $(( [#8] ans = ${1:-ans} )) }
+zcalcb () { print $(( [#2] ans = ${1:-ans} )) }
+# calculate ascii value
+zcalcasc () { print $(( [#16] ans = ##${1:-ans} )) }
+#}}}
+
+# contact manager {{{
+# searches the contacts
+c() { 
+    awk "BEGIN { RS = \"###\" } /$*/" $CONTACTFILE
+}
+# Returns the entries which have $2 in field $1
+cf() { 
+    awk "BEGIN { RS = \"###\"; FS = \"$1: \" } (\$2 ~ \"$2\") { print \$0 }" $CONTACTFILE
+}
+# adds a new entry
+ca() {
+    cat>>$CONTACTFILE
+    echo "\n###\n">>$CONTACTFILE
+}
+# edit the contacts
+ce() {
+    $EDITOR $CONTACTFILE
+}
+# }}}
+
+# make decisions for me! {{{
+# flip a coin
+yn(){
+    echo -ne "thinking"
+    for i in {1..4}; do
+	echo -ne "."
+	sleep 0.3
+    done
+    if [ $RANDOM -gt $RANDOM ]; then
+	    print "Yes\!"
+    else
+	    print "No\!"
+    fi
+}
+# decide from file
+decide(){
+    if [[ -n $1 ]]; then
+	echo -ne "thinking"
+	for i in {1..4}; do
+	    echo -ne "."
+	    sleep 0.3
+	done
+	print ""
+	local count
+	count=$(wc -l <$1)
+	count=$(( ($RANDOM%$count)+1 ))
+	sed -n "$count"p $1
+    else
+	print "there is nothing to decide\!"
+    fi
+}
+decidem(){
+    ls ~data/Filme/Filme > /tmp/$$
+    decide /tmp/$$
+    rm -f /tmp/$$
+} #}}}
+
+# zle-functions {{{
+# jump behind the first word on the cmdline
+jump_after_first_word() {
+    local words
+    words=(${(z)BUFFER})
+
+    if (( ${#words} <= 1 )) ; then
+        CURSOR=${#BUFFER}
+    else
+        CURSOR=${#${words[1]}}
+    fi
+}
+zle -N jump_after_first_word
+
+# prepend sudo
+run-with-sudo () { LBUFFER="sudo $LBUFFER" }
+zle -N run-with-sudo
+#}}}
+
+# vim:set sw=4 foldmethod=marker ft=zsh:
