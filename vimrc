@@ -80,7 +80,6 @@ runtime! ftplugin/man.vim	" plugin for showing manfiles
 let g:nips_author = 'Philipp Millar'
 
 " taglist
-let Tlist_Auto_Open = 1	" let the tag list open automagically
 let Tlist_Compact_Format = 1	" show small menu
 let Tlist_Ctags_Cmd = 'ctags'	" location of ctags
 let Tlist_Exit_OnlyWindow = 1	" if you are the last, kill yourself
