@@ -9,6 +9,7 @@
 " 	* snipmate
 " 	* taglist
 " 	* vimwiki
+" 	* easytags
 "
 
 " evim {{{
@@ -22,7 +23,10 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on	" Enable file type detection.
 syntax on
-colorscheme pablo
+
+if ($TERM =~ "rxvt")
+    colorscheme pablo
+endif
 
 set nocompatible		" don't be compatible to vi
 set backup			" use a backup file
@@ -55,7 +59,6 @@ set number			" show line numbers
 set showmode			" show the mode we're in
 set showmatch			" show matching parentheses
 set showcmd			" display incomplete commands
-set report=0			" report anything
 set listchars=tab:>-,trail:-	" show tabs and trailing spaces when list is set
 set scrolloff=3			" show 3 extra lines when scrolling
 set lazyredraw			" do not redraw while running macros
@@ -92,6 +95,9 @@ let g:vimwiki_list = [{'path': '~/data/Wiki/',
 	    \ 'path_html': '/srv/http/wiki',
 	    \ 'auto_export': 1,
 	    \ 'index': 'WikiHome'}]
+
+" EasyTags
+let g:easytags_file = '~/.vim/tags'
 "}}}2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
@@ -204,4 +210,4 @@ endfunction
 nmap <Esc>l	:call Sel_lang()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" vim:set sw=4 foldmethod=marker:
+" vim:set sw=4 foldmethod=marker ft=vim:
