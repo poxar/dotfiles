@@ -82,9 +82,9 @@ alias j="jobs -l"
 alias f="fdm f"
 # vim
 alias v="vim -p"
-# screen
-alias sr="screen -r"
-alias sls="screen -ls"
+# tmux
+alias ta="tmux attach"
+alias tls="tmux ls"
 # irssi
 alias irssi="screen -S irssi irssi"
 # start bc without startup-message
