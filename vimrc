@@ -23,10 +23,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on	" Enable file type detection.
 syntax on
-
-if ($TERM =~ "rxvt")
-    colorscheme pablo
-endif
+colorscheme default
 
 set nocompatible		" don't be compatible to vi
 set backup			" use a backup file
