@@ -9,14 +9,20 @@
 cdl() { cd $1 && l }
 # create dir and cd to it
 mcd() { mkdir -p $1 && cd $1 }
+
 # colorful ls in less
 ll() { ls -lAhB --color=always "$@" | less -r }
 # count the files/folders in a directory
 lc() { ls "$@" | wc -l }
+# count (almost) all
+lca() { ls -A "$@" | wc -l }
+
 # open readme-file
 readme() { less (#ia3)readme*(-.NOL[1,3]) }
+
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
+
 # content search in all files in pwd
 # recurses into subdirectories (don't try this at $HOME ;) )
 ff() { grep -RnisI "$*" * }
@@ -104,9 +110,11 @@ decide(){
     fi
 }
 decidem(){
-    ls ~data/Filme/Filme > /tmp/$$
-    decide /tmp/$$
-    rm -f /tmp/$$
+    local t
+    t=$(mktemp)
+    ls ~data/Filme/Filme > $t
+    decide $t
+    rm -f $t
 } #}}}
 
 # zle-functions {{{
