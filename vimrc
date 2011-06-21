@@ -46,8 +46,9 @@ set whichwrap=""		" don't jump over linebounds
 set backspace=indent,eol,start	" allow backspacing over everything in insert mode
 
 set ignorecase			" search is case insensitive
+set smartcase			" search is case sensitive, when upper-case letters are used
 set incsearch			" do incremental searching
-set nohlsearch			" no highlighting for searches
+set hlsearch			" highlighting for searches, deactivate with <F5> (until next search)
 
 set title			" show title in console title bar
 set laststatus=2		" always show the status line
@@ -126,6 +127,9 @@ map <Down> gj
 " foldmethod
 map <F2> <esc>:set<space>foldmethod=marker<cr>
 map <F3> <esc>:set<space>foldmethod=syntax<cr>
+"<F4> is pastetoggle
+" stop highlighting until next search
+map <F5> <esc>:nohlsearch<cr>
 " enclose visual block with (, ", ', etc
 vnoremap <leader>1 <esc>`>a)<esc>`<i(<esc>
 vnoremap <leader>2 <esc>`>a]<esc>`<i[<esc>
