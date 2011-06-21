@@ -130,6 +130,11 @@ map <F3> <esc>:set<space>foldmethod=syntax<cr>
 "<F4> is pastetoggle
 " stop highlighting until next search
 map <F5> <esc>:nohlsearch<cr>
+" show/hide tabs and trailing spaces
+map <F6> <esc>:set<space>list<cr>
+map <F7> <esc>:set<space>nolist<cr>
+" taglist
+map <F8> <esc>:TlistToggle<cr>
 " enclose visual block with (, ", ', etc
 vnoremap <leader>1 <esc>`>a)<esc>`<i(<esc>
 vnoremap <leader>2 <esc>`>a]<esc>`<i[<esc>
@@ -138,17 +143,15 @@ vnoremap <leader>4 <esc>`>a><esc>`<i<<esc>
 vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
 vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
 " python """ """
-nnoremap <leader>" <esc>i"""<cr><cr>"""<esc>ki
-vnoremap <leader>" <esc>`>a"""<esc>`<i"""<esc>
+nnoremap <leader>" <esc>o"""<cr><cr>"""<esc>ki
+vnoremap <leader>" <esc>`>o"""<esc>`<O"""<esc>
 " cope
-map <leader>co :botright cope<cr>
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+nnoremap <leader>co :botright cope<cr>
+nnoremap <leader>n :cn<cr>
+nnoremap <leader>p :cp<cr>
 " remind
-map <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
-map <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
-" taglist
-nnoremap <silent> <F8> :TlistToggle<cr>
+nnoremap <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
+nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " autocommands  {{{
