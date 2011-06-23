@@ -85,8 +85,6 @@ alias v="vim -p"
 # tmux
 alias ta="tmux attach"
 alias tls="tmux ls"
-# irssi
-alias irssi="screen -S irssi irssi"
 # start bc without startup-message
 alias bc="bc -q"
 

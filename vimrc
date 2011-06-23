@@ -117,7 +117,7 @@ iabbrev lg Liebe<Space>Grüße
 iabbrev ph Philipp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" mappings {{{ 
+" mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -131,8 +131,7 @@ map <F3> <esc>:set<space>foldmethod=syntax<cr>
 " stop highlighting until next search
 map <F5> <esc>:nohlsearch<cr>
 " show/hide tabs and trailing spaces
-map <F6> <esc>:set<space>list<cr>
-map <F7> <esc>:set<space>nolist<cr>
+map <F6> <esc>:set<space>list!<cr>
 " taglist
 map <F8> <esc>:TlistToggle<cr>
 " enclose visual block with (, ", ', etc
@@ -142,7 +141,7 @@ vnoremap <leader>3 <esc>`>a}<esc>`<i{<esc>
 vnoremap <leader>4 <esc>`>a><esc>`<i<<esc>
 vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
 vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
-" python """ """
+" python
 nnoremap <leader>" <esc>o"""<cr><cr>"""<esc>ki
 vnoremap <leader>" <esc>`>o"""<esc>`<O"""<esc>
 " cope
