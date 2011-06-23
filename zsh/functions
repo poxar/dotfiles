@@ -117,6 +117,14 @@ decidem(){
     rm -f $t
 } #}}}
 
+# tells chromium to use a ssh-tunnel {{{
+secure_chromium() {
+    port=4711
+    export SOCKS_SERVER=localhost:$port
+    export SOCKS_VERSION=5
+    chromium $@ &
+} #}}}
+
 # zle-functions {{{
 # jump behind the first word on the cmdline
 jump_after_first_word() {
