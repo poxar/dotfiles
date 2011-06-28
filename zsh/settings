@@ -52,5 +52,6 @@ hash -d abs=~build/ABS
 hash -d data=~philipp/data
 hash -d dropbox=~data/Dropbox
 hash -d uni=~data/Dokumente/Uni/4.\ Semester
+hash -d wiki=~data/Wiki
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
