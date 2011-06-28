@@ -8,7 +8,6 @@
 DOWNLOAD=$HOME/down
 GEBURTSTAGE=$HOME/.pim/geburtstage
 STUNDENPLAN=$HOME/.pim/stundenplan
-TODOCONF=$HOME/.pim/todorc
 
 # root {{{
 if [[ $EUID = 0 ]]; then
@@ -126,7 +125,7 @@ alias gd="git diff"
 
 # PIM {{{
 # todo.sh
-alias t="todo.sh -d $TODOCONF"
+alias t="todo.sh"
 # quicknote
 alias note="vim ~wiki/ScratchPad.wiki"
 # university-stuff
@@ -145,7 +144,7 @@ alias termin="vim +$ $DOTREMINDERS"
 alias geburtstag="echo 'rem <+Datum+> msg %\"Geburtstag <+Name+>%\"' >> $GEBURTSTAGE && vim +$ $GEBURTSTAGE"
 
 # show calendar and todo list
-alias pim="clear && rem -c+2 -w160 -m -b1 && echo '\n--' && todo.sh -d $TODOCONF ls && echo"
+alias pim="clear && rem -c+2 -w160 -m -b1 && echo '\n--' && todo.sh ls && echo"
 #}}}
 
 # global aliases {{{
