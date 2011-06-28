@@ -81,32 +81,25 @@ ce() {
 # make decisions for me! {{{
 # flip a coin
 yn(){
-    echo -ne "thinking"
+    print -n "thinking"
     for i in {1..4}; do
-	echo -ne "."
+	print -n "."
 	sleep 0.3
     done
-    if [ $RANDOM -gt $RANDOM ]; then
-	    print "Yes\!"
-    else
-	    print "No\!"
-    fi
+    shuf -n 1 -e 'Yes!' 'No!'
 }
 # decide from file
 decide(){
     if [[ -n $1 ]]; then
-	echo -ne "thinking"
+	print -n "thinking"
 	for i in {1..4}; do
-	    echo -ne "."
+	    print -n "."
 	    sleep 0.3
 	done
-	print ""
-	local count
-	count=$(wc -l <$1)
-	count=$(( ($RANDOM%$count)+1 ))
-	sed -n "$count"p $1
+	print "" # newline
+	shuf -n 1 $1
     else
-	print "there is nothing to decide\!"
+	print 'there is nothing to decide!'
     fi
 }
 decidem(){
