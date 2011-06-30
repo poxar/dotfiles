@@ -16,7 +16,7 @@ URxvt.font: xft:Terminus:pixelsize=16
 URxvt.perl-ext: default,url-select
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.underlineURLs: true
-URxvt.urlLauncher: chromium
+URxvt.urlLauncher: firefox
 
 URxvt.color0:  rgb:2e2e/3434/3636
 URxvt.color1:  rgb:cccc/0000/0000
