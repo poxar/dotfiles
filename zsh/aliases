@@ -45,9 +45,12 @@ fi
 # spitfire
 if [[ $HOST = spitfire ]]; then
    # unison synchronization
-   alias usync="unison default"
-   alias usyncbatch="unison -batch default"
    alias msync="unison -batch musik"
+fi 
+# helo
+if [[ $HOST = helo ]]; then
+    # synchronize movies
+    alias fsync="unison filme"
 fi #  }}}
 
 # aliases {{{
@@ -82,11 +85,14 @@ alias f="fdm f"
 # vim
 alias v="vim -p"
 # tmux
+alias tmux="tmux -u"
 alias ta="tmux attach"
 alias tls="tmux ls"
 # start bc without startup-message
 alias bc="bc -q"
 
+alias usync="unison default"
+alias usyncbatch="unison -batch default"
 
 # cclive - Youtube download
 alias cclive="cclive --output-dir $DOWNLOAD"
