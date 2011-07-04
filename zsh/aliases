@@ -82,6 +82,7 @@ alias f="fdm f"
 # vim
 alias v="vim -p"
 # tmux
+alias tmux="tmux -u"
 alias ta="tmux attach"
 alias tls="tmux ls"
 # start bc without startup-message
