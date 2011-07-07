@@ -10,7 +10,7 @@ URxvt.foreground: grey
 URxvt.background: black
 URxvt.secondaryScroll: true
 URxvt.urgentOnBell:  true
-URxvt.fading: 40
+URxvt.fading: 20
 URxvt.font: xft:Terminus:pixelsize=16
 
 URxvt.perl-ext: default,url-select
