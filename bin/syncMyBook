@@ -16,8 +16,7 @@ rsynccli=("-r" # recursive
 	  "--delete" # delete files only on receiver
 )
 # directories
-syncdir=("Filme"
-	 "iso")
+syncdir=("Filme")
 
 if [[ $EUID == 0 ]]; then
 
