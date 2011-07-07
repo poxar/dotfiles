@@ -12,15 +12,12 @@
 " 	* easytags
 "
 
-" evim {{{
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
-"}}}
 
 " settings  {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on	" Enable file type detection.
 syntax on
 colorscheme default
@@ -62,17 +59,9 @@ set scrolloff=3			" show 3 extra lines when scrolling
 set lazyredraw			" do not redraw while running macros
 set wildmenu			" completion-menu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+"}}}
 
-" syntax {{{2
-" haskell
-let hs_highlight_delimiters = 1
-let hs_highlight_boolean = 1
-let hs_highlight_types = 1
-let hs_highlight_more_types = 1
-let hs_highlight_debug = 1
-" }}}2
-
-" plugins {{{2
+" plugins {{{
 runtime macros/justify.vim	" justify text with v _j
 runtime! ftplugin/man.vim	" plugin for showing manfiles
 let g:nips_author = 'Philipp Millar'
@@ -93,12 +82,18 @@ let g:vimwiki_list = [{'path': '~/data/Wiki/',
 
 " EasyTags
 let g:easytags_file = '~/.vim/tags'
-"}}}2
+"}}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+" syntax {{{
+" haskell
+let hs_highlight_delimiters = 1
+let hs_highlight_boolean = 1
+let hs_highlight_types = 1
+let hs_highlight_more_types = 1
+let hs_highlight_debug = 1
+" }}}
 
 " abbreviations  {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " c
 iabbrev #b /*<Space>**************************************<Space>*
 iabbrev #e **************************************<Space>*/
@@ -113,10 +108,9 @@ iabbrev mfg Mit<Space>freundlichen<Space>Grüßen
 iabbrev phmi Philipp<Space>Millar
 iabbrev lg Liebe<Space>Grüße
 iabbrev ph Philipp
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+" }}}
 
 " mappings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " use cursor keys to jump over wrapped lines
@@ -149,47 +143,30 @@ nnoremap <leader>p :cp<cr>
 " remind
 nnoremap <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
 nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+"}}}
 
 " autocommands  {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  "obsolete
-  "au BufReadPost * if getline(1) =~ "#muttrc" |
-  "  \ set filetype=muttrc
-
-  "au BufReadPost *
-  "  \ set filetype=wiki
-  
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+  " For all text files set 'textwidth' to 80 characters.
+  autocmd FileType text setlocal textwidth=80
 
   augroup END
 
-endif " has("autocmd")
+endif " }}}
 
+" commands  {{{
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	 	\ | wincmd p | diffthis
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+"}}}
 
 " spell-check  {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Esc>A	:set spell<CR>
 nmap <Esc>?	z=
 nmap <Esc>i	zg
@@ -208,6 +185,6 @@ function!  Sel_lang()
 endfunction
 
 nmap <Esc>l	:call Sel_lang()<CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+" }}}
 
 " vim:set sw=4 foldmethod=marker ft=vim:
