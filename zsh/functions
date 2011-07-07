@@ -17,6 +17,9 @@ lc() { ls "$@" | wc -l }
 # count (almost) all
 lca() { ls -A "$@" | wc -l }
 
+# search the AUR with cower and view the results in less
+aurs() { cower --color=always -vs "$@" | less -r }
+
 # open readme-file
 readme() { less (#ia3)readme*(-.NOL[1,3]) }
 
