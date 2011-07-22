@@ -31,6 +31,9 @@ hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 ff() { grep -RnisI "$*" * }
 # searches hidden files/dirs too
 ffa() { grep -RnisI "$*" . }
+
+# calculate expression
+calc() { echo "$@" | bc -l }
 # }}}
 
 # create a dir in tmp and cd to it {{{
