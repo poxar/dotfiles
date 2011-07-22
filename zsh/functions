@@ -7,8 +7,8 @@
 # witty one-liners {{{
 # cd to directory and list files
 cdl() { cd $1 && l }
-# create dir and cd to it
-mcd() { mkdir -p $1 && cd $1 }
+# create dir(s) and cd to the first one
+mcd() { mkdir -p $@ && cd $1 }
 
 # colorful ls in less
 ll() { ls -lAhB --color=always "$@" | less -r }
