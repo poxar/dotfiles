@@ -35,5 +35,7 @@ zstyle ':completion:*:man:*' menu yes select
 # list processes when completing "kill"
 zstyle ':completion:*:kill:*' command 'ps xf -u $USER -o pid,%cpu,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
+# don't suggest files/pids that are already on the line (for rm, kill and diff)
+zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
