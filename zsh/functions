@@ -28,9 +28,9 @@ hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 
 # content search in all files in pwd
 # recurses into subdirectories (don't try this at $HOME ;) )
-ff() { grep -RnisI "$*" * }
+ff() { local IFS='|'; grep -rniE "$*" * }
 # searches hidden files/dirs too
-ffa() { grep -RnisI "$*" . }
+ffa() { local IFS='|'; grep -rniE "$*" . }
 
 # calculate expression
 calc() { echo "$@" | bc -l }
