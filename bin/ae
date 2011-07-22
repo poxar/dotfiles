@@ -6,10 +6,9 @@ Error() {
 }
 
 for i in $@; do
-    [[ -f $i ]] || Error "'$i' is not a valid file"
-done
 
-for i in $@; do
+    [[ -f $i ]] || Error "'$i' is not a valid file"
+
     case $i in
 	*.tar)      tar -xvf $i ;;
 	# GZip
@@ -24,6 +23,7 @@ for i in $@; do
 	*.7z)       7z x  $i ;;
 	*.rar)      unrar e $i ;;
 	*.zip)      unzip $i ;;
+
 	*)          Error "unknown fileending $i" ;;
     esac
 done
