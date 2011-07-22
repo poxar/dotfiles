@@ -2,37 +2,41 @@ URxvt.saveLines: 10000
 URxvt.scrollBar: false
 URxvt.scrollstyle: plain
 URxvt.secondaryScroll: true
+URxvt.fading: 20
+
 URxvt.pointerBlank: true
 URxvt.pointerBlankDelay: 10
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
-URxvt.foreground: grey
-URxvt.background: black
-URxvt.secondaryScroll: true
+
 URxvt.urgentOnBell:  true
-URxvt.fading: 20
-URxvt.font: xft:Terminus:pixelsize=16
 
 URxvt.perl-ext: default,url-select
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.underlineURLs: true
 URxvt.urlLauncher: firefox
 
-URxvt.color0:  rgb:2e2e/3434/3636
-URxvt.color1:  rgb:cccc/0000/0000
-URxvt.color2:  rgb:4e4e/9a9a/0606
-URxvt.color3:  rgb:c4c4/a0a0/0000
-URxvt.color4:  rgb:3434/6565/a4a4
-URxvt.color5:  rgb:7575/5050/7b7b
-URxvt.color6:  rgb:0606/9820/9a9a
-URxvt.color7:  rgb:d3d3/d7d7/cfcf
-URxvt.color8:  rgb:5555/5757/5353
-URxvt.color9:  rgb:efef/2929/2929
-URxvt.color10: rgb:8a8a/e2e2/3434
-URxvt.color11: rgb:fcfc/e9e9/4f4f
-URxvt.color12: rgb:7272/9f9f/cfcf
-URxvt.color13: rgb:adad/7f7f/a8a8
-URxvt.color14: rgb:3434/e2e2/e2e2
-URxvt.color15: rgb:eeee/eeee/ecec
+URxvt.font: xft:Terminus:pixelsize=16
+
+!*foreground: grey
+!*background: black
+*foreground:#ededed
+*background:#00151f
+*color0:  rgb:2e2e/3434/3636
+*color1:  rgb:cccc/0000/0000
+*color2:  rgb:4e4e/9a9a/0606
+*color3:  rgb:c4c4/a0a0/0000
+*color4:  rgb:3434/6565/a4a4
+*color5:  rgb:7575/5050/7b7b
+*color6:  rgb:0606/9820/9a9a
+*color7:  rgb:d3d3/d7d7/cfcf
+*color8:  rgb:5555/5757/5353
+*color9:  rgb:efef/2929/2929
+*color10: rgb:8a8a/e2e2/3434
+*color11: rgb:fcfc/e9e9/4f4f
+*color12: rgb:7272/9f9f/cfcf
+*color13: rgb:adad/7f7f/a8a8
+*color14: rgb:3434/e2e2/e2e2
+*color15: rgb:eeee/eeee/ecec
 
 Xcursor.theme: Bluecurve
