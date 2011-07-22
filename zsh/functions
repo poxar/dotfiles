@@ -53,37 +53,6 @@ aur() {
 	vim PKGBUILD # user-check
 } #}}}
 
-# a simple calculator {{{
-# http://www.zsh.org/mla/users/2003/msg00163.html
-zcalc ()  { print $(( ans = ${1:-ans} )) }
-zcalch () { print $(( [#16] ans = ${1:-ans} )) }
-zcalcd () { print $(( [#10] ans = ${1:-ans} )) }
-zcalco () { print $(( [#8] ans = ${1:-ans} )) }
-zcalcb () { print $(( [#2] ans = ${1:-ans} )) }
-# calculate ascii value
-zcalcasc () { print $(( [#16] ans = ##${1:-ans} )) }
-#}}}
-
-# contact manager {{{
-# searches the contacts
-c() { 
-    awk "BEGIN { RS = \"###\" } /$*/" $CONTACTFILE
-}
-# Returns the entries which have $2 in field $1
-cf() { 
-    awk "BEGIN { RS = \"###\"; FS = \"$1: \" } (\$2 ~ \"$2\") { print \$0 }" $CONTACTFILE
-}
-# adds a new entry
-ca() {
-    cat>>$CONTACTFILE
-    echo "\n###\n">>$CONTACTFILE
-}
-# edit the contacts
-ce() {
-    $EDITOR $CONTACTFILE
-}
-# }}}
-
 # make decisions for me! {{{
 # flip a coin
 yn(){
