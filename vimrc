@@ -159,6 +159,10 @@ if has("autocmd")
   " For all text files set 'textwidth' to 80 characters.
   autocmd FileType text setlocal textwidth=80
 
+  " Open the VimWikiSearch with \ws
+  " breaks VimWikiUISelect
+  autocmd FileType vimwiki nnoremap <leader>ws :VWS
+
   augroup END
 
 endif " }}}
