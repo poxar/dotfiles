@@ -140,6 +140,10 @@ vnoremap <leader>" <esc>`>o"""<esc>`<O"""<esc>
 nnoremap <leader>co :botright cope<cr>
 nnoremap <leader>n :cn<cr>
 nnoremap <leader>p :cp<cr>
+" location list
+nnoremap <leader>lo :lopen<cr>
+nnoremap <leader>ln :lnext<cr>
+nnoremap <leader>lp :lprevious<cr>
 " remind
 nnoremap <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
 nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
