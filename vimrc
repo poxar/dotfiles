@@ -20,7 +20,10 @@ endif
 " settings  {{{
 filetype plugin indent on	" Enable file type detection.
 syntax on
-colorscheme default
+
+" load colorscheme
+colorscheme jellybeans
+set cursorline
 
 set nocompatible		" don't be compatible to vi
 set backup			" use a backup file
