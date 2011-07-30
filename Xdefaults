@@ -16,11 +16,11 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.underlineURLs: true
 URxvt.urlLauncher: firefox
 
-URxvt.font: xft:Terminus:pixelsize=16
+URxvt.font: xft:Terminus:pixelsize=16:antialias=false
 
-!*foreground: grey
+*foreground: grey
 !*background: black
-*foreground:#ededed
+!*foreground:#ededed
 *background:#00151f
 *color0:  rgb:2e2e/3434/3636
 *color1:  rgb:cccc/0000/0000
