@@ -48,10 +48,37 @@ cdtmp() {
 aur() {
         cd ~aur
 	rm -rf $1 # delete old data
+	# -d is passed twice to fetch dependencies too
 	cower -c -v -t ~aur -d -d $1
 	cd $1
 	vim PKGBUILD # user-check
 } #}}}
+
+# note taking {{{
+NOTEDIR=$HOME/.pim/notes
+EDITORARGS=("+set ft=asciidoc")
+
+# open note or make new one
+n() { $EDITOR $EDITORARGS $NOTEDIR/"$*" }
+compdef "_path_files -W $NOTEDIR" n
+
+# list notes or search for title
+nl() { ls -c $NOTEDIR | grep "$*" }
+
+# delete a note
+nd() { rm -rf $NOTEDIR/$* }
+compdef "_path_files -W $NOTEDIR" nd
+
+# search content
+nf() {
+    if [[ -n $* ]]; then
+	# to prevent grep from displaying the whole path
+	cd $NOTEDIR
+	grep -rni "$*" *
+	popd >/dev/null
+    fi
+}
+#}}}
 
 # make decisions for me! {{{
 # flip a coin
