@@ -46,11 +46,6 @@ fi
 if [[ $HOST = spitfire ]]; then
    # unison synchronization
    alias msync="unison -batch musik"
-fi 
-# helo
-if [[ $HOST = helo ]]; then
-    # synchronize movies
-    alias fsync="unison filme"
 fi #  }}}
 
 # aliases {{{
@@ -91,6 +86,7 @@ alias tls="tmux ls"
 # start bc without startup-message
 alias bc="bc -q"
 
+# unison
 alias usync="unison default"
 alias usyncbatch="unison -batch default"
 
