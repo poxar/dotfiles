@@ -63,7 +63,7 @@ n() { $EDITOR $EDITORARGS $NOTEDIR/"$*" }
 compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
-nl() { ls -c $NOTEDIR | grep "$*" }
+nl() { ls $NOTEDIR | grep "$*" }
 
 # delete a note
 nd() { rm -rf $NOTEDIR/$* }
