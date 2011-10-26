@@ -50,8 +50,11 @@ hash -d aur=~build/AUR
 hash -d abs=~build/ABS
 
 hash -d data=~philipp/data
+
+hash -d dokumente=~data/Dokumente
+hash -d bibliothek=~data/Bibliothek
+
 hash -d dropbox=~data/Dropbox
-hash -d uni=~data/Dokumente/Uni/4.\ Semester
-hash -d wiki=~data/Wiki
+hash -d uni=~data/Dokumente/Uni/5.\ Semester
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
