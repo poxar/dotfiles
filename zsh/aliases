@@ -128,8 +128,6 @@ alias gd="git diff"
 # PIM {{{
 # todo.sh
 alias t="todo.sh"
-# quicknote
-alias note="vim ~wiki/ScratchPad.wiki"
 # university-stuff
 alias stundenplan="cat $STUNDENPLAN"
 
@@ -141,7 +139,7 @@ alias dm="rem -c+8 -w160 -m -b1 | less"
 alias ddm="rem -c+16 -w160 -m -b1 | less"
 
 # use <++> from vimlatexsuit to form templates for remind
-alias ttermin="echo 'REM <+Datum+> AT <+Uhrzeit+> DURATION <+Dauer+> MSG %\"<+Terminbeschreibung+> %b %\"' >> $DOTREMINDERS && vim +$ $DOTREMINDERS"
+alias ttermin="echo 'REM <+Datum+> AT <+Uhrzeit+> DURATION <+Dauer+> MSG %\"<+Terminbeschreibung+> %\"' >> $DOTREMINDERS && vim +$ $DOTREMINDERS"
 alias utermin="echo 'REM <+Datum+> MSG %\"<+Terminbeschreibung+>%\"' >> $DOTREMINDERS && vim +$ $DOTREMINDERS"
 alias termin="vim +$ $DOTREMINDERS"
 alias geburtstag="echo 'rem <+Datum+> msg %\"Geburtstag <+Name+>%\"' >> $GEBURTSTAGE && vim +$ $GEBURTSTAGE"
