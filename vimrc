@@ -8,14 +8,8 @@
 " 	* nerdcommenter
 " 	* snipmate
 " 	* taglist
-" 	* vimwiki
 " 	* easytags
 "
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
 " settings  {{{
 filetype plugin indent on	" Enable file type detection.
@@ -31,6 +25,14 @@ set undofile			" persistent undo
 set directory=~/.vim/tmp	" directory to place swap files in
 set backupdir=~/.vim/backup	" directory to place backup files in
 set undodir=~/.vim/undo		" directory to place undo files in
+
+set viminfo='100,<50,s10,h,n~/.vim/viminfo
+				" save marks for the last 100 files,
+				" save contents of registers up to 50 lines
+				" each, skip registers larger than 10 kbyte
+				" disable the effect of hlsearch,
+				" save the file to ~/.vim/viminfo
+
 set fileformats=unix,dos,mac	" support all three, in this order
 set autochdir			" always switch to the current file directory
 set modelines=2 	        " search the first and last two lines for modelines
@@ -66,8 +68,8 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 
 " plugins {{{
 runtime macros/justify.vim	" justify text with v _j
-runtime! ftplugin/man.vim	" plugin for showing manfiles
-let g:nips_author = 'Philipp Millar'
+runtime ftplugin/man.vim	" plugin for showing manfiles
+let g:snips_author = 'Philipp Millar'
 
 " taglist
 let Tlist_Compact_Format = 1	" show small menu
@@ -78,10 +80,6 @@ let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
 " LaTeX
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-
-" VimWiki
-let g:vimwiki_list = [{'path': '~/data/Wiki/',
-	    \ 'index': 'WikiHome'}]
 
 " EasyTags
 let g:easytags_file = '~/.vim/tags'
@@ -153,22 +151,10 @@ nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschrei
 "}}}
 
 " autocommands  {{{
-if has("autocmd")
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 80 characters.
-  autocmd FileType text setlocal textwidth=80
-
-  " Open the VimWikiSearch with \ws
-  " breaks VimWikiUISelect
-  autocmd FileType vimwiki nnoremap <leader>ws :VWS
-
-  augroup END
-
-endif " }}}
+" all text-files are 80 chars wide by default
+autocmd FileType text setlocal textwidth=80
+autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+" }}}
 
 " commands  {{{
 " Convenient command to see the difference between the current buffer and the
