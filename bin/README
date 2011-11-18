@@ -1,7 +1,8 @@
 
-sycMyBook - synchronizes my MyBookWorld
+syncMyBook - synchronizes my MyBookWorld
 
+a - make a new archive
+usage: a [FORMAT] FILE/FOLDER
 
-archive manager
-a - build
-ae - extract
+ae - extract archive
+usage: a ARCHIVE
