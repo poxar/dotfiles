@@ -19,24 +19,29 @@ rsynccli=("-r" # recursive
 syncdir=("Filme")
 
 
+die() {
+    echo "!! $*"
+    exit 1
+}
+
 # check if we're mounted
 mountpoint $RECEIVER >/dev/null
 if [[ $? != 0 ]]; then
     print "** mounting $RECEIVER\n"
     UMOUNT=1
-    mount $RECEIVER
+    mount $RECEIVER || die "error mounting $RECEIVER"
 fi
 
 # the actual synchronization
 for i in $syncdir[@]; do
     print "** synchronizing $i"
-    rsync $rsynccli[@] $SENDER/$i/ $RECEIVER/$i/
+    rsync $rsynccli[@] $SENDER/$i/ $RECEIVER/$i/ || die "error syncing, maybe you have to umount manually"
     print ""
 done
 
 # if we mounted before we umount
 if [[ $UMOUNT == 1 ]]; then
     print "** umounting $RECEIVER"
-    umount $RECEIVER
+    umount $RECEIVER || die "error umounting $RECEIVER"
 fi
 
