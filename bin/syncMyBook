@@ -18,29 +18,25 @@ rsynccli=("-r" # recursive
 # directories
 syncdir=("Filme")
 
-if [[ $EUID == 0 ]]; then
 
-    # check if we're mounted
-    mountpoint $RECEIVER >/dev/null
-    if [[ $? != 0 ]]; then
-	print "** mounting $RECEIVER\n"
-	UMOUNT=1
-	mount $RECEIVER
-    fi
-
-    # the actual synchronization
-    for i in $syncdir[@]; do
-	print "** synchronizing $i"
-	rsync $rsynccli[@] $SENDER/$i/ $RECEIVER/$i/
-	print ""
-    done
-
-    # if we mounted before we umount
-    if [[ $UMOUNT == 1 ]]; then
-	print "** umounting $RECEIVER"
-	umount $RECEIVER
-    fi
-
-else
-    print "Sorry, you need to be superuser"
+# check if we're mounted
+mountpoint $RECEIVER >/dev/null
+if [[ $? != 0 ]]; then
+    print "** mounting $RECEIVER\n"
+    UMOUNT=1
+    mount $RECEIVER
 fi
+
+# the actual synchronization
+for i in $syncdir[@]; do
+    print "** synchronizing $i"
+    rsync $rsynccli[@] $SENDER/$i/ $RECEIVER/$i/
+    print ""
+done
+
+# if we mounted before we umount
+if [[ $UMOUNT == 1 ]]; then
+    print "** umounting $RECEIVER"
+    umount $RECEIVER
+fi
+
