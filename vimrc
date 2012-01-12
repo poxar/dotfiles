@@ -5,10 +5,10 @@
 "
 " Plugins:
 " 	* latexsuite
-" 	* nerdcommenter
 " 	* snipmate
 " 	* taglist
 " 	* easytags
+" 	* gnupg
 "
 
 " settings  {{{
