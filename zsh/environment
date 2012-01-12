@@ -17,8 +17,6 @@ export LESSHISTFILE=/dev/null
 export MOZ_DISABLE_PANGO=1
 export DOTREMINDERS=$HOME/.pim/reminders
 
-source /tmp/ssh-agent.info
-
 # todo.txt
 export TODO_DIR="$HOME/.todo"
 
