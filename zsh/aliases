@@ -69,7 +69,8 @@ alias c6="chmod 600"
 alias c7="chmod 700"
 # mkdir
 alias md="mkdir -p"
-
+# red stderr
+alias stderred='LD_PRELOAD=/usr/lib/stderred.so'
 
 # directory stack
 alias d="dirs -v"
