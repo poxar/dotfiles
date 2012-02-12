@@ -21,7 +21,8 @@ URxvt.font: xft:Terminus:pixelsize=16:antialias=false
 *foreground: grey
 !*background: black
 !*foreground:#ededed
-*background:#00151f
+!*background:#00151f
+*background:#222222
 *color0:  rgb:2e2e/3434/3636
 *color1:  rgb:cccc/0000/0000
 *color2:  rgb:4e4e/9a9a/0606
@@ -39,4 +40,5 @@ URxvt.font: xft:Terminus:pixelsize=16:antialias=false
 *color14: rgb:3434/e2e2/e2e2
 *color15: rgb:eeee/eeee/ecec
 
-Xcursor.theme: Bluecurve
+!Xcursor.theme: Bluecurve
+Xcursor.theme: left_ptr

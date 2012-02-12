@@ -17,6 +17,7 @@ case $2 in
     tb | tbz2 | tar.bz2) tar -cv $1 | pbzip2 -c > $1.tar.bz2 ;;
     g | gz | gzip)       gzip $1 ;;
     b | bz2 | bzip2)     pbzip2 $1 ;;
+    z | zip )		 7z a -tzip $1.zip $1 ;;
     *)                   Error "$2 is not a valid compression type" ;;
 esac
 

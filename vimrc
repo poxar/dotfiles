@@ -80,6 +80,9 @@ let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
 " LaTeX
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+let g:Tex_CompileRule_pdf='pdflatex --interaction=nonstopmode $*'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_MultipleCompileFormats='dvi,pdf'
 
 " EasyTags
 let g:easytags_file = '~/.vim/tags'
@@ -146,7 +149,7 @@ nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>ln :lnext<cr>
 nnoremap <leader>lp :lprevious<cr>
 " remind
-nnoremap <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%b<Space>%"<esc>0
+nnoremap <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%"<esc>0
 nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
 "}}}
 

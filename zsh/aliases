@@ -28,7 +28,7 @@ if [[ $EUID != 0 ]];then
 	alias sudo="sudo -p '%u -> %U, enter password: ' "
 
 	# ArchLinux - packages
-	alias update="sudo pacman -Syu && cower -c -v -u"
+	alias update="sudo pacman -Syu"
 	alias install="sudo pacman -S"
 	alias remove="sudo pacman -Rsun"
 	# System
@@ -43,11 +43,20 @@ fi
 
 # host specific {{{
 # spitfire
-if [[ $HOST = spitfire ]]; then
+if [[ $HOST = spitfire || $HOST = littlesmoke ]]; then
     # unison
     alias usync="unison default"
     alias usyncbatch="unison -batch default"
     alias msync="unison -batch musik"
+
+    if [[ $EUID != 0 ]];then
+	# netcfg
+	alias netcfg="sudo netcfg"
+	alias wifi-select="sudo wifi-select"
+
+	# suspend
+	alias pm-suspend="sudo pm-suspend"
+    fi
 fi #  }}}
 
 # aliases {{{
@@ -78,8 +87,6 @@ alias d="dirs -v"
 alias j="jobs -l"
 
 
-# fetch mail
-alias f="fdm f"
 # vim
 alias v="vim -p"
 # tmux
@@ -100,7 +107,7 @@ alias totalbullshit="cmatrix -u 2 -a -x"
 # }}}
 
 # archlinux {{{
-alias savepkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq) > pkglist"
+alias printpkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq)"
 alias mpkg="makepkg -cis"
 alias cower="cower -cvt ~aur"
 # }}}
