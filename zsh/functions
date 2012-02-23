@@ -31,9 +31,6 @@ hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 ff() { local IFS='|'; grep -rniE "$*" * }
 # searches hidden files/dirs too
 ffa() { local IFS='|'; grep -rniE "$*" . }
-
-# calculate expression
-calc() { echo "$@" | bc -l }
 # }}}
 
 # create a dir in tmp and cd to it {{{

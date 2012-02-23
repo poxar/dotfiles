@@ -107,7 +107,7 @@ alias totalbullshit="cmatrix -u 2 -a -x"
 # }}}
 
 # archlinux {{{
-alias printpkglist="comm -23 <(pacman -Qeq) <(pacman -Qmq)"
+alias printpkglist="comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort)"
 alias mpkg="makepkg -cis"
 alias cower="cower -cvt ~aur"
 # }}}
