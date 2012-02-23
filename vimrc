@@ -187,4 +187,10 @@ endfunction
 nmap <Esc>l	:call Sel_lang()<CR>
 " }}}
 
+function! StripWhitespace ()
+        exec ':%s/ \+$//gc'
+endfunction
+
+map ,s :call StripWhitespace ()<CR>
+
 " vim:set sw=4 foldmethod=marker ft=vim:
