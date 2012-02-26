@@ -16,7 +16,15 @@ filetype plugin indent on	" Enable file type detection.
 syntax on
 
 " load colorscheme
-colorscheme jellybeans
+let g:solarized_underline=0
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+let g:solarized_diffmode="high"
+let g:solarized_hitrail=1
+set background=dark
+colorscheme solarized
+
 set cursorline
 
 set nocompatible		" don't be compatible to vi
