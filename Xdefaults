@@ -11,10 +11,15 @@ URxvt.cursorUnderline: true
 
 URxvt.urgentOnBell:  true
 
-URxvt.perl-ext: default,url-select
+URxvt.perl-ext: default,url-select,clipboard
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.underlineURLs: true
 URxvt.urlLauncher: firefox
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
 
 URxvt.font: xft:Terminus:pixelsize=16:antialias=false
 
