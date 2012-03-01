@@ -52,7 +52,7 @@ if [[ $HOST = spitfire || $HOST = littlesmoke ]]; then
     if [[ $EUID != 0 ]];then
 	# netcfg
 	alias netcfg="sudo netcfg"
-	alias wifi-select="sudo wifi-select"
+	alias wifi-select="sudo wifi-select -p"
 
 	# suspend
 	alias pm-suspend="sudo pm-suspend"
