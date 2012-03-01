@@ -3,30 +3,13 @@
 " vimrc
 " Maintainer: Philipp Millar <philipp.millar@gmx.de>
 "
-" Plugins:
-" 	* latexsuite
-" 	* snipmate
-" 	* taglist
-" 	* easytags
-" 	* gnupg
 "
 
 " settings  {{{
 filetype plugin indent on	" Enable file type detection.
 syntax on
 
-" load colorscheme
-let g:solarized_underline=0
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-let g:solarized_diffmode="high"
-let g:solarized_hitrail=1
-set background=dark
-colorscheme solarized
-
 set cursorline
-
 set nocompatible		" don't be compatible to vi
 set backup			" use a backup file
 set undofile			" persistent undo
@@ -75,6 +58,19 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 "}}}
 
 " plugins {{{
+" load plugins
+call pathogen#infect()
+
+" load colorscheme
+let g:solarized_underline=0
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+let g:solarized_diffmode="high"
+let g:solarized_hitrail=1
+set background=dark
+colorscheme solarized
+
 runtime macros/justify.vim	" justify text with v _j
 runtime ftplugin/man.vim	" plugin for showing manfiles
 let g:snips_author = 'Philipp Millar'
@@ -167,14 +163,11 @@ autocmd FileType text setlocal textwidth=80
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 " }}}
 
-" commands  {{{
+" commands and functions  {{{
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-	 	\ | wincmd p | diffthis
-"}}}
-
-" spell-check  {{{
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+" spell-check  {{{2
 nmap <Esc>A	:set spell<CR>
 nmap <Esc>?	z=
 nmap <Esc>i	zg
@@ -193,12 +186,15 @@ function!  Sel_lang()
 endfunction
 
 nmap <Esc>l	:call Sel_lang()<CR>
-" }}}
-
+" }}}2
+" strip whitespace {{{2
 function! StripWhitespace ()
         exec ':%s/ \+$//gc'
 endfunction
 
 map ,s :call StripWhitespace ()<CR>
+" }}}2
+"}}}
+
 
 " vim:set sw=4 foldmethod=marker ft=vim:
