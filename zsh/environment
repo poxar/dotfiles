@@ -23,4 +23,7 @@ export TODO_DIR="$HOME/.todo"
 # lesspipe
 eval `lesspipe.sh`
 
+# python
+export PYTHONDOCS=/usr/share/doc/python/html/
+
 # vim:set sw=4 foldmethod=marker ft=zsh:
