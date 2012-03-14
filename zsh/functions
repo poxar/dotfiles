@@ -100,6 +100,13 @@ decide(){
 }
 #}}}
 
+# git addremove{{{
+git-addremove(){
+    git add .
+    git ls-files -deleted | xargs git rm
+}
+#}}}
+
 # zle-functions {{{
 # jump behind the first word on the cmdline
 jump_after_first_word() {
