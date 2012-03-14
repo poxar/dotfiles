@@ -20,9 +20,6 @@ lca() { ls -A "$@" | wc -l }
 # search the AUR with cower and view the results in less
 aurs() { cower --color=always -vs "$@" | less -r }
 
-# open readme-file
-readme() { less (#ia3)readme*(-.NOL[1,3]) }
-
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 
@@ -89,7 +86,7 @@ yn(){
 }
 # decide from file
 decide(){
-    if [[ -n $1 ]]; then
+    if [[ -f $1 ]]; then
 	print -n "thinking"
 	for i in {1..4}; do
 	    print -n "."
@@ -101,13 +98,7 @@ decide(){
 	print 'there is nothing to decide!'
     fi
 }
-decidem(){
-    local t
-    t=$(mktemp)
-    ls ~data/Filme/Filme > $t
-    decide $t
-    rm -f $t
-} #}}}
+#}}}
 
 # zle-functions {{{
 # jump behind the first word on the cmdline
