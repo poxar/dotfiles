@@ -27,6 +27,7 @@ unsetopt flowcontrol	# deactivate "freezing"
 # modules
 autoload -U colors && colors	# use colours
 autoload -U zmv			# great batch-renaming tool
+autoload -U zcalc		# nice calculator
 autoload -U zfinit && zfinit	# zftp
 
 autoload -U url-quote-magic	# smart urls
