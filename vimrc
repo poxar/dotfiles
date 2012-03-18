@@ -122,6 +122,8 @@ nmap <F6> <esc>:set<space>list!<cr>
 nmap <F8> <esc>:TlistToggle<cr>
 " GUndo
 nmap <F9> <esc>:GundoToggle<cr>
+" NERDTree
+nmap <F10> <esc>:NERDTreeToggle<cr>
 " enclose visual block with (, ", ', etc
 vnoremap <leader>1 <esc>`>a)<esc>`<i(<esc>
 vnoremap <leader>2 <esc>`>a]<esc>`<i[<esc>
