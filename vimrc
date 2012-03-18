@@ -106,7 +106,8 @@ let hs_highlight_debug = 1
 
 " mappings {{{
 " Don't use Ex mode, use Q for formatting
-map Q gq
+vmap Q gq
+nmap Q gqap
 " use cursor keys to jump over wrapped lines
 map <Up> gk
 map <Down> gj
