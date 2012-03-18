@@ -35,7 +35,6 @@ set modelines=2                " search the first and last two lines for modelin
 set pastetoggle=<F4>
 set cryptmethod=blowfish
 
-set mouse=a                    " use the mouse
 set shiftwidth=4               " use 4 blanks as indent
 set autoindent                 " always set autoindenting on
 set smarttab                   " insert shiftwidth at beginning of line
