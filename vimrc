@@ -31,6 +31,7 @@ set viminfo='100,<50,s10,h,n~/.vim/viminfo
 
 set fileformats=unix,dos,mac   " support all three, in this order
 set autochdir                  " always switch to the current file directory
+set hidden
 set modelines=2                " search the first and last two lines for modelines
 set pastetoggle=<F4>
 set cryptmethod=blowfish
@@ -147,6 +148,8 @@ nnoremap <leader>lp :lprevious<cr>
 " remind
 nnoremap <leader>tt <esc>oREM<Space><+Datum+><Space>AT<Space><+Uhrzeit+><Space>DURATION<Space><+Dauer+><Space>MSG<Space>%"<+Terminbeschreibung+><Space>%"<esc>0
 nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschreibung+>%"<esc>0
+" sudo
+cmap w!! w !sudo tee % >/dev/null
 "}}}
 
 " autocommands  {{{
