@@ -131,9 +131,6 @@ vnoremap <leader>3 <esc>`>a}<esc>`<i{<esc>
 vnoremap <leader>4 <esc>`>a><esc>`<i<<esc>
 vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
 vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
-" python
-nnoremap <leader>" <esc>o"""<cr><cr>"""<esc>ki
-vnoremap <leader>" <esc>`>o"""<esc>`<O"""<esc>
 " cope
 nnoremap <leader>co :botright cope<cr>
 nnoremap <leader>n :cn<cr>
