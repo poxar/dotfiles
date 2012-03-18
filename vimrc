@@ -110,6 +110,11 @@ nmap Q gqap
 " use cursor keys to jump over wrapped lines
 map <Up> gk
 map <Down> gj
+" simplify window-management
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 " foldmethod
 nmap <F2> <esc>:set<space>foldmethod=marker<cr>
 nmap <F3> <esc>:set<space>foldmethod=syntax<cr>
