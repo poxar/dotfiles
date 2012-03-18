@@ -104,17 +104,6 @@ let hs_highlight_more_types = 1
 let hs_highlight_debug = 1
 " }}}
 
-" abbreviations  {{{
-" c
-iabbrev #b /*<Space>**************************************<Space>*
-iabbrev #e **************************************<Space>*/
-" mail
-iabbrev mfg Mit<Space>freundlichen<Space>Grüßen
-iabbrev phmi Philipp<Space>Millar
-iabbrev lg Liebe<Space>Grüße
-iabbrev ph Philipp
-" }}}
-
 " mappings {{{
 " Don't use Ex mode, use Q for formatting
 map Q gq
