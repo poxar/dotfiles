@@ -60,6 +60,8 @@ set scrolloff=3                " show 3 extra lines when scrolling
 set lazyredraw                 " do not redraw while running macros
 set wildmenu                   " completion-menu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+
+set path=~/code/**
 "}}}
 
 " plugins {{{
