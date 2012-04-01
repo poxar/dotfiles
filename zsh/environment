@@ -18,7 +18,7 @@ export MOZ_DISABLE_PANGO=1
 export DOTREMINDERS=$HOME/.pim/reminders
 
 # todo.txt
-export TODO_DIR="$HOME/.todo"
+export TODOTXT_CFG_FILE="$HOME/.config/todotxt.cfg"
 
 # lesspipe
 eval `lesspipe.sh`
