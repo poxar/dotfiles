@@ -138,6 +138,8 @@ alias t="todo.sh"
 alias stundenplan="cat $STUNDENPLAN"
 
 # calendar
+# never suspend for timed reminders
+alias rem="rem -q"
 alias cal="cal -3"
 alias calendar="rem -c+2 -w160 -m -b1"
 alias m="rem -c+4 -w160 -m -b1 | less"
