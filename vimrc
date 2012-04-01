@@ -75,7 +75,8 @@ let g:solarized_hitrail=1
 set background=dark
 colorscheme solarized
 
-runtime ftplugin/man.vim " plugin for showing manfiles
+" Man files
+runtime ftplugin/man.vim
 
 " improved completion
 let g:neocomplcache_enable_at_startup = 1
