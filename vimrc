@@ -77,6 +77,9 @@ colorscheme solarized
 
 runtime ftplugin/man.vim " plugin for showing manfiles
 
+" improved completion
+let g:neocomplcache_enable_at_startup = 1
+
 " SnipMate
 let g:snips_author = 'Philipp Millar'
 
