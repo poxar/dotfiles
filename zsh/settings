@@ -75,6 +75,6 @@ hash -d dokumente=~data/Dokumente
 hash -d bibliothek=~data/Bibliothek
 
 hash -d dropbox=~data/Dropbox
-hash -d uni=~data/Dokumente/Uni/5.\ Semester
+hash -d uni=~data/Dokumente/Uni/6.\ Semester
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
