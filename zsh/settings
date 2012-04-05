@@ -65,10 +65,6 @@ hash -d doc=/usr/share/doc
 hash -d howto=/usr/share/linux-howtos
 hash -d log=/var/log
 
-hash -d build=/home/build
-hash -d aur=~build/AUR
-hash -d abs=~build/ABS
-
 hash -d data=~philipp/data
 
 hash -d dokumente=~data/Dokumente
