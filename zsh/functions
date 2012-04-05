@@ -19,12 +19,6 @@ lca() { ls -A "$@" | wc -l }
 
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
-
-# content search in all files in pwd
-# recurses into subdirectories (don't try this at $HOME ;) )
-ff() { local IFS='|'; grep -rniE "$*" * }
-# searches hidden files/dirs too
-ffa() { local IFS='|'; grep -rniE "$*" . }
 # }}}
 
 # create a dir in tmp and cd to it {{{
