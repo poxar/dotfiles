@@ -17,9 +17,6 @@ lc() { ls "$@" | wc -l }
 # count (almost) all
 lca() { ls -A "$@" | wc -l }
 
-# search the AUR with cower and view the results in less
-aurs() { cower --color=always -vs "$@" | less -r }
-
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 
@@ -36,16 +33,6 @@ cdtmp() {
     t=$(mktemp -d)
     echo $t
     builtin cd $t
-} #}}}
-
-# download aur-packages {{{
-aur() {
-        cd ~aur
-	rm -rf $1 # delete old data
-	# -d is passed twice to fetch dependencies too
-	cower -c -v -t ~aur -d -d $1
-	cd $1
-	vim PKGBUILD # user-check
 } #}}}
 
 # note taking {{{
