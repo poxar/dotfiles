@@ -11,10 +11,6 @@ STUNDENPLAN=$HOME/.pim/stundenplan
 
 # root {{{
 if [[ $EUID = 0 ]]; then
-   	# ArchLinux - packages
-	alias update="pacman -Syu"
-	alias install="pacman -S"
-	alias remove="pacman -Rsun"
 	# show open connections
 	alias hullbreak="netstat --all --numeric --programs --inet"
 	# VPN university
@@ -27,10 +23,6 @@ if [[ $EUID != 0 ]];then
 	# better prompt
 	alias sudo="sudo -p '%u -> %U, enter password: ' "
 
-	# ArchLinux - packages
-	alias update="sudo pacman -Syu"
-	alias install="sudo pacman -S"
-	alias remove="sudo pacman -Rsun"
 	# System
 	alias poweroff="sudo poweroff"
 	alias reboot="sudo reboot"
