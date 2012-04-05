@@ -52,7 +52,7 @@ set hlsearch                   " highlighting for searches, deactivate with <F5>
 set title                      " show title in console title bar
 set laststatus=2               " always show the status line
 set ruler                      " show the cursor position all the time
-set number                     " show line numbers
+set relativenumber             " show relative line numbers
 set showmode                   " show the mode we're in
 set showmatch                  " show matching parentheses
 set showcmd                    " display incomplete commands
@@ -198,6 +198,17 @@ function! StripWhitespace ()
 endfunction
 
 map ,s :call StripWhitespace ()<CR>
+" }}}2
+" change linenumber mode {{{2
+function! g:ToggleNumberMode()
+	if(&rnu == 1)
+		set nu
+	else
+		set rnu
+	endif
+endfunc
+ 
+nnoremap <f12> :call g:ToggleNumberMode()<cr>
 " }}}2
 "}}}
 
