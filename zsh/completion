@@ -38,4 +38,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 # don't suggest files/pids that are already on the line (for rm, kill and diff)
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
 
+# compdef
+compdef _pacman yaourt
+
 # vim:set sw=4 foldmethod=marker ft=zsh:
