@@ -5,22 +5,23 @@
 #
 
 export SHELL='/bin/zsh'
+
 export PATH=$PATH:$HOME/bin:/usr/bin/vendor_perl/
 export GPG_TTY=$(tty)
 
 export EDITOR=vim
 export PAGER=less
 export PDFVIEWER=zathura
-export BROWSER=chromium
+export BROWSER=firefox
 
-export LESSHISTFILE=/dev/null
 export MOZ_DISABLE_PANGO=1
 export DOTREMINDERS=$HOME/.pim/reminders
 
 # todo.txt
 export TODOTXT_CFG_FILE="$HOME/.config/todotxt.cfg"
 
-# lesspipe
+# less
+export LESSHISTFILE=/dev/null
 eval `lesspipe.sh`
 
 # python

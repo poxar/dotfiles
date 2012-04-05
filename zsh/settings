@@ -62,9 +62,9 @@ precmd() (
 
 # hashed directories
 hash -d doc=/usr/share/doc
-hash -d howto=/usr/share/linux-howtos
 hash -d log=/var/log
 
+hash -d code=~philipp/code
 hash -d data=~philipp/data
 
 hash -d dokumente=~data/Dokumente

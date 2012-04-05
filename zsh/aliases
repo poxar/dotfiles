@@ -34,21 +34,14 @@ fi
 #}}}
 
 # host specific {{{
-# spitfire
-if [[ $HOST = spitfire || $HOST = littlesmoke ]]; then
-    # unison
-    alias usync="unison default"
-    alias usyncbatch="unison -batch default"
-    alias msync="unison -batch musik"
+# littlesmoke
+if [[ $HOST = littlesmoke && $EUID != 0 ]]; then
+    # netcfg
+    alias netcfg="sudo netcfg"
+    alias wifi-select="sudo wifi-select -p"
 
-    if [[ $EUID != 0 ]];then
-	# netcfg
-	alias netcfg="sudo netcfg"
-	alias wifi-select="sudo wifi-select -p"
-
-	# suspend
-	alias pm-suspend="sudo pm-suspend"
-    fi
+    # suspend
+    alias pm-suspend="sudo pm-suspend"
 fi #  }}}
 
 # aliases {{{
@@ -64,20 +57,18 @@ alias grep="grep -i --color=auto"
 alias more="less"
 # df/du
 alias df="df -hT --total"
+alias dfc="dfc -sTt -rootfs,devtmpfs,tmpfs"
 alias du="du -ch"
 # chown
 alias c6="chmod 600"
 alias c7="chmod 700"
 # mkdir
 alias md="mkdir -p"
-# red stderr
-alias stderred='LD_PRELOAD=/usr/lib/stderred.so'
 
 # directory stack
 alias d="dirs -v"
 #jobs
 alias j="jobs -l"
-
 
 # vim
 alias v="vim -p"
@@ -94,8 +85,6 @@ alias cclive="cclive --output-dir $DOWNLOAD"
 alias myip="lynx -dump tnx.nl/ip"
 # lookup network traffic
 alias traffic="vnstat -tr"
-# well...
-alias totalbullshit="cmatrix -u 2 -a -x"
 # }}}
 
 # archlinux {{{
@@ -125,8 +114,6 @@ alias gd="git diff"
 # PIM {{{
 # todo.sh
 alias t="todo.sh"
-# university-stuff
-alias stundenplan="cat $STUNDENPLAN"
 
 # calendar
 # never suspend for timed reminders
@@ -151,7 +138,7 @@ alias pim="clear && rem -c+2 -w160 -m -b1 && echo '\n--' && todo.sh ls && echo"
 alias -g G="| grep"
 alias -g L="| less"
 alias -g X="| xargs"
-alias -g C="| wc -l"
+alias -g LC="| wc -l"
 # no errors
 alias -g NE="2>|/dev/null"
 # no output
