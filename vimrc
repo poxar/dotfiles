@@ -91,13 +91,6 @@ let Tlist_Compact_Format = 1           " show small menu
 let Tlist_Ctags_Cmd = '/usr/bin/ctags' " location of ctags
 let Tlist_Exit_OnlyWindow = 1          " if you are the last, kill yourself
 let Tlist_File_Fold_Auto_Close = 0     " fold closed other trees
-
-" LaTeX
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-let g:Tex_CompileRule_pdf='pdflatex --interaction=nonstopmode $*'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_MultipleCompileFormats='dvi,pdf'
 "}}}
 
 " syntax {{{
