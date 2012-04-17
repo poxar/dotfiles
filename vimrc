@@ -34,7 +34,8 @@ set autochdir                  " always switch to the current file directory
 set hidden
 set modelines=2                " search the first and last two lines for modelines
 set pastetoggle=<F4>
-set clipboard=unnamed
+set clipboard=unnamed          " copy to system clipboard
+
 set cryptmethod=blowfish
 
 set shiftwidth=4               " use 4 blanks as indent
