@@ -147,6 +147,9 @@ vnoremap <leader>3 <esc>`>a}<esc>`<i{<esc>
 vnoremap <leader>4 <esc>`>a><esc>`<i<<esc>
 vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
 vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
+" swap ' and ` so 'a goes to line and column marked with ma
+nnoremap ' `
+nnoremap ` '
 " cope
 nnoremap <leader>co :botright cope<cr>
 nnoremap <leader>n :cn<cr>
