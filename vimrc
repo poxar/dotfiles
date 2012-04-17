@@ -116,6 +116,8 @@ let hs_highlight_debug = 1
 " Don't use Ex mode, use Q for formatting
 vmap Q gq
 nmap Q gqap
+" Y defaults to doing yy due to Vi compatability, but this makes it consistent with D and C
+nmap Y y$
 " use cursor keys to jump over wrapped lines
 map <Up> gk
 map <Down> gj
