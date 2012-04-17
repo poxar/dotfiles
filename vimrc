@@ -98,9 +98,6 @@ let g:tex_flavor = "latex"
 let g:Tex_CompileRule_pdf='pdflatex --interaction=nonstopmode $*'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
-
-" EasyTags
-let g:easytags_file = '~/.vim/tags'
 "}}}
 
 " syntax {{{
