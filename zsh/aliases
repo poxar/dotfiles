@@ -123,9 +123,6 @@ alias calendar="rem -c+2 -w160 -m -b1"
 alias m="rem -c+4 -w160 -m -b1 | less"
 alias dm="rem -c+8 -w160 -m -b1 | less"
 alias ddm="rem -c+16 -w160 -m -b1 | less"
-
-# show calendar and todo list
-alias pim="clear && rem -c+2 -w160 -m -b1 && echo '\n--' && todo.sh ls && echo"
 #}}}
 
 # global aliases {{{
