@@ -38,28 +38,6 @@ zle -N edit-command-line
 eval $(dircolors -b) # colours for ls
 umask 066 # initialize new files with -rw-------
 
-# prompt
-# function to add count of my todo list
-function __todo {
-if $(which todo.sh &> /dev/null); then
-    local count=$(todo.sh | grep 'TODO:' | awk '{print $2}')
-    if [[ ! $count == 0 ]]; then
-	echo "$count "
-    fi
-fi
-}
-# set the prompt
-export PROMPT='%m %B%0(#.%{$fg[red]%}#.$(__todo)%{$fg[white]%}>) %b'
-export RPROMPT='%0(5c,%c,%~) %1(j.(%j%).) %(?..%B%{$fg[red]%}%?%{$fg[white]%}%b)'
-precmd() (
-    if [[ $TERM == rxvt* || $TERM == screen* ]]; then
-	# Set urgent on completed jobs
-	echo -ne '\a'
-	# set title
-	print -Pn "\e]2;%m: %~\a"
-    fi
-)
-
 # hashed directories
 hash -d doc=/usr/share/doc
 hash -d log=/var/log
