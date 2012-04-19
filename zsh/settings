@@ -35,7 +35,7 @@ zle -N self-insert url-quote-magic
 autoload -U edit-command-line	# edit commandline in editor
 zle -N edit-command-line
 
-eval $(dircolors -b) # colours for ls
+eval $(dircolors ~/.zsh/dircolors) # solarized colors for ls
 umask 066 # initialize new files with -rw-------
 
 # hashed directories
