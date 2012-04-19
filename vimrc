@@ -8,7 +8,9 @@
 " settings  {{{
 
 " load plugins
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
+call pathogen#helptags()
 
 
 filetype plugin indent on      " Enable file type detection.
