@@ -1,4 +1,5 @@
-URxvt.saveLines: 10000
+!! URxvt
+URxvt.saveLines: 1000
 URxvt.scrollBar: false
 URxvt.scrollstyle: plain
 URxvt.secondaryScroll: true
@@ -23,11 +24,12 @@ URxvt.pasteCommand: xclip -o -selection clipboard
 
 URxvt.font: xft:Terminus:pixelsize=16:antialias=false
 
+!! Xcursor
+Xcursor.theme: left_ptr
+
+!! colors
 *foreground: grey
-!*background: black
-!*foreground:#ededed
-!*background:#00151f
-*background:#222222
+*background:#1c1c1c
 *color0:  rgb:2e2e/3434/3636
 *color1:  rgb:cccc/0000/0000
 *color2:  rgb:4e4e/9a9a/0606
@@ -44,6 +46,3 @@ URxvt.font: xft:Terminus:pixelsize=16:antialias=false
 *color13: rgb:adad/7f7f/a8a8
 *color14: rgb:3434/e2e2/e2e2
 *color15: rgb:eeee/eeee/ecec
-
-!Xcursor.theme: Bluecurve
-Xcursor.theme: left_ptr
