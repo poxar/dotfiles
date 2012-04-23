@@ -110,6 +110,7 @@ precmd() {
 	echo -ne '\a'
 	# title
 	print -Pn "\e]2;%m: %~\a"
+    fi
 }
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
