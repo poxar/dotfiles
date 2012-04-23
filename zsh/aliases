@@ -14,7 +14,7 @@ if [[ $EUID = 0 ]]; then
 	# show open connections
 	alias hullbreak="netstat --all --numeric --programs --inet"
 	# VPN university
-	alias UniVPN="openvpn --config /etc/openvpn/openvpn-2.1.client.conf"
+	alias UniVPN="openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
 fi
 # }}}
 
@@ -29,7 +29,7 @@ if [[ $EUID != 0 ]];then
 	# show open connections
 	alias hullbreak="sudo netstat --all --numeric --programs --inet"
 	# VPN university
-	alias UniVPN="sudo openvpn --config /etc/openvpn/openvpn-2.1.client.conf"
+	alias UniVPN="sudo openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
 fi
 #}}}
 
