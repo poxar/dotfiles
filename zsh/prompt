@@ -27,9 +27,9 @@ zstyle ':vcs_info:*' formats \
     "${magenta}(${reset}%s${magenta}) ${yellow}- ${magenta}[ ${green}%b ${magenta}]${reset} "
 # git specific format
 zstyle ':vcs_info:git*:*' actionformats \
-    "${magenta}(${reset}%s${magenta})${yellow} - %c%u %b ${yellow}| ${red}%a${reset} "
+    "${magenta}(${reset}%s${magenta})${yellow} - ${reset}%b %c%u ${yellow}| ${red}%a${reset} "
 zstyle ':vcs_info:git*:*' formats \
-    "${magenta}(${reset}%s${magenta})${yellow} - %c%u %b "
+    "${magenta}(${reset}%s${magenta})${yellow} - ${reset}%b %c%u "
 # git specific settings
 zstyle ':vcs_info:git*:*' check-for-changes true
 zstyle ':vcs_info:git*:*' stagedstr "${green}S${reset}"
