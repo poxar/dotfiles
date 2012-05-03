@@ -17,6 +17,9 @@ lc() { ls "$@" | wc -l }
 # count (almost) all
 lca() { ls -A "$@" | wc -l }
 
+# convert nfo files to utf8
+nfo() { iconv -f 437 -t UTF8 "$@" | less }
+
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 # }}}
