@@ -17,11 +17,11 @@ bindkey '\e[8~' end-of-line # End
 bindkey "Od" backward-word # Ctrl + <-
 bindkey "Oc" forward-word # Ctrl + ->
 
-bindkey 'm' copy-prev-shell-word # insert last word
-bindkey 'u' undo # undo last change
-bindkey 'e' edit-command-line # edit command line in editor
+bindkey '^xm' copy-prev-shell-word # insert last word
+bindkey '^xr' redo
+bindkey '^xe' edit-command-line # edit command line in editor
 bindkey '^xa' jump_after_first_word # jump behind the first word on the cmdline
-bindkey '^Xs' run-with-sudo # prepend sudo
+bindkey '^xs' run-with-sudo # prepend sudo
 
 bindkey -s '\C-xd' "zcalc \'" # quick acces to calculator
 
