@@ -7,17 +7,40 @@
 
 " settings  {{{
 
-" load plugins
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+set nocompatible               " don't be compatible to vi
 
+" vundle {{{2
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Bundles
+Bundle 'gmarik/vundle'
+
+" GitHub
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
+Bundle 'sjl/gundo.vim'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'Shougo/neocomplcache'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kana/vim-smartinput'
+Bundle 'rygwdn/ultisnips'
+Bundle 'godlygeek/tabular'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'fmoralesc/vim-pad'
+" other git
+Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
+
+" testing bundles
+Bundle 'tpope/vim-surround'
+"}}}2
 
 filetype plugin indent on      " Enable file type detection.
 syntax on
 
 set cursorline
-set nocompatible               " don't be compatible to vi
 set backup                     " use a backup file
 set undofile                   " persistent undo
 set directory=~/.vim/tmp       " directory to place swap files in
@@ -93,6 +116,10 @@ let Tlist_Compact_Format = 1           " show small menu
 let Tlist_Ctags_Cmd = '/usr/bin/ctags' " location of ctags
 let Tlist_Exit_OnlyWindow = 1          " if you are the last, kill yourself
 let Tlist_File_Fold_Auto_Close = 0     " fold closed other trees
+
+" vim-pad
+let g:pad_dir = '~/.pim/notes'
+let g:pad_window_height = 12
 "}}}
 
 " syntax {{{
@@ -144,8 +171,8 @@ nnoremap ' `
 nnoremap ` '
 " cope
 nnoremap <leader>co :botright cope<cr>
-nnoremap <leader>n :cn<cr>
-nnoremap <leader>p :cp<cr>
+nnoremap <leader>cn :cn<cr>
+nnoremap <leader>cp :cp<cr>
 " location list
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>ln :lnext<cr>
