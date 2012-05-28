@@ -20,9 +20,6 @@ fi
 
 # sudo {{{
 if [[ $EUID != 0 ]];then
-	# better prompt
-	alias sudo="sudo -p '%u -> %U, enter password: ' "
-
 	# System
 	alias poweroff="sudo poweroff"
 	alias reboot="sudo reboot"
