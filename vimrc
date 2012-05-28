@@ -99,7 +99,11 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_diffmode="high"
 let g:solarized_hitrail=1
-set background=dark
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 colorscheme solarized
 
 " Man files
