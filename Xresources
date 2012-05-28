@@ -25,6 +25,7 @@ URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 
 URxvt.font: xft:Terminus:pixelsize=16:antialias=false
+xterm*faceName: terminus:pixelsize=16
 
 !! Xcursor
 Xcursor.theme: left_ptr
