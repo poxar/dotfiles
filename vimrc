@@ -33,7 +33,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'xolox/vim-notes'
 
 "}}}
-
 " settings  {{{
 
 
@@ -93,7 +92,6 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 
 set path=~/code/**
 "}}}
-
 " plugins {{{
 " load colorscheme
 let g:solarized_underline=0
@@ -120,7 +118,6 @@ let Tlist_File_Fold_Auto_Close = 0     " fold closed other trees
 " vim-notes
 let g:notes_directory = '~/.pim/notes'
 "}}}
-
 " syntax {{{
 " haskell
 let g:hs_highlight_delimiters = 1
@@ -129,7 +126,6 @@ let g:hs_highlight_types = 1
 let g:hs_highlight_more_types = 1
 let g:hs_highlight_debug = 1
 " }}}
-
 " mappings {{{
 " Don't use Ex mode, use Q for formatting
 vmap Q gq
@@ -175,7 +171,6 @@ nnoremap <leader>ut <esc>oREM<Space><+Datum+><Space>MSG<Space>%"<+Terminbeschrei
 " sudo
 cmap w!! w !sudo tee % >/dev/null
 "}}}
-
 " autocommands  {{{
 if has("autocmd")
     " all text-files are 80 chars wide by default
@@ -184,7 +179,6 @@ if has("autocmd")
     autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 endif
 " }}}
-
 " commands and functions  {{{
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -214,7 +208,7 @@ function! StripWhitespace ()
         exec ':%s/ \+$//gc'
 endfunction
 
-map ,s :call StripWhitespace ()<CR>
+map <Leader>s :call StripWhitespace ()<CR>
 " }}}2
 " change linenumber mode {{{2
 function! g:ToggleNumberMode()
@@ -230,4 +224,4 @@ nnoremap <f12> :call g:ToggleNumberMode()<cr>
 "}}}
 
 
-" vim:set sw=4 foldmethod=marker ft=vim:
+" vim:set sw=4 foldmethod=marker ft=vim expandtab:
