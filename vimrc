@@ -40,6 +40,8 @@ Bundle 'xolox/vim-notes'
 filetype plugin indent on      " Enable file type detection.
 syntax on
 
+set ttyfast
+
 set cursorline
 set backup                     " use a backup file
 set undofile                   " persistent undo
