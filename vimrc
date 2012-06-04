@@ -5,11 +5,7 @@
 "
 "
 
-" settings  {{{
-
-set nocompatible               " don't be compatible to vi
-
-" vundle {{{2
+" vundle {{{
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -27,15 +23,19 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kana/vim-smartinput'
 Bundle 'rygwdn/ultisnips'
-Bundle 'godlygeek/tabular'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'fmoralesc/vim-pad'
 " other git
 Bundle 'git://gitorious.org/vim-gnupg/vim-gnupg.git'
 
 " testing bundles
 Bundle 'tpope/vim-surround'
-"}}}2
+Bundle 'kien/ctrlp.vim'
+Bundle 'xolox/vim-notes'
+
+"}}}
+
+" settings  {{{
+
 
 filetype plugin indent on      " Enable file type detection.
 syntax on
