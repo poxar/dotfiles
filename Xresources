@@ -4,8 +4,6 @@ URxvt.scrollBar: false
 URxvt.scrollstyle: plain
 URxvt.secondaryScroll: true
 URxvt.fading: 20
-URxvt.transparent: true
-URxvt.shading: 30
 
 URxvt.pointerBlank: true
 URxvt.pointerBlankDelay: 10
