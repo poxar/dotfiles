@@ -82,6 +82,9 @@ alias cclive="cclive --output-dir $DOWNLOAD"
 alias myip="lynx -dump tnx.nl/ip"
 # lookup network traffic
 alias traffic="vnstat -tr"
+
+# udiskie
+alias uumount="udiskie-umount 2> /dev/null"
 # }}}
 
 # archlinux {{{
