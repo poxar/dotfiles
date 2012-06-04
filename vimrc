@@ -108,11 +108,8 @@ colorscheme solarized
 " Man files
 runtime ftplugin/man.vim
 
-" improved completion
-let g:neocomplcache_enable_at_startup = 1
-
-" SnipMate
-let g:snips_author = 'Philipp Millar'
+" improve completion only if requested
+let g:neocomplcache_enable_at_startup = 0
 
 " Taglist
 let Tlist_Compact_Format = 1           " show small menu
@@ -120,9 +117,8 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags' " location of ctags
 let Tlist_Exit_OnlyWindow = 1          " if you are the last, kill yourself
 let Tlist_File_Fold_Auto_Close = 0     " fold closed other trees
 
-" vim-pad
-let g:pad_dir = '~/.pim/notes'
-let g:pad_window_height = 12
+" vim-notes
+let g:notes_directory = '~/.pim/notes'
 "}}}
 
 " syntax {{{
@@ -162,13 +158,6 @@ nmap <F8> <esc>:TlistToggle<cr>
 nmap <F9> <esc>:GundoToggle<cr>
 " NERDTree
 nmap <F10> <esc>:NERDTreeToggle<cr>
-" enclose visual block with (, ", ', etc
-vnoremap <leader>1 <esc>`>a)<esc>`<i(<esc>
-vnoremap <leader>2 <esc>`>a]<esc>`<i[<esc>
-vnoremap <leader>3 <esc>`>a}<esc>`<i{<esc>
-vnoremap <leader>4 <esc>`>a><esc>`<i<<esc>
-vnoremap <leader>q <esc>`>a'<esc>`<i'<esc>
-vnoremap <leader>e <esc>`>a"<esc>`<i"<esc>
 " swap ' and ` so 'a goes to line and column marked with ma
 nnoremap ' `
 nnoremap ` '
