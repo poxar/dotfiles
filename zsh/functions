@@ -28,6 +28,9 @@ imgur() { curl "$1" | grep _blank | awk '{print $2}' | cut -d \" -f 2 | xargs wg
 
 # list explicitly installed packages that are not in base or base-devel
 paclist() { pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }' }
+
+# show current pwd or file in browser
+browse() { $BROWSER file://"`pwd`/$1" }
 # }}}
 # create a dir in tmp and cd to it {{{
 cdtmp() {
