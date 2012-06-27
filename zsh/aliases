@@ -69,7 +69,9 @@ alias d="dirs -v"
 alias j="jobs -l"
 
 # vim
-alias v="vim -p"
+alias v="vim"
+alias vp="vim -p"
+alias vrc="vim ~/.vim/vimrc"
 # tmux
 alias tmux="tmux -u"
 alias ta="tmux attach"
