@@ -27,4 +27,8 @@ eval `lesspipe.sh`
 # python
 export PYTHONDOCS=/usr/share/doc/python/html/
 
+# mail
+MAILPATH="$HOME/mail"
+MAILCHECK=10
+
 # vim:set sw=4 foldmethod=marker ft=zsh:
