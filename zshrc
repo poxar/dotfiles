@@ -13,8 +13,4 @@ source $HOME/.zsh/keys
 source $HOME/.zsh/aliases
 source $HOME/.zsh/functions
 
-if [ -f "/usr/lib/libstderred.so" ]; then
-    export LD_PRELOAD="/usr/lib/libstderred.so"
-fi
-
 # vim:set sw=4 foldmethod=marker ft=zsh:
