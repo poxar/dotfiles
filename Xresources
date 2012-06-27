@@ -1,8 +1,6 @@
 !! URxvt
-URxvt.saveLines: 1000
+URxvt.saveLines: 0
 URxvt.scrollBar: false
-URxvt.scrollstyle: plain
-URxvt.secondaryScroll: true
 URxvt.fading: 20
 
 URxvt.pointerBlank: true
