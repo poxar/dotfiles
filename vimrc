@@ -204,11 +204,11 @@ endfunction
 nmap <Esc>l     :call Sel_lang()<CR>
 " }}}2
 " strip whitespace {{{2
-function! StripWhitespace ()
+function! StripWhitespace()
         exec ':%s/ \+$//gc'
 endfunction
 
-map <Leader>s :call StripWhitespace ()<CR>
+nmap <Leader>s :call StripWhitespace()<CR>
 " }}}2
 " change linenumber mode {{{2
 function! g:ToggleNumberMode()
@@ -221,7 +221,24 @@ endfunc
  
 nnoremap <f12> :call g:ToggleNumberMode()<cr>
 " }}}2
+" Set Executable Bit w/o reloading {{{2
+function! SetExecutableBit()
+	" This function is taken from
+	" http://vim.wikia.com/wiki/Setting_file_attributes_without_reloading_a_buffer
+	" Thanks Max Ischenko!
+	let fname = expand("%:p")
+	checktime
+	execute "au FileChangedShell " . fname . " :echo"
+	silent !chmod a+x %
+	checktime
+	execute "au! FileChangedShell " . fname
+endfunction
+nmap <leader>X :silent call SetExecutableBit()<cr>
+"}}}2
 "}}}
-
+" macros {{{
+" indent next(new) line to match current word
+let @j='yiwy0opVr J'
+"}}}
 
 " vim:set sw=4 foldmethod=marker ft=vim expandtab:
