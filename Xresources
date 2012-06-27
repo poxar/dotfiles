@@ -20,7 +20,7 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 
-URxvt.font: xft:Terminus:pixelsize=16:antialias=false
+URxvt.font: xft:Terminus:pixelsize=16
 xterm*faceName: terminus:pixelsize=16
 
 !! Xcursor
@@ -45,3 +45,10 @@ Xcursor.theme: left_ptr
 *color13: rgb:adad/7f7f/a8a8
 *color14: rgb:3434/e2e2/e2e2
 *color15: rgb:eeee/eeee/ecec
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
