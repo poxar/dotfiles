@@ -26,6 +26,10 @@ if [[ $EUID != 0 ]];then
 	alias hullbreak="sudo netstat --all --numeric --programs --inet"
 	# VPN university
 	alias UniVPN="sudo openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
+        # update mirrorlist using reflector
+        alias reflector="sudo reflector -c Germany -l 10 --sort score --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
+        # pacman
+        alias pacman="pacman-color"
 fi
 #}}}
 # host specific {{{

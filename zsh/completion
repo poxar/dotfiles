@@ -39,6 +39,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
 
 # compdef
-compdef _pacman yaourt
+compdef _pacman pacman-color
+compdef _pacman pacaur
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
