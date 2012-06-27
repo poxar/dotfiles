@@ -89,23 +89,5 @@ git-addremove(){
     git ls-files -deleted | xargs git rm
 }
 #}}}
-# zle-functions {{{
-# jump behind the first word on the cmdline
-jump_after_first_word() {
-    local words
-    words=(${(z)BUFFER})
-
-    if (( ${#words} <= 1 )) ; then
-        CURSOR=${#BUFFER}
-    else
-        CURSOR=${#${words[1]}}
-    fi
-}
-zle -N jump_after_first_word
-
-# prepend sudo
-run-with-sudo () { LBUFFER="sudo $LBUFFER" }
-zle -N run-with-sudo
-#}}}
 
 # vim:set sw=4 foldmethod=marker ft=zsh:

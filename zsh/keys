@@ -4,28 +4,72 @@
 # Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
-# i don't like zsh's vi-mode
-bindkey -e
+# zle-functions {{{
+# prepend sudo
+run-with-sudo () { LBUFFER="sudo $LBUFFER" }
+zle -N run-with-sudo
 
-bindkey '\e[2~' yank # Ins
-bindkey '\e[3~' delete-char # Del
-bindkey '\e[5~' up-line-or-history # PgDown
-bindkey '\e[6~' down-line-or-history # PgUp
-bindkey '\e[7~' beginning-of-line # Home
-bindkey '\e[8~' end-of-line # End
+typeset -Ag abbreviations
+abbreviations=(
+  "Il"    "| less"
+  "Ia"    "| awk"
+  "Ig"    "| grep"
+  "Igg"   "| ack"
+  "Ip"    "| $PAGER"
+  "Ih"    "| head"
+  "It"    "| tail"
+  "Is"    "| sort"
+  "Iv"    "| ${VISUAL:-${EDITOR}}"
+  "Iw"    "| wc"
+  "Ix"    "| xargs"
+)
 
-bindkey "Od" backward-word # Ctrl + <-
-bindkey "Oc" forward-word # Ctrl + ->
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle magic-space
+}
 
-bindkey '^xm' copy-prev-shell-word # insert last word
-bindkey '^xr' redo
-bindkey '^xe' edit-command-line # edit command line in editor
-bindkey '^xa' jump_after_first_word # jump behind the first word on the cmdline
-bindkey '^xs' run-with-sudo # prepend sudo
+no-magic-abbrev-expand() {
+  LBUFFER+=' '
+}
 
-bindkey -s '\C-xd' "zcalc \'" # quick acces to calculator
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+#}}}
+# vi command mode {{{
+bindkey -M vicmd "gg" beginning-of-history
+bindkey -M vicmd "G"  end-of-history
+bindkey -M vicmd "k"  history-search-backward
+bindkey -M vicmd "j"  history-search-forward
+bindkey -M vicmd "/"  history-incremental-pattern-search-backward
+bindkey -M vicmd "?"  history-incremental-pattern-search-forward
 
-# key bindings for completion
+bindkey -M vicmd u undo
+bindkey -M vicmd '^R' redo
+# }}}
+# vi insert mode {{{
+bindkey -M viins "^L" clear-screen
+bindkey -M viins "^W" backward-kill-word
+bindkey -M viins "^A" beginning-of-line
+bindkey -M viins "^E" end-of-line
+
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins "\e[A" history-search-backward
+bindkey -M viins "\e[B" history-search-forward
+bindkey -M viins '^P' history-search-backward
+bindkey -M viins '^N' history-search-forward  
+
+bindkey -M viins '^Z' undo
+bindkey -M viins '^Y' redo
+
+bindkey -M viins   '^S' run-with-sudo
+bindkey -M viins   " " magic-abbrev-expand
+bindkey -M viins   "^x " no-magic-abbrev-expand
+bindkey -M isearch " " self-insert
+# }}}
+# completion {{{
 # navigation
 bindkey -M menuselect 'h' backward-char
 bindkey -M menuselect 'j' down-line-or-history
@@ -37,5 +81,6 @@ bindkey -M menuselect 'i' accept-and-menu-complete
 bindkey -M menuselect 'o' accept-and-next-history
 # undo
 bindkey -M menuselect 'u' undo
+# }}}
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
