@@ -23,7 +23,6 @@ nfo() { iconv -f 437 -t UTF8 "$@" | less }
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 # }}}
-
 # create a dir in tmp and cd to it {{{
 cdtmp() {
     local t
@@ -31,7 +30,6 @@ cdtmp() {
     echo $t
     builtin cd $t
 } #}}}
-
 # note taking {{{
 NOTEDIR=$HOME/.pim/notes
 EDITORARGS=("+set ft=asciidoc")
@@ -57,7 +55,6 @@ nf() {
     fi
 }
 #}}}
-
 # make decisions for me! {{{
 # flip a coin
 yn(){
@@ -83,14 +80,12 @@ decide(){
     fi
 }
 #}}}
-
 # git addremove{{{
 git-addremove(){
     git add .
     git ls-files -deleted | xargs git rm
 }
 #}}}
-
 # zle-functions {{{
 # jump behind the first word on the cmdline
 jump_after_first_word() {

@@ -16,7 +16,6 @@ yellow="%{$fg[yellow]%}"
 blue="%{$fg[blue]%}"
 magenta="%{$fg[magenta]%}"
 #}}}
-
 # Configure vcs_info {{{
 # only enable those four
 zstyle ':vcs_info:*' enable bzr git hg svn
@@ -39,7 +38,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st
 # format for svn branches
 zstyle ':vcs_info:svn:*' branchformat "%b${red}:${yellow}%r"
 # }}}
-
 # +vi-git-st() Author: Seth House <seth@eseth.com> {{{
 # https://github.com/whiteinge/dotfiles/blob/master/.zsh_shouse_prompt#L76
 # Show remote ref name and number of commits ahead-of or behind
@@ -65,13 +63,11 @@ function +vi-git-st() {
         hook_com[branch]="${hook_com[branch]} ${magenta}[${reset}${remote} ${(j:/:)gitstatus}${magenta}]${reset}"
     fi
 } # }}}
-
 # todo_c() show the count of entries in todo.sh {{{
 function todo_c() {
 local count=$(todo.sh list $* | grep 'TODO:' | awk '{print $2}')
 [[ $count == 0 ]] || echo "($count)"
 } #}}}
-
 # {{{ setprompt()
 function setprompt() {
     local -a lines # array of all lines

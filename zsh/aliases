@@ -17,7 +17,6 @@ if [[ $EUID = 0 ]]; then
 	alias UniVPN="openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
 fi
 # }}}
-
 # sudo {{{
 if [[ $EUID != 0 ]];then
 	# System
@@ -29,7 +28,6 @@ if [[ $EUID != 0 ]];then
 	alias UniVPN="sudo openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
 fi
 #}}}
-
 # host specific {{{
 # littlesmoke
 if [[ $HOST = littlesmoke && $EUID != 0 ]]; then
@@ -40,7 +38,6 @@ if [[ $HOST = littlesmoke && $EUID != 0 ]]; then
     # suspend
     alias pm-suspend="sudo pm-suspend"
 fi #  }}}
-
 # aliases {{{
 # ls
 alias ls="ls --color=auto"
@@ -86,12 +83,10 @@ alias traffic="vnstat -tr"
 # udiskie
 alias uumount="udiskie-umount 2> /dev/null"
 # }}}
-
 # archlinux {{{
 alias printpkglist="comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort)"
 alias mpkg="makepkg -cis"
 # }}}
-
 # git {{{
 alias g="git"
 
@@ -110,7 +105,6 @@ alias gl="git log"
 alias gs="git status"
 alias gd="git diff"
 # }}}
-
 # PIM {{{
 # todo.sh
 alias t="todo.sh"
@@ -125,7 +119,6 @@ alias dm="rem -c+8 -w160 -m -b1 | less"
 alias ddm="rem -c+16 -w160 -m -b1 | less"
 alias stu="sed 's/%\"%\"%3: //g;s/          /:: /g' $STUNDENPLAN | remind -c+1 -w160 -m -b1 -"
 #}}}
-
 # global aliases {{{
 alias -g G="| grep"
 alias -g L="| less"
