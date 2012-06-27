@@ -81,6 +81,8 @@ alias bc="bc -q"
 
 # cclive - Youtube download
 alias cclive="cclive --output-dir $DOWNLOAD"
+# pastebin sprunge.us (<command> | sprunge)
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # find out own ip
 alias myip="lynx -dump tnx.nl/ip"
 # lookup network traffic
