@@ -23,6 +23,9 @@ nfo() { iconv -f 437 -t UTF8 "$@" | less }
 # grep the history
 hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 
+# download album from imgur
+imgur() { curl "$1" | grep _blank | awk '{print $2}' | cut -d \" -f 2 | xargs wget }
+
 # list explicitly installed packages that are not in base or base-devel
 paclist() { pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }' }
 # }}}
