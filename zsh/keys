@@ -41,30 +41,45 @@ zle -N no-magic-abbrev-expand
 # vi command mode {{{
 bindkey -M vicmd "gg" beginning-of-history
 bindkey -M vicmd "G"  end-of-history
-bindkey -M vicmd "k"  history-search-backward
-bindkey -M vicmd "j"  history-search-forward
+bindkey -M vicmd "k"  up-line-or-search
+bindkey -M vicmd "j"  down-line-or-search 
 bindkey -M vicmd "/"  history-incremental-pattern-search-backward
 bindkey -M vicmd "?"  history-incremental-pattern-search-forward
 
+# vim-like undo
 bindkey -M vicmd u undo
 bindkey -M vicmd '^R' redo
+
+# beginning/end of line
+bindkey -M vicmd 'H' vi-digit-or-beginning-of-line
+bindkey -M vicmd 'L' vi-end-of-line
+
+# make Y consistent *sigh*
+bindkey -M vicmd 'Y' vi-yank-eol
+bindkey -M vicmd 'yy' vi-yank-whole-line
 # }}}
 # vi insert mode {{{
+# preserve some readline bindings
 bindkey -M viins "^L" clear-screen
 bindkey -M viins "^W" backward-kill-word
 bindkey -M viins "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
-
 bindkey -M viins '^R' history-incremental-pattern-search-backward
-bindkey -M viins "\e[A" history-search-backward
-bindkey -M viins "\e[B" history-search-forward
+# arrow keys
+bindkey -M viins "\e[A" up-line-or-search
+bindkey -M viins "\e[B" down-line-or-search
+
 bindkey -M viins '^P' history-search-backward
 bindkey -M viins '^N' history-search-forward  
 
+# quick undo/redo
 bindkey -M viins '^Z' undo
 bindkey -M viins '^Y' redo
 
+# add sudo
 bindkey -M viins   '^S' run-with-sudo
+
+# magic space
 bindkey -M viins   " " magic-abbrev-expand
 bindkey -M viins   "^x " no-magic-abbrev-expand
 bindkey -M isearch " " self-insert
