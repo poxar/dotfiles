@@ -90,6 +90,8 @@ alias traffic="vnstat -tr"
 
 # udiskie
 alias uumount="udiskie-umount 2> /dev/null"
+# mail
+alias mail="tail -n5 ~/.mutt/log/fdm.log"
 # }}}
 # archlinux {{{
 alias printpkglist="comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort)"
