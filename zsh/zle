@@ -4,6 +4,16 @@
 # Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
+# smart urls
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
+# edit commandline in editor
+autoload -U edit-command-line
+zle -N edit-command-line
+# insert files more easily
+autoload -U insert-files
+zle -N insert-files
+
 # zle-functions {{{
 # prepend sudo
 run-with-sudo () { LBUFFER="sudo $LBUFFER" }
@@ -39,15 +49,26 @@ zle -N magic-abbrev-expand
 zle -N no-magic-abbrev-expand
 #}}}
 # vi command mode {{{
-bindkey -M vicmd "gg" beginning-of-history
-bindkey -M vicmd "G"  end-of-history
-bindkey -M vicmd "k"  up-line-or-search
-bindkey -M vicmd "j"  down-line-or-search 
-bindkey -M vicmd "/"  history-incremental-pattern-search-backward
-bindkey -M vicmd "?"  history-incremental-pattern-search-forward
+bindkey -M vicmd 'gg' beginning-of-history
+bindkey -M vicmd 'G'  end-of-history
+bindkey -M vicmd 'k'  up-line-or-search
+bindkey -M vicmd 'j'  down-line-or-search 
+
+# open man file of the current command
+bindkey -M vicmd 'K' run-help
+
+# swap the search directions and add pattern search
+bindkey -M vicmd '/'  history-incremental-pattern-search-backward
+bindkey -M vicmd '?'  history-incremental-pattern-search-forward
+
+# push the whole input into the buffer stack
+bindkey -M vicmd '^Q' push-input
+
+# edit in $EDITOR
+bindkey -M vicmd 'v' edit-command-line
 
 # vim-like undo
-bindkey -M vicmd u undo
+bindkey -M vicmd 'u' undo
 bindkey -M vicmd '^R' redo
 
 # beginning/end of line
@@ -59,32 +80,35 @@ bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd 'yy' vi-yank-whole-line
 # }}}
 # vi insert mode {{{
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins '^F' insert-files
+
 # preserve some readline bindings
-bindkey -M viins "^L" clear-screen
 bindkey -M viins "^W" backward-kill-word
 bindkey -M viins "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
 bindkey -M viins '^R' history-incremental-pattern-search-backward
-# arrow keys
-bindkey -M viins "\e[A" up-line-or-search
-bindkey -M viins "\e[B" down-line-or-search
-
+bindkey -M viins '^Q' push-input
 bindkey -M viins '^P' history-search-backward
 bindkey -M viins '^N' history-search-forward  
+
+# arrow keys
+bindkey -M viins "\e[A" up-line-or-history
+bindkey -M viins "\e[B" down-line-or-history
 
 # quick undo/redo
 bindkey -M viins '^Z' undo
 bindkey -M viins '^Y' redo
 
 # add sudo
-bindkey -M viins   '^S' run-with-sudo
+bindkey -M viins '^S' run-with-sudo
 
 # magic space
-bindkey -M viins   " " magic-abbrev-expand
-bindkey -M viins   "^x " no-magic-abbrev-expand
-bindkey -M isearch " " self-insert
+bindkey -M viins ' ' magic-abbrev-expand
+bindkey -M viins '^x ' no-magic-abbrev-expand
+bindkey -M isearch ' ' self-insert
 # }}}
-# completion {{{
+# completion bindings {{{
 # navigation
 bindkey -M menuselect 'h' backward-char
 bindkey -M menuselect 'j' down-line-or-history

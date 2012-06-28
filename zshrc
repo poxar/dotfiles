@@ -9,7 +9,7 @@ source $HOME/.zsh/settings
 source $HOME/.zsh/prompt
 source $HOME/.zsh/history
 source $HOME/.zsh/completion
-source $HOME/.zsh/keys
+source $HOME/.zsh/zle
 source $HOME/.zsh/aliases
 source $HOME/.zsh/functions
 
