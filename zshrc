@@ -13,4 +13,12 @@ source $HOME/.zsh/zle
 source $HOME/.zsh/aliases
 source $HOME/.zsh/functions
 
+# text objects and surroundings for vi-mode
+# https://github.com/hchbaw/opp.zsh
+OPPZSH=$HOME/code/opp.zsh
+if [[ -d $OPPZSH ]]; then
+    source $OPPZSH/opp.zsh
+    source $OPPZSH/opp/*
+fi
+
 # vim:set sw=4 foldmethod=marker ft=zsh:
