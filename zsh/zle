@@ -107,6 +107,9 @@ bindkey -M viins '^S' run-with-sudo
 bindkey -M viins ' ' magic-abbrev-expand
 bindkey -M viins '^x ' no-magic-abbrev-expand
 bindkey -M isearch ' ' self-insert
+
+# insert last word
+bindkey -M viins '^K' insert-last-word
 # }}}
 # completion bindings {{{
 # navigation
