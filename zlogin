@@ -15,6 +15,10 @@ print "\n[37;1mArch[34mLinux[0;37m $(uname -r) $(basename $TTY)\n"
 # start ssh-agent and gpg-agent
 eval `keychain -q --eval`
 
+# initialize tmp directories
+[[ -d /tmp/macromedia ]] || mkdir /tmp/macromedia
+[[ -d /tmp/adobe ]] || mkdir /tmp/adobe
+
 # start MPD only if its not running
 pidof mpd &>/dev/null || mpd &>/dev/null
 
