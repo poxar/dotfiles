@@ -129,17 +129,5 @@ alias dm="rem -c+8 -w160 -m -b1 | less"
 alias ddm="rem -c+16 -w160 -m -b1 | less"
 alias stu="sed 's/%\"%\"%3: //g;s/          /:: /g' $STUNDENPLAN | remind -c+1 -w160 -m -b1 -"
 #}}}
-# global aliases {{{
-alias -g G="| grep"
-alias -g L="| less"
-alias -g X="| xargs"
-alias -g LC="| wc -l"
-# no errors
-alias -g NE="2>|/dev/null"
-# no output
-alias -g NO="&>|/dev/null"
-# null
-alias -g DN="/dev/null"
-# }}}
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
