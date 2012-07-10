@@ -15,7 +15,7 @@ source $HOME/.zsh/functions
 
 # text objects and surroundings for vi-mode
 # https://github.com/hchbaw/opp.zsh
-OPPZSH=$HOME/code/opp.zsh
+OPPZSH=$HOME/.zsh/opp.zsh
 if [[ -d $OPPZSH ]]; then
     source $OPPZSH/opp.zsh
     source $OPPZSH/opp/*
