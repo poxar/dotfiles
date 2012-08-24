@@ -41,14 +41,14 @@ cdtmp() {
 } #}}}
 # note taking {{{
 NOTEDIR=$HOME/.pim/notes
-EDITORARGS=("+set ft=asciidoc")
+EDITORARGS=()
 
 # open note or make new one
 n() { $EDITOR $EDITORARGS $NOTEDIR/"$*" }
 compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
-nl() { ls $NOTEDIR | grep "$*" }
+nl() { ls -c $NOTEDIR | grep "$*" }
 
 # delete a note
 nd() { rm -rf $NOTEDIR/$* }
