@@ -38,9 +38,6 @@ if [[ $HOST = littlesmoke && $EUID != 0 ]]; then
     # netcfg
     alias netcfg="sudo netcfg"
     alias wifi-select="sudo wifi-select -p"
-
-    # suspend
-    alias pm-suspend="sudo pm-suspend"
 fi #  }}}
 # aliases {{{
 # ls
