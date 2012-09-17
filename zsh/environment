@@ -13,6 +13,7 @@ export EDITOR=vim
 export PAGER=less
 export PDFVIEWER=zathura
 export BROWSER=firefox
+export TERMINAL=urxvtc
 
 export MOZ_DISABLE_PANGO=1
 export DOTREMINDERS=$HOME/.pim/reminders
