@@ -48,10 +48,11 @@ n() { $EDITOR $EDITORARGS $NOTEDIR/"$*" }
 compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
-nl() { ls -c $NOTEDIR | grep "$*" }
+nls() { tree -DCt --noreport $NOTEDIR | grep --color=always "$*" }
+nl() { nls "$*" | head -n 15 }
 
 # delete a note
-nd() { rm -rf $NOTEDIR/$* }
+nd() { rm -rf $NOTEDIR/"$*" }
 compdef "_path_files -W $NOTEDIR" nd
 
 # search content
