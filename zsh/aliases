@@ -66,8 +66,9 @@ alias d="dirs -v"
 alias j="jobs -l"
 
 # vim
-alias v="vim"
-alias vp="vim -p"
+alias gvim="gvim --remote-silent"
+alias v="gvim"
+alias gvrc="gvim ~/.vim/vimrc"
 alias vrc="vim ~/.vim/vimrc"
 # tmux
 alias tmux="tmux -u"
