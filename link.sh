@@ -25,7 +25,11 @@ usage() {
 
 link() {
     for i in $dotfiles; do
-        ln -s ~/.dotfiles/$i ~/.$i
+        if [[ -e ~/.$i ]]; then
+            print "$HOME/.$i exists. I refuse to overwrite it."
+        else
+            ln -s ~/.dotfiles/$i ~/.$i
+        fi
     done
 }
 
