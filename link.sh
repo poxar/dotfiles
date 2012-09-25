@@ -3,8 +3,8 @@
 # Dead simple dotfile management
 # Author: Philipp Millar <philipp.millar@gmx.de>
 #
-# TODO: link directories recursively (and mkdir)
 # TODO: apply machine dependent patches of the form dofile.machine.patch?
+# TODO: completely machine dependent files? (dotfile__machine)
 #
 
 setopt extendedglob
@@ -14,7 +14,7 @@ cd ~/.dotfiles
 # (#i)   case insensitive
 # *      select all files
 # ~(...) except these
-dotfiles=( (#i)*~(readme|link.sh|*.patch) )
+dotfiles=( (#i)*~(readme|link.sh|config|*.patch) config/* )
 
 usage() {
     print "$basename -- dead simple dotfile management\n"
