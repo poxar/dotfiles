@@ -1,0 +1,22 @@
+"1.0rc1
+
+set guioptions=CMrsn
+set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
+
+set passkeys+=google.com/reader:jk
+set passkeys+=plus.google.com:jk
+set passkeys+=github.com:/swyjko
+
+loadplugins '\.(js|penta)$'
+group user
+
+map -builtin -modes=n,v <Leader>q -ex :open later
+map -builtin -modes=n,v <Leader>w -ex :open pin
+
+map -builtin -modes=i jk <esc>
+
+command proxy -nargs=1 :set! network.proxy.type=<args>
+nmap up :proxy 1<cr>
+nmap np :proxy 0<cr>
+
+" vim: set ft=pentadactyl:

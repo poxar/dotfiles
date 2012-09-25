@@ -1,0 +1,40 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# URxvt Server
+urxvtd -f -o &
+
+# detect other screens
+(xrandr -q | grep -o 'HDMI2 connected' && xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto) &
+
+# better keybindings
+xbindkeys &
+
+# auto-mounting
+udiskie &
+
+# Dropbox
+(sleep 8 && dropboxd) &
+
+# BitTorrent
+transmission-daemon &
+
+# FileManager daemon
+thunar --daemon &
+
+# Panel
+tint2 &
+
+# disable screen saver
+(xset -dpms; xset s off) &
+
+# set background
+([[ -e ~/.fehbg ]] && sh ~/.fehbg) &
+
+# start conky
+xcompmgr -c &
+conky &
+(sleep 1 && transset-df .6 -n Conky) &

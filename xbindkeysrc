@@ -1,0 +1,18 @@
+## Volume Control
+#vol+
+"~/bin/volumecontrol incr"
+	m:0x10 + c:123
+#vol-
+"~/bin/volumecontrol decr"
+	m:0x10 + c:122
+#mute
+"~/bin/volumecontrol mute"
+	m:0x10 + c:121
+#mic mute
+"~/bin/volumecontrol mic"
+	m:0x10 + c:157
+
+## Misc
+#screenlock
+"slock & xset dpms force off"
+	m:0x10 + c:127
