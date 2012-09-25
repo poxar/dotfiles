@@ -26,29 +26,38 @@ xterm*faceName: terminus:pixelsize=16
 !! Xcursor
 Xcursor.theme: left_ptr
 
-!! colors
-*foreground: grey
-*background:#1c1c1c
-*color0:  rgb:2e2e/3434/3636
-*color1:  rgb:cccc/0000/0000
-*color2:  rgb:4e4e/9a9a/0606
-*color3:  rgb:c4c4/a0a0/0000
-*color4:  rgb:3434/6565/a4a4
-*color5:  rgb:7575/5050/7b7b
-*color6:  rgb:0606/9820/9a9a
-*color7:  rgb:d3d3/d7d7/cfcf
-*color8:  rgb:5555/5757/5353
-*color9:  rgb:efef/2929/2929
-*color10: rgb:8a8a/e2e2/3434
-*color11: rgb:fcfc/e9e9/4f4f
-*color12: rgb:7272/9f9f/cfcf
-*color13: rgb:adad/7f7f/a8a8
-*color14: rgb:3434/e2e2/e2e2
-*color15: rgb:eeee/eeee/ecec
-
+!! Xft fonts
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+!! colors
+*background: black
+*foreground: white
+! black
+urxvt*color:    #141414
+urxvt*color8:   #5C585C
+! red
+urxvt*color1:   #F54E00
+urxvt*color9:   #FF0000
+! green
+urxvt*color2:   #45ED6F
+urxvt*color10:  #00FF11
+! yellow
+urxvt*color3:   #C4DE50
+urxvt*color11:  #DDFF00
+! blue
+urxvt*color4:   #4756F5
+urxvt*color12:  #002BFF
+! magenta
+urxvt*color5:   #EE69FA
+urxvt*color13:  #FF00DD
+! cyan
+urxvt*color6:   #6CF7EB
+urxvt*color14:  #07B099
+! white
+urxvt*color7:   #D6D6D6
+urxvt*color15:  #FFFFFF
