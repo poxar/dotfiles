@@ -32,8 +32,8 @@ abbreviations=(
   "Iv"    "| ${VISUAL:-${EDITOR}}"
   "Iw"    "| wc"
   "Ix"    "| xargs"
-  "Ine"   "2>|/dev/null"
-  "Ino"   "&>|/dev/null"
+  "INE"   "2>|/dev/null"
+  "INO"   "&>|/dev/null"
 )
 
 magic-abbrev-expand() {
