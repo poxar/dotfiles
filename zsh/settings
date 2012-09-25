@@ -34,13 +34,17 @@ autoload -U zfinit && zfinit	# zftp
 hash -d doc=/usr/share/doc
 hash -d log=/var/log
 
-hash -d code=~philipp/code
-hash -d data=~philipp/data
+if [[ $(uname -n) == "spitfire" ]]; then
 
-hash -d dokumente=~data/Dokumente
-hash -d bibliothek=~data/Bibliothek
+    hash -d code=~philipp/code
+    hash -d data=~philipp/data
 
-hash -d dropbox=~data/Dropbox
-hash -d uni=~data/Dokumente/Uni/6.\ Semester
+    hash -d dokumente=~data/Dokumente
+    hash -d bibliothek=~data/Bibliothek
+
+    hash -d dropbox=~data/Dropbox
+    hash -d uni=~data/Dropbox/uni
+
+fi
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
