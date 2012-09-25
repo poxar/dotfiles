@@ -74,7 +74,7 @@ function setprompt() {
     local infoline # first line
 
     # host
-    infoline+="$white%B%m%b$reset "
+    infoline+="%B%m%b$reset "
     # todo count
     which todo.sh &> /dev/null && infoline+="$(todo_c) "
     # return code if != 0
@@ -92,7 +92,7 @@ function setprompt() {
     fi
 
     # show a red # if we're root and > else
-    lines+=(" %B%0(#.$red#.$white>)%b ")
+    lines+=(" %B%0(#.$red#.$reset%B>)%b ")
 
     # form a string out of the array and set it as prompt
     PROMPT=${(F)lines}
