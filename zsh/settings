@@ -30,8 +30,6 @@ autoload -U zmv			# great batch-renaming tool
 autoload -U zcalc		# nice calculator
 autoload -U zfinit && zfinit	# zftp
 
-eval $(dircolors ~/.zsh/dircolors) # solarized colors for ls
-
 # hashed directories
 hash -d doc=/usr/share/doc
 hash -d log=/var/log
