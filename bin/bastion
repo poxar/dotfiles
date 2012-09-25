@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+cd /home/games/Bastion/Bastion
+force_s3tc_enable=true ./Bastion.bin.x86_64
+cd -

@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+if $(tmux new -s irc -n irc weechat-curses); then
+    exit
+else
+    tmux attach -t irc
+fi

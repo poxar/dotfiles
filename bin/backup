@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+TARGET="philipp@helo::/home/backup"
+
+function say() {
+    print "[34;1m::[0;37m $*"
+}
+
+function die() {
+    print "[31;1m::[0;37m $*"
+    exit 1
+}
+
+[[ $EUID != 0 ]] && die "please run as root"
+
+say 'Creating dynamic files...'
+
+comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >/root/pkglist
+pacman -Qmq | sort >/root/aurlist
+
+say 'Uploding backup...'
+
+rdiff-backup \
+    --include /boot \
+    --include /etc \
+    --include /root \
+    --include /home/philipp \
+    --exclude /home/philipp/down/.torrent \
+    --exclude '**' \
+    / $TARGET
+
+say 'Cleaning Up...'
+
+rdiff-backup \
+    --remove-older-than 1M \
+    $TARGET

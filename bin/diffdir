@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+DIR1_TMP=$(mktemp)
+DIR2_TMP=$(mktemp)
+
+ls -a $1 > $DIR1_TMP
+ls -a $2 > $DIR2_TMP
+
+colordiff $DIR2_TMP $DIR1_TMP
+
+rm -f $DIR1_TMP $DIR2_TMP

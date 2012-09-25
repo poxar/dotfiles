@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# configure keyboard
+setxkbmap de -variant nodeadkeys -option compose:menu
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
