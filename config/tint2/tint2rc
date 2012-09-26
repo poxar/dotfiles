@@ -7,7 +7,7 @@
 rounded = 0
 border_width = 0
 background_color = #000000 80
-border_color = #FFFFFF 1
+border_color = #FFFFFF 0
 
 # ID 2
 rounded = 0
@@ -20,6 +20,12 @@ rounded = 0
 border_width = 0
 background_color = #000000 0
 border_color = #FFFFFF 60
+
+# ID 4
+rounded = 0
+border_width = 0
+background_color = #FFFAC7 100
+border_color = #FFFFFF 100
 
 # Panel
 panel_monitor = all
@@ -93,9 +99,9 @@ tooltip = 1
 tooltip_padding = 2 2
 tooltip_show_timeout = 0.7
 tooltip_hide_timeout = 0.3
-tooltip_background_id = 2
+tooltip_background_id = 4
 tooltip_font = DejaVu Sans 10
-tooltip_font_color = #000000 80
+tooltip_font_color = #000000 100
 
 # Mouse
 mouse_middle = close
