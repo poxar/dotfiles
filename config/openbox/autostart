@@ -37,4 +37,4 @@ tint2 &
 # start conky
 xcompmgr -c &
 conky &
-(sleep 1 && transset-df .6 -n Conky) &
+(sleep 2 && transset-df .6 -n Conky) &
