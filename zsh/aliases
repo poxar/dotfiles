@@ -4,41 +4,17 @@
 # Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
-# configuration
-DOWNLOAD=$HOME/down
-GEBURTSTAGE=$HOME/.pim/geburtstage
-STUNDENPLAN=$HOME/.pim/stundenplan
-
-# root {{{
-if [[ $EUID = 0 ]]; then
-	# show open connections
-	alias hullbreak="netstat --all --numeric --programs --inet"
-	# VPN university
-	alias UniVPN="openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
-fi
-# }}}
 # sudo {{{
 if [[ $EUID != 0 ]];then
 	# System
 	alias poweroff="sudo poweroff"
 	alias reboot="sudo reboot"
-	# show open connections
-	alias hullbreak="sudo netstat --all --numeric --programs --inet"
-	# VPN university
-	alias UniVPN="sudo openvpn --daemon --config /etc/openvpn/openvpn-2.1.client.conf"
         # update mirrorlist using reflector
         alias reflector="sudo reflector -c Germany -l 10 --sort score --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
         # pacman
         alias pacman="pacman-color"
 fi
 #}}}
-# host specific {{{
-# littlesmoke
-if [[ $HOST = littlesmoke && $EUID != 0 ]]; then
-    # netcfg
-    alias netcfg="sudo netcfg"
-    alias wifi-select="sudo wifi-select -p"
-fi #  }}}
 # aliases {{{
 # ls
 alias ls="ls --color=auto"
@@ -48,8 +24,6 @@ alias la="ls -lAhB"
 alias diff="colordiff"
 # grep
 alias grep="grep -i --color=auto"
-# less
-alias more="less"
 # df/du
 alias df="df -hT --total"
 alias dfc="dfc -sTt -rootfs,devtmpfs,tmpfs"
@@ -66,10 +40,9 @@ alias d="dirs -v"
 alias j="jobs -l"
 
 # vim
-alias gvim="gvim --remote-silent"
-alias v="gvim"
-alias gvrc="gvim ~/.vim/vimrc"
-alias vrc="vim ~/.vim/vimrc"
+alias v="gvim --remote-silent"
+alias vl="vim -u /usr/share/vim/vim73/macros/less.vim"
+alias gvl="gvim -u /usr/share/vim/vim73/macros/less.vim"
 # tmux
 alias tmux="tmux -u"
 alias ta="tmux attach"
@@ -77,19 +50,16 @@ alias tls="tmux ls"
 # start bc without startup-message
 alias bc="bc -q"
 
-# cclive - Youtube download
-alias cclive="cclive --output-dir $DOWNLOAD"
 # pastebin sprunge.us (<command> | sprunge)
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # find out own ip
 alias myip="lynx -dump tnx.nl/ip"
-# lookup network traffic
-alias traffic="vnstat -tr"
 
 # udiskie
 alias uumount="udiskie-umount 2> /dev/null"
-# mail
-alias mail="tail -n5 ~/.mutt/log/fdm.log"
+
+# todo.sh
+alias t="todo.sh"
 # }}}
 # archlinux {{{
 alias printpkglist="comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort)"
@@ -113,19 +83,5 @@ alias gl="git log"
 alias gs="git status"
 alias gd="git diff"
 # }}}
-# PIM {{{
-# todo.sh
-alias t="todo.sh"
-
-# calendar
-# never suspend for timed reminders
-alias rem="rem -q"
-alias cal="cal -3"
-alias calendar="rem -c+2 -w160 -m -b1"
-alias m="rem -c+4 -w160 -m -b1 | less"
-alias dm="rem -c+8 -w160 -m -b1 | less"
-alias ddm="rem -c+16 -w160 -m -b1 | less"
-alias stu="sed 's/%\"%\"%3: //g;s/          /:: /g' $STUNDENPLAN | remind -c+1 -w160 -m -b1 -"
-#}}}
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
