@@ -33,8 +33,3 @@ tint2 &
 
 # set background
 ([[ -e ~/.fehbg ]] && sh ~/.fehbg) &
-
-# start conky
-xcompmgr -c &
-conky &
-(sleep 2 && transset-df .6 -n Conky) &
