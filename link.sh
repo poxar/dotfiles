@@ -20,7 +20,7 @@ cd $DOTREPO
 # *        select all files
 # ~(...)   except these
 # config/* oh and take the ones in config too
-dotfiles=( (#i)*~(readme|link.sh|config|bin|*.patch) config/* )
+dotfiles=( (#i)*~(readme*|link.sh|config|bin|*.patch) config/* )
 
 usage() {
     print "$basename -- dead simple dotfile management\n"
