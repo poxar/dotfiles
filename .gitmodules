@@ -1,3 +1,3 @@
-[submodule "zsh/opp.zsh"]
-	path = zsh/opp.zsh
+[submodule "zsh/module/opp.zsh"]
+	path = zsh/module/opp.zsh
 	url = git://github.com/hchbaw/opp.zsh.git

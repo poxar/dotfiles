@@ -1,0 +1,17 @@
+[user]
+    name = Philipp Millar
+    email = philipp.millar@gmx.de
+[github]
+    user = herrblau
+[alias]
+    co = checkout
+    br = branch
+    undo = reset --soft HEAD~1
+    addremove = add -A
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = 1
+[help]
+    autocorrect = 1

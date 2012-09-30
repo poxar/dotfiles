@@ -1,0 +1,47 @@
+#!/bin/zsh
+
+#
+# deploy my dotfile suite
+#
+
+DOTHOME=$HOME/.dotfiles
+VIMHOME=$HOME/.vim
+ZMVARGS=( -f -Ls )
+
+emulate -RL zsh
+setopt extendedglob
+autoload -U zmv
+
+function deploy_vim() {
+    # don't overwrite, make a backup instead
+    [[ -e $VIMHOME ]] && mv $VIMHOME ${VIMHOME}_backup_$(date +%s)
+    git clone git://github.com/herrblau/vimfiles.git $VIMHOME
+    $VIMHOME/tools/deploy
+}
+
+function clone_dotfiles() {
+    git clone git://github.com/herrblau/dotfiles.git $DOTHOME
+    git submodule init && git submodule update
+}
+
+function deploy_dotfiles() {
+    # dotfiles
+    zmv $ZMVARGS $DOTHOME/'_(*)' $HOME/.'$1'
+    # .config
+    [[ ! -d $XDG_CONFIG_HOME ]] && mkdir $XDG_CONFIG_HOME
+    zmv $ZMVARGS $DOTHOME/config/'(*)' $XDG_CONFIG_HOME/'$1'
+    # ~/bin
+    [[ ! -d $HOME/bin ]] && mkdir $HOME/bin
+    zmv $ZMVARGS $DOTHOME/bin/'(*)' $HOME/bin/'$1'
+}
+
+while getopts afi opt; do
+    case $opt in
+        (f)  ZMVARGS=( -o-f $ZMVARGS ) ;;
+        (i)  ZMVARGS=( -i $ZMVARGS )   ;;
+        (a)  deploy_vim ;;
+    esac
+done
+
+[[ ! -d $DOTHOME ]] && clone_dotfiles
+deploy_dotfiles

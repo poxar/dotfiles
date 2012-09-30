@@ -1,0 +1,55 @@
+
+#
+# zshrc
+#
+
+ZDIR=$HOME/.dotfiles/zsh
+
+# shell options
+setopt autocd               # change directories easily
+setopt no_beep              # don't beep at me!
+setopt complete_in_word     # complete in words
+setopt correct              # correct me
+setopt auto_pushd           # always use the directory stack
+setopt pushd_ignore_dups    # but never duplicate entries
+setopt extended_glob        # enable heavy globbing
+setopt longlistjobs         # display PID when suspending processes
+setopt braceccl             # use advanced brace expansion like {a-b}
+setopt nohup                # don't send SIGHUP when shell terminates
+setopt transient_rprompt    # remove rprompt when command is issued
+setopt functionargzero      # set $0 to be the function call
+setopt local_options        # allow functions to have local options
+setopt prompt_subst         # fully update prompts
+setopt interactive_comments # allow comments in interactive shells
+                            # useful for adding "tags" to commands (for searching)
+
+unsetopt flowcontrol        # deactivate "freezing"
+
+# history options
+setopt share_history        # share the history over multiple instances
+setopt extended_history     # put the time into history
+setopt hist_no_store        # don't save history commands
+setopt hist_reduce_blanks   # delete unneeded blanks
+setopt hist_ignore_all_dups # never duplicate entries
+setopt hist_ignore_space    # don't put commands starting with a space into history
+setopt hist_verify          # show history-completed commands before execution
+
+HISTFILE="$HOME/.zhist"
+HISTSIZE=10000
+SAVEHIST=12000
+HISTIGNORE="exit"
+
+# modules
+autoload -U colors && colors    # use colours
+autoload -U zmv                 # great batch-renaming tool
+autoload -U zcalc               # nice calculator
+autoload -U zfinit && zfinit    # zftp
+autoload -U url-quote-magic     # quote pasted urls
+autoload -U edit-command-line   # edit commandline in editor
+
+# load configuration files
+for zfile in $ZDIR/core/*.zsh(.); do; source $zfile; done
+for zfile in $ZDIR/module/**/*.zsh(.); do; source $zfile; done
+for zfile in $ZDIR/plugin/*.zsh(.); do; source $zfile; done
+
+# vim:set ft=zsh:

@@ -1,0 +1,16 @@
+
+#
+# .zlogin
+#
+
+clear
+
+# start ssh-agent and gpg-agent
+eval `keychain -q --eval`
+
+# initialize tmp directories
+[[ -d /tmp/macromedia ]] || mkdir /tmp/macromedia
+[[ -d /tmp/adobe      ]] || mkdir /tmp/adobe
+# and link them
+[[ -e $HOME/.macromedia ]] || ln -s /tmp/macromedia $HOME/.macromedia
+[[ -e $HOME/.adobe      ]] || ln -s /tmp/adobe $HOME/.adobe

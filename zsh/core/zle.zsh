@@ -1,31 +1,19 @@
 
 #
-# .zsh/keys
-# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
+# .zsh/zle
+# configure the behaviour of the zsh line editor
 #
 
-# smart urls
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
-# edit commandline in editor
-autoload -U edit-command-line
-zle -N edit-command-line
-# insert files more easily
-autoload -U insert-files
-zle -N insert-files
 
-# zle-functions {{{
 # prepend sudo
-run-with-sudo () { LBUFFER="sudo $LBUFFER" }
-zle -N run-with-sudo
+run-with-sudo() { LBUFFER="sudo $LBUFFER" }
 
 typeset -Ag abbreviations
 abbreviations=(
-  "Il"    "| less"
+  "Il"    "| $PAGER"
   "Ia"    "| awk"
   "Ig"    "| grep"
-  "Igg"   "| ack"
-  "Ip"    "| $PAGER"
+  "Igg"   "| ag"
   "Ih"    "| head"
   "It"    "| tail"
   "Is"    "| sort"
@@ -47,9 +35,13 @@ no-magic-abbrev-expand() {
   LBUFFER+=' '
 }
 
+zle -N self-insert url-quote-magic
+zle -N edit-command-line
+
+zle -N run-with-sudo
 zle -N magic-abbrev-expand
 zle -N no-magic-abbrev-expand
-#}}}
+
 # vi command mode {{{
 bindkey -M vicmd 'gg' beginning-of-history
 bindkey -M vicmd 'G'  end-of-history
@@ -77,6 +69,9 @@ bindkey -M vicmd '^R' redo
 bindkey -M vicmd 'H' vi-digit-or-beginning-of-line
 bindkey -M vicmd 'L' vi-end-of-line
 
+# add sudo
+bindkey -M viins '^S' run-with-sudo
+
 # make Y consistent *sigh*
 bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd 'yy' vi-yank-whole-line
@@ -91,8 +86,8 @@ bindkey -M viins "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^Q' push-input
-bindkey -M viins '^P' history-search-backward
-bindkey -M viins '^N' history-search-forward  
+bindkey -M viins '^P' history-beginning-search-backward
+bindkey -M viins '^N' history-beginning-search-forward  
 
 # arrow keys
 bindkey -M viins "\e[A" up-line-or-history
@@ -113,7 +108,7 @@ bindkey -M isearch ' ' self-insert
 # insert last word
 bindkey -M viins '^K' insert-last-word
 # }}}
-# completion bindings {{{
+# completion {{{
 # navigation
 bindkey -M menuselect 'h' backward-char
 bindkey -M menuselect 'j' down-line-or-history

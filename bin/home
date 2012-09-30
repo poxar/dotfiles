@@ -2,12 +2,11 @@
 
 
 case $1 in
-    close)
+    leave)
 	xrandr --output LVDS1 --auto --primary --output HDMI2 --off
 	;;
     *)
 	xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto
-	setxkbmap de -variant nodeadkeys
-	xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+        $HOME/bin/qwertz
 	;;
 esac

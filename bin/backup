@@ -25,7 +25,7 @@ rdiff-backup \
     --include /etc \
     --include /root \
     --include /home/philipp \
-    --exclude /home/philipp/down/.torrent \
+    --exclude /home/philipp/down \
     --exclude '**' \
     / $TARGET
 

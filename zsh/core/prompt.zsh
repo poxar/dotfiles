@@ -1,7 +1,6 @@
 
 #
 # .zsh/prompt
-# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
 autoload -Uz vcs_info

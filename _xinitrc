@@ -12,7 +12,6 @@ xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 8 1
 xset +fp /usr/share/fonts/local
 xset fp rehash
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-xsetroot -cursor_name vanilla_dmz
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -21,8 +20,32 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-numlockx &
+xsetroot -cursor_name left_ptr
+numlockx
 
-# start wm
-#exec ck-launch-session awesome
-exec ck-launch-session openbox-session
+DEFAULT_SESSION=xmonad
+
+case $1 in
+openbox)
+    exec openbox-session
+    ;;
+dwm)
+    exec dwm
+    ;;
+awesome)
+    exec awesome
+    ;;
+xmonad)
+    exec xmonad
+    ;;
+subtle)
+    $HOME/bin/autorun.sh
+    exec subtle
+    ;;
+herbstluft)
+    exec herbstluftwm
+    ;;
+*)
+    exec $DEFAULT_SESSION
+    ;;
+esac

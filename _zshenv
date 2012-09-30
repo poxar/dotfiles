@@ -1,0 +1,30 @@
+
+#
+# .zshenv
+#
+
+PATH=$HOME/bin:$PATH
+PATH=$PATH:$HOME/.gem/ruby/1.9.1/bin
+export PATH
+
+export EDITOR=vim
+
+export GPG_TTY=$(tty)
+export GEM_HOME="$HOME/.gem/ruby/1.9.1"
+export TODOTXT_CFG_FILE="$HOME/.config/todotxt.cfg"
+
+# firefox
+export BROWSER=firefox
+export MOZ_DISABLE_PANGO=1
+
+# less
+export PAGER=less
+export LESSHISTFILE=/dev/null
+
+if [[ -e $(which lesspipe.sh) ]]; then
+    eval `lesspipe.sh`
+elif [[ -e $(which lesspipe) ]]; then
+    eval `lesspipe`
+fi
+
+# vim:set sw=4 foldmethod=marker ft=zsh:

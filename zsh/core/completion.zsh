@@ -1,7 +1,6 @@
 
 #
 # .zsh/completion
-# Maintainer:	Philipp Millar <philipp.millar@gmx.de>
 #
 
 zstyle :compinstall filename "$HOME/.zshrc"
@@ -9,9 +8,8 @@ autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
 zstyle ':completion::complete:*' rehash true
-# use colours
+# be colorful and informative
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# look & feel
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format $'%{[0;31m%}%d%{[0m%}'
@@ -37,9 +35,3 @@ zstyle ':completion:*:kill:*' command 'ps xf -u $USER -o pid,%cpu,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 # don't suggest files/pids that are already on the line (for rm, kill and diff)
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
-
-# compdef
-compdef _pacman pacman-color
-compdef _pacman pacaur
-
-# vim:set sw=4 foldmethod=marker ft=zsh:
