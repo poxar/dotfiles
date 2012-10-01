@@ -1,0 +1,3 @@
+set show-date = relative
+set show-author = abbreviated
+set author-width = 10
