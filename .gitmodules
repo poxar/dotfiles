@@ -1,3 +1,9 @@
 [submodule "zsh/module/opp.zsh"]
 	path = zsh/module/opp.zsh
 	url = git://github.com/hchbaw/opp.zsh.git
+[submodule "zsh/module/zsh-completions"]
+	path = zsh/module/zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/module/zsh_functional"]
+	path = zsh/module/zsh_functional
+	url = git://github.com/yogsototh/zsh_functional
