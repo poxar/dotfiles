@@ -18,6 +18,6 @@ if [[ $(uname -n) == "littlesmoke" ]]; then
     hash -d bib=~data/Bibliothek
     hash -d dropbox=~data/Dropbox
 
-    hash -d uni=~dropbox/uni
+    hash -d uni=~dokumente/Uni
 
 fi
