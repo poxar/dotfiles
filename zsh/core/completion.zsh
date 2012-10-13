@@ -16,7 +16,8 @@ zstyle ':completion:*:descriptions' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:corrections' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:messages' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:warnings' format $'%{[0;31m%}%d%{[0m%}'
-# ignore some files
+# ignore some files and completions for programs we don't have
+zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:(all-|)files' ignored patterns "(*.BAK|*.bak|*.o|*.aux|*.toc|*.swp|*~)"
 # ignore nothing, when completing rm
 zstyle ':completion:*:rm:*:(all-|)files' ignored patterns
