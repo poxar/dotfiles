@@ -23,27 +23,21 @@ fi
 xsetroot -cursor_name left_ptr
 numlockx
 
-DEFAULT_SESSION=xmonad
+DEFAULT_SESSION=i3
 
 case $1 in
+i3)
+    exec i3
+    ;;
 openbox)
     exec openbox-session
-    ;;
-dwm)
-    exec dwm
     ;;
 awesome)
     exec awesome
     ;;
-xmonad)
-    exec xmonad
-    ;;
 subtle)
     $HOME/bin/autorun.sh
     exec subtle
-    ;;
-herbstluft)
-    exec herbstluftwm
     ;;
 *)
     exec $DEFAULT_SESSION
