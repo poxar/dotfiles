@@ -19,4 +19,8 @@ command proxy -nargs=1 :set! network.proxy.type=<args>
 nmap up :proxy 1<cr>
 nmap np :proxy 0<cr>
 
+" Switch tabs with parens
+nmap -builtin ) :tn<CR>
+nmap -builtin ( :tp<CR>
+
 " vim: set ft=pentadactyl:
