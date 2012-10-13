@@ -4,7 +4,7 @@
 # note taking inspired by notational velocity
 #
 
-NOTEDIR=$HOME/.pim/notes
+NOTEDIR=$HOME/.notes
 EDITORARGS=()
 
 # open note or make new one
