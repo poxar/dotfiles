@@ -22,6 +22,7 @@ abbreviations=(
   "Ix"    "| xargs"
   "INE"   "2>|/dev/null"
   "INO"   "&>|/dev/null"
+  "Ipwd"  "$(pwd)"
 )
 
 magic-abbrev-expand() {
