@@ -32,6 +32,9 @@ i3)
 openbox)
     exec openbox-session
     ;;
+gnome)
+    exec gnome-session
+    ;;
 *)
     exec $DEFAULT_SESSION
     ;;
