@@ -32,9 +32,6 @@ i3)
 openbox)
     exec openbox-session
     ;;
-awesome)
-    exec awesome
-    ;;
 subtle)
     $HOME/bin/autorun.sh
     exec subtle
