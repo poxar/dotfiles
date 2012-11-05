@@ -33,4 +33,5 @@ say 'Cleaning Up...'
 
 rdiff-backup \
     --remove-older-than 1M \
+    --force \
     $TARGET
