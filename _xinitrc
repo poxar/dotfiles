@@ -32,10 +32,6 @@ i3)
 openbox)
     exec openbox-session
     ;;
-subtle)
-    $HOME/bin/autorun.sh
-    exec subtle
-    ;;
 *)
     exec $DEFAULT_SESSION
     ;;
