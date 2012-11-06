@@ -6,10 +6,6 @@
 
 if [[ -r $(which pacman) ]]; then
 
-    # use pacman-color if available
-    which pacman-color &>/dev/null && alias pacman="pacman-color"
-    compdef _pacman pacman-color
-
     # update mirrorlist using reflector
     [[ $EUID != 0 ]] && alias reflector="sudo reflector -c Germany -l 10 --sort score --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
 
