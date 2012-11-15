@@ -11,6 +11,8 @@ alias df="df -hT --total"
 alias dfc="dfc -sTt -rootfs,devtmpfs,tmpfs"
 alias du="du -ch"
 
+alias rm="rm -I"
+
 alias c6="chmod 600"
 alias c7="chmod 700"
 alias px="chmod +x"
