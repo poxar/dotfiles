@@ -22,6 +22,8 @@ c() { $PROJECTS/$1 }
 compdef "_path_files -/ -W $PROJECTS" c
 h() { $HOME/$1 }
 compdef "_path_files -/ -W $HOME" h
+u() { ~dropbox/Uni/$1 }
+compdef "_path_files -/ -W ~dropbox/Uni" u
 
 # cd to directory and list files
 cdl() { cd $1 && l }
