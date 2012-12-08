@@ -23,17 +23,22 @@ fi
 xsetroot -cursor_name left_ptr
 numlockx
 
-DEFAULT_SESSION=i3
+
+DEFAULT_SESSION=compiz
 
 case $1 in
 i3)
     exec i3
     ;;
 openbox)
+    tint2 &
+    ~/bin/autorun.sh &
     exec openbox-session
     ;;
-gnome)
-    exec gnome-session
+compiz)
+    tint2 &
+    ~/bin/autorun.sh &
+    exec dbus-launch fusion-icon
     ;;
 *)
     exec $DEFAULT_SESSION
