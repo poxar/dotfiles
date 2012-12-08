@@ -1,12 +1,12 @@
 ## Volume Control
 #vol+
-"~/bin/volumecontrol incr"
+"~/bin/volosd up"
 	m:0x10 + c:123
 #vol-
-"~/bin/volumecontrol decr"
+"~/bin/volosd down"
 	m:0x10 + c:122
 #mute
-"~/bin/volumecontrol mute"
+"~/bin/volosd mute"
 	m:0x10 + c:121
 #mic mute
 "~/bin/volumecontrol mic"
