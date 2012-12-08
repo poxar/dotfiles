@@ -1,0 +1,2 @@
+#!/bin/zsh
+wmctrl -x -a "$1" || $2
