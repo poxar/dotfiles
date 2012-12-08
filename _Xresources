@@ -35,6 +35,8 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 !! colors
+URxvt.depth: 32
+URxvt.background: [90]#000000
 *background:              black
 *foreground:              white
 *color0:                  #2e3436
