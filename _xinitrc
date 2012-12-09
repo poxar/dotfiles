@@ -24,7 +24,7 @@ xsetroot -cursor_name left_ptr
 numlockx
 
 
-DEFAULT_SESSION=compiz
+DEFAULT_SESSION=i3
 
 case $1 in
 i3)
@@ -36,7 +36,7 @@ openbox)
     exec openbox-session
     ;;
 compiz)
-    tint2 &
+    avant-window-navigator &
     ~/bin/autorun.sh &
     exec dbus-launch fusion-icon
     ;;
