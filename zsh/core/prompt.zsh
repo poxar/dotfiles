@@ -62,11 +62,6 @@ function +vi-git-st() {
         hook_com[branch]="${hook_com[branch]} ${magenta}[${reset}${remote} ${(j:/:)gitstatus}${magenta}]${reset}"
     fi
 } # }}}
-# todo_c() show the count of entries in todo.sh {{{
-function todo_c() {
-local count=$(todo.sh list $* | grep 'TODO:' | awk '{print $2}')
-[[ $count == 0 ]] || echo "($count)"
-} #}}}
 # {{{ setprompt()
 function setprompt() {
     local -a lines # array of all lines
@@ -74,8 +69,6 @@ function setprompt() {
 
     # host
     infoline+="%B%m%b$reset "
-    # todo count
-    which todo.sh &> /dev/null && infoline+="$(todo_c) "
     # return code if != 0
     infoline+="%(?..[$red%B%?%b$reset] )"
     # number of running jobs if any
