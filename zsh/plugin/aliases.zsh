@@ -24,8 +24,12 @@ alias j="jobs -l"
 alias v="gvim"
 alias vv="gvim --remote-silent"
 
+alias tm="tmux new"
 alias ta="tmux attach"
+alias tl="tmux ls"
+
 alias uumount="udiskie-umount 2> /dev/null"
+alias weechat="tmux new -s weechat weechat-curses"
 alias t="todo.sh"
 
 # pastebin sprunge.us (<command> | sprunge)
