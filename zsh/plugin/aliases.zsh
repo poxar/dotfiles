@@ -38,6 +38,11 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 # find out own ip
 alias myip="lynx -dump tnx.nl/ip"
 
+# convert decimal to/from hex
+alias d2h='printf "%x\n" $1'
+alias h2d='printf "%d\n" 0x$1'
+
+
 if [[ $EUID != 0 ]];then
 	alias poweroff="sudo poweroff"
 	alias reboot="sudo reboot"
