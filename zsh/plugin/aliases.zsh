@@ -29,7 +29,7 @@ alias ta="tmux attach"
 alias tl="tmux ls"
 
 alias uumount="udiskie-umount 2> /dev/null"
-alias weechat="tmux new -s weechat weechat-curses"
+alias weechat="tmux neww -t 0 -d -n chat weechat-curses"
 alias t="todo.sh"
 
 # pastebin sprunge.us (<command> | sprunge)
