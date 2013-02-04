@@ -4,6 +4,8 @@
 # configure the behaviour of the zsh line editor
 #
 
+# use bash-style words
+select-word-style bash
 
 # prepend sudo
 run-with-sudo() { LBUFFER="sudo $LBUFFER" }

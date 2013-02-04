@@ -46,6 +46,7 @@ autoload -U zcalc               # nice calculator
 autoload -U zfinit && zfinit    # zftp
 autoload -U url-quote-magic     # quote pasted urls
 autoload -U edit-command-line   # edit commandline in editor
+autoload -U select-word-style   # select word delimiters
 
 # load configuration files
 for zfile in $ZDIR/core/*.zsh(.); do; source $zfile; done
