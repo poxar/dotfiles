@@ -5,5 +5,9 @@
 xbindkeys
 urxvtd -q -o -f
 
+# turn off screensaver
+xset s off
+xset -dbms
+
 run_once nm-applet
 (sleep 3 && dropboxd)
