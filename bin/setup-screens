@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+XRANDROUT=$(xrandr -q)
+
+function is_connected() {
+    echo $XRANDROUT | grep -q "$1 connected"
+}
+
+if is_connected "HDMI2"; then
+    OUTPUT="HDMI2"
+elif is_connected "HDMI1"; then
+    OUTPUT="HDMI1"
+elif is_connected "VGA1"; then
+    OUTPUT="VGA1"
+else
+    return false
+fi
+
+xrandr \
+    --output LVDS1 --auto \
+    --left-of $OUTPUT \
+    --output $OUTPUT --auto
+

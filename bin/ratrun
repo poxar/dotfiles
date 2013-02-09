@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# setup screens
+~/bin/setup-screens && ratpoison -c restart
+
+pgrep urxvt     &> /dev/null || urxvt       &
+pgrep nm-applet &> /dev/null || nm-applet   &
+sleep 3 && dropbox running && dropbox start &

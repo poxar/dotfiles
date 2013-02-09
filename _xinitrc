@@ -28,7 +28,6 @@ DEFAULT_SESSION=ratpoison
 
 case $1 in
 ratpoison)
-    (xrandr -q | grep -o 'HDMI2 connected' && xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto)
     exec ratpoison
     ;;
 i3)
