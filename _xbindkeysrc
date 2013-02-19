@@ -9,7 +9,7 @@
 "~/bin/volosd mute"
 	m:0x10 + c:121
 #mic mute
-"~/bin/volumecontrol mic"
+"~/bin/volosd mic"
 	m:0x10 + c:157
 
 ## Misc

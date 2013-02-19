@@ -1,6 +1,6 @@
 #!/bin/sh
 
-usage="usage: $0 -c {up|down|mute} [-i increment] [-m mixer]"
+usage="usage: $0 -c {up|down|mute|mic} [-i increment] [-m mixer]"
 command=
 increment=5%
 mixer=Master
@@ -18,7 +18,7 @@ shift $(($OPTIND - 1))
 command=$1
 
 if [ "$command" = "" ]; then
-    echo "usage: $0 {up|down|mute} [increment]"
+    echo "usage: $0 {up|down|mute|mic} [increment]"
     exit 0;
 fi
 
@@ -41,6 +41,17 @@ if [ "$command" = "mute" ]; then
         amixer set $mixer mute
     else
         display_volume=$(amixer set $mixer unmute | grep -m 1 "%]" | cut -d "[" -f2|cut -d "%" -f1)
+    fi
+fi
+
+if [ "$command" = "mic" ]; then
+    icon_name="media-record"
+    amixer set Capture toggle
+
+    if amixer get Capture | grep "\[on\]"; then
+        display_volume=100
+    else
+        display_volume=0
     fi
 fi
 
