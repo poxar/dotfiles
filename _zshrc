@@ -4,6 +4,13 @@
 #
 
 ZDIR=$HOME/.dotfiles/zsh
+PATH=$HOME/bin:$PATH
+export PATH
+export EDITOR=vim
+export GPG_TTY=$(tty)
+export BROWSER=firefox
+export MOZ_DISABLE_PANGO=1
+export LESSHISTFILE=/dev/null
 
 # shell options
 setopt autocd               # change directories easily
@@ -21,7 +28,6 @@ setopt functionargzero      # set $0 to be the function call
 setopt local_options        # allow functions to have local options
 setopt prompt_subst         # fully update prompts
 setopt interactive_comments # allow comments in interactive shells
-                            # useful for adding "tags" to commands (for searching)
 
 unsetopt flowcontrol        # deactivate "freezing"
 
