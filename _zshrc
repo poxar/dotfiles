@@ -60,8 +60,6 @@ autoload -U select-word-style   # select word delimiters
 for zfile in $ZDIR/core/*.zsh(.); do; source $zfile; done
 for zfile in $ZDIR/plugin/*.zsh(.); do; source $zfile; done
 
-# text objects for zle
-for zfile in $ZDIR/module/opp.zsh/**/*.zsh(.); do; source $zfile; done
 # higher order functions
 for zfile in $ZDIR/module/zsh_functional/src/*(.); do; source $zfile; done
 # moar completions :)
