@@ -15,10 +15,6 @@ hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
 # download album from imgur
 imgur() { curl "$1" | grep _blank | awk '{print $2}' | cut -d \" -f 2 | xargs wget }
 
-# show current pwd or file in browser
-browse() { $BROWSER file://"`pwd`/$1" }
-
-
 # make decisions
 # flip a coin
 yn(){
