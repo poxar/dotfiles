@@ -41,6 +41,9 @@ alias myip="lynx -dump tnx.nl/ip"
 alias d2h='printf "%x\n" $1'
 alias h2d='printf "%d\n" 0x$1'
 
+# help with zle keybindings
+alias help-zle='bindkey -L | vim -c "set ft=zsh" -c "set so=999" -R -'
+
 
 if [[ $EUID != 0 ]];then
 	alias poweroff="sudo poweroff"
