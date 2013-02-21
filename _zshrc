@@ -11,6 +11,8 @@ export GPG_TTY=$(tty)
 export BROWSER=firefox
 export MOZ_DISABLE_PANGO=1
 export LESSHISTFILE=/dev/null
+eval `dircolors -b`
+export ZLS_COLORS=$LS_COLORS
 
 # shell options
 setopt autocd               # change directories easily
