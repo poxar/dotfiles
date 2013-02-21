@@ -1,6 +1,16 @@
 #!/bin/zsh
 
-TARGET="philipp@helo::/home/backup"
+HELPER_DIR="/media/windows/Users/philipp"
+BACKUP_DIRS=(
+             "~"
+             "$HELPER_DIR/Documents/Bibliothek"
+             "$HELPER_DIR/Pictures"
+             "$HELPER_DIR/Music"
+            )
+
+SSH_USER="philipp"
+SSH_HOST="helo"
+SSH_DIR="/home/philipp/backup"
 
 function say() {
     print "[34;1m::[0;37m $*"
@@ -11,27 +21,16 @@ function die() {
     exit 1
 }
 
-[[ $EUID != 0 ]] && die "please run as root"
-
 say 'Creating dynamic files...'
 
-comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >/root/pkglist
-pacman -Qmq | sort >/root/aurlist
+comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >~/tmp/pkglist
+pacman -Qmq | sort >~/tmp/aurlist
 
 say 'Uploding backup...'
 
-rdiff-backup \
-    --include /boot \
-    --include /etc \
-    --include /root \
-    --include /home/philipp \
-    --exclude /home/philipp/down \
-    --exclude '**' \
-    / $TARGET
+rdup-simple -E ~/.rdup/exclude $BACKUP_DIRS ssh://${SSH_USER}@${SSH_HOST}${SSH_DIR}
 
 say 'Cleaning Up...'
 
-rdiff-backup \
-    --remove-older-than 1M \
-    --force \
-    $TARGET
+rm -f ~/tmp/pkglist ~/tmp/aurlist
+
