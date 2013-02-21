@@ -56,13 +56,14 @@ autoload -U url-quote-magic     # quote pasted urls
 autoload -U edit-command-line   # edit commandline in editor
 autoload -U select-word-style   # select word delimiters
 
+# moar completions :)
+fpath=($ZDIR/module/zsh-completions/src $fpath)
+
 # load configuration files
 for zfile in $ZDIR/core/*.zsh(.); do; source $zfile; done
 for zfile in $ZDIR/plugin/*.zsh(.); do; source $zfile; done
 
 # higher order functions
 for zfile in $ZDIR/module/zsh_functional/src/*(.); do; source $zfile; done
-# moar completions :)
-fpath=($ZDIR/module/zsh-completions/src $fpath)
 
 # vim:set ft=zsh:
