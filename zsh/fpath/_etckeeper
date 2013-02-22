@@ -1,0 +1,57 @@
+#compdef etckeeper
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for etckeeper (http://joeyh.name/code/etckeeper/).
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Philipp Millar (poxar[at]gmx[dot]net)
+#
+# ------------------------------------------------------------------------------
+
+
+_etckeeper() {
+
+  if (( CURRENT == 1 )); then
+    _values "etckeeper commands" \
+    "init[Initialises and sets up vcs for /etc]" \
+    "commit[Adds and commits all changes in /etc]" \
+    "pre-commit[Stores metadata and does sanity checks]" \
+    "pre-install[Commits any uncommitted changes before packages are installed, upgraded, etc]" \
+    "post-install[Commits changes made by packages into the repository]" \
+    "unclean[Returns true if the directory contains uncommitted changes]" \
+    "update-ignore[Updates the VCS ignore file]" \
+    "vcs[Runs subcommand of the used VCS in /etc]" \
+    "uninit[Removes all VCS data from /etc. DESTROYS DATA!]"
+  else
+    (( CURRENT-- ))
+    shift words
+    _call_function 1 _etckeeper_${words[1]}
+  fi
+}
+
+_etckeeper_init(){}
+_etckeeper_uninit(){}
+_etckeeper_pre-commit(){}
+_etckeeper_pre-install(){}
+_etckeeper_post-install(){}
+_etckeeper_unclean(){}
+
+_etckeeper_commit(){
+  _message -e message 'commit message' && ret=0
+}
+_etckeeper_update-ignore(){
+  _arguments \
+    "-a[Adds a 'managed by etckeeper' block, if none is present]" \
+  && ret=0
+}
+_etckeeper_vcs(){
+  # TODO: call the vcs here
+  _message -e message 'VCS command' && ret=0
+}
+
+# vim: ft=zsh sw=2 ts=2 et

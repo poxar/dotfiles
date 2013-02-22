@@ -13,15 +13,14 @@ repository, so I can use it without having to fetch all of my dotfiles.
 
 My zsh configuration is organised in three folders:
 
-* **zsh/core:** the basic zsh configuration like completion and prompt
-* **zsh/module:** git submodules
-* **zsh/plugin:** functions and aliases organised in different files (topics)
+* **zsh/core:** basic zsh configuration like completion and prompt
+* **zsh/fpath:** completion functions
+* **zsh/plugin:** functions and aliases organised by topics
 
-And into four files, that are linked into $HOME
+And into three files, that are linked into $HOME
 
 * **zshrc** sets shell options and loads the files in proper order
-* **zshenv** sets up environment variables
-* **zlogin** configures keychain and links .adobe and .macromedia to /tmp
+* **zlogin** configures keychain and links stuff to /tmp
 * **zlogout** clears the screen when logging out
 
 ## Install

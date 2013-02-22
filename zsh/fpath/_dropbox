@@ -1,0 +1,102 @@
+#compdef dropbox dropbox.py
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for dropbox cli client
+#  (https://www.dropbox.com/download?dl=packages/dropbox.py).
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Philipp Millar (poxar[at]gmx[dot]net)
+#
+# ------------------------------------------------------------------------------
+
+
+_dropbox() {
+
+  if (( CURRENT < 3 )); then
+    _values "dropbox commands" \
+    "status[get current status of the dropboxd]" \
+    "help[provide help]" \
+    "puburl[get public url of a file in your dropbox]" \
+    "stop[stop dropboxd]" \
+    "running[returns 1 if dropbox is running, 0 else]" \
+    "start[start dropboxd]" \
+    "filestatus[current sync status of one or more files]" \
+    "ls[list directory contents with current sync status]" \
+    "autostart[automatically start dropbox at login]" \
+    "exclude[ignores/excludes a directory from syncing]" \
+    "lansync[enables or disables LAN sync]" \
+    "stat[same as filestatus -a]"
+  else
+    (( CURRENT-- ))
+    shift words
+    _call_function 1 _dropbox_${words[1]}
+  fi
+}
+
+_dropbox_help(){
+  _args=("status"
+         "help"
+         "puburl"
+         "stop"
+         "running"
+         "start"
+         "stat"
+         "filestatus"
+         "ls"
+         "autostart"
+         "exclude"
+         "lansync")
+  compadd "$@" -k _args
+}
+
+_dropbox_start(){
+  _arguments \
+    "(-i --install)"{-i,--install}"[installs dropboxd if not available]" \
+    && ret=0
+}
+
+_dropbox_filestatus(){
+  _arguments \
+    '*:file:_path_files' \
+    "(-a --all)"{-a,--all}"[show hidden entries]" \
+    "(-l --list)"{-l,--list}"[prints out information in a format similar to ls]" \
+    && ret=0
+}
+
+_dropbox_exclude(){
+  # TODO: only suggest excluded directories when removing
+  # TODO: do not suggest paths when list is called
+  if (( CURRENT < 3 )); then
+    _values "exclude commands" \
+    "list[list currently excluded directories]" \
+    "add[add directories to the exclude list]" \
+    "remove[remove directories from the exclude list]"
+  else
+    _path_files
+  fi
+}
+
+_dropbox_autostart(){
+  _args=("y" "n")
+  compadd "$@" -k _args
+}
+
+_dropbox_lansync(){
+  _args=("y" "n")
+  compadd "$@" -k _args
+}
+
+_dropbox_stat(){ _path_files }
+_dropbox_puburl(){ _path_files }
+_dropbox_ls(){ _path_files }
+
+_dropbox_status(){}
+_dropbox_stop(){}
+_dropbox_running(){}
+
+# vim: ft=zsh sw=2 ts=2 et
