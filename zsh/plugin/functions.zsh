@@ -1,8 +1,25 @@
 
 #
-# .zsh/topics/functions.zsh
+# .zsh/plugin/functions.zsh
 # functions, that don't fit into any topic
 #
+
+# quick alias / function editing (from grml.org)
+# edit a function via zle
+autoload zed
+edfunc() {
+    [[ -z "$1" ]] && { echo "Usage: edfunc <function_to_edit>" ; return 1 } || \
+        zed -f "$1" ;
+}
+compdef _functions edfunc
+
+# edit an alias via zle
+edalias() {
+    [[ -z "$1" ]] && { echo "Usage: edalias <alias_to_edit>" ; return 1 } || \
+        vared aliases'[$1]' ;
+}
+compdef _aliases edalias
+
 
 # witty one-liners
 
@@ -10,10 +27,7 @@
 nfo() { iconv -f 437 -t UTF8 "$@" | $PAGER }
 
 # grep the history
-hist() { fc -fl -m "*(#i)$1*" 1 | grep -i --color $1 }
-
-# download album from imgur
-imgur() { curl "$1" | grep _blank | awk '{print $2}' | cut -d \" -f 2 | xargs wget }
+hist() { fc -fl -m "*(#i)$1*" 1 | grep -i $grep_options $1 }
 
 # colorful man pages
 man() {
@@ -28,4 +42,7 @@ man() {
         man "$@"
 }
 
-# vim:set sw=4 foldmethod=marker ft=zsh:
+# convert decimal to/from hex
+d2h() { printf "%x\n" $* }
+h2d() { printf "%d\n" $* } # 0x
+

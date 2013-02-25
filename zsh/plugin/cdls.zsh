@@ -1,12 +1,10 @@
 
 #
-# .zsh/topics/cdls.zsh
+# .zsh/plugin/cdls.zsh
 # aliases and functions for cd, ls, mkdir
 #
 
-PROJECTS="$HOME/code"
-
-alias ls="ls --color=auto"
+alias ls="ls $ls_options"
 alias l="ls -lhFB"
 alias la="ls -lAhB"
 alias md="mkdir -p"
@@ -18,12 +16,10 @@ alias ld='l -d -- *(/)'
 alias laf='l -a -- .*(.)'
 alias lf='l -a -- *(.)'
 
-c() { $PROJECTS/$1 }
-compdef "_path_files -/ -W $PROJECTS" c
-h() { $HOME/$1 }
-compdef "_path_files -/ -W $HOME" h
-u() { ~dropbox/Uni/$1 }
-compdef "_path_files -/ -W ~dropbox/Uni" u
+if [[ ! -z $PROJECTS ]]; then
+    c() { $PROJECTS/$1 }
+    compdef "_path_files -/ -W $PROJECTS" c
+fi
 
 # cd to directory and list files
 cdl() { cd $1 && l }
@@ -31,7 +27,9 @@ cdl() { cd $1 && l }
 mcd() { mkdir -p $@ && cd $1 }
 
 # colorful ls in less
-ll() { ls -lAhB --color=always "$@" | less -r }
+if ls --help 2> /dev/null | grep -q GNU; then
+    ll() { ls -lAhB --color=always "$@" | less -r }
+fi
 
 # count the files/folders in a directory
 lc() { ls "$@" | wc -l }
@@ -41,19 +39,26 @@ lca() { ls -A "$@" | wc -l }
 # create a dir in tmp and cd to it
 cdtmp() {
     local t
-    t=$(mktemp -d)
+    t=$(mktemp $mktemp_options -d)
     echo $t
     builtin cd $t
 }
 
 # show a diff of two dirs
 diffdir() {
-    DIR1_TMP=$(mktemp)
-    DIR2_TMP=$(mktemp)
+    local DIR1_TMP
+    local DIR2_TMP
+    DIR1_TMP=$(mktemp $mktemp_options)
+    DIR2_TMP=$(mktemp $mktemp_options)
 
     ls -a $1 > $DIR1_TMP
     ls -a $2 > $DIR2_TMP
 
-    colordiff $DIR2_TMP $DIR1_TMP
+    if which colordiff &>/dev/null; then
+        colordiff $DIR2_TMP $DIR1_TMP
+    else
+        diff $DIR2_TMP $DIR1_TMP
+    fi
+
     rm -f $DIR1_TMP $DIR2_TMP
 }

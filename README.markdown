@@ -23,6 +23,12 @@ And into three files, that are linked into $HOME
 * **zlogin** configures keychain and links stuff to /tmp
 * **zlogout** clears the screen when logging out
 
+The files, that will be loaded from **core** have to be specified in **zshrc**.
+This way you can add a new configuration relatively easy (Copy the old file and
+edit).
+
+A lot of the configuration is stolen from [grml](http://grml.org/zsh/).
+
 ## Install
 
 Make sure you have zsh and git installed and in your $PATH.
@@ -39,9 +45,14 @@ If you want to deploy the big version with vim:
 .dotfiles/deploy -a
 ```
 
-If you want to overwrite your old files try ```.dotfiles/deploy -fi```.
+If you want to overwrite your old files try:
+
+```sh
+.dotfiles/deploy -fi
+```
 
 However I recommend you cook up your own zsh configuration (maybe using this as
 a starting point) or clone something like
-[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) or the
+[grml-zsh-config](http://grml.org/zsh/).
 

@@ -7,9 +7,88 @@
 # use emacs bindings and vim for heavy editing :D
 bindkey -e
 
+autoload -U url-quote-magic   # quote pasted urls
+autoload -U edit-command-line # edit commandline in editor
+
 zle -N edit-command-line
 zle -N self-insert url-quote-magic
 
+WORDCHARS='*?_[]~=&;!#$%^(){}'
+
+# zle functions {{{
+# prepend sudo
+run-with-sudo() { LBUFFER="sudo $LBUFFER" }
+zle -N run-with-sudo
+
+typeset -A abbreviations
+abbreviations=(
+  "..."   "../.."
+  "...."  "../../.."
+  "....." "../../../.."
+  "Il"    "| ${PAGER:-less}"
+  "Ia"    "| awk"
+  "Ig"    "| grep"
+  "Igg"   "| ag"
+  "Ih"    "| head"
+  "It"    "| tail"
+  "If"    "| tail -f"
+  "Is"    "| sort"
+  "Iv"    "| ${VISUAL:-${EDITOR}}"
+  "Ie"    "| ${VISUAL:-${EDITOR}}"
+  "Iw"    "| wc"
+  "Ic"    "| wc -l"
+  "Ix"    "| xargs"
+  "INE"   "2>|/dev/null"
+  "INO"   "&>|/dev/null"
+  "Ipwd"  "$(pwd)"
+  "Hl"    " --help |& ${PAGER:-less} -r"
+)
+
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[.-|_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle magic-space
+}
+zle -N magic-abbrev-expand
+
+no-magic-abbrev-expand() { LBUFFER+=' ' } 
+zle -N no-magic-abbrev-expand
+
+help-show-abbrev() { zle -M "$(print -a -C 2 ${(kv)abbreviations})" }
+zle -N help-show-abbrev
+
+after-first-word() {
+    zle beginning-of-line
+    zle vi-forward-blank-word
+    zle backward-char
+    LBUFFER+=' '
+}
+zle -N after-first-word
+
+mquote() {
+    zle beginning-of-line
+    zle forward-word
+    RBUFFER=${(q)RBUFFER}
+    zle end-of-line
+}
+zle -N mquote
+
+function insert-date() { LBUFFER+=${(%):-'%D{%Y-%m-%d}'}; }
+zle -N insert-date
+
+function grml-zsh-fg() {
+  if (( ${#jobstates} )); then
+    zle .push-input
+    [[ -o hist_ignore_space ]] && BUFFER=' ' || BUFFER=''
+    BUFFER="${BUFFER}fg"
+    zle .accept-line
+  else
+    zle -M 'No background jobs. Doing nothing.'
+  fi
+}
+zle -N grml-zsh-fg
+#}}}
 # fix special keys {{{
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -53,83 +132,44 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 fi
 #}}}
 
-# zle functions {{{
-# prepend sudo
-run-with-sudo() { LBUFFER="sudo $LBUFFER" }
-
-typeset -Ag abbreviations
-abbreviations=(
-  "Il"    "| ${PAGER:-less}"
-  "Ia"    "| awk"
-  "Ig"    "| grep"
-  "Igg"   "| ag"
-  "Ih"    "| head"
-  "It"    "| tail"
-  "If"    "| tail -f"
-  "Is"    "| sort"
-  "Iv"    "| ${VISUAL:-${EDITOR}}"
-  "Ie"    "| ${VISUAL:-${EDITOR}}"
-  "Iw"    "| wc"
-  "Ix"    "| xargs"
-  "INE"   "2>|/dev/null"
-  "INO"   "&>|/dev/null"
-  "Ipwd"  "$(pwd)"
-)
-
-magic-abbrev-expand() {
-    local MATCH
-    LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#}
-    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
-    zle magic-space
-}
-
-no-magic-abbrev-expand() {
-  LBUFFER+=' '
-}
-
-after-first-word() {
-    zle beginning-of-line
-    zle vi-forward-blank-word
-    zle backward-char
-    LBUFFER+=' '
-}
-
-zle -N run-with-sudo
-zle -N magic-abbrev-expand
-zle -N no-magic-abbrev-expand
-zle -N after-first-word
-#}}}
-
 # emacs {{{
 # clear ^S we'll use it as prefix
 bindkey -rM emacs '^S'
 
 # fixes
 bindkey -M emacs '^X^R' redo
-bindkey -M emacs '^[p' history-beginning-search-backward
-bindkey -M emacs '^[n' history-beginning-search-forward
+bindkey -M emacs '^[p'  history-beginning-search-backward
+bindkey -M emacs '^[n'  history-beginning-search-forward
 # use patterns for search
 bindkey -M emacs '^R' history-incremental-pattern-search-backward
 
 # prefix bindings
 # prepend sudo
-bindkey -M emacs '^Ss' run-with-sudo
+bindkey -M emacs '^Ss'  run-with-sudo
 bindkey -M emacs '^S^S' run-with-sudo
 
 # add arguments
 bindkey -M emacs '^S^A' after-first-word
-bindkey -M emacs '^Sa' after-first-word
+bindkey -M emacs '^Sa'  after-first-word
 
 # edit command in vim
-bindkey -M emacs '^Sv' edit-command-line
+bindkey -M emacs '^Sv'  edit-command-line
 bindkey -M emacs '^S^V' edit-command-line
 
 # easier on the fingers
 bindkey -M emacs '^S.' copy-prev-word
 
 # magic space
-bindkey -M emacs ' ' magic-abbrev-expand
-bindkey -M emacs '^X ' no-magic-abbrev-expand
+bindkey -M emacs ' '   magic-abbrev-expand
+bindkey -M emacs '^S ' no-magic-abbrev-expand
+bindkey -M emacs '^Sh' help-show-abbrev
+
+# insert date from grml.org
+bindkey -M emacs '^Sd'  insert-date
+bindkey -M emacs '^S^D' insert-date
+
+# foreground from grml.org
+bindkey -M emacs '^Z' grml-zsh-fg
 #}}}
 # vi command mode {{{
 bindkey -M vicmd 'gg' beginning-of-history
@@ -189,7 +229,7 @@ bindkey -M viins ' ' magic-abbrev-expand
 bindkey -M viins '^X ' no-magic-abbrev-expand
 # }}}
 # misc {{{
-# navigation
+# menu navigation
 bindkey -M menuselect 'h' backward-char
 bindkey -M menuselect 'j' down-line-or-history
 bindkey -M menuselect 'k' up-line-or-history
@@ -197,7 +237,8 @@ bindkey -M menuselect 'l' forward-char
 # insert, but accept further completions
 bindkey -M menuselect 'i' accept-and-menu-complete
 # insert, and show menu with further possible completions
-bindkey -M menuselect 'o' accept-and-next-history
+# useful for cd-ing into nested directories
+bindkey -M menuselect 'o' accept-and-infer-next-history
 # undo
 bindkey -M menuselect 'u' undo
 # magic space

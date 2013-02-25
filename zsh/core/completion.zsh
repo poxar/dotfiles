@@ -7,6 +7,9 @@ zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
+zstyle ':completion:*' completer _complete _correct _approximate
+zstyle ':completion:*:correct:::' max-errors 2 not-numeric
+zstyle ':completion:*:approximate:::' max-errors 3 numeric
 zstyle ':completion::complete:*' rehash true
 # be colorful and informative
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -25,6 +28,8 @@ zstyle ':completion:*:rm:*:(all-|)files' ignored patterns
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*:default' select-prompt '%SMatch %M    %P%s'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# automatically complete 'cd -<tab>' and 'cd -<ctrl-d>' with menu
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 # expand global aliases
 zstyle ':completion:*:expand-alias:*' global true
 # insert/complete sections for man pages

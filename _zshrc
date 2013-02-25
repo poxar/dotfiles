@@ -1,6 +1,6 @@
 
 #
-# zshrc
+# ~/.zshrc
 #
 
 ZDIR=$HOME/.dotfiles/zsh
@@ -11,8 +11,34 @@ export GPG_TTY=$(tty)
 export BROWSER=firefox
 export MOZ_DISABLE_PANGO=1
 export LESSHISTFILE=/dev/null
-eval `dircolors -b`
-export ZLS_COLORS=$LS_COLORS
+export MANWIDTH=80
+
+which dircolors &>/dev/null && \
+    eval `dircolors -b` && \
+    export ZLS_COLORS=$LS_COLORS
+
+[[ $OSTYPE == freebsd* ]] && \
+    export CLICOLOR=1
+
+(( EUID != 0 )) && SUDO='sudo' || SUDO=''
+
+typeset -ga ls_options
+if ls --help 2> /dev/null | grep -q GNU; then
+    ls_options=( --color=auto )
+fi
+
+typeset -ga grep_options
+if grep --help 2> /dev/null | grep -q GNU || \
+   [[ $OSTYPE == freebsd* ]]; then
+    grep_options=( --color=auto )
+fi
+
+typeset -ga mktemp_options
+if mktemp --help 2> /dev/null | grep -q GNU; then
+    mktemp_options=()
+else
+    mktemp_options=(-t tmp)
+fi
 
 # shell options
 setopt autocd               # change directories easily
@@ -39,7 +65,7 @@ setopt extended_history     # put the time into history
 setopt hist_no_store        # don't save history commands
 setopt hist_reduce_blanks   # delete unneeded blanks
 setopt hist_ignore_all_dups # never duplicate entries
-setopt hist_ignore_space    # don't put commands starting with a space into history
+setopt hist_ignore_space    # ignore commands starting with space for history
 setopt hist_verify          # show history-completed commands before execution
 
 HISTFILE="$HOME/.zhist"
@@ -48,19 +74,33 @@ SAVEHIST=12000
 HISTIGNORE="exit"
 
 # modules
-autoload -U colors && colors    # use colours
-autoload -U zmv                 # great batch-renaming tool
-autoload -U zcalc               # nice calculator
-autoload -U zfinit && zfinit    # zftp
-autoload -U url-quote-magic     # quote pasted urls
-autoload -U edit-command-line   # edit commandline in editor
-autoload -U select-word-style   # select word delimiters
+autoload -U colors && colors # be colorful
+autoload -U zfinit && zfinit # zftp
+autoload -U zmv              # renaming tool
+autoload -U zcalc            # calculator
 
 # completions
 fpath=($ZDIR/fpath $fpath)
 
-# load configuration files
-for zfile in $ZDIR/core/**/*.zsh(.); do; source $zfile; done
-for zfile in $ZDIR/plugin/**/*.zsh(.); do; source $zfile; done
+# configuration files
+configs=(completion.zsh dirs.zsh prompt.zsh zle.zsh)
+
+[[ -f $ZDIR/core/$(hostname)-dirs.zsh ]] && \
+    configs+=$(hostname)-dirs.zsh
+
+# load the configuration files
+for zfile in $configs; do; source $ZDIR/core/$zfile; done
+
+# load plugins
+for zfile in $ZDIR/plugin/*.zsh; do; source $zfile; done
+
+unset configs
+unset zfile
+
+unset ZDIR
+unset SUDO
+unset grep_options
+unset ls_options
+unset mktemp_options
 
 # vim:set ft=zsh:
