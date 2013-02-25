@@ -16,21 +16,35 @@ function say() {
     print "[34;1m::[0;37m $*"
 }
 
-function die() {
-    print "[31;1m::[0;37m $*"
-    exit 1
+function quit() {
+    say 'Cleaning Up...'
+    rm -f ~/tmp/pkglist ~/tmp/aurlist
+    exit $1
 }
 
+function die() {
+    print "[31;1m::[0;37m $*"
+    quit 1
+}
+
+function create-dynamic-files() {
+    comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >~/tmp/pkglist
+    pacman -Qmq | sort >~/tmp/aurlist
+}
+
+function backup() {
+    rdup-simple -E ~/.rdup/exclude $BACKUP_DIRS ssh://${SSH_USER}@${SSH_HOST}${SSH_DIR}
+    sudo etckeeper commit -m "backup" && sudo etckeeper vcs push
+}
+
+
 say 'Creating dynamic files...'
-
-comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >~/tmp/pkglist
-pacman -Qmq | sort >~/tmp/aurlist
-
-say 'Uploding backup...'
-
-rdup-simple -E ~/.rdup/exclude $BACKUP_DIRS ssh://${SSH_USER}@${SSH_HOST}${SSH_DIR}
-
-say 'Cleaning Up...'
-
-rm -f ~/tmp/pkglist ~/tmp/aurlist
-
+create-dynamic-files
+say "Ping backup server $SSH_HOST..."
+if ping -c 1 $SSH_HOST &>/dev/null; then
+    say 'Uploding backup...'
+    backup
+else
+    die "Could not connect to server"
+fi
+quit 0
