@@ -5,14 +5,14 @@
 #
 
 NOTEDIR=${NOTEDIR:-"$HOME/.notes"}
-EDITORARGS=${EDITORARGS:-"()"}
+EDITORARGS=${EDITORARGS:-}
 
 # open note or make new one
 n() { $EDITOR $EDITORARGS $NOTEDIR/"$*" }
 compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
-if tree &>/dev/null; then
+if which tree &>/dev/null; then
     nls() { tree -DCt --noreport $NOTEDIR | grep "$*" }
 else
     nls() { ls $ls_options -t $NOTEDIR | grep "$*" }
@@ -32,6 +32,3 @@ nf() {
 	popd >/dev/null
     fi
 }
-
-unset NOTEDIR
-unset EDITORARGS
