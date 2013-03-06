@@ -1,8 +1,6 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-# setup screens
-~/bin/setup-screens && ratpoison -c restart
+pgrep urxvt     &> /dev/null || urxvt -e tmux -f ~/.tmux-attach-or-new.conf attach &
+pgrep nm-applet &> /dev/null || nm-applet &
 
-pgrep urxvt     &> /dev/null || urxvt       &
-pgrep nm-applet &> /dev/null || nm-applet   &
-sleep 3 && dropbox running && dropbox start &
+(dropbox running && dropbox start) &
