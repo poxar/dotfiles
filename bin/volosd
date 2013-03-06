@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 usage="usage: $0 -c {up|down|mute|mic} [-i increment] [-m mixer]"
 command=
