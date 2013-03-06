@@ -1,18 +1,27 @@
+
+#
+# .xinitrc
+#
+
 # configure keyboard
 setxkbmap de -variant nodeadkeys -option compose:menu
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 # configure TrackPoint
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
-xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 8 1
+if [ "$(hostname)" == "littlesmoke" ]; then
+  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
+  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
+  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 8 1
+fi
 
 # load settings for X
 xset +fp /usr/share/fonts/local
 xset fp rehash
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+xsetroot -cursor_name left_ptr
 
+# xinitrc.d global settings
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
     [ -x "$f" ] && . "$f"
@@ -24,27 +33,12 @@ fi
 xset s off
 xset -dpms
 
-xsetroot -cursor_name left_ptr
+# start some utilities
+systemd --user &
+~/bin/setup-screens
 numlockx
 
+exec ratpoison
+#exec openbox-session
 
-DEFAULT_SESSION=ratpoison
-
-case $1 in
-ratpoison)
-    exec ratpoison
-    ;;
-i3)
-    exec i3
-    ;;
-openbox)
-    tint2 &
-    ~/bin/setup-screens &
-    dropbox running && dropbox start &
-    nm-applet &
-    exec openbox-session
-    ;;
-*)
-    exec $DEFAULT_SESSION
-    ;;
-esac
+# vim:set ft=sh sw=2:
