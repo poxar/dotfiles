@@ -13,6 +13,11 @@ export MOZ_DISABLE_PANGO=1
 export LESSHISTFILE=/dev/null
 export MANWIDTH=80
 
+# python virtualenv
+export WORKON_HOME=~/.virtualenvs
+[[ -d $WORKON_HOME ]] && \
+    source `which virtualenvwrapper.sh` &>/dev/null
+
 which dircolors &>/dev/null && \
     eval `dircolors -b` && \
     export ZLS_COLORS=$LS_COLORS
