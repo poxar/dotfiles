@@ -34,7 +34,8 @@ function create-dynamic-files() {
 
 function backup() {
     rdup-simple -E ~/.rdup/exclude $BACKUP_DIRS ssh://${SSH_USER}@${SSH_HOST}${SSH_DIR}
-    sudo etckeeper commit -m "backup" && sudo etckeeper vcs push
+    sudo etckeeper commit -m "backup"
+    sudo etckeeper vcs push
 }
 
 
