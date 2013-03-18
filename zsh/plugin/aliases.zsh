@@ -27,6 +27,8 @@ alias j="jobs -l"
 alias v="gvim"
 alias vv="gvim --remote-silent"
 
+alias t="todo.sh"
+
 # auto sudo
 alias poweroff="$SUDO poweroff"
 alias reboot="$SUDO reboot"
