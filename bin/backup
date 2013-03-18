@@ -4,6 +4,7 @@ HELPER_DIR="/media/windows/Users/philipp"
 BACKUP_DIRS=(
              "~"
              "$HELPER_DIR/Documents/Bibliothek"
+             "$HELPER_DIR/Backup"
              "$HELPER_DIR/Pictures"
              "$HELPER_DIR/Music"
             )
