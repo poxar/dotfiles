@@ -5,6 +5,7 @@ set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
 
 set passkeys+=google.com/reader:jk
 set passkeys+=plus.google.com:jk
+set passkeys+=rdio.com:<Space><Left><Right>
 
 loadplugins '\.(js|penta)$'
 group user
