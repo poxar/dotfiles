@@ -9,7 +9,7 @@ alias grep="grep $grep_options"
 which colordiff &>/dev/null && \
     alias diff="colordiff"
 
-alias df="df -chT"
+alias df="df -hT --total"
 alias du="du -ch"
 alias dus="du -s"
 
@@ -26,6 +26,10 @@ alias j="jobs -l"
 
 alias v="gvim"
 alias vv="gvim --remote-silent"
+
+which udevil &>/dev/null && \
+    alias uu="udevil umount"
+compdef "_umount" uu
 
 alias t="todo.sh"
 
