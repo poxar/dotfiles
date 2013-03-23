@@ -4,40 +4,49 @@
 #
 
 ZDIR=$HOME/.dotfiles/zsh
-PATH=$HOME/bin:$PATH
-export PATH
+
+if ! echo $PATH | grep "$HOME/bin" >/dev/null
+then
+  PATH=$HOME/bin:$PATH
+  export PATH
+fi
+
 export EDITOR=vim
 export GPG_TTY=$(tty)
 export BROWSER=firefox
-export MOZ_DISABLE_PANGO=1
 export LESSHISTFILE=/dev/null
 export MANWIDTH=80
 
 # python virtualenv
 export WORKON_HOME=~/.virtualenvs
+export PROJECT_HOME=$HOME/code
 [[ -d $WORKON_HOME ]] && \
     source `which virtualenvwrapper.sh` &>/dev/null
 
+# ls colors
 which dircolors &>/dev/null && \
     eval `dircolors -b` && \
     export ZLS_COLORS=$LS_COLORS
-
 [[ $OSTYPE == freebsd* ]] && \
     export CLICOLOR=1
 
+# sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
 
+# standard ls flags
 typeset -ga ls_options
 if ls --help 2> /dev/null | grep -q GNU; then
     ls_options=( --color=auto )
 fi
 
+# standard grep flags
 typeset -ga grep_options
 if grep --help 2> /dev/null | grep -q GNU || \
    [[ $OSTYPE == freebsd* ]]; then
     grep_options=( --color=auto )
 fi
 
+# standard mktemp flags
 typeset -ga mktemp_options
 if mktemp --help 2> /dev/null | grep -q GNU; then
     mktemp_options=()
@@ -46,7 +55,7 @@ else
 fi
 
 # shell options
-setopt autocd               # change directories easily
+setopt auto_cd              # change directories easily
 setopt no_beep              # don't beep at me!
 setopt complete_in_word     # complete in words
 setopt correct              # correct me
