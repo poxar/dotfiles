@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+echo -e "generating new tagsfile every 30 seconds...\n"
+
+while true
+do
+    ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -o newtags .
+    mv newtags tags
+    timer 30
+done

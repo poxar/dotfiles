@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# Open the encrypted folder with my mutt configuration and start mutt.
+# Decrypt, as soon as mutt quits
+
+if mountpoint ~/.mutt &>/dev/null; then
+    /usr/bin/mutt
+else
+    encfs ~/.mutt-enc ~/.mutt &&
+    /usr/bin/mutt
+    kill -KILL $(cat ~/.mutt/tools/offlineimap/pid)
+    sleep 1
+    fusermount -uz ~/.mutt
+fi

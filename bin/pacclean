@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# clean up the pacman cache
+# keep 3 increments of installed packages
+# remove all cached packages, if they're uninstalled
+
+/usr/bin/paccache -rv
+/usr/bin/paccache -ruvk 0
+
+if [[ -d /var/cache/pacman/aur ]]
+then
+  /usr/bin/paccache -rvc /var/cache/pacman/aur
+  /usr/bin/paccache -ruvk 0 -c /var/cache/pacman/aur
+fi

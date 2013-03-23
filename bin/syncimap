@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+LOGFILE=~/.log/offlineimap.log
+
+if mountpoint ~/.mutt &>/dev/null; then
+    if ! pgrep offlineimap &>/dev/null; then
+        echo ----------------------------           >>$LOGFILE
+        echo $(date)                                >>$LOGFILE
+        echo ----------------------------           >>$LOGFILE
+        offlineimap -c ~/.mutt/tools/offlineimaprc &>>$LOGFILE && \
+            notmuch new &>>$LOGFILE
+    fi
+fi

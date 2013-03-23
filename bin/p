@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+# Pomodoro style counter
+
+counter=0
+if [[ -z "$1" ]]; then limit=25; else; limit=$1; fi
+summary="Timer"
+startmessage="Started ($limit minutes)"
+endmessage="Done"
+
+notify-send -u critical -i appointment -t 600 "$summary" "$startmessage"
+while [ $counter != $limit ]; do
+   echo -ne "\r\033[K$counter minutes so far..."
+   sleep 60
+   let "counter = $counter + 1"
+done
+echo
+notify-send -u critical -i appointment "$summary" "$endmessage"
+play ~/.alarm.mp3
