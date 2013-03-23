@@ -3,22 +3,32 @@
 # .zlogin
 #
 
-clear
+if [[ -f ~/.notes ]]
+then
+  echo "\nNotes:"
+  cat ~/.notes
+fi
+
+# empty line after last login message
+echo ""
 
 # start ssh-agent and gpg-agent
 which keychain &>/dev/null &&
-    eval `keychain -q --eval`
+  eval `keychain -q --eval`
 
 if [[ $(hostname) == "littlesmoke" ]]; then
-    # initialize tmp directories
-    [[ -d /tmp/macromedia  ]] || mkdir /tmp/macromedia
-    [[ -d /tmp/adobe       ]] || mkdir /tmp/adobe
-    [[ -d /tmp/chromecache ]] || mkdir /tmp/chromecache
-    # and link them
-    [[ -e $HOME/.macromedia     ]] || ln -s /tmp/macromedia $HOME/.macromedia
-    [[ -e $HOME/.adobe          ]] || ln -s /tmp/adobe $HOME/.adobe
-    [[ -e $HOME/.cache/chromium ]] || ln -s /tmp/chromecache $HOME/.cache/chromium
+  # initialize tmp directories
+  [[ -d /tmp/macromedia  ]] || mkdir /tmp/macromedia
+  [[ -d /tmp/adobe       ]] || mkdir /tmp/adobe
+  [[ -d /tmp/chromecache ]] || mkdir /tmp/chromecache
+  # and link them
+  [[ -e $HOME/.macromedia     ]] || ln -s /tmp/macromedia $HOME/.macromedia
+  [[ -e $HOME/.adobe          ]] || ln -s /tmp/adobe $HOME/.adobe
+  [[ -e $HOME/.cache/chromium ]] || ln -s /tmp/chromecache $HOME/.cache/chromium
 fi
 
-which startx &>/dev/null &&
-    [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> ~/.xlog
+if which startx &>/dev/null && \
+  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
+then
+   exec startx &> ~/.xlog
+fi
