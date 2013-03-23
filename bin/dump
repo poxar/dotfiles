@@ -1,0 +1,70 @@
+#!/usr/bin/env zsh
+
+source ~/.config/dump/ssh.conf
+WINDIR=/media/windows/Users/philipp/
+
+LOG_FILE=$HOME/.log/duplicity.log
+
+DUP_SSH=scp://${DUP_SSH_USER}@${DUP_SSH_HOST}/${DUP_SSH_DIR}
+
+function say() {
+  print "[34;1m::[0;37m $*"
+}
+
+function quit() {
+  say 'Cleaning Up...'
+  rm -f ~/tmp/pkglist ~/tmp/aurlist
+  exit $1
+}
+
+function die() {
+  print "[31;1m::[0;37m $*"
+  quit 1
+}
+
+function TRAPINT() {
+  die "Caught SIGINT, aborting."
+}
+
+# actually run the backup
+
+say 'Creating temporary files..'
+comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >~/tmp/pkglist
+pacman -Qmq | sort >~/tmp/aurlist
+
+say "Ping backup server $SSH_HOST.."
+if ping -c 1 $SSH_HOST &>/dev/null; then
+
+  say 'Commit & Push /etc..'
+  sudo etckeeper commit -m "backup"
+  sudo etckeeper vcs push
+
+  say 'Uploding backup..'
+  duplicity \
+    --exclude $HOME/.mutt/ \
+    --include $HOME \
+    --include $WINDIR/Documents/Bibliothek \
+    --include $WINDIR/Music \
+    --include $WINDIR/Pictures \
+    --exclude '**' \
+    --use-agent \
+    --encrypt-key 4BE4009D \
+    --full-if-older-than $DUP_FULL_AFTER \
+    --asynchronous-upload \
+    --log-file ${LOG_FILE} \
+    / ${DUP_SSH}
+
+  say 'Deleting old backups..'
+  duplicity --force remove-all-but-n-full 6 ${DUP_SSH}
+  duplicity --force remove-all-inc-of-but-n-full 2 ${DUP_SSH}
+
+  say 'Gathering backup statistics..'
+  duplicity collection-status ${DUP_SSH}
+
+  # remove temporary files
+  quit 0
+
+else
+  die "Could not connect to server"
+fi
+

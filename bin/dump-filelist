@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+source ~/.config/dump/ssh.conf
+
+DUP_SSH=scp://${DUP_SSH_USER}@${DUP_SSH_HOST}/${DUP_SSH_DIR}
+
+duplicity list-current-files $DUP_SSH | less
