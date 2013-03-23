@@ -31,25 +31,27 @@ A lot of the configuration is stolen from [grml](http://grml.org/zsh/).
 
 ## Install
 
+**WARNING:** This will eat your old dotfiles!
+
 Make sure you have zsh and git installed and in your $PATH.
 
 ```sh
 cd ~
 git clone git://github.com/herrblau/dotfiles.git .dotfiles
-.dotfiles/deploy
+cd .dotfiles
+make
 ```
 
-If you want to deploy the big version with vim:
+If you want to deploy the complete set with vim:
 
 ```sh
-.dotfiles/deploy -a
+cd ~
+git clone git://github.com/herrblau/dotfiles.git .dotfiles
+cd .dotfiles
+make full
 ```
 
-If you want to overwrite your old files try:
-
-```sh
-.dotfiles/deploy -fi
-```
+This will pull my vim configuration and all the plugins I use from github.
 
 However I recommend you cook up your own zsh configuration (maybe using this as
 a starting point) or clone something like
