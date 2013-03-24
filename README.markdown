@@ -31,8 +31,6 @@ A lot of the configuration is stolen from [grml](http://grml.org/zsh/).
 
 ## Install
 
-**WARNING:** This will eat your old dotfiles!
-
 Make sure you have zsh and git installed and in your $PATH.
 
 ```sh
@@ -41,6 +39,10 @@ git clone git://github.com/herrblau/dotfiles.git .dotfiles
 cd .dotfiles
 make
 ```
+
+Note, that no old files will be overwritten. That means you have to move them
+away by hand, or call `make clean` if you feel adventurous.
+
 
 If you want to deploy the complete set with vim:
 
@@ -51,7 +53,12 @@ cd .dotfiles
 make full
 ```
 
-This will pull my vim configuration and all the plugins I use from github.
+This will pull my vim configuration and all the plugins I use from GitHub.
+Again you will have to move your vim configuration away for this to work (or
+call `make distclean`).
+
+You can also narrow down the selection, look into Makefile to see which targets
+are available.
 
 However I recommend you cook up your own zsh configuration (maybe using this as
 a starting point) or clone something like

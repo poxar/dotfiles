@@ -1,52 +1,56 @@
 DOTFILES := $(shell pwd)
-BINFILES = $(shell find bin -type f | sed "s_.*/_${HOME}/bin/_")
 
-.PHONY: all novim bin
+CLI    := .atoolrc .tmux.conf .config/cower
+CLI    += .zshrc .zlogin .zlogout
+GIT    := .gitconfig .tigrc
+XFILES := .xinitrc .urlview .Xresources .xbindkeysrc
+XFILES += .ratpoisonrc .pentadactylrc .config/user-dirs.dirs
+XFILES += .tmux-attach-or-new.conf
 
-all: bin cli autoenv git X
+BIN    := $(addprefix ${HOME}/bin/, $(notdir $(wildcard bin/*)))
+GIT    := $(addprefix ${HOME}/, $(GIT))
+CLI    := $(addprefix ${HOME}/, $(CLI))
+XFILES := $(addprefix ${HOME}/, $(XFILES))
+
+all:  bin cli git xorg autoenv
 full: all vim
 
-bin: dirs $(BINFILES)
+bin:     ${HOME}/bin $(BIN)
+cli:     ${HOME}/.config $(CLI)
+git:     $(GIT)
+xorg:    ${HOME}/.config $(XFILES)
+autoenv: ${HOME}/.autoenv
+vim:     ${HOME}/.vim
+
+${HOME}/bin:
+	mkdir ${HOME}/bin
 
 ${HOME}/bin/%: $(DOTFILES)/bin/%
 	ln -fns $< $@
 
-cli: dirs zsh
-	ln -fns $(DOTFILES)/_atoolrc ${HOME}/.atoolrc
-	ln -fns $(DOTFILES)/_tmux.conf ${HOME}/.tmux.conf
-	ln -fns $(DOTFILES)/config/cower ${HOME}/.config/cower
+${HOME}/.config:
+	mkdir ${HOME}/.config
 
-dirs:
-	mkdir -p ${HOME}/.config
-	mkdir -p ${HOME}/bin
-
-zsh:
-	ln -fns $(DOTFILES)/_zshrc ${HOME}/.zshrc
-	ln -fns $(DOTFILES)/_zlogin ${HOME}/.zlogin
-	ln -fns $(DOTFILES)/_zlogout ${HOME}/.zlogout
-
-autoenv:
+${HOME}/.autoenv:
 	git clone git://github.com/kennethreitz/autoenv.git ${HOME}/.autoenv
 
-git:
-	ln -fns $(DOTFILES)/_tigrc ${HOME}/.tigrc
-	ln -fns $(DOTFILES)/_gitconfig ${HOME}/.gitconfig
-
-X: dirs
-	ln -fns $(DOTFILES)/_xinitrc ${HOME}/.xinitrc
-	ln -fns $(DOTFILES)/_urlview ${HOME}/.urlview
-	ln -fns $(DOTFILES)/_Xresources ${HOME}/.Xresources
-	ln -fns $(DOTFILES)/_xbindkeysrc ${HOME}/.xbindkeysrc
-	ln -fns $(DOTFILES)/_ratpoisonrc ${HOME}/.ratpoisonrc
-	ln -fns $(DOTFILES)/_pentadactylrc ${HOME}/.pentadactylrc
-	ln -fns $(DOTFILES)/config/user-dirs.dirs ${HOME}/.config/user-dirs.dirs
-	ln -fns $(DOTFILES)/_tmux-attach-or-new.conf ${HOME}/.tmux-attach-or-new.conf
-
-vim:
+${HOME}/.vim:
 	git clone https://github.com/herrblau/vimfiles.git ${HOME}/.vim
 	cd ${HOME}/.vim && make
+
+${HOME}/.%: $(DOTFILES)/_%
+	ln -fns $< $@
+
+clean:
+	rm -f $(BIN) $(GIT) $(CLI) $(XFILES)
+
+distclean: clean
+	cd ${HOME}/.vim && make clean
+	rm -rf ${HOME}/.vim
 
 push:
 	git push poxar
 	git push bitbucket
 	git push origin
+
+.PHONY: all full bin autoenv vim cli git xorg clean push
