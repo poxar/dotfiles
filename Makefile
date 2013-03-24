@@ -34,6 +34,7 @@ git:
 
 X: dirs
 	ln -fns $(DOTFILES)/_xinitrc ${HOME}/.xinitrc
+	ln -fns $(DOTFILES)/_urlview ${HOME}/.urlview
 	ln -fns $(DOTFILES)/_Xresources ${HOME}/.Xresources
 	ln -fns $(DOTFILES)/_xbindkeysrc ${HOME}/.xbindkeysrc
 	ln -fns $(DOTFILES)/_ratpoisonrc ${HOME}/.ratpoisonrc
