@@ -1,0 +1,7 @@
+use_tar_bzip2_option 0
+use_pbzip2 1
+
+use_tar_z_option 0
+use_pigz 1
+
+path_diff colordiff

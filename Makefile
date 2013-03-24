@@ -12,6 +12,7 @@ ${HOME}/bin/%: $(DOTFILES)/bin/%
 	ln -fns $< $@
 
 cli: dirs zsh
+	ln -fns $(DOTFILES)/_atoolrc ${HOME}/.atoolrc
 	ln -fns $(DOTFILES)/_tmux.conf ${HOME}/.tmux.conf
 	ln -fns $(DOTFILES)/config/cower ${HOME}/.config/cower
 
