@@ -45,3 +45,8 @@ X: dirs
 vim:
 	git clone https://github.com/herrblau/vimfiles.git ${HOME}/.vim
 	cd ${HOME}/.vim && make
+
+push:
+	git push poxar
+	git push bitbucket
+	git push origin
