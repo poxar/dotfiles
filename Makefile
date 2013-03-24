@@ -36,6 +36,7 @@ X: dirs
 	ln -fns $(DOTFILES)/_xinitrc ${HOME}/.xinitrc
 	ln -fns $(DOTFILES)/_Xresources ${HOME}/.Xresources
 	ln -fns $(DOTFILES)/_xbindkeysrc ${HOME}/.xbindkeysrc
+	ln -fns $(DOTFILES)/_ratpoisonrc ${HOME}/.ratpoisonrc
 	ln -fns $(DOTFILES)/_pentadactylrc ${HOME}/.pentadactylrc
 	ln -fns $(DOTFILES)/config/user-dirs.dirs ${HOME}/.config/user-dirs.dirs
 	ln -fns $(DOTFILES)/_tmux-attach-or-new.conf ${HOME}/.tmux-attach-or-new.conf

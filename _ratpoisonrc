@@ -1,0 +1,67 @@
+# init
+exec xsetroot -solid black
+exec xbindkeys
+
+# turn off screensaver
+exec xset s off
+exec xset -dpms
+
+# Use the name of the program rather than the title in the window list
+#set winname class
+
+escape C-q
+
+# urxvt instead of xterm
+unbind c
+bind c exec urxvt
+
+# dmenu is great
+unbind p
+bind p exec dmenu_run
+
+# vim navigation
+unbind l
+unbind k
+bind l nextscreen
+bind h prevscreen
+bind j next
+bind k prev
+definekey top s-l nextscreen
+definekey top s-h prevscreen
+definekey top s-j next
+definekey top s-k prev
+
+bind BackSpace kill
+bind numbersign select
+
+# store/restore frame layout
+bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
+bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
+bind M-quotedbl exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
+bind M-2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
+bind M-section exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
+bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+
+# battery
+bind y exec ratpoison -c "echo `acpi`"
+
+# Key combinations without escape sequence
+definekey top s-p exec dmenu_run
+definekey top s-n exec stalonetray
+definekey top s-q exec ~/bin/ratrun
+definekey top s-numbersign exec ratpoison -c "select `ratpoison -c windows | dmenu -i | sed 's/\([0-9]*\).*/\1/'`" 
+
+definekey top s-Return prev
+definekey top s-space  next
+definekey top s-Tab    focus
+
+definekey top s-0 select 0
+definekey top s-1 select 1
+definekey top s-2 select 2
+definekey top s-3 select 3
+definekey top s-4 select 4
+definekey top s-5 select 5
+definekey top s-6 select 6
+definekey top s-7 select 7
+definekey top s-8 select 8
+definekey top s-9 select 9
