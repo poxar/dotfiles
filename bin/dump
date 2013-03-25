@@ -32,8 +32,8 @@ say 'Creating temporary files..'
 comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >~/tmp/pkglist
 pacman -Qmq | sort >~/tmp/aurlist
 
-say "Ping backup server $SSH_HOST.."
-if ping -c 1 $SSH_HOST &>/dev/null; then
+say "Ping backup server $DUP_SSH_HOST.."
+if ping -c 1 $DUP_SSH_HOST &>/dev/null; then
 
   say 'Commit & Push /etc..'
   sudo etckeeper commit -m "backup"
