@@ -159,6 +159,8 @@ bindkey -M emacs '^S^H' describe-key-briefly
 bindkey -M emacs '^S?'  where-is
 # comment out current line
 bindkey -M emacs '^S#' pound-insert
+# push everything on the stack
+bindkey -M emacs '^Sq' push-input
 
 # easier history navigation
 bindkey -M emacs '^SG' end-of-history
