@@ -157,6 +157,8 @@ bindkey -M emacs '^U' backward-kill-line
 # quick help
 bindkey -M emacs '^S^H' describe-key-briefly
 bindkey -M emacs '^S?'  where-is
+# comment out current line
+bindkey -M emacs '^S#' pound-insert
 
 # easier history navigation
 bindkey -M emacs '^SG' end-of-history
