@@ -150,7 +150,12 @@ bindkey -M emacs '^X^R' redo
 bindkey -M emacs '^[p'  history-beginning-search-backward
 bindkey -M emacs '^[n'  history-beginning-search-forward
 # use patterns for search
-bindkey -M emacs '^R' history-incremental-pattern-search-backward
+bindkey -M emacs '^R'  history-incremental-pattern-search-backward
+bindkey -M emacs '^Sr' history-incremental-pattern-search-forward
+
+# easier history navigation
+bindkey -M emacs '^SG' end-of-history
+bindkey -M emacs '^Sg' beginning-of-history
 
 # prefix bindings
 # prepend sudo
