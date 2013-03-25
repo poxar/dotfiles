@@ -152,6 +152,8 @@ bindkey -M emacs '^[n'  history-beginning-search-forward
 # use patterns for search
 bindkey -M emacs '^R'  history-incremental-pattern-search-backward
 bindkey -M emacs '^Sr' history-incremental-pattern-search-forward
+# use ^E^U to kill the whole line
+bindkey -M emacs '^U' backward-kill-line
 
 # easier history navigation
 bindkey -M emacs '^SG' end-of-history
