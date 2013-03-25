@@ -68,6 +68,8 @@ zle -N help-show-abbrev
 after-first-word() {
     zle beginning-of-line
     zle vi-forward-blank-word
+    [[ $LBUFFER[(w)1] == 'sudo' ]] && \
+        zle vi-forward-blank-word
     zle backward-char
     LBUFFER+=' '
 }
