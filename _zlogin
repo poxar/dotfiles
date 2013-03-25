@@ -16,7 +16,7 @@ echo ""
 which keychain &>/dev/null &&
   eval `keychain -q --eval`
 
-if [[ $(hostname) == "littlesmoke" ]]; then
+if [[ $(hostname) == "littlesmoke" && $EUID != 0 ]]; then
   # initialize tmp directories
   [[ -d /tmp/macromedia  ]] || mkdir /tmp/macromedia
   [[ -d /tmp/adobe       ]] || mkdir /tmp/adobe
