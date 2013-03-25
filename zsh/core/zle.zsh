@@ -16,8 +16,15 @@ zle -N self-insert url-quote-magic
 WORDCHARS='*?_[]~=&;!#$%^(){}'
 
 # zle functions {{{
-# prepend sudo
-run-with-sudo() { LBUFFER="sudo $LBUFFER" }
+# prepend sudo or remove it if present
+run-with-sudo() {
+    if [[ $LBUFFER[(w)1] == 'sudo' ]]
+    then # found sudo, strip it
+        LBUFFER="${LBUFFER##sudo }"
+    else # no sudo, so prepend it
+        LBUFFER="sudo ${LBUFFER}"
+    fi
+}
 zle -N run-with-sudo
 
 typeset -A abbreviations
