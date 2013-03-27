@@ -32,7 +32,7 @@ ${HOME}/.config:
 	mkdir ${HOME}/.config
 
 ${HOME}/.autoenv:
-	git clone git://github.com/kennethreitz/autoenv.git ${HOME}/.autoenv
+	git clone https://github.com/sharat87/autoenv ${HOME}/.autoenv
 
 ${HOME}/.vim:
 	git clone https://github.com/herrblau/vimfiles.git ${HOME}/.vim
