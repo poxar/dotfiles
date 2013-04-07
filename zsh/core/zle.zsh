@@ -45,9 +45,8 @@ abbreviations=(
   "Iw"    "| wc"
   "Ic"    "| wc -l"
   "Ix"    "| xargs"
-  "INE"   "2>|/dev/null"
-  "INO"   "&>|/dev/null"
-  "Ipwd"  "$(pwd)"
+  "NE"   "2>|/dev/null"
+  "NO"   "&>|/dev/null"
   "Hl"    " --help |& ${PAGER:-less} -r"
 )
 
