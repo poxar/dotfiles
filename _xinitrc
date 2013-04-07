@@ -6,14 +6,7 @@
 # configure keyboard
 setxkbmap de -variant nodeadkeys -option compose:menu
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-
-# configure TrackPoint
-if [ "$(hostname)" == "littlesmoke" ]; then
-  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
-  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
-  xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Middle Button Emulation" 8 1
-fi
+numlockx
 
 # load settings for X
 xset +fp /usr/share/fonts/local
@@ -33,10 +26,9 @@ fi
 xset s off
 xset -dpms
 
-# start some utilities
-systemd --user &
-~/bin/setup-screens
-numlockx
+# configre screens
+~/bin/setup-screens startup
+srandrd -n ~/bin/setup-screens &
 
 exec ratpoison
 #exec openbox-session

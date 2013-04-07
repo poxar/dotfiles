@@ -1,60 +1,114 @@
+# settings
+startup_message off
+warp on
+#set winname name
+
 # init
 exec xsetroot -solid black
 exec xbindkeys
 
-# turn off screensaver
-exec xset s off
-exec xset -dpms
-
-# Use the name of the program rather than the title in the window list
-#set winname class
-
-escape C-q
+escape C-less
+bind Escape abort
 
 # urxvt instead of xterm
 unbind c
+unbind C-c
 bind c exec urxvt
+bind C-c exec urxvt
+definekey top s-c exec urxvt
 
 # dmenu is great
-unbind p
-bind p exec dmenu_run
+bind o exec dmenu_run
+definekey top s-o exec dmenu_run
+bind i exec interrobang
+definekey top s-i exec interrobang
 
 # vim navigation
-unbind l
+unbind h
+unbind j
 unbind k
-bind l nextscreen
-bind h prevscreen
-bind j next
-bind k prev
-definekey top s-l nextscreen
-definekey top s-h prevscreen
-definekey top s-j next
-definekey top s-k prev
+unbind l
+bind            h focusleft
+definekey top s-h focusleft
+bind            j focusdown
+definekey top s-j focusdown
+bind            k focusup
+definekey top s-k focusup
+bind            l focusright
+definekey top s-l focusright
+bind            H exchangeleft
+definekey top s-H exchangeleft
+bind            J exchangedown
+definekey top s-J exchangedown
+bind            K exchangeup
+definekey top s-K exchangeup
+bind            L exchangeright
+definekey top s-L exchangeright
 
-bind BackSpace kill
-bind numbersign select
+# quickly close windows (k is blocked)
+bind            BackSpace delete
+definekey top s-BackSpace delete
 
-# store/restore frame layout
-bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
-bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
-bind M-quotedbl exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
-bind M-2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
-bind M-section exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
-bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+# jump between last two windows (easier to reach)
+bind            space  other
+bind          S-space cother
+
+definekey top   s-space  other
+definekey top S-s-space cother
+
+# start the tray when needed
+bind            period exec stalonetray
+definekey top s-period exec stalonetray
+
+# start urxvt with tmux
+bind            q exec ~/bin/ratrun
+definekey top s-q exec ~/bin/ratrun
+
+# select windows in dmenu
+alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i | sed 's/\([0-9]*\).*/\1/'`" 
+bind            numbersign dwindows
+definekey top s-numbersign dwindows
 
 # battery
-bind y exec ratpoison -c "echo `acpi`"
+alias acpi exec ratpoison -c "echo `acpi`"
+bind            y acpi
+definekey top s-y acpi
 
-# Key combinations without escape sequence
-definekey top s-p exec dmenu_run
-definekey top s-n exec stalonetray
-definekey top s-q exec ~/bin/ratrun
-definekey top s-numbersign exec ratpoison -c "select `ratpoison -c windows | dmenu -i | sed 's/\([0-9]*\).*/\1/'`" 
+# store/restore frame layout
+bind C-F1 exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
+bind C-F2 exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
+bind C-F3 exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
+bind C-F4 exec ratpoison -c "setenv fs4 `ratpoison -c 'fdump'`"
+bind F1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
+bind F2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
+bind F3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+bind F4 exec ratpoison -c "frestore `ratpoison -c 'getenv fs4'`"
 
+# alt-tab
+definekey top M-Tab next
+definekey top M-ISO_Left_Tab prev
 definekey top s-Return prev
-definekey top s-space  next
 definekey top s-Tab    focus
 
+# useless
+unbind C-exclam
+bind C-exclam exec
+
+# can't get it in my head :(
+# (those are tourned around)
+unbind s
+unbind C-s
+unbind S
+unbind C-S
+bind s hsplit
+bind C-s hsplit
+definekey top s-s hsplit
+bind S vsplit
+bind C-S vsplit
+definekey top s-S vsplit
+
+# expose (almost) the whole keymap via Super
+# ja, i'm sort of crazy
 definekey top s-0 select 0
 definekey top s-1 select 1
 definekey top s-2 select 2
@@ -65,3 +119,34 @@ definekey top s-6 select 6
 definekey top s-7 select 7
 definekey top s-8 select 8
 definekey top s-9 select 9
+definekey top s-minus select -
+definekey top s-A title
+definekey top s-K kill
+definekey top s-n next
+definekey top s-Return next
+definekey top s-p prev
+definekey top s-apostrophe select
+definekey top s-a time
+definekey top s-colon colon
+definekey top s-exclam exec
+#definekey top s-i info
+definekey top s-m lastmsg
+definekey top s-v version
+definekey top s-V license
+definekey top s-w windows
+definekey top s-Tab focus
+definekey top s-Q only
+definekey top s-R remove
+definekey top s-r resize
+definekey top s-b banish
+definekey top s-question help root
+definekey top s-f fselect
+definekey top s-F curframe
+definekey top s-x swap
+definekey top s-N nextscreen
+definekey top s-P prevscreen
+definekey top s-u undo
+definekey top s-U redo
+
+definekey top s-C-k delete
+definekey top s-C-l redisplay
