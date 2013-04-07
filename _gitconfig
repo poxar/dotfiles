@@ -1,19 +1,19 @@
 [user]
-    name = Philipp Millar
-    email = philipp.millar@gmx.de
+  name = Philipp Millar
+  email = philipp.millar@gmx.de
 [github]
-    user = herrblau
+  user = poxar
 [alias]
-    co = checkout
-    br = branch
-    undo = reset --soft HEAD~1
-    addremove = add -A
+  co = checkout
+  br = branch
+  undo = reset --soft HEAD~1
+  addremove = add -A
 [color]
-    branch = auto
-    diff = auto
-    status = auto
-    ui = 1
+  branch = auto
+  diff = auto
+  status = auto
+  ui = 1
 [help]
-    autocorrect = 1
+  autocorrect = 1
 [push]
-	default = matching
+  default = matching
