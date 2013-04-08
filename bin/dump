@@ -41,7 +41,6 @@ if ping -c 1 $DUP_SSH_HOST &>/dev/null; then
 
   say 'Uploding backup..'
   duplicity \
-    --exclude $HOME/.mutt/ \
     --include $HOME \
     --include $WINDIR/Documents/Bibliothek \
     --include $WINDIR/Music \

@@ -12,7 +12,7 @@ if which tmux &>/dev/null; then
     # only alias these in a running tmux session
     if [[ ! -z $TMUX ]]; then
         alias weechat="tmux neww -t 0 -d -n chat weechat-curses"
-        alias mutt="tmux neww -t 9 -c ~/down -d -n mail ~/bin/mutt"
+        alias mail="tmux neww -t 9 -c ~/down -d -n mail mutt"
     fi
 
 fi
