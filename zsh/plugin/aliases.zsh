@@ -9,7 +9,7 @@ alias grep="grep $grep_options"
 which colordiff &>/dev/null && \
     alias diff="colordiff"
 
-alias df="df -hT --total"
+alias df="df -hT"
 alias du="du -ch"
 alias dus="du -s"
 
