@@ -2,5 +2,3 @@
 
 pgrep urxvt     &> /dev/null || urxvt -e tmux -f ~/.tmux-attach-or-new.conf attach &
 pgrep nm-applet &> /dev/null || nm-applet &
-
-(dropbox running && dropbox start) &
