@@ -5,10 +5,11 @@
 #
 
 NOTEDIR=${NOTEDIR:-"$HOME/.notes"}
-EDITORARGS=${EDITORARGS:-}
+NOTEARGS+=('+set ft=markdown')
+NOTEARGS+=('+set fdm=syntax')
 
 # open note or make new one
-n() { $EDITOR $EDITORARGS $NOTEDIR/"$*" }
+n() { $EDITOR $EDITORARGS $NOTEARGS $NOTEDIR/"$*" }
 compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
