@@ -4,13 +4,17 @@
 #
 
 ZDIR=$HOME/.dotfiles/zsh
+CABALBIN=$HOME/.cabal/bin/
 
-if ! echo $PATH | grep "$HOME/bin" >/dev/null
-then
-  PATH=$HOME/bin:$PATH
-  export PATH
-fi
+# put ~/bin in the PATH
+echo $PATH | grep "$HOME/bin" >/dev/null || \
+  [[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH
 
+# put ~/.cabal/bin in the PATH
+echo $PATH | grep "$CABALBIN" >/dev/null || \
+  [[ -d $CABALBIN ]] && PATH=$CABALBIN:$PATH
+
+export PATH
 export EDITOR=vim
 export GPG_TTY=$(tty)
 export BROWSER=firefox
