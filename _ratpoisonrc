@@ -20,8 +20,6 @@ definekey top s-c exec urxvt
 # dmenu is great
 bind o exec dmenu_run
 definekey top s-o exec dmenu_run
-bind i exec interrobang
-definekey top s-i exec interrobang
 
 # vim navigation
 unbind h
