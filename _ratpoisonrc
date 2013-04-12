@@ -54,6 +54,10 @@ bind          S-space cother
 definekey top   s-space  other
 definekey top S-s-space cother
 
+# jump between screens
+bind            C-space nextscreen
+definekey top C-s-space nextscreen
+
 # start the tray when needed
 bind            period exec stalonetray
 definekey top s-period exec stalonetray
@@ -127,7 +131,7 @@ definekey top s-apostrophe select
 definekey top s-a time
 definekey top s-colon colon
 definekey top s-exclam exec
-#definekey top s-i info
+definekey top s-i info
 definekey top s-m lastmsg
 definekey top s-v version
 definekey top s-V license
