@@ -1,40 +1,43 @@
-!! URxvt
-URxvt.saveLines: 0
-URxvt.scrollBar: false
-URxvt.fading: 20
 
-URxvt.pointerBlank: true
-URxvt.pointerBlankDelay: 10
-URxvt.cursorBlink: true
-URxvt.cursorUnderline: true
-
-URxvt.urgentOnBell:  true
-
-URxvt.perl-lib: /usr/lib/urxvt/perl/
-URxvt.perl-ext-common: default,url-select,clipboard,keyboard-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.copyCommand: xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
-
-URxvt.font: xft:Terminus:pixelsize=16
-xterm*faceName: terminus:pixelsize=16
+/*
+ * .Xresources
+ * Configuration resources for X applications
+ */
 
 !! Xcursor
 Xcursor.theme: left_ptr
 
-!! Xft fonts
-Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
+!! Fontconfig
+Xft.autohint:  0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting:   1
 Xft.antialias: 1
-Xft.rgba: rgb
+Xft.rgba:      rgb
 
-!! colors
-*background: black
-*foreground: white
+!! xterm
+xterm*highlightSelection: true
+XTerm*metaSendsEscape:    true
+xterm*bellIsUrgent:       true
+xterm*cutNewline:         true
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*allowTitleOps:      false
+
+! utf8 and 256 colors
+XTerm*locale:   true
+xterm*termName: xterm-256color
+
+! looks
+xterm*borderWidth: 0
+xterm*faceName:    monospace
+xterm*faceSize:    11
+
+! pseudo clickable urls
+*VT100*translations: #override Meta <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! colors
+*background:  black
+*foreground:  white
+*cursorColor: blue

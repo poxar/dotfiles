@@ -10,13 +10,6 @@ exec xbindkeys
 escape C-less
 bind Escape abort
 
-# urxvt instead of xterm
-unbind c
-unbind C-c
-bind c exec urxvt
-bind C-c exec urxvt
-definekey top s-c exec urxvt
-
 # dmenu is great
 bind o exec dmenu_run
 definekey top s-o exec dmenu_run
@@ -62,7 +55,7 @@ definekey top C-s-space nextscreen
 bind            period exec stalonetray
 definekey top s-period exec stalonetray
 
-# start urxvt with tmux
+# start tmux
 bind            q exec ~/bin/ratrun
 definekey top s-q exec ~/bin/ratrun
 
@@ -149,6 +142,7 @@ definekey top s-N nextscreen
 definekey top s-P prevscreen
 definekey top s-u undo
 definekey top s-U redo
+definekey top s-c exec xterm
 
 definekey top s-C-k delete
 definekey top s-C-l redisplay
