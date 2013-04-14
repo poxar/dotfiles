@@ -1,26 +1,13 @@
 "1.0rc1
 
 set guioptions=CMrsn
-set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
 
-set passkeys+=google.com/reader:jk
 set passkeys+=plus.google.com:jk
 set passkeys+=rdio.com:<Space><Left><Right>
-
-loadplugins '\.(js|penta)$'
-group user
 
 map -builtin -modes=n,v <Leader>q -ex :open later
 map -builtin -modes=n,v <Leader>w -ex :open pin
 
-map -builtin -modes=i jk <esc>
-
-command proxy -nargs=1 :set! network.proxy.type=<args>
-nmap up :proxy 1<cr>
-nmap np :proxy 0<cr>
-
-" Switch tabs with parens
-nmap -builtin ) :tn<CR>
-nmap -builtin ( :tp<CR>
+map -builtin -modes=n s :open g 
 
 " vim: set ft=pentadactyl:
