@@ -14,6 +14,10 @@ bind Escape abort
 bind o exec dmenu_run
 definekey top s-o exec dmenu_run
 
+# vim even more so
+bind v exec gvim
+definekey top s-v exec gvim
+
 # vim navigation
 unbind h
 unbind j
@@ -126,7 +130,7 @@ definekey top s-colon colon
 definekey top s-exclam exec
 definekey top s-i info
 definekey top s-m lastmsg
-definekey top s-v version
+#definekey top s-v version
 definekey top s-V license
 definekey top s-w windows
 definekey top s-Tab focus
