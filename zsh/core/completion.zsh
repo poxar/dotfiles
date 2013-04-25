@@ -8,8 +8,8 @@ autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
 zstyle ':completion:*' completer _complete _correct _approximate
-zstyle ':completion:*:correct:::' max-errors 2 not-numeric
-zstyle ':completion:*:approximate:::' max-errors 3 numeric
+zstyle ':completion:*:correct:::' max-errors 1 not-numeric
+zstyle ':completion:*:approximate:::' max-errors 1 numeric
 zstyle ':completion::complete:*' rehash true
 # be colorful and informative
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
