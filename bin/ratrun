@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-pgrep xterm     &> /dev/null || xterm -e tmux -f ~/.tmux-attach-or-new.conf attach &
+pgrep xterm     &> /dev/null || xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach &
 pgrep nm-applet &> /dev/null || nm-applet &
