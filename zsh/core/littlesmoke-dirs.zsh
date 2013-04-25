@@ -13,4 +13,6 @@ hash -d dropbox=~data/Dropbox
 
 hash -d uni=~dokumente/Uni
 
+hash -d nzb=/media/windows/Users/philipp/Downloads/nzb
+
 PROJECTS=~code
