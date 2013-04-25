@@ -8,6 +8,7 @@
   br = branch
   undo = reset --soft HEAD~1
   addremove = add -A
+  ctags = !.git/hooks/ctags
 [color]
   branch = auto
   diff = auto
@@ -21,3 +22,5 @@
   path = _gittokens
 [core]
   excludesfile = ~/.cvsignore
+[init]
+  templatedir = ~/.git_template
