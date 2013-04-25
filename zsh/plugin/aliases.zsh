@@ -14,7 +14,7 @@ alias du="du -ch"
 alias dus="du -s"
 
 which dfc &>/dev/null && \
-    alias dfc="dfc -sTt -rootfs,devtmpfs,tmpfs,autofs"
+    alias dfc="dfc -sdTt -rootfs,devtmpfs,tmpfs,autofs"
 
 alias rm="rm -I"
 
