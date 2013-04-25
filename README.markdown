@@ -6,7 +6,7 @@ you, but feel free to steal from them.
 
 I change those files a lot and sometimes I break things, so be careful.
 
-My [vim config](https://github.com/herrblau/vimfiles) lives in in a separate
+My [vim config](https://github.com/poxar/vimfiles) lives in in a separate
 repository, so I can use it without having to fetch all of my dotfiles.
 
 ## ZSH
