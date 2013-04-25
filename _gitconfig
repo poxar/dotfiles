@@ -19,3 +19,5 @@
   default = matching
 [include]
   path = _gittokens
+[core]
+  excludesfile = ~/.cvsignore
