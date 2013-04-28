@@ -4,7 +4,6 @@
 #
 
 # configure keyboard
-setxkbmap de -variant nodeadkeys -option compose:menu
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 numlockx
 
@@ -31,6 +30,5 @@ xset -dpms
 srandrd -n ~/bin/setup-screens &
 
 exec ratpoison
-#exec openbox-session
 
 # vim:set ft=sh sw=2:
