@@ -55,7 +55,7 @@ make full
 
 This will pull my vim configuration and all the plugins I use from GitHub.
 Again you will have to move your vim configuration away for this to work (or
-call `make distclean`).
+call `make cleanall`).
 
 You can also narrow down the selection, look into Makefile to see which targets
 are available.
