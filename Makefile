@@ -44,7 +44,7 @@ ${HOME}/.%: $(DOTFILES)/_%
 clean:
 	rm -f $(BIN) $(GIT) $(CLI) $(XFILES)
 
-distclean: clean
+cleanall: clean
 	cd ${HOME}/.vim && make clean
 	rm -rf ${HOME}/.vim
 
@@ -53,4 +53,4 @@ push:
 	git push bitbucket
 	git push origin
 
-.PHONY: all full bin autoenv vim cli git xorg clean push
+.PHONY: all full bin autoenv vim cli git xorg clean cleanall push
