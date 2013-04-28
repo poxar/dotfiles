@@ -48,9 +48,4 @@ cleanall: clean
 	cd ${HOME}/.vim && make clean
 	rm -rf ${HOME}/.vim
 
-push:
-	git push poxar
-	git push bitbucket
-	git push origin
-
-.PHONY: all full bin autoenv vim cli git xorg clean cleanall push
+.PHONY: all full bin autoenv vim cli git xorg clean cleanall
