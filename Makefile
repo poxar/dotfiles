@@ -1,6 +1,6 @@
 DOTFILES := $(shell pwd)
 
-CLI    := .atoolrc .tmux.conf .config/cower
+CLI    := .atoolrc .tmux.conf
 CLI    += .zshrc .zlogin .zlogout
 GIT    := .gitconfig .tigrc
 XFILES := .xinitrc .urlview .Xresources .xbindkeysrc
