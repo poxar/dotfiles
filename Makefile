@@ -1,7 +1,7 @@
 DOTFILES := $(shell pwd)
 
 CLI    := .atoolrc .tmux.conf .ctags
-CLI    += .zshrc .zlogin .zlogout
+CLI    += .zshrc .zlogin .zlogout .cvsignore
 GIT    := .gitconfig .tigrc
 XFILES := .xinitrc .urlview .Xresources .xbindkeysrc
 XFILES += .ratpoisonrc .pentadactylrc .config/user-dirs.dirs
