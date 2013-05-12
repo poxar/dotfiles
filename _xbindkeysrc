@@ -1,18 +1,43 @@
 ## Volume Control
-#vol+
 "~/bin/volosd up"
-	m:0x10 + c:123
-#vol-
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
 "~/bin/volosd down"
-	m:0x10 + c:122
-#mute
+    m:0x0 + c:122
+    XF86AudioLowerVolume
 "~/bin/volosd mute"
-	m:0x10 + c:121
-#mic mute
+    m:0x0 + c:121
+    XF86AudioMute
 "~/bin/volosd mic"
-	m:0x10 + c:157
+    m:0x0 + c:157
+    XF86Launch2
+
+## Music Player Daemon
+"mpc next"
+    m:0x0 + c:171
+    XF86AudioNext
+"mpc prev"
+    m:0x0 + c:173
+    XF86AudioPrev
+"mpc toggle"
+    m:0x0 + c:172
+    XF86AudioPlay
+"mpc stop"
+    m:0x0 + c:174
+    XF86AudioStop
+
+"mpc next"
+    m:0x41 + c:60
+    Shift+Mod4 + period
+"mpc prev"
+    m:0x41 + c:59
+    Shift+Mod4 + comma
+"mpc toggle"
+    m:0x41 + c:58
+    Shift+Mod4 + m
 
 ## Misc
 #screenlock
 "slock & xset dpms force off"
-	m:0x10 + c:127
+    m:0x0 + c:127
+    Pause

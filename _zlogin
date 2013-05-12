@@ -12,6 +12,9 @@ fi
 # empty line after last login message
 echo ""
 
+# music player daemon
+pgrep mpd || mpd
+
 # start ssh-agent and gpg-agent
 which keychain &>/dev/null &&
   eval `keychain -q --eval`
