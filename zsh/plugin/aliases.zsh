@@ -10,11 +10,10 @@ which colordiff &>/dev/null && \
     alias diff="colordiff"
 
 alias df="df -hT"
+alias dff="df -x tmpfs -x devtmpfs"
+alias dfl="dff -l"
 alias du="du -ch"
 alias dus="du -s"
-
-which dfc &>/dev/null && \
-    alias dfc="dfc -sdTt -rootfs,devtmpfs,tmpfs,autofs"
 
 alias rm="rm -I"
 
