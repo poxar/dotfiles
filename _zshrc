@@ -20,7 +20,8 @@ echo $PATH | grep "$GEMBIN" >/dev/null || \
   [[ -d $GEMBIN ]] && PATH=$GEMBIN:$PATH
 
 # pwd is part of PATH
-PATH=$PATH:.
+echo $PATH | grep ':.' >/dev/null || \
+  PATH=$PATH:.
 
 export PATH
 export EDITOR=vim
