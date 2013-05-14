@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-SCHEDULE=~/.schedule
-
-if [[ ! -e $SCHEDULE ]] || test $(find $SCHEDULE -mmin +30); then
-    google calendar today --cal '.*' > $SCHEDULE
-fi
-
-cat $SCHEDULE
