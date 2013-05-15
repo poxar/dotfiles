@@ -18,6 +18,10 @@ definekey top s-o exec dmenu_run
 bind v exec gvim
 definekey top s-v exec gvim
 
+# and browsers too
+bind e exec chromium
+definekey top s-e exec chromium
+
 # vim navigation
 unbind h
 unbind j

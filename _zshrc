@@ -26,7 +26,7 @@ echo $PATH | grep ':\.' >/dev/null || \
 export PATH
 export EDITOR=vim
 export GPG_TTY=$(tty)
-export BROWSER=firefox
+export BROWSER=chromium
 export LESSHISTFILE=/dev/null
 export MANWIDTH=80
 
