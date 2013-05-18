@@ -64,8 +64,8 @@ bind            period exec stalonetray
 definekey top s-period exec stalonetray
 
 # start tmux
-bind            q exec ~/bin/ratrun
-definekey top s-q exec ~/bin/ratrun
+bind            q exec xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach
+definekey top s-q exec xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach
 
 # select windows in dmenu
 alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i | sed 's/\([0-9]*\).*/\1/'`" 
