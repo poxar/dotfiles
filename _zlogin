@@ -13,7 +13,7 @@ fi
 echo ""
 
 # music player daemon
-pgrep mpd || mpd
+pgrep mpd &>/dev/null || mpd &>/dev/null
 
 # start ssh-agent and gpg-agent
 which keychain &>/dev/null &&
