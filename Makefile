@@ -4,7 +4,7 @@ CLI    := .atoolrc .tmux.conf .ctags
 CLI    += .zshrc .zlogin .zlogout .cvsignore
 GIT    := .gitconfig .tigrc
 XFILES := .xinitrc .urlview .Xresources .xbindkeysrc
-XFILES += .ratpoisonrc .pentadactylrc .config/user-dirs.dirs
+XFILES += .ratpoisonrc .config/user-dirs.dirs
 XFILES += .tmux-attach-or-new.conf
 
 BIN    := $(addprefix ${HOME}/bin/, $(notdir $(wildcard bin/*)))
