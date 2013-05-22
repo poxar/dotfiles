@@ -25,9 +25,8 @@ if which git &>/dev/null; then
     alias gundo="git reset --soft HEAD~1"
 
     # thanks @holman for the nice format
-    alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - \
-        %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit \
-        --date=relative"
+    alias gl="git log --graph --abbrev-commit --date=relative \
+    --pretty=format:'%Cred%h%Creset %an: %s -%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset'"
 
 fi
 
