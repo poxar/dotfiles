@@ -154,3 +154,7 @@ definekey top s-c exec xterm
 
 definekey top s-C-k delete
 definekey top s-C-l redisplay
+
+# autostart
+exec "pgrep nm-applet && nm-applet"
+exec dropbox start
