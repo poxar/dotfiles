@@ -57,9 +57,6 @@ if ping -c 1 $DUP_SSH_HOST &>/dev/null; then
   duplicity --force remove-all-but-n-full 6 ${DUP_SSH}
   duplicity --force remove-all-inc-of-but-n-full 2 ${DUP_SSH}
 
-  say 'Gathering backup statistics..'
-  duplicity collection-status ${DUP_SSH}
-
   # remove temporary files
   quit 0
 
