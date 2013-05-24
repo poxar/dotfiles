@@ -6,7 +6,7 @@ warp on
 # init
 exec xsetroot -solid black
 
-escape C-less
+escape C-equal
 bind Escape abort
 
 # dmenu is great
