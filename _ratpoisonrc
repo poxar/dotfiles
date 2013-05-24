@@ -5,7 +5,6 @@ warp on
 
 # init
 exec xsetroot -solid black
-exec xbindkeys
 
 escape C-less
 bind Escape abort
@@ -62,10 +61,6 @@ definekey top C-s-space nextscreen
 # start the tray when needed
 bind            period exec stalonetray
 definekey top s-period exec stalonetray
-
-# start tmux
-bind            q exec xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach
-definekey top s-q exec xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach
 
 # select windows in dmenu
 alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i | sed 's/\([0-9]*\).*/\1/'`" 
@@ -154,7 +149,3 @@ definekey top s-c exec xterm
 
 definekey top s-C-k delete
 definekey top s-C-l redisplay
-
-# autostart
-exec "pgrep nm-applet && nm-applet"
-exec dropbox start
