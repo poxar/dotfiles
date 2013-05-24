@@ -58,6 +58,9 @@ definekey top S-s-space cother
 bind            C-space nextscreen
 definekey top C-s-space nextscreen
 
+bind            q nextscreen
+definekey top s-q nextscreen
+
 # start the tray when needed
 bind            period exec stalonetray
 definekey top s-period exec stalonetray
