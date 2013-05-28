@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if command -v ctags >/dev/null 2>&1
+then
+  set -e
+  PATH="/usr/bin:$PATH"
+  trap "rm -f .git/tags.$$" EXIT
+
+  ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql
+
+  mv .git/tags.$$ .git/tags
+fi

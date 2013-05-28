@@ -2,7 +2,7 @@ DOTFILES := $(shell pwd)
 
 CLI    := .atoolrc .tmux.conf .ctags
 CLI    += .zshrc .zlogin .zlogout .cvsignore
-GIT    := .gitconfig .tigrc
+GIT    := .gitconfig .git_template .tigrc
 XFILES := .xinitrc .urlview .Xresources .xbindkeysrc
 XFILES += .ratpoisonrc .config/user-dirs.dirs
 XFILES += .tmux-attach-or-new.conf
