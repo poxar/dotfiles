@@ -1,79 +1,21 @@
 # settings
+exec xsetroot -solid black
 startup_message off
 warp on
-#set winname name
-
-# init
-exec xsetroot -solid black
-
-escape C-equal
+escape M-j
 bind Escape abort
 
-# dmenu is great
-bind o exec dmenu_run
-definekey top s-o exec dmenu_run
-
-# vim even more so
-bind v exec gvim
-definekey top s-v exec gvim
-
-# and browsers too
-bind e exec chromium
-definekey top s-e exec chromium
-
-# vim navigation
-unbind h
-unbind j
-unbind k
-unbind l
-bind            h focusleft
-definekey top s-h focusleft
-bind            j focusdown
-definekey top s-j focusdown
-bind            k focusup
-definekey top s-k focusup
-bind            l focusright
-definekey top s-l focusright
-bind            H exchangeleft
-definekey top s-H exchangeleft
-bind            J exchangedown
-definekey top s-J exchangedown
-bind            K exchangeup
-definekey top s-K exchangeup
-bind            L exchangeright
-definekey top s-L exchangeright
-
-# quickly close windows (k is blocked)
-bind            BackSpace delete
-definekey top s-BackSpace delete
-
-# jump between last two windows (easier to reach)
-bind            space  other
-bind          S-space cother
-
-definekey top   s-space  other
-definekey top S-s-space cother
-
-# jump between screens
-bind            C-space nextscreen
-definekey top C-s-space nextscreen
-
-bind            q nextscreen
-definekey top s-q nextscreen
-
-# start the tray when needed
-bind            period exec stalonetray
-definekey top s-period exec stalonetray
-
-# select windows in dmenu
-alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i | sed 's/\([0-9]*\).*/\1/'`" 
-bind            numbersign dwindows
-definekey top s-numbersign dwindows
-
-# battery
 alias acpi exec ratpoison -c "echo `acpi`"
-bind            y acpi
-definekey top s-y acpi
+alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i -b | sed 's/\([0-9]*\).*/\1/'`" 
+
+# External applications
+bind d exec dmenu_run
+bind e exec gvim
+bind t exec chromium
+bind period exec stalonetray
+
+bind semicolon dwindows
+bind y acpi
 
 # store/restore frame layout
 bind C-F1 exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
@@ -85,31 +27,33 @@ bind F2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
 bind F3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
 bind F4 exec ratpoison -c "frestore `ratpoison -c 'getenv fs4'`"
 
+# easier to remember/type
+unbind Q
+bind o only
+
+# jump between screens
+bind J nextscreen
+bind space nextscreen
+
+# better splitting
+unbind S
+unbind C-S
+bind S   split 2/3
+bind C-S split 2/3
+
+bind v   hsplit
+bind C-v hsplit
+bind V   hsplit 2/3
+bind C-C hsplit 2/3
+
 # alt-tab
 definekey top M-Tab next
 definekey top M-ISO_Left_Tab prev
-definekey top s-Return prev
-definekey top s-Tab    focus
+# mod4-tab for monitors
+definekey top s-Tab nextscreen
+definekey top s-ISO_Left_Tab prevscreen
 
-# useless
-unbind C-exclam
-bind C-exclam exec
-
-# can't get it in my head :(
-# (those are tourned around)
-unbind s
-unbind C-s
-unbind S
-unbind C-S
-bind s hsplit
-bind C-s hsplit
-definekey top s-s hsplit
-bind S vsplit
-bind C-S vsplit
-definekey top s-S vsplit
-
-# expose (almost) the whole keymap via Super
-# ja, i'm sort of crazy
+# application switching
 definekey top s-0 select 0
 definekey top s-1 select 1
 definekey top s-2 select 2
@@ -121,34 +65,5 @@ definekey top s-7 select 7
 definekey top s-8 select 8
 definekey top s-9 select 9
 definekey top s-minus select -
-definekey top s-A title
-definekey top s-K kill
-definekey top s-n next
-definekey top s-Return next
-definekey top s-p prev
-definekey top s-apostrophe select
-definekey top s-a time
-definekey top s-colon colon
-definekey top s-exclam exec
-definekey top s-i info
-definekey top s-m lastmsg
-#definekey top s-v version
-definekey top s-V license
-definekey top s-w windows
-definekey top s-Tab focus
-definekey top s-Q only
-definekey top s-R remove
-definekey top s-r resize
-definekey top s-b banish
-definekey top s-question help root
-definekey top s-f fselect
-definekey top s-F curframe
-definekey top s-x swap
-definekey top s-N nextscreen
-definekey top s-P prevscreen
-definekey top s-u undo
-definekey top s-U redo
-definekey top s-c exec xterm
 
-definekey top s-C-k delete
-definekey top s-C-l redisplay
+bind q inext
