@@ -35,7 +35,7 @@ ${HOME}/.autoenv:
 	git clone https://github.com/sharat87/autoenv ${HOME}/.autoenv
 
 ${HOME}/.vim:
-	git clone https://github.com/herrblau/vimfiles.git ${HOME}/.vim
+	git clone https://github.com/poxar/vimfiles.git ${HOME}/.vim
 	cd ${HOME}/.vim && make
 
 ${HOME}/.%: $(DOTFILES)/_%
