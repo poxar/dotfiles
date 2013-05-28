@@ -20,6 +20,8 @@ fi
 # disable screensaver
 xset s off
 xset -dpms
+# disable bell
+xset -b
 
 # configre screens
 ~/bin/setup-screens startup
