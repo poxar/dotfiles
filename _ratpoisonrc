@@ -2,6 +2,10 @@
 exec xsetroot -solid black
 startup_message off
 warp on
+set historysize 100
+set historycompaction 1
+set historyexpansion 1
+
 escape M-j
 bind Escape abort
 
