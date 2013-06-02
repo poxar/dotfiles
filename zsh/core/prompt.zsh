@@ -74,7 +74,7 @@ function setprompt() {
     # number of running jobs if any
     [[ -n $(jobs) ]] && infoline+="{%j} "
     # pwd
-    infoline+="$blue%~$reset"
+    infoline+="$blue%B%~%b$reset"
 
     lines+=( " $infoline" )
 
