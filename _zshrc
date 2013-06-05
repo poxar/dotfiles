@@ -8,20 +8,24 @@ CABALBIN=$HOME/.cabal/bin/
 GEMBIN=$HOME/.gem/ruby/2.0.0/bin
 
 # put ~/bin in the PATH
-echo $PATH | grep "$HOME/bin" >/dev/null || \
+if ! echo $PATH | grep "$HOME/bin" >/dev/null; then
   [[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH
+fi
 
 # put ~/.cabal/bin in the PATH
-echo $PATH | grep "$CABALBIN" >/dev/null || \
+if ! echo $PATH | grep "$CABALBIN" >/dev/null; then
   [[ -d $CABALBIN ]] && PATH=$CABALBIN:$PATH
+fi
 
 # put ~/.gem/ruby/2.0.0/bin in the PATH
-echo $PATH | grep "$GEMBIN" >/dev/null || \
+if ! echo $PATH | grep "$GEMBIN" >/dev/null; then
   [[ -d $GEMBIN ]] && PATH=$GEMBIN:$PATH
+fi
 
 # pwd is part of PATH
-echo $PATH | grep ':\.' >/dev/null || \
+if ! echo $PATH | grep ':\.' >/dev/null; then
   PATH=$PATH:.
+fi
 
 export PATH
 export EDITOR=vim
