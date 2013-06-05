@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 source ~/.config/dump/ssh.conf
-WINDIR=/media/windows/Users/philipp/
 
 LOG_FILE=$HOME/.log/duplicity.log
 
@@ -35,23 +34,13 @@ pacman -Qmq | sort >~/tmp/aurlist
 say "Ping backup server $DUP_SSH_HOST.."
 if ping -c 1 $DUP_SSH_HOST &>/dev/null; then
 
-  say 'Commit & Push /etc..'
-  sudo etckeeper commit -m "backup"
-  sudo etckeeper vcs push
-
   say 'Uploding backup..'
   duplicity \
-    --include $HOME \
-    --include $WINDIR/Documents/Bibliothek \
-    --include $WINDIR/Music \
-    --include $WINDIR/Pictures \
-    --exclude '**' \
-    --use-agent \
-    --encrypt-key 4BE4009D \
     --full-if-older-than $DUP_FULL_AFTER \
     --asynchronous-upload \
+    --no-encryption \
     --log-file ${LOG_FILE} \
-    / ${DUP_SSH}
+    $HOME ${DUP_SSH}
 
   say 'Deleting old backups..'
   duplicity --force remove-all-but-n-full 6 ${DUP_SSH}
