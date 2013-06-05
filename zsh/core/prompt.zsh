@@ -93,12 +93,8 @@ function setprompt() {
 precmd() {
     vcs_info
     setprompt
-    if [[ $TERM == rxvt* || $TERM == screen* ]]; then
-	# Set urgent on complete
-	echo -ne '\a'
-	# title
-	print -Pn "\e]2;%m: %~\a"
-    fi
+    # Set urgent on complete
+    echo -ne '\a'
 }
 
 # vim:set sw=4 foldmethod=marker ft=zsh:
