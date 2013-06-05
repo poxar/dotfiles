@@ -41,3 +41,6 @@
 "slock & xset dpms force off"
     m:0x0 + c:127
     Pause
+"import /tmp/screenshot.jpg && ~/code/imup/imup -i imgur /tmp/screenshot.jpg | xclip -selection clipboard"
+    m:0x0 + c:107
+    Print
