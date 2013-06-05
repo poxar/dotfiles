@@ -22,11 +22,6 @@ if ! echo $PATH | grep "$GEMBIN" >/dev/null; then
   [[ -d $GEMBIN ]] && PATH=$GEMBIN:$PATH
 fi
 
-# pwd is part of PATH
-if ! echo $PATH | grep ':\.' >/dev/null; then
-  PATH=$PATH:.
-fi
-
 export PATH
 export EDITOR=vim
 export GPG_TTY=$(tty)
