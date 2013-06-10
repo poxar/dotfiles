@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+if ! ratpoison -c other; then
+  ratpoison -c 'select -'
+fi
+
+ratpoison -c nextscreen
+ratpoison -c other

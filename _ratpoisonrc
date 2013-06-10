@@ -54,6 +54,9 @@ bind o only
 # jump between screens
 bind space nextscreen
 
+# put window on next screen
+bind q exec rp-sw
+
 # better splitting
 unbind S
 unbind C-S
