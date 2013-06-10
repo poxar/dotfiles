@@ -21,6 +21,7 @@ git:     $(GIT)
 xorg:    ${HOME}/.config $(XFILES)
 autoenv: ${HOME}/.autoenv
 vim:     ${HOME}/.vim
+duply:   ${HOME}/.duply
 
 ${HOME}/bin:
 	mkdir ${HOME}/bin

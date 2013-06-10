@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source $HOME/.duply/common
+
+say 'Deleting old increments..'
+duplicity --force remove-all-inc-of-but-n-full 1 ${TARGET}
