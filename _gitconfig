@@ -9,6 +9,7 @@
   undo = reset --soft HEAD~1
   addremove = add -A
   ctags = !.git/hooks/ctags
+  l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=short
 [color]
   branch = auto
   diff = auto
