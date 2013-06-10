@@ -160,6 +160,8 @@ bindkey -M emacs '^S?'  where-is
 bindkey -M emacs '^S#' pound-insert
 # push everything on the stack
 bindkey -M emacs '^Sq' push-input
+# quote everything after the cursor
+bindkey -M emacs '^SQ' mquote
 
 # easier history navigation
 bindkey -M emacs '^SG' end-of-history
