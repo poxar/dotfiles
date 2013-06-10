@@ -63,7 +63,7 @@ bind C-S split 2/3
 bind v   hsplit
 bind C-v hsplit
 bind V   hsplit 2/3
-bind C-C hsplit 2/3
+bind C-V hsplit 2/3
 
 # alt-tab
 definekey top M-Tab next
