@@ -29,7 +29,6 @@ xterm*termName: xterm-256color
 xterm*borderWidth:     0
 xterm*faceName:        monospace
 xterm*faceSize:        11
-xterm*cursorUnderLine: true
 xterm*cursorBlink:     true
 xterm*underLine:       false
 
