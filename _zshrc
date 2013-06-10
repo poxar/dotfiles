@@ -27,7 +27,6 @@ export EDITOR=vim
 export GPG_TTY=$(tty)
 export BROWSER=chromium
 export LESSHISTFILE=/dev/null
-export MANWIDTH=80
 
 # python virtualenv
 export WORKON_HOME=~/.virtualenvs
