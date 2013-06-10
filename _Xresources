@@ -4,9 +4,6 @@
  * Configuration resources for X applications
  */
 
-!! Xcursor
-Xcursor.theme: left_ptr
-
 !! Fontconfig
 Xft.autohint:  0
 Xft.lcdfilter: lcddefault
