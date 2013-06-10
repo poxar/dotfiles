@@ -14,9 +14,16 @@ alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i -b | s
 
 # External applications
 bind d exec dmenu_run
-bind e exec gvim
-bind t exec chromium
-bind period exec stalonetray
+
+unbind c
+bind c      exec rp-ror xterm "xterm tmux"
+bind C      exec xterm tmux
+bind e      exec rp-ror gvim
+bind E      exec gvim
+bind t      exec rp-ror chromium
+bind T      exec chromium
+
+bind period exec rp-ror stalonetray
 
 bind semicolon dwindows
 bind y acpi
