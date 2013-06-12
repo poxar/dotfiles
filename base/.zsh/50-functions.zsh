@@ -20,6 +20,14 @@ edalias() {
 }
 compdef _aliases edalias
 
+# fast cd ..
+function up {
+  local dir
+  for parent in {1..${1:-1}}; do
+    dir=../$dir
+  done
+  builtin cd $dir
+}
 
 # witty one-liners
 
