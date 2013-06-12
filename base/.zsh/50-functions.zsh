@@ -54,3 +54,6 @@ man() {
 d2h() { printf "%x\n" $* }
 h2d() { printf "%d\n" $* } # 0x
 
+# base64
+encode64(){ echo -n $1 | base64 }
+decode64(){ echo -n $1 | base64 -d }
