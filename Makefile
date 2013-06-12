@@ -4,7 +4,7 @@ stow_options := --no-folding -t $(prefix)
 # packages
 .PHONY: base desktop
 base: vim
-	stow $(stow_options) -R core
+	stow $(stow_options) -R base
 desktop: base
 	stow $(stow_options) -R desktop
 
