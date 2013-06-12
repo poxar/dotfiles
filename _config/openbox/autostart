@@ -1,0 +1,9 @@
+
+if [ -f ~/.fehbg ]
+  sh ~/.fehbg &
+fi
+
+dropbox start &
+nm-applet &
+xterm -title "xterm" -e tm-aon &
+tint2 &
