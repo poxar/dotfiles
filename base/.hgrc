@@ -1,0 +1,30 @@
+[ui]
+username = Philipp Millar <philipp.millar@gmx.de>
+merge = vimdiff
+
+[extensions]
+graphlog =
+mq =
+color =
+rebase =
+transplant =
+record =
+progress =
+extdiff =
+
+[hooks]
+changegroup = hg diff --stat -r $HG_NODE -r tip
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt
+
+[diff]
+git = True
+
+[extdiff]
+cmd.vimdiff = vimdiff
+opts.vimdiff =
