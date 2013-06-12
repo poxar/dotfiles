@@ -16,4 +16,4 @@ while [ $counter != $limit ]; do
 done
 echo
 notify-send -u critical -i appointment "$summary" "$endmessage"
-play ~/.alarm.mp3
+[[ -f ~/.alarm.mp3 ]] && play ~/.alarm.mp3
