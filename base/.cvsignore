@@ -1,2 +1,17 @@
 tags
+TAGS
 .env
+*.log
+*~
+*.swp
+
+# OS specific stuff
+desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
