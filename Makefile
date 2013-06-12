@@ -1,52 +1,50 @@
-DOTFILES := $(shell pwd)
+prefix := ${HOME}
+stow_options := --no-folding -t $(prefix)
 
-CLI    := .atoolrc .tmux.conf .ctags
-CLI    += .zshrc .zlogin .zlogout .cvsignore
-GIT    := .gitconfig .git_template .tigrc
-XFILES := .xinitrc .urlview .Xresources .xbindkeysrc
-XFILES += .ratpoisonrc .config/user-dirs.dirs
-XFILES += .tmux-attach-or-new.conf
+# packages
+.PHONY: base desktop
+base: vim
+	stow $(stow_options) -R core
+desktop: base
+	stow $(stow_options) -R desktop
 
-BIN    := $(addprefix ${HOME}/bin/, $(notdir $(wildcard bin/*)))
-GIT    := $(addprefix ${HOME}/, $(GIT))
-CLI    := $(addprefix ${HOME}/, $(CLI))
-XFILES := $(addprefix ${HOME}/, $(XFILES))
 
-all:  bin cli git xorg autoenv
-full: all vim
+# os
+.PHONY: archlinux freebsd
+archlinux:
+	stow $(stow_options) -R archlinux
+freebsd:
+	stow $(stow_options) -R freebsd
 
-bin:     ${HOME}/bin $(BIN)
-cli:     ${HOME}/.config $(CLI)
-git:     $(GIT)
-xorg:    ${HOME}/.config $(XFILES)
-autoenv: ${HOME}/.autoenv
-vim:     ${HOME}/.vim
-duply:   ${HOME}/.duply
 
-${HOME}/bin:
-	mkdir ${HOME}/bin
+# externals
+.PHONY: autoenv vim
 
-${HOME}/bin/%: $(DOTFILES)/bin/%
-	ln -fns $< $@
+autoenv: $(prefix)/.autoenv
+	stow $(stow_options) -R autoenv
+$(prefix)/.autoenv:
+	git clone https://github.com/sharat87/autoenv $(prefix)/.autoenv
 
-${HOME}/.config:
-	mkdir ${HOME}/.config
+vim: $(prefix)/.vim
+	cd $(prefix)/.vim && make prefix=$(prefix)
+$(prefix)/.vim:
+	git clone https://github.com/poxar/vimfiles.git $(prefix)/.vim
 
-${HOME}/.autoenv:
-	git clone https://github.com/sharat87/autoenv ${HOME}/.autoenv
 
-${HOME}/.vim:
-	git clone https://github.com/poxar/vimfiles.git ${HOME}/.vim
-	cd ${HOME}/.vim && make
+# cleaning
+.PHONY: unstow clean
+unstow:
+	stow $(stow_options) -D $(wildcard */)
 
-${HOME}/.%: $(DOTFILES)/_%
-	ln -fns $< $@
+clean: unstow
+	cd $(prefix)/.vim && make clean
+	rm -rf $(prefix)/.autoenv
+	rm -rf $(prefix)/.vim
 
-clean:
-	rm -f $(BIN) $(GIT) $(CLI) $(XFILES)
 
-cleanall: clean
-	cd ${HOME}/.vim && make clean
-	rm -rf ${HOME}/.vim
-
-.PHONY: all full bin autoenv vim cli git xorg clean cleanall
+# machines
+.PHONY: caprica helo poxar
+caprica: archlinux desktop autoenv
+	stow $(stow_options) -R caprica
+helo:    archlinux base
+poxar:   archlinux base
