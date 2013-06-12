@@ -12,26 +12,9 @@ fi
 # empty line after last login message
 echo ""
 
-# music player daemon
-pgrep mpd &>/dev/null || mpd &>/dev/null
-
 # start ssh-agent and gpg-agent
 which keychain &>/dev/null &&
   eval `keychain -q --eval`
 
-if [[ $(hostname) == "littlesmoke" && $EUID != 0 ]]; then
-  # initialize tmp directories
-  [[ -d /tmp/macromedia  ]] || mkdir /tmp/macromedia
-  [[ -d /tmp/adobe       ]] || mkdir /tmp/adobe
-  [[ -d /tmp/chromecache ]] || mkdir /tmp/chromecache
-  # and link them
-  [[ -e $HOME/.macromedia     ]] || ln -s /tmp/macromedia $HOME/.macromedia
-  [[ -e $HOME/.adobe          ]] || ln -s /tmp/adobe $HOME/.adobe
-  [[ -e $HOME/.cache/chromium ]] || ln -s /tmp/chromecache $HOME/.cache/chromium
-fi
-
-if which startx &>/dev/null && \
-  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
-then
-   exec startx &> ~/.xlog
-fi
+[[ -a $HOME/.zlogin.local ]] &&
+  source $HOME/.zlogin.local
