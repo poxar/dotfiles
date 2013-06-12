@@ -8,5 +8,6 @@ hash -d doc=/usr/share/doc
 hash -d log=/var/log
 hash -d bin=$HOME/bin
 hash -d tmp=$HOME/tmp
-hash -d zf=$ZDIR
+hash -d code=$HOME/code
 
+PROJECTS=~code

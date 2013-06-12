@@ -35,5 +35,3 @@ nm-applet &
 xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach &
 
 exec ratpoison
-
-# vim:set ft=sh sw=2:

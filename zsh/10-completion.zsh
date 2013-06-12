@@ -1,6 +1,6 @@
 
 #
-# .zsh/completion
+# .zsh/10-completion.zsh
 #
 
 zstyle :compinstall filename "$HOME/.zshrc"

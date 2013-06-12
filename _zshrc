@@ -1,131 +1,48 @@
 
 #
 # ~/.zshrc
+# initializes some variables and loads configuration files
 #
 
-ZDIR=$HOME/.dotfiles/zsh
-CABALBIN=$HOME/.cabal/bin/
-GEMBIN=$HOME/.gem/ruby/2.0.0/bin
+ZDIR=$HOME/.zsh
 
-# put ~/bin in the PATH
-if ! echo $PATH | grep "$HOME/bin" >/dev/null; then
-  [[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH
-fi
-
-# put ~/.cabal/bin in the PATH
-if ! echo $PATH | grep "$CABALBIN" >/dev/null; then
-  [[ -d $CABALBIN ]] && PATH=$CABALBIN:$PATH
-fi
-
-# put ~/.gem/ruby/2.0.0/bin in the PATH
-if ! echo $PATH | grep "$GEMBIN" >/dev/null; then
-  [[ -d $GEMBIN ]] && PATH=$GEMBIN:$PATH
-fi
-
+# function to add stuff to path
+function addToPath() {
+for i in $@; do
+  if ! echo $PATH | grep "$i:" >/dev/null; then
+    [[ -d $i ]] && PATH=$i:$PATH
+  fi
+done
 export PATH
+}
+
+addToPath "$HOME/bin"
 export EDITOR=vim
 export GPG_TTY=$(tty)
-export BROWSER=chromium
 export LESSHISTFILE=/dev/null
 
-# python virtualenv
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=$HOME/code
-[[ -d $WORKON_HOME ]] && \
-    source `which virtualenvwrapper.sh` &>/dev/null
-
 # ls colors
-which dircolors &>/dev/null && \
-    eval `dircolors -b` && \
-    export ZLS_COLORS=$LS_COLORS
-[[ $OSTYPE == freebsd* ]] && \
-    export CLICOLOR=1
+if [ -x `which dircolors` ]; then
+  eval `dircolors -b` && \
+  export ZLS_COLORS=$LS_COLORS
+fi
 
 # sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
 
-# standard ls flags
-typeset -ga ls_options
-if ls --help 2> /dev/null | grep -q GNU; then
-    ls_options=( --color=auto )
-fi
-
-# standard grep flags
-typeset -ga grep_options
-if grep --help 2> /dev/null | grep -q GNU || \
-   [[ $OSTYPE == freebsd* ]]; then
-    grep_options=( --color=auto )
-fi
-
-# standard mktemp flags
-typeset -ga mktemp_options
-if mktemp --help 2> /dev/null | grep -q GNU; then
-    mktemp_options=()
-else
-    mktemp_options=(-t tmp)
-fi
-
-# shell options
-setopt auto_cd              # change directories easily
-setopt no_beep              # don't beep at me!
-setopt complete_in_word     # complete in words
-setopt correct              # correct me
-setopt auto_pushd           # always use the directory stack
-setopt pushd_ignore_dups    # but never duplicate entries
-setopt extended_glob        # enable heavy globbing
-setopt longlistjobs         # display PID when suspending processes
-setopt braceccl             # use advanced brace expansion like {a-b}
-setopt nohup                # don't send SIGHUP when shell terminates
-setopt transient_rprompt    # remove rprompt when command is issued
-setopt functionargzero      # set $0 to be the function call
-setopt local_options        # allow functions to have local options
-setopt prompt_subst         # fully update prompts
-setopt interactive_comments # allow comments in interactive shells
-
-unsetopt flowcontrol        # deactivate "freezing"
-
-# history options
-setopt share_history        # share the history over multiple instances
-setopt extended_history     # put the time into history
-setopt hist_no_store        # don't save history commands
-setopt hist_reduce_blanks   # delete unneeded blanks
-setopt hist_ignore_all_dups # never duplicate entries
-setopt hist_ignore_space    # ignore commands starting with space for history
-setopt hist_verify          # show history-completed commands before execution
-
-HISTFILE="$HOME/.zhist"
-HISTSIZE=10000
-SAVEHIST=12000
-HISTIGNORE="exit"
-
-# modules
-autoload -U colors && colors # be colorful
-autoload -U zfinit && zfinit # zftp
-autoload -U zmv              # renaming tool
-autoload -U zcalc            # calculator
+# standard flags
+ls_options=( --color=auto )
+grep_options=( --color=auto )
+mktemp_options=()
 
 # completions
-fpath=($ZDIR/fpath $fpath)
+fpath=($HOME/.fpath $fpath)
 
-# configuration files
-configs=(completion.zsh dirs.zsh prompt.zsh zle.zsh)
-
-[[ -f $ZDIR/core/$(hostname)-dirs.zsh ]] && \
-    configs+=$(hostname)-dirs.zsh
-
-# load the configuration files
-for zfile in $configs; do; source $ZDIR/core/$zfile; done
-
-# load plugins
-for zfile in $ZDIR/plugin/*.zsh; do; source $zfile; done
-
-unset configs
+# load configuration files
+for zfile in $ZDIR/*.zsh; do; source $zfile; done
 unset zfile
 
-unset ZDIR
 unset SUDO
 unset grep_options
 unset ls_options
 unset mktemp_options
-
-# vim:set ft=zsh:

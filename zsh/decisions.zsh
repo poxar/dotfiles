@@ -1,6 +1,6 @@
 
 #
-# .zsh/plugin/decisions.zsh
+# .zsh/decisions.zsh
 # help me decide
 #
 
@@ -30,5 +30,3 @@ if which shuf &>/dev/null; then
         fi
     }
 fi
-
-# vim:set sw=4 foldmethod=marker ft=zsh:

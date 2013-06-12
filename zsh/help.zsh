@@ -1,6 +1,6 @@
 
 #
-# .zsh/plugin/help.zsh
+# .zsh/help.zsh
 # functions, that provide cheat sheets
 #
 

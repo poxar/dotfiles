@@ -1,7 +1,6 @@
 
 #
-# .zsh/plugin/notes.zsh
-# note taking inspired by notational velocity
+# .zsh/notes.zsh
 #
 
 NOTEDIR=${NOTEDIR:-"$HOME/.notes"}

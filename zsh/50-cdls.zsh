@@ -1,6 +1,6 @@
 
 #
-# .zsh/plugin/cdls.zsh
+# .zsh/50-cdls.zsh
 # aliases and functions for cd, ls, mkdir
 #
 
@@ -26,9 +26,11 @@ cdl() { cd $1 && l }
 # create dir(s) and cd to the first one
 mcd() { mkdir -p $@ && cd $1 }
 
-# colorful ls in less
+# ls in less
 if ls --help 2> /dev/null | grep -q GNU; then
-    ll() { ls -lAhB --color=always "$@" | less -r }
+  ll() { ls -lAhB --color=always "$@" | less -r }
+else
+  ll() { ls -lAhB "$@" | less }
 fi
 
 # count the files/folders in a directory

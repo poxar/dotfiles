@@ -1,6 +1,6 @@
 
 #
-# .zsh/prompt
+# .zsh/10-prompt.zsh
 #
 
 autoload -Uz vcs_info
@@ -96,5 +96,3 @@ precmd() {
     # Set urgent on complete
     echo -ne '\a'
 }
-
-# vim:set sw=4 foldmethod=marker ft=zsh:

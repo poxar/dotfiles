@@ -1,6 +1,6 @@
 
 #
-# .zsh/plugin/functions.zsh
+# .zsh/functions.zsh
 # functions, that don't fit into any topic
 #
 

@@ -1,10 +1,10 @@
 
 #
-# .zsh/zle
+# .zsh/10-zle.zsh
 # configure the behaviour of the zsh line editor
 #
 
-# use emacs bindings and vim for heavy editing :D
+# use emacs bindings and vim for heavy editing
 bindkey -e
 
 autoload -U url-quote-magic   # quote pasted urls
@@ -268,5 +268,3 @@ bindkey -M menuselect 'u' undo
 # magic space
 bindkey -M isearch ' ' self-insert
 # }}}
-
-# vim:set sw=4 foldmethod=marker ft=zsh:
