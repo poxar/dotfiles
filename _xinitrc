@@ -23,15 +23,7 @@ xset -dpms
 # disable bell
 xset -b
 
-# configre screens
-~/bin/setup-screens startup
-
-# autostart
+# load keybindings
 xbindkeys &
-srandrd -n ~/bin/setup-screens &
-dropbox running && dropbox start &
-nm-applet &
 
-xterm -title "xterm" -e tmux -f ~/.tmux-attach-or-new.conf attach &
-
-exec ratpoison
+exec ~/bin/rp-init

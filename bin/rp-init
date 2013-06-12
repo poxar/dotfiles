@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+# configre screens
+rp-screens startup
+
+# autostart
+srandrd -n ~/bin/rp-screens &
+dropbox running && dropbox start &
+nm-applet &
+
+# start xterm with tmux
+# attach, if session exists, create a new one else
+xterm -title "xterm" -e tm-aon &
+
+ratpoison

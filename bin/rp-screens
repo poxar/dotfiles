@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+function apply() {
+pgrep ratpoison &>/dev/null && ratpoison -c restart
+}
+
+function connect() {
+xrandr \
+    --output LVDS1 --auto \
+    --left-of $1 \
+    --output $1 --auto
+apply
+}
+
+function disconnect() {
+xrandr --auto
+apply
+}
+
+if [[ $1 == startup ]]
+then
+  xrandr | grep -q "HDMI2 connected" && connect HDMI2
+fi
+
+case "$SRANDRD_ACTION" in
+  "HDMI2 connected") connect HDMI2 ;;
+  "HDMI1 connected") connect HDMI1 ;;
+  "VGA1 connected")  connect VGA1  ;;
+  *) disconnect ;;
+esac
