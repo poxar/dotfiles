@@ -1,0 +1,16 @@
+
+#
+# ~/.ackrc
+#
+
+# Flush output immediately, even when piped
+--flush
+
+# Force color and header, even in less -R.
+--color
+--color-match=red
+--group
+
+# types
+--type-add=vim=vimrc
+--type-set=markdown=.markdown,.md,.mdown
