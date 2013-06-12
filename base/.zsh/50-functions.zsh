@@ -29,14 +29,6 @@ function up {
   builtin cd $dir
 }
 
-# witty one-liners
-
-# convert nfo files to utf8
-nfo() { iconv -f 437 -t UTF8 "$@" | ${PAGER:-less} }
-
-# grep the history
-hist() { fc -fl -m "*(#i)$1*" 1 | grep -i $grep_options $1 }
-
 # colorful man pages
 man() {
     env \
@@ -49,6 +41,14 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
+
+# witty one-liners
+
+# convert nfo files to utf8
+nfo() { iconv -f 437 -t UTF8 "$@" | ${PAGER:-less} }
+
+# grep the history
+hist() { fc -fl -m "*(#i)$1*" 1 | grep -i $grep_options $1 }
 
 # convert decimal to/from hex
 d2h() { printf "%x\n" $* }
