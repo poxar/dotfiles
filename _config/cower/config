@@ -1,0 +1,6 @@
+Color = auto
+ConnectTimeout = 0
+TargetDir = ~/tmp
+MaxThreads = 10
+
+IgnorePkg = 
