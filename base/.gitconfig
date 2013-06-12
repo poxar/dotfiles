@@ -1,8 +1,42 @@
 [user]
   name = Philipp Millar
-  email = philipp.millar@gmail.com
+  email = philipp.millar@gmx.de
+
 [github]
   user = poxar
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[core]
+  excludesfile = ~/.cvsignore
+
+[diff]
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+
+[merge]
+  tool = vimdiff
+
+[help]
+  autocorrect = 1
+
+[push]
+  default = matching
+
+[include]
+  path = ~/.gittokens
+
+[init]
+  templatedir = ~/.git_template
+
 [alias]
   co = checkout
   br = branch
@@ -10,18 +44,3 @@
   addremove = add -A
   ctags = !.git/hooks/ctags
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=short
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-  ui = 1
-[help]
-  autocorrect = 1
-[push]
-  default = matching
-[include]
-  path = _gittokens
-[core]
-  excludesfile = ~/.cvsignore
-[init]
-  templatedir = ~/.git_template
