@@ -1,0 +1,11 @@
+
+#
+# ~/.subversion/config
+#
+
+[miscellany]
+global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo tags *.rej *~ #*# .#* .*.swp .DS_Store
+enable-auto-props = yes
+
+[auto-props]
+* = svn:keywords="LastChangedBy LastChangedDate Id HeadURL Rev"
