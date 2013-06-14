@@ -15,6 +15,7 @@
 
 [core]
   excludesfile = ~/.cvsignore
+  autocrlf = input
 
 [diff]
   tool = vimdiff
