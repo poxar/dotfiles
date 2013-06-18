@@ -17,7 +17,10 @@ files in place. This pulls another dependency, but it's easy and effective, so
 meh.
 
 Every folder in this repo is a *preset*. The files in those presets are simply
-linked into `$HOME` as they are (subdirectories are created).
+linked into `$HOME` as they are. Stow tries to be smart about "folding", that
+means creating subdirectories instead of linking them, if necessary. So if you
+want to place files into a subdirectory, but not under version control remove
+the symlink, create the folder and relink (call make again).
 
 The dotfiles for a certain machine are then a combination of some presets.
 

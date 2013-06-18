@@ -1,5 +1,5 @@
 prefix := ${HOME}
-stow_options := --no-folding -t $(prefix)
+stow_options := -t $(prefix)
 
 # packages
 .PHONY: base desktop
