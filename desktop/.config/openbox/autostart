@@ -1,8 +1,4 @@
-
-if [ -f ~/.fehbg ]
-  sh ~/.fehbg &
-fi
-
+nitrogen --restore &
 dropbox start &
 nm-applet &
 xterm -title "xterm" -e tm-aon &
