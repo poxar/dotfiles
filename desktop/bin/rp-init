@@ -6,7 +6,7 @@ rp-screens startup
 # autostart
 srandrd -n ~/bin/rp-screens &
 nitrogen --restore &
-dropbox running && dropbox start &
+dropbox start &
 nm-applet &
 
 # start xterm with tmux
