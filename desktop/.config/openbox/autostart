@@ -1,5 +1,6 @@
 nitrogen --restore &
+xcompmgr &
 dropbox start &
 nm-applet &
-xterm -title "xterm" -e tm-aon &
+xterm -title "xterm" -e tm-taon &
 tint2 &

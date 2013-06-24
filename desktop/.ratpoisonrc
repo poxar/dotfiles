@@ -15,8 +15,8 @@ alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i -b | s
 bind d exec dmenu_run
 
 unbind c
-bind c      exec rp-ror xterm "xterm tmux"
-bind C      exec xterm tmux
+bind c      exec rp-ror xterm "xterm -title xterm -e tm-taon"
+bind C      exec xterm -title xterm -e tm-taon
 bind e      exec rp-ror gvim
 bind E      exec gvim
 bind t      exec rp-ror chromium

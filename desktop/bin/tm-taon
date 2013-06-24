@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# attach tmux and set transparency
+
+[ -n $XTERM_VERSION ] && transset-df -a >/dev/null &
+tm-aon

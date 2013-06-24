@@ -5,12 +5,13 @@ rp-screens startup
 
 # autostart
 srandrd -n ~/bin/rp-screens &
+xcompmgr &
 nitrogen --restore &
 dropbox start &
 nm-applet &
 
 # start xterm with tmux
 # attach, if session exists, create a new one else
-xterm -title "xterm" -e tm-aon &
+xterm -title "xterm" -e tm-taon &
 
 ratpoison
