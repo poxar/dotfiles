@@ -19,7 +19,7 @@
     <primaryMonitor>Active</primaryMonitor>
   </placement>
   <theme>
-    <name>simple</name>
+    <name>Clearlooks</name>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>DejaVu Sans</name>
@@ -675,9 +675,4 @@
     <applicationIcons>yes</applicationIcons>
     <manageDesktops>yes</manageDesktops>
   </menu>
-  <applications>
-    <application class="*">                                                     
-      <decor>no</decor>                                                         
-    </application>
-  </applications>
 </openbox_config>
