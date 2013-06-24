@@ -5,6 +5,7 @@
 
 # music player daemon
 pgrep mpd &>/dev/null || mpd &>/dev/null
+pgrep mpdscribble &>/dev/null || mpdscribble &>/dev/null
 
 if [[ $EUID != 0 ]]; then
   # initialize tmp directories
