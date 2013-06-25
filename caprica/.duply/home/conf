@@ -1,10 +1,9 @@
+GPG_KEY='disabled'
+
 TARGET='ssh://philipp@helo//home/philipp/backup/home'
+
 SOURCE='/home/philipp'
 
-FILENAME='.duply-home-ignore'
-DUPL_PARAMS="$DUPL_PARAMS --exclude-if-present '$FILENAME'"
-
-GPG_KEY='disabled'
 MAX_FULL_BACKUPS=6
 
 DUPL_PARAMS="$DUPL_PARAMS --full-if-older-than '30D'" 
