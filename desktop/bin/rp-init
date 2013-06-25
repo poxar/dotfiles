@@ -4,7 +4,6 @@
 rp-screens startup
 
 # autostart
-srandrd -n ~/bin/rp-screens &
 xcompmgr &
 nitrogen --restore &
 dropbox start &
