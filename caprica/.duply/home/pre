@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-source $HOME/.duply/common
-
-say 'Creating temporary files..'
-comm -23 <(pacman -Qeq | sort) <(pacman -Qmq | sort) >~/tmp/pkglist
-pacman -Qmq | sort >~/tmp/aurlist
