@@ -93,6 +93,4 @@ function setprompt() {
 precmd() {
     vcs_info
     setprompt
-    # Set urgent on complete
-    echo -ne '\a'
 }
