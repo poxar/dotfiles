@@ -9,13 +9,16 @@ pgrep mpdscribble &>/dev/null || mpdscribble &>/dev/null
 
 if [[ $EUID != 0 ]]; then
   # initialize tmp directories
-  [[ -d /tmp/macromedia  ]] || mkdir /tmp/macromedia
-  [[ -d /tmp/adobe       ]] || mkdir /tmp/adobe
-  [[ -d /tmp/chromecache ]] || mkdir /tmp/chromecache
+  [[ -d "/tmp/macromedia"   ]] || mkdir "/tmp/macromedia"
+  [[ -d "/tmp/adobe"        ]] || mkdir "/tmp/adobe"
+  [[ -d "/tmp/chromecache"  ]] || mkdir "/tmp/chromecache"
+  [[ -d "/tmp/adobe-pepper" ]] || mkdir "/tmp/adobe-pepper"
   # and link them
-  [[ -e $HOME/.macromedia     ]] || ln -s /tmp/macromedia $HOME/.macromedia
-  [[ -e $HOME/.adobe          ]] || ln -s /tmp/adobe $HOME/.adobe
-  [[ -e $HOME/.cache/chromium ]] || ln -s /tmp/chromecache $HOME/.cache/chromium
+  [[ -e "$HOME/.macromedia"     ]] || ln -s "/tmp/macromedia" "$HOME/.macromedia"
+  [[ -e "$HOME/.adobe"          ]] || ln -s "/tmp/adobe" "$HOME/.adobe"
+  [[ -e "$HOME/.cache/chromium" ]] || ln -s "/tmp/chromecache" "$HOME/.cache/chromium"
+  [[ -e "$HOME/.config/chromium/Default/Pepper Data" ]] || \
+    ln -s /tmp/adobe-pepper "$HOME/.config/chromium/Default/Pepper Data"
 fi
 
 if which startx &>/dev/null && \
