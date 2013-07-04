@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-usage="usage: $0 -c {up|down|mute|mic} [-i increment] [-m mixer]"
+usage="usage: $(basename $0) {up|down|mute|mic} [-i increment] [-m mixer]"
 command=
 increment=5%
 mixer=Master
@@ -17,12 +17,14 @@ done
 shift $(($OPTIND - 1))
 command=$1
 
+# usage
+
 if [ "$command" = "" ]; then
-    echo "usage: $0 {up|down|mute|mic} [increment]"
-    exit 0;
+    echo $usage
+    exit 1;
 fi
 
-display_volume=0
+# volume controls
 
 if [ "$command" = "up" ]; then
     display_volume=$(amixer set $mixer $increment+ unmute | grep -m 1 "%]" | cut -d "[" -f2|cut -d "%" -f1)
@@ -32,42 +34,40 @@ if [ "$command" = "down" ]; then
     display_volume=$(amixer set $mixer $increment- unmute | grep -m 1 "%]" | cut -d "[" -f2|cut -d "%" -f1)
 fi
 
-icon_name=""
-
 if [ "$command" = "mute" ]; then
     if amixer get Master | grep "\[on\]"; then
         display_volume=0
-        icon_name="notification-audio-volume-muted"
         amixer set $mixer mute
     else
         display_volume=$(amixer set $mixer unmute | grep -m 1 "%]" | cut -d "[" -f2|cut -d "%" -f1)
     fi
 fi
 
+if [ "$display_volume" = "0" ]; then
+    icon_name="audio-volume-muted-symbolic"
+elif [ "$display_volume" -lt "33" ]; then
+    icon_name="audio-volume-low-symbolic"
+elif [ "$display_volume" -lt "66" ]; then
+    icon_name="audio-volume-medium-symbolic"
+else
+    icon_name="audio-volume-high-symbolic"
+fi
+
+# microphone controls
+
 if [ "$command" = "mic" ]; then
-    icon_name="media-record"
     amixer set Capture toggle
 
     if amixer get Capture | grep "\[on\]"; then
         display_volume=100
+        icon_name="microphone-sensitivity-high-symbolic"
     else
         display_volume=0
+        icon_name="microphone-sensitivity-muted-symbolic"
     fi
 fi
 
-if [ "$icon_name" = "" ]; then
-    if [ "$display_volume" = "0" ]; then
-        icon_name="notification-audio-volume-off"
-    else
-        if [ "$display_volume" -lt "33" ]; then
-            icon_name="notification-audio-volume-low"
-        else
-            if [ "$display_volume" -lt "67" ]; then
-                icon_name="notification-audio-volume-medium"
-            else
-                icon_name="notification-audio-volume-high"
-            fi
-        fi
-    fi
-fi
+# notification
+
+icon_name="/usr/share/icons/gnome/scalable/status/${icon_name}.svg"
 notify-send " " -i $icon_name -h int:value:$display_volume -h string:synchronous:volume
