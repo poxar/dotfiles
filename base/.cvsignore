@@ -1,5 +1,7 @@
 tags
 TAGS
+.vimrc
+.clang_complete
 .env
 *.log
 *~
