@@ -22,8 +22,8 @@ bind c      exec rp-ror xterm "xterm -title xterm -e tm-aon"
 bind C      exec xterm -title xterm -e tm-aon
 bind e      exec rp-ror gvim
 bind E      exec gvim
-bind t      exec rp-ror chromium
-bind T      exec chromium
+bind t      exec rp-ror firefox
+bind T      exec firefox
 
 bind period exec rp-ror stalonetray
 

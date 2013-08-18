@@ -4,4 +4,4 @@
 # Sets environment for xorg
 #
 
-export BROWSER=chromium
+export BROWSER=firefox
