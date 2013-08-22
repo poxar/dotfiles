@@ -13,8 +13,12 @@ fi
 echo ""
 
 # start ssh-agent and gpg-agent
-which keychain &>/dev/null &&
+if which keychain &>/dev/null
+then
   eval `keychain -q --eval`
+fi
 
-[[ -a $HOME/.zlogin.local ]] &&
+if [[ -a $HOME/.zlogin.local ]]
+then
   source $HOME/.zlogin.local
+fi
