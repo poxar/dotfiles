@@ -27,5 +27,3 @@ if which startx &>/dev/null && \
 then
    exec startx &> ~/.xlog
 fi
-
-# vim:set ft=zsh:

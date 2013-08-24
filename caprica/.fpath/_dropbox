@@ -98,5 +98,3 @@ _dropbox_ls(){ _path_files }
 _dropbox_status(){}
 _dropbox_stop(){}
 _dropbox_running(){}
-
-# vim: ft=zsh sw=2 ts=2 et
