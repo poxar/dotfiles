@@ -9,9 +9,6 @@ xset fp rehash
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 
-# chromium edit-server
-edit-server &
-
 # xinitrc.d global settings
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
