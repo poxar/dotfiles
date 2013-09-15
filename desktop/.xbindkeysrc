@@ -27,14 +27,14 @@
     XF86AudioStop
 
 "mpc next"
-    m:0x41 + c:60
-    Shift+Mod4 + period
+    m:0x40 + c:60
+    Mod4 + period
 "mpc prev"
-    m:0x41 + c:59
-    Shift+Mod4 + comma
+    m:0x40 + c:59
+    Mod4 + comma
 "mpc toggle"
-    m:0x41 + c:58
-    Shift+Mod4 + m
+    m:0x40 + c:58
+    Mod4 + m
 
 ## Misc
 #screenlock
