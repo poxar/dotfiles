@@ -3,7 +3,7 @@ startup_message off
 set historysize 100
 set historycompaction 1
 set historyexpansion 1
-set border 0
+set border 1
 set wingravity c
 
 escape M-j
