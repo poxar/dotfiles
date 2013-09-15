@@ -24,6 +24,8 @@ bind e      exec rp-ror gvim
 bind E      exec gvim
 bind t      exec rp-ror firefox
 bind T      exec firefox
+bind h      exec rp-ror thunderbird
+bind H      exec thunderbird
 
 bind period exec rp-ror stalonetray
 
