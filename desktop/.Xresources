@@ -14,20 +14,21 @@ Xft.rgba:      rgb
 
 !! xterm
 xterm*highlightSelection: true
-XTerm*metaSendsEscape:    true
+xterm*metaSendsEscape:    true
 xterm*bellIsUrgent:       true
 xterm*cutNewline:         true
 xterm*scrollKey:          true
+xterm*selectToClipboard:  true
 xterm*scrollTtyOutput:    false
 xterm*allowTitleOps:      false
 
 ! utf8 and 256 colors
-XTerm*locale:   true
+xterm*locale:   true
 xterm*termName: xterm-256color
 
 ! looks
 xterm*borderWidth:     0
-xterm*faceName:        monospace
+xterm*faceName:        DejaVu Sans Mono
 xterm*faceSize:        11
 xterm*cursorBlink:     true
 xterm*underLine:       false
