@@ -29,5 +29,6 @@ xset -b
 
 # load keybindings
 xbindkeys &
+xchainkeys &
 
-exec ~/bin/rp-init
+exec openbox-session

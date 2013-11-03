@@ -6,7 +6,7 @@ rp-screens startup
 # autostart
 xcompmgr &
 nitrogen --restore &
-dropbox start &
+pgrep dropbox &>/dev/null || dropboxd &
 nm-applet &
 
 # start xterm with tmux
