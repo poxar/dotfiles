@@ -69,7 +69,7 @@ Make sure you have zsh, git and stow installed and in your `$PATH`.
 
 ```sh
 cd ~
-git clone git://github.com/herrblau/dotfiles.git .dotfiles
+git clone git://github.com/poxar/dotfiles.git .dotfiles
 cd .dotfiles
 make base
 ```
@@ -81,7 +81,7 @@ If you want to deploy with vim:
 
 ```sh
 cd ~
-git clone git://github.com/herrblau/dotfiles.git .dotfiles
+git clone git://github.com/poxar/dotfiles.git .dotfiles
 cd .dotfiles
 make base vim
 ```
