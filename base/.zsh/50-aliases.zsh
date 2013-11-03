@@ -23,8 +23,6 @@ alias cmx="chmod -x"
 alias d="dirs -v"
 alias j="jobs -l"
 
-alias t="todo.sh"
-
 # auto sudo
 alias poweroff="$SUDO poweroff"
 alias reboot="$SUDO reboot"
