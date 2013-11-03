@@ -1,5 +1,9 @@
-nitrogen --restore &
 xcompmgr &
-dropbox start &
+pgrep dropbox &>/dev/null || dropboxd &
 nm-applet &
-tint2 &
+loliclip &
+stalonetray --dockapp-mode simple &
+xrandr | grep -q "HDMI2 connected" && xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto
+nitrogen --restore &
+conky &
+pasystray &
