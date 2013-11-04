@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-# clean up the pacman cache
-# remove all cached packages, if they're uninstalled
-
-/usr/bin/paccache -rvk 0
-/usr/bin/paccache -ruvk 0
