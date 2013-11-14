@@ -6,17 +6,7 @@
 
 ZDIR=$HOME/.zsh
 
-# function to add stuff to path
-function addToPath() {
-for i in $@; do
-  if ! echo $PATH | grep "$i:" >/dev/null; then
-    [[ -d $i ]] && PATH=$i:$PATH
-  fi
-done
-export PATH
-}
-
-addToPath "$HOME/bin"
+export PATH="$HOME/bin:$PATH"
 export EDITOR=vim
 export GPG_TTY=$(tty)
 export LESSHISTFILE=/dev/null
@@ -41,6 +31,9 @@ fpath=($HOME/.fpath $fpath)
 # load configuration files
 for zfile in $ZDIR/*.zsh; do; source $zfile; done
 unset zfile
+
+# automatically remove duplicates
+typeset -U path cdpath fpath manpath
 
 unset SUDO
 unset grep_options
