@@ -5,8 +5,8 @@
 #
 
 alias ls="ls $ls_options"
-alias l="ls -lhFB"
-alias la="ls -lAhB"
+alias l="ls -lhF"
+alias la="ls -lAh"
 alias md="mkdir -p"
 
 # ls only (dot)dirs
@@ -26,12 +26,8 @@ cdl() { cd $1 && l }
 # create dir(s) and cd to the first one
 mcd() { mkdir -p $@ && cd $1 }
 
-# ls in less
-if ls --help 2> /dev/null | grep -q GNU; then
-  ll() { ls -lAhB --color=always "$@" | less -r }
-else
-  ll() { ls -lAhB "$@" | less }
-fi
+# colorful ls in less
+ll() { ls -lAh --color=always "$@" | less -r }
 
 # count the files/folders in a directory
 lc() { ls "$@" | wc -l }
