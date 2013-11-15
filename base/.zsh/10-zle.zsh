@@ -10,6 +10,11 @@ bindkey -e
 autoload -U url-quote-magic   # quote pasted urls
 autoload -U edit-command-line # edit commandline in editor
 
+if [[ -d $HELPDIR ]]; then
+    unalias run-help
+    autoload -U run-help
+fi
+
 zle -N edit-command-line
 zle -N self-insert url-quote-magic
 
