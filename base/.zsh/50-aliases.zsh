@@ -5,6 +5,8 @@
 #
 
 alias grep="grep $grep_options"
+alias cp="cp $cp_options"
+alias mv="mv $mv_options"
 
 which colordiff &>/dev/null && \
     alias diff="colordiff"
