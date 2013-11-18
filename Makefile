@@ -27,7 +27,9 @@ autoenv: $(prefix)/.autoenv
 $(prefix)/.autoenv:
 	git clone https://github.com/sharat87/autoenv $(prefix)/.autoenv
 
-vim: $(prefix)/.vim
+vim: vim-config
+	stow $(stow_options) -R vim
+vim-config: $(prefix)/.vim
 	cd $(prefix)/.vim && make prefix=$(prefix)
 $(prefix)/.vim:
 	git clone https://github.com/poxar/vimfiles.git $(prefix)/.vim
