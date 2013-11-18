@@ -1,6 +1,6 @@
 
 #
-# .zlogin.local
+# .zlogin.d/caprica.zsh
 #
 
 # music player daemon

@@ -18,7 +18,8 @@ then
   eval `keychain -q --eval`
 fi
 
-if [[ -a $HOME/.zlogin.local ]]
+if [[ -d $ZLOGIND ]]
 then
-  source $HOME/.zlogin.local
+  for zfile in $ZLOGIND/*.zsh; do; source $zfile; done
+  unset zfile
 fi
