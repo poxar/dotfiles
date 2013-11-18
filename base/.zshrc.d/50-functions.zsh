@@ -42,6 +42,11 @@ man() {
         man "$@"
 }
 
+# search in zshall(1)
+zman() {
+    PAGER="less -g -s '+/^       "$1"'" man zshall
+}
+
 # witty one-liners
 
 # convert nfo files to utf8
