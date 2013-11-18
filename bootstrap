@@ -1,0 +1,151 @@
+#!/usr/bin/env zsh
+
+# where to install to?
+target="${target:-$HOME}"
+# dependencies of this script
+make_depends=(stow zsh)
+# options for stow
+stow_options=(--target="$target")
+
+define_presets() {
+  # populate the auto_plugins array
+  auto_plugins=($HOST)
+  check_ostype ".*gnu.*" "gnu"
+  check_ostype ".*freebsd.*" "freebsd"
+  check_path "pacman" "archlinux"
+
+  # definition of the presets
+  small=($auto_plugins base)
+  medium=($small autoenv vim)
+  huge=($medium desktop)
+
+  # remove duplicates
+  typeset -U small medium huge
+}
+
+# externals {{{
+
+clean_externals() {
+  # vim
+  rm -rf $target/.vim
+  # autoenv
+  rm -rf $target/.autoenv
+}
+
+vim_external() {
+  check_env git
+
+  if [[ -d $target/.vim ]]; then
+    echo "external vimfiles is up to date"
+  else
+    git clone 'https://github.com/poxar/vimfiles' "$target/.vim"
+    cd "$target/.vim"
+    make
+    cd -
+  fi
+}
+
+autoenv_external() {
+  check_env git
+
+  if [[ -d $target/.autoenv ]]; then
+    echo "external autoenv is up to date"
+  else
+    git clone 'https://github.com/sharat87/autoenv' "$target/.autoenv"
+  fi
+}
+
+# }}}
+# functions {{{
+
+# check the OSTYPE variable
+check_ostype() {
+  if [[ $OSTYPE =~ "$1" ]]; then
+    auto_plugins+=("$2")
+  fi
+}
+
+# check for a program in PATH
+check_path() {
+  which "$1" &>/dev/null && auto_plugins+=("$2")
+}
+
+# link the plugins with stow
+deploy() {
+  echo "The following plugins will be installed to $target:"
+  echo "$@"
+  echo "Continue?"
+  read -q || exit 1
+  echo ""
+
+  while [[ -n ${1} ]]; do
+    # fetch externals
+    which ${1}_external &>/dev/null && \
+      echo "installing external $1" && \
+      ${1}_external
+
+    # link
+    echo "linking ${1}"
+    stow ${stow_options} -R ${1}
+    shift
+  done
+}
+
+# clean up
+clean() {
+  echo "Deleting from $target"
+  if [[ $1 == "-r" ]];then
+    echo "This will permanently delete all externals"
+    echo "You might loose data!"
+    echo "Continue?"
+    read -q && clean_externals
+    echo ""
+  fi
+  stow ${stow_options} -D *(/)
+}
+
+# check if a program can be found
+check_env() {
+  while [[ -n ${1} ]]; do
+    if ! which $1 &>/dev/null; then
+      echo "[!] $1 not found"
+      exit 1
+    fi
+    shift
+  done
+}
+
+# }}}
+# main {{{
+
+# cd to basedir of the script
+cd `dirname $0`
+# check for missing dependencies
+check_env $make_depends
+# load preset definitions
+define_presets
+
+# read parameters
+case "$1" in
+  "small" | "s")
+    deploy $small
+    ;;
+  "medium" | "m")
+    deploy $medium
+    ;;
+  "huge" | "h")
+    deploy $huge
+    ;;
+  "clean" | "c")
+    clean $2
+    ;;
+  *)
+    echo "Usage: $0 {small|medium|huge|clean [-r]}"
+    ;;
+esac
+
+# back to where we were
+cd -
+
+# }}}
+

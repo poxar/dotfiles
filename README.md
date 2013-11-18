@@ -55,14 +55,6 @@ prepended with numbers.
 * **50-59** basic aliases, and functions, that may be used anywhere else.
 * **no-number** everything else
 
-## Deployment
-
-I use make for deployment. It helps with dependency-management and external
-stuff, and I can define certain configuration-sets I use rather often.
-
-When something changes I can simply run make again, and stow takes care of
-relinking and cleaning of dead links.
-
 ## Install
 
 Make sure you have zsh, git and stow installed and in your `$PATH`.
@@ -70,27 +62,33 @@ Make sure you have zsh, git and stow installed and in your `$PATH`.
 ```sh
 cd ~
 git clone git://github.com/poxar/dotfiles.git .dotfiles
-cd .dotfiles
-make base
+zsh .dotfiles/bootstrap small
 ```
 
 Note, that no old files will be overwritten. That means you have to move them
 away by hand.
 
-If you want to deploy with vim:
+If you want to my vim configuration too, try this instead:
 
 ```sh
-cd ~
-git clone git://github.com/poxar/dotfiles.git .dotfiles
-cd .dotfiles
-make base vim
+zsh .dotfiles/bootstrap medium
 ```
 
 This will pull my vim configuration from GitHub.
 Again you will have to move your vim configuration away for this to work (or
 call `make cleanall`).
 
-There are more options than those, just read through the Makefile.
+Finally, if you also want my X11 configuration files, call
+
+```sh
+zsh .dotfiles/bootstrap huge
+```
+
+To get rid of the symlinks again, type this
+
+```sh
+zsh .dotfiles/bootstrap clean
+```
 
 ## Using this verbatim
 
