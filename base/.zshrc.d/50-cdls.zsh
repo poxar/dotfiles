@@ -26,9 +26,6 @@ cdl() { cd $1 && l }
 # create dir(s) and cd to the first one
 mcd() { mkdir -p $@ && cd $1 }
 
-# colorful ls in less
-ll() { ls -lAh --color=always "$@" | less -r }
-
 # count the files/folders in a directory
 lc() { ls "$@" | wc -l }
 # count (almost) all

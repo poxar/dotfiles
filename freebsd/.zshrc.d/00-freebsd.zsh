@@ -1,16 +1,17 @@
 
 #
 # ~/.zsh/00-freebsd.zsh
-# ZSH settings for FreeBSD
+# defaults for FreeBSD
 #
 
-# freebsd ls doesn't understand --color
-ls_options=()
+# be colorful
 export CLICOLOR=1
+
+# colorful ls in less
 ll() { CLICOLOR_FORCE=1 ls -lAh "$@" | less -r }
 
-# nor --backup, ask if override is ok instead
-cp_options=( -i )
-mv_options=( -i )
+# ask if override is ok
+cp_options+=("-i")
+mv_options+=("-i")
 
-mktemp_options=(-t tmp)
+mktemp_options+=(-t tmp)

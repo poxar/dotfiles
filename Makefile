@@ -10,8 +10,10 @@ desktop: base
 
 
 # os
-.PHONY: archlinux freebsd
-archlinux:
+.PHONY: gnu archlinux freebsd
+gnu:
+	stow $(stow_options) -R gnu
+archlinux: gnu
 	stow $(stow_options) -R archlinux
 freebsd:
 	stow $(stow_options) -R freebsd
