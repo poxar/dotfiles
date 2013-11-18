@@ -16,7 +16,7 @@ define_presets() {
 
   # definition of the presets
   small=($auto_plugins base)
-  medium=($small autoenv vim git)
+  medium=($small autoenv vim git svn)
   huge=($medium desktop)
 
   # remove duplicates
