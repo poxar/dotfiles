@@ -4,7 +4,7 @@
 # initializes some variables and loads configuration files
 #
 
-ZDIR=$HOME/.zsh
+ZDIR=$HOME/.zshrc.d
 
 export PATH="$HOME/bin:$PATH"
 export EDITOR=vim
