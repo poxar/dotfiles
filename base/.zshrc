@@ -14,8 +14,8 @@ export LESSHISTFILE=/dev/null
 # sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
 
-# completions
-fpath=($HOME/.fpath $fpath)
+# custom completion and function searchpath
+fpath=($HOME/.zpath $fpath)
 
 # load configuration files
 for zfile in $ZDIR/*.zsh; do; source $zfile; done
