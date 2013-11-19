@@ -8,9 +8,6 @@
 "pactl set-sink-mute 0 toggle"
     m:0x0 + c:121
     XF86AudioMute
-"~/bin/volosd mic"
-    m:0x0 + c:157
-    XF86Launch2
 
 ## Music Player Daemon
 "mpc next"
@@ -26,21 +23,8 @@
     m:0x0 + c:174
     XF86AudioStop
 
-# "mpc next"
-#     m:0x40 + c:60
-#     Mod4 + period
-# "mpc prev"
-#     m:0x40 + c:59
-#     Mod4 + comma
-# "mpc toggle"
-#     m:0x40 + c:58
-#     Mod4 + m
-
 ## Misc
 #screenlock
 "slock & xset dpms force off"
     m:0x0 + c:127
     Pause
-# "import /tmp/screenshot.jpg && imup -i imgur /tmp/screenshot.jpg | xclip -selection clipboard"
-#     m:0x0 + c:107
-#     Print
