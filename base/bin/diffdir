@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+# show a diff of two dirs
+
+local DIR1_TMP
+local DIR2_TMP
+DIR1_TMP=$(mktemp $mktemp_options)
+DIR2_TMP=$(mktemp $mktemp_options)
+
+ls -a $1 > $DIR1_TMP
+ls -a $2 > $DIR2_TMP
+
+if which colordiff &>/dev/null; then
+  colordiff $DIR2_TMP $DIR1_TMP
+else
+  diff $DIR2_TMP $DIR1_TMP
+fi
+
+rm -f $DIR1_TMP $DIR2_TMP
