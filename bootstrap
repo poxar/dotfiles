@@ -41,7 +41,7 @@ clean_externals() {
 }
 
 vim_external() {
-  check_env git
+  check_make_env git
 
   if [[ -d $target/.vim ]]; then
     echo "external vimfiles is up to date"
@@ -54,13 +54,32 @@ vim_external() {
 }
 
 autoenv_external() {
-  check_env git
+  check_make_env git
 
   if [[ -d $target/.autoenv ]]; then
     echo "external autoenv is up to date"
   else
     git clone 'https://github.com/sharat87/autoenv' "$target/.autoenv"
   fi
+}
+
+# }}}
+# dependencies {{{
+
+vim_depends() {
+  check_env vim ctags python
+}
+
+autoenv_depends() {
+  check_env python
+}
+
+git_depends() {
+  check_env git tig
+}
+
+tmux_depends() {
+  check_env tmux urlview
 }
 
 # }}}
@@ -81,6 +100,12 @@ check_uname() {
   [[ `uname -a` =~ "$1" ]] && auto_plugins+=("$2")
 }
 
+# issue a message and die
+die() {
+  echo $1
+  exit 1
+}
+
 # link the plugins with stow
 deploy() {
   echo "The following plugins will be installed to $target:"
@@ -94,6 +119,10 @@ deploy() {
     which ${1}_external &>/dev/null && \
       echo "installing external $1" && \
       ${1}_external
+
+    # check dependecies
+    which ${1}_depends &>/dev/null && \
+      ${1}_depends
 
     # link
     echo "linking ${1}"
@@ -119,8 +148,7 @@ clean() {
 check_env() {
   while [[ -n ${1} ]]; do
     if ! which $1 &>/dev/null; then
-      echo "[!] $1 not found"
-      exit 1
+      ${finish:-echo} "[!] $1 not found"
     fi
     shift
   done
@@ -129,10 +157,11 @@ check_env() {
 # }}}
 # main {{{
 
+alias check_make_env="finish=die check_env"
 # cd to basedir of the script
 cd `dirname $0`
 # check for missing dependencies
-check_env $make_depends
+check_make_env $make_depends
 # load preset definitions
 define_presets
 
