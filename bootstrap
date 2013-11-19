@@ -3,102 +3,47 @@
 # where to install to?
 target="${target:-$HOME}"
 # dependencies of this script
-make_depends=(stow zsh)
+make_dependencies=(stow zsh)
 # options for stow
-stow_options=(--target="$target")
+stow_options=(--target="$target" --ignore='df-build.zsh')
+logfile=${logfile:-/dev/null}
 
 define_presets() {
   # populate the auto_plugins array
   auto_plugins=($HOST)
-  check_ostype ".*gnu.*" "gnu"
-  check_ostype ".*freebsd.*" "freebsd"
-  check_path "pacman" "archlinux"
 
-  check_path "git" "git"
-  check_path "svn" "svn"
-  check_path "tmux" "tmux"
-  check_path "ack" "ack"
-  check_path "ack-grep" "ack"
-  check_path "aunpack" "atool"
-  check_path "hg" "hg"
+  [[ $OSTYPE =~ ".*gnu.*" ]]     && auto_plugins+=("gnu")
+  [[ $OSTYPE =~ ".*freebsd.*" ]] && auto_plugins+=("freebsd")
+  # work around a bug in stow
+  [[ $OSTYPE =~ ".*freebsd.*" ]] && stow_options=(--ignore='df-build.zsh')
+
+  which "pacman"   &>/dev/null && auto_plugins+=("archlinux")
+
+  which "git"      &>/dev/null && auto_plugins+=("git")
+  git_depends=(tig)
+  which "tmux"     &>/dev/null && auto_plugins+=("tmux")
+  tmux_depends=(urlview)
+
+  which "svn"      &>/dev/null && auto_plugins+=("svn")
+  which "ack"      &>/dev/null && auto_plugins+=("ack")
+  which "ack-grep" &>/dev/null && auto_plugins+=("ack")
+  which "aunpack"  &>/dev/null && auto_plugins+=("atool")
+  which "hg"       &>/dev/null && auto_plugins+=("hg")
 
   # definition of the presets
   small=($auto_plugins base)
   medium=($small autoenv vim)
   huge=($medium xorg ratpoison openbox)
 
+  # dependecies
+  autoenv_depends=(python)
+  vim_depends=(vim ctags python)
+
   # remove duplicates
   typeset -U small medium huge
 }
 
-# externals {{{
-
-clean_externals() {
-  # vim
-  rm -rf $target/.vim
-  # autoenv
-  rm -rf $target/.autoenv
-}
-
-vim_external() {
-  check_make_env git
-
-  if [[ -d $target/.vim ]]; then
-    echo "external vimfiles is up to date"
-  else
-    git clone 'https://github.com/poxar/vimfiles' "$target/.vim"
-    cd "$target/.vim"
-    make
-    cd -
-  fi
-}
-
-autoenv_external() {
-  check_make_env git
-
-  if [[ -d $target/.autoenv ]]; then
-    echo "external autoenv is up to date"
-  else
-    git clone 'https://github.com/sharat87/autoenv' "$target/.autoenv"
-  fi
-}
-
-# }}}
-# dependencies {{{
-
-vim_depends() {
-  check_env vim ctags python
-}
-
-autoenv_depends() {
-  check_env python
-}
-
-git_depends() {
-  check_env git tig
-}
-
-tmux_depends() {
-  check_env tmux urlview
-}
-
-# }}}
 # functions {{{
-
-# check the OSTYPE variable
-check_ostype() {
-  [[ $OSTYPE =~ "$1" ]] && auto_plugins+=("$2")
-}
-
-# check for a program in PATH
-check_path() {
-  which "$1" &>/dev/null && auto_plugins+=("$2")
-}
-
-# parse uname -a
-check_uname() {
-  [[ `uname -a` =~ "$1" ]] && auto_plugins+=("$2")
-}
 
 # issue a message and die
 die() {
@@ -110,19 +55,21 @@ die() {
 deploy() {
   echo "The following plugins will be installed to $target:"
   echo "$@"
-  echo "Continue?"
-  read -q || exit 1
+  read -q "?Continue? " || exit 1
   echo ""
 
   while [[ -n ${1} ]]; do
-    # fetch externals
-    which ${1}_external &>/dev/null && \
-      echo "installing external $1" && \
-      ${1}_external
+    # run buildscript
+    if [[ -f ${1}/df-build.zsh ]]; then
+      source ${1}/df-build.zsh
+      echo -n "-> building $1..."
+      build_${1}
+    fi
 
     # check dependecies
-    which ${1}_depends &>/dev/null && \
-      ${1}_depends
+    dependencies=${1}_depends
+    [[ -n ${(P)dependencies} ]] && \
+      check_env ${(P)dependencies}
 
     # link
     echo "linking ${1}"
@@ -133,37 +80,46 @@ deploy() {
 
 # clean up
 clean() {
-  echo "Deleting from $target"
-  if [[ $1 == "-r" ]];then
-    echo "This will permanently delete all externals"
-    echo "You might loose data!"
-    echo "Continue?"
-    read -q && clean_externals
-    echo ""
-  fi
+  echo "Cleaning symlinks from $target"
   stow ${stow_options} -D *(/)
+
+  # call all clean scripts
+  if [[ $1 == "-r" ]]; then
+    for i in *; do
+      if [[ -f $i/df-build.zsh ]]; then
+        source $i/df-build.zsh
+        clean_$i
+      fi
+    done
+  fi
 }
 
 # check if a program can be found
 check_env() {
   while [[ -n ${1} ]]; do
     if ! which $1 &>/dev/null; then
+      missing_dependencies+=(${1})
       ${finish:-echo} "[!] $1 not found"
     fi
     shift
   done
 }
 
+check_make_env() {
+  finish=die check_env $*
+}
+
 # }}}
 # main {{{
 
-alias check_make_env="finish=die check_env"
 # cd to basedir of the script
 cd `dirname $0`
 # check for missing dependencies
-check_make_env $make_depends
+check_make_env $make_dependencies
 # load preset definitions
 define_presets
+# load build/clean scripts
+source */df-build.zsh
 
 # read parameters
 case "$1" in
@@ -183,6 +139,10 @@ case "$1" in
     echo "Usage: $0 {small|medium|huge|clean [-r]}"
     ;;
 esac
+
+[[ -n $missing_dependencies ]] && \
+  echo "The following executables are missing" &&
+  echo "$missing_dependencies"
 
 # back to where we were
 cd -
