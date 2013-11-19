@@ -14,9 +14,17 @@ define_presets() {
   check_ostype ".*freebsd.*" "freebsd"
   check_path "pacman" "archlinux"
 
+  check_path "git" "git"
+  check_path "svn" "svn"
+  check_path "tmux" "tmux"
+  check_path "ack" "ack"
+  check_path "ack-grep" "ack"
+  check_path "aunpack" "atool"
+  check_path "hg" "hg"
+
   # definition of the presets
   small=($auto_plugins base)
-  medium=($small autoenv vim git svn tmux ack atool hg)
+  medium=($small autoenv vim)
   huge=($medium xorg ratpoison openbox)
 
   # remove duplicates
@@ -60,14 +68,17 @@ autoenv_external() {
 
 # check the OSTYPE variable
 check_ostype() {
-  if [[ $OSTYPE =~ "$1" ]]; then
-    auto_plugins+=("$2")
-  fi
+  [[ $OSTYPE =~ "$1" ]] && auto_plugins+=("$2")
 }
 
 # check for a program in PATH
 check_path() {
   which "$1" &>/dev/null && auto_plugins+=("$2")
+}
+
+# parse uname -a
+check_uname() {
+  [[ `uname -a` =~ "$1" ]] && auto_plugins+=("$2")
 }
 
 # link the plugins with stow
