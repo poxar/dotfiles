@@ -16,7 +16,7 @@ define_presets() {
 
   # definition of the presets
   small=($auto_plugins base)
-  medium=($small autoenv vim git svn tmux ack)
+  medium=($small autoenv vim git svn tmux ack atool)
   huge=($medium desktop)
 
   # remove duplicates
