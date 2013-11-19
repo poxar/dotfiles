@@ -19,16 +19,15 @@ define_presets() {
 
   which "pacman"   &>/dev/null && auto_plugins+=("archlinux")
 
-  which "git"      &>/dev/null && auto_plugins+=("git")
-  git_depends=(tig)
-  which "tmux"     &>/dev/null && auto_plugins+=("tmux")
-  tmux_depends=(urlview)
-
-  which "svn"      &>/dev/null && auto_plugins+=("svn")
   which "ack"      &>/dev/null && auto_plugins+=("ack")
   which "ack-grep" &>/dev/null && auto_plugins+=("ack")
   which "aunpack"  &>/dev/null && auto_plugins+=("atool")
+  which "git"      &>/dev/null && auto_plugins+=("git")
+  git_depends=(tig)
   which "hg"       &>/dev/null && auto_plugins+=("hg")
+  which "svn"      &>/dev/null && auto_plugins+=("svn")
+  which "tmux"     &>/dev/null && auto_plugins+=("tmux")
+  tmux_depends=(urlview)
 
   # definition of the presets
   small=($auto_plugins base)
