@@ -43,17 +43,15 @@ I'd have to edit the Makefile every time.
 Everything in `$HOME/.zsh` will be sourced, so it's rather easy to add
 functionality to zsh, or manipulate the environment.
 
-`$HOME/.fpath` is for completion scripts (\_name-of-your-executable).
+`$HOME/.zpath` is for custom completion scripts and shell functions.
 
 Since order in the zsh configuration is really important some files are
 prepended with numbers.
 
-* **00-09** operation-system specifics (is this a GNU-system or BSD, or what?).
-* **10-19** basic configuration of zsh.
-* **20-29** machine specific configuration of zsh.
-* **30-49** unused
-* **50-59** basic aliases, and functions, that may be used anywhere else.
-* **no-number** everything else
+* **00-09** operation-system specifics (GNU vs BSD etc).
+* **10-19** zsh configuration
+* **20-29** machine specific zsh configuration
+* **no-number** aliases, functions, plugins, etc.
 
 ## Install
 
