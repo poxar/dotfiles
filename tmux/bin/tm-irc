@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if [[ -z $TMUX ]]; then
+  tm-init
+fi
+
+tmux new-window -t 0 irssi
+tmux split-window -h -t 0 "irssi --home ~/.irssi-bitlbee/"

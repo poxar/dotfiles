@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+pushd ~
+
+if ! tmux has-session -t std
+then
+  tmux new-session -s std -d
+  tmux new-window -n music -t std:9 -d pms
+  tmux new-window -t std:0 -d irssi
+  tmux split-window -h -t std:0 -d "irssi --home ~/.irssi-bitlbee/"
+fi
+
+tmux attach -t std
+popd -
