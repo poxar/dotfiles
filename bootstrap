@@ -17,7 +17,7 @@ define_presets() {
   # definition of the presets
   small=($auto_plugins base)
   medium=($small autoenv vim git svn tmux ack atool hg)
-  huge=($medium desktop)
+  huge=($medium desktop ratpoison)
 
   # remove duplicates
   typeset -U small medium huge
