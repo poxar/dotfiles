@@ -10,7 +10,7 @@ logfile=${logfile:-/dev/null}
 
 define_presets() {
   # populate the auto_plugins array
-  auto_plugins=($HOST)
+  [[ -d $HOST ]] && auto_plugins=($HOST)
 
   [[ $OSTYPE =~ ".*gnu.*" ]]     && auto_plugins+=("gnu")
   [[ $OSTYPE =~ ".*freebsd.*" ]] && auto_plugins+=("freebsd")
