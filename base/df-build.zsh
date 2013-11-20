@@ -1,6 +1,6 @@
 
 #
-# vim/df-build.zsh
+# base/df-build.zsh
 # clone zsh-completions
 #
 
@@ -16,6 +16,7 @@ build_base() {
     cd $COMPLETION_DIR
     git pull &>>$logfile || {
       echo "failed!"
+      cd -
       return 1
     }
     echo "done"

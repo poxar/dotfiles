@@ -4,23 +4,35 @@
 # clone vimfiles and link them
 #
 
+VIMDIR=$target/.vim
+
 build_vim() {
   check_make_env git make
 
-  if [[ -d $target/.vim ]]; then
-    echo "up to date"
+  if [[ -d $VIMDIR ]]; then
+    echo "--- vim updatelog `date` ---" &>>$logfile
+
+    echo -n "update..."
+    cd $VIMDIR
+    git pull &>>$logfile || {
+      echo "failed!"
+      cd -
+      return 1
+    }
+    echo "done"
+    cd -
   else
 
     echo "--- vim buildlog `date` ---" &>>$logfile
 
     echo -n "clone..."
-    git clone 'https://github.com/poxar/vimfiles' "$target/.vim" &>>$logfile || {
+    git clone 'https://github.com/poxar/vimfiles' "$VIMDIR" &>>$logfile || {
       echo "failed!"
       return 1
     }
 
     echo -n "make..."
-    cd "$target/.vim"
+    cd "$VIMDIR"
     make &>>$logfile || {
       echo "failed!"
       return 1
@@ -32,8 +44,8 @@ build_vim() {
 }
 
 clean_vim() {
-  if [[ -d $target/.vim ]]; then
-    read -q "?Delete $target/.vim? " && rm -rf $target/.vim
+  if [[ -d $VIMDIR ]]; then
+    read -q "?Delete $VIMDIR? " && rm -rf $VIMDIR
     echo ""
   fi
 }
