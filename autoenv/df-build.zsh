@@ -4,39 +4,15 @@
 # clone latest autoenv
 #
 
-AUTOENV_DIR=$target/.autoenv
+bin_dir="$target/.autoenv"
+git_url='https://github.com/sharat87/autoenv'
 
 build_autoenv() {
-  check_make_env git
-
-  if [[ -d $AUTOENV_DIR ]]; then
-    echo "--- autoenv updatelog `date` ---" &>>$logfile
-
-    echo -n "update..."
-    cd $AUTOENV_DIR
-    git pull &>>$logfile || {
-      echo "failed!"
-      cd -
-      return 1
-    }
-    echo "done"
-    cd -
-  else
-    echo "--- autoenv buildlog `date` ---" &>>$logfile
-
-    echo -n "clone..."
-    git clone 'https://github.com/sharat87/autoenv' "$AUTOENV_DIR" \
-      &>>$logfile || {
-        echo "failed!"
-        return 1
-      }
-    echo "done"
-  fi
+  check_env make
+  clone_git "autoenv" "$git_url" "$bin_dir"
+  echo "done"
 }
 
 clean_autoenv() {
-  if [[ -d $AUTOENV_DIR ]]; then
-    read -q "?Delete $AUTOENV_DIR? " && rm -rf $AUTOENV_DIR
-    echo ""
-  fi
+  clean_dir "$bin_dir"
 }

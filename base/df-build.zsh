@@ -4,57 +4,26 @@
 # clone zsh-completions
 #
 
-COMPLETION_DIR=$target/.zsh-completion
+comp_dir=$target/.zsh-completion
+help_dir=$target/.zhelp
+git_url='https://github.com/zsh-users/zsh-completions'
 
 build_base() {
-  check_make_env git perl
+  check_make_env perl
 
-  if [[ -d $COMPLETION_DIR ]]; then
-    echo "--- base updatelog `date` ---" &>>$logfile
+  clone_git "base" $git_url $comp_dir || return 1
 
-    echo -n "update..."
-    cd $COMPLETION_DIR
-    git pull &>>$logfile || {
-      echo "failed!"
-      cd -
-      return 1
-    }
-    cd -
-  else
-
-    echo "--- base buildlog `date` ---" &>>$logfile
-
-    echo -n "clone..."
-    git clone 'https://github.com/zsh-users/zsh-completions' "$COMPLETION_DIR" \
-    &>>$logfile || {
-      echo "failed!"
-      return 1
-    }
-
-    echo -n "setup..."
-    mkdir -p $target/.zshrc.d
-    echo "fpath+=($COMPLETION_DIR/src)" > $target/.zshrc.d/zsh-completions.zsh
-  fi
-
-  echo -n "helpfiles..."
-  mkdir -p $target/.zhelp
-  perl base/bin/helpfiles zshall $target/.zhelp &>>$logfile || {
+  echo -n "generate helpfiles..."
+  mkdir -p $help_dir
+  perl base/bin/helpfiles zshall $help_dir &>>$logfile || {
     echo "failed!"
     return 1
   }
-  echo "done"
 
+  echo "done"
 }
 
 clean_base() {
-  if [[ -d $COMPLETION_DIR ]]; then
-    read -q "?Delete $COMPLETION_DIR? " && \
-      rm -rf $COMPLETION_DIR $target/.zshrc.d/zsh-completion.zsh
-    echo ""
-    # delete .zshrc.d if empty
-    rmdir $target/.zshrc.d &>/dev/null
-    read -q "?Delete $target/.zhelp? " && \
-      rm -rf $target/.zhelp
-    echo ""
-  fi
+  clean_dir $comp_dir
+  clean_dir $help_dir
 }

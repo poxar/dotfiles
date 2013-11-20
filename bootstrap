@@ -70,6 +70,8 @@ deploy() {
       source ${1}/df-build.zsh
       echo -n "-> building $1..."
       build_${1}
+      # cd back to the repo
+      cd `dirname $0`
     fi
 
     # check dependecies
@@ -115,10 +117,55 @@ check_make_env() {
   finish=die check_env $*
 }
 
+# common used git checkout
+# clone_git name url dir
+# name: name of plugin
+# url:  git remote url
+# dir:  directory to clone to
+clone_git() {
+  check_make_env git
+
+  local name="$1"
+  local git_url="$2"
+  local dir="$3"
+
+  echo "\n--- plugin $name on `date` ---" &>>$logfile
+
+  # try to update, if the $dir already exists
+  if [[ -d "$dir" ]]; then
+    echo -n "update..."
+    cd "$dir"
+    git pull &>>$logfile || {
+      echo "failed!"
+      cd -
+      return 1
+    }
+    cd -
+  else
+    # clone if nonexistent
+    echo -n "clone..."
+    git clone "$git_url" "$dir" &>>$logfile || {
+      echo "failed!"
+      cd -
+      return 1
+    }
+    cd -
+  fi
+}
+
+# delete $1 interactively
+clean_dir() {
+  if [[ -d "$1" ]]; then
+    read -q "?Delete $1? " && rm -rf "$1"
+    echo ""
+  fi
+}
+
 # }}}
 # main {{{
 
 # cd to basedir of the script
+old_pwd=$(pwd)
 cd `dirname $0`
 # check for missing dependencies
 check_make_env $make_dependencies
@@ -150,8 +197,7 @@ esac
   echo "The following executables are missing" &&
   echo "$missing_dependencies"
 
-# back to where we were
-cd -
+cd $old_pwd
 
 # }}}
 
