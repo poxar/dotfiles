@@ -4,7 +4,6 @@
 # set up the configuration framework
 #
 
-export EDITOR=vim
 export LESSHISTFILE=/dev/null
 
 # sudo mask

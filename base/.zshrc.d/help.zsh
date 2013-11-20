@@ -4,9 +4,6 @@
 # functions, that provide cheat sheets
 #
 
-# help with zle keybindings
-alias help-zle='bindkey -L | vim -c "set ft=zsh" -c "set so=999" -R -'
-
 # help for globbing from grml.org
 help-glob() {
     echo -e "
