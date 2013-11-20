@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+emulate zsh
 
 # where to install to?
 target="${target:-$HOME}"
