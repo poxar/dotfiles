@@ -37,7 +37,7 @@ define_presets() {
   huge=($medium xorg ratpoison openbox)
 
   # dependecies
-  base_depends=(shuf)
+  base_depends=(shuf less)
   vim_depends=(vim ctags python)
 
   # remove duplicates
