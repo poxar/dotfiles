@@ -34,8 +34,12 @@ define_presets() {
 
   # definition of the presets
   small=(base $auto_plugins)
-  medium=($small autoenv vim)
-  huge=($medium xorg ratpoison openbox)
+  medium=($small vim)
+  huge=($medium autoenv xorg)
+
+  # populate the huge array
+  which openbox   &>/dev/null && huge+=("openbox")
+  which ratpoison &>/dev/null && huge+=("ratpoison")
 
   # dependecies
   base_depends=(less)
