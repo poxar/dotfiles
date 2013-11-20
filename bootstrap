@@ -41,7 +41,7 @@ define_presets() {
   vim_depends=(vim ctags python)
 
   # remove duplicates
-  typeset -U small medium huge
+  typeset -U small medium huge auto_plugins
 }
 
 # functions {{{
