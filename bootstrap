@@ -32,7 +32,7 @@ define_presets() {
   tmux_depends=(urlview)
 
   # definition of the presets
-  small=($auto_plugins base)
+  small=(base $auto_plugins)
   medium=($small autoenv vim)
   huge=($medium xorg ratpoison openbox)
 
