@@ -18,6 +18,7 @@ alias gco="git checkout"
 alias gbr="git branch"
 
 alias gs="git status"
+alias gss="git status --no-short"
 alias gd="git diff"
 
 alias gundo="git reset --soft HEAD~1"
