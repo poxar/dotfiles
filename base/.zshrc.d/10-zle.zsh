@@ -159,8 +159,8 @@ bindkey -M emacs '^Sr' history-incremental-pattern-search-forward
 # use ^E^U to kill the whole line
 bindkey -M emacs '^U' backward-kill-line
 # quick help
+bindkey -M emacs '^Sh'  where-is
 bindkey -M emacs '^S^H' describe-key-briefly
-bindkey -M emacs '^S?'  where-is
 # comment out current line
 bindkey -M emacs '^S#' pound-insert
 # push everything on the stack
@@ -191,7 +191,7 @@ bindkey -M emacs '^S.' copy-prev-word
 # magic space
 bindkey -M emacs ' '   magic-abbrev-expand
 bindkey -M emacs '^S ' no-magic-abbrev-expand
-bindkey -M emacs '^Sh' help-show-abbrev
+bindkey -M emacs '^S?' help-show-abbrev
 
 # insert date from grml.org
 bindkey -M emacs '^Sd'  insert-date
