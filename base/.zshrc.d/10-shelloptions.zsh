@@ -19,5 +19,6 @@ setopt functionargzero      # set $0 to be the function call
 setopt local_options        # allow functions to have local options
 setopt prompt_subst         # fully update prompts
 setopt interactive_comments # allow comments in interactive shells
+setopt rm_starsilent        # i know what i'm doing (most of the time)
 
 unsetopt flowcontrol        # deactivate "freezing"
