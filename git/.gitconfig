@@ -17,6 +17,14 @@
   short = true
   branch = true
 
+[advice]
+  pushNonFastForward = false
+  statusHints = false
+  commitBeforeMerge = false
+  resolveConflict = false
+  implicitIdentity = false
+  detachedHead = false
+
 [core]
   excludesfile = ~/.cvsignore
   autocrlf = input
