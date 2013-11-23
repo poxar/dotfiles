@@ -10,7 +10,7 @@ fpath=($HOME/.zpath $fpath)
 export GPG_TTY=$(tty)
 
 # configuration directories
-ZSHRCD=$HOME/.zshrc.d
+ZSHRCD=$HOME/.zsh.d
 ZLOGIND=$HOME/.zlogin.d
 ZLOGOUTD=$HOME/.zlogout.d
 
