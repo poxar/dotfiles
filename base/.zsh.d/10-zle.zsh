@@ -149,6 +149,9 @@ fi
 # clear ^S we'll use it as prefix
 bindkey -rM emacs '^S'
 
+# better than ^X^V
+bindkey -M emacs '^[' vi-cmd-mode
+
 # fixes
 bindkey -M emacs '^X^R' redo
 bindkey -M emacs '^[p'  history-beginning-search-backward
