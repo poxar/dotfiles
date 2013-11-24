@@ -1,6 +1,6 @@
 Color = auto
 ConnectTimeout = 0
-TargetDir = ~/tmp
+TargetDir = ~/build
 MaxThreads = 10
 
 IgnorePkg = 
