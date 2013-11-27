@@ -1,5 +1,4 @@
 xcompmgr &
-pgrep dropbox &>/dev/null || dropboxd &
 nm-applet &
 stalonetray --dockapp-mode simple &
 xrandr | grep -q "HDMI2 connected" && xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto
