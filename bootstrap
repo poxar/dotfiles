@@ -50,12 +50,28 @@ define_presets() {
   typeset -U small medium huge auto_plugins
 }
 
-# functions {{{
+#------------------------------------------------------------------------------#
+#                               basic functions                                #
+#------------------------------------------------------------------------------#
 
 # issue a message and die
 die() {
   echo $1
   exit 1
+}
+
+# check if a program can be found
+check_env() {
+  while [[ -n ${1} ]]; do
+    if ! which $1 &>/dev/null; then
+      missing_dependencies+=(${1})
+      ${finish:-echo} "[!] $1 not found"
+    fi
+    shift
+  done
+}
+check_make_env() {
+  finish=die check_env $*
 }
 
 # link the plugins with stow
@@ -87,43 +103,12 @@ deploy() {
   done
 }
 
-# clean up
-clean() {
-  echo "Cleaning symlinks from $target"
-  stow ${stow_options} -D *(/)
-
-  # call all clean scripts
-  if [[ $1 == "-r" ]]; then
-    for i in *; do
-      if [[ -f $i/df-build.zsh ]]; then
-        source $i/df-build.zsh
-        clean_$i
-      fi
-    done
-  fi
-}
-
-# check if a program can be found
-check_env() {
-  while [[ -n ${1} ]]; do
-    if ! which $1 &>/dev/null; then
-      missing_dependencies+=(${1})
-      ${finish:-echo} "[!] $1 not found"
-    fi
-    shift
-  done
-}
-
-check_make_env() {
-  finish=die check_env $*
-}
-
 # common used git checkout
+clone_git() {
 # clone_git name url dir
 # name: name of plugin
 # url:  git remote url
 # dir:  directory to clone to
-clone_git() {
   check_make_env git
 
   local name="$1"
@@ -154,6 +139,22 @@ clone_git() {
   fi
 }
 
+# clean up
+clean() {
+  echo "Cleaning symlinks from $target"
+  stow ${stow_options} -D *(/)
+
+  # call all clean scripts
+  if [[ $1 == "-r" ]]; then
+    for i in *; do
+      if [[ -f $i/df-build.zsh ]]; then
+        source $i/df-build.zsh
+        clean_$i
+      fi
+    done
+  fi
+}
+
 # delete $1 interactively
 clean_dir() {
   if [[ -d "$1" ]]; then
@@ -162,8 +163,9 @@ clean_dir() {
   fi
 }
 
-# }}}
-# main {{{
+#------------------------------------------------------------------------------#
+#                                     main                                     #
+#------------------------------------------------------------------------------#
 
 # cd to basedir of the script
 old_pwd=$(pwd)
@@ -199,6 +201,4 @@ esac
   echo "$missing_dependencies"
 
 cd $old_pwd
-
-# }}}
 
