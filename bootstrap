@@ -6,7 +6,7 @@ target="${target:-$HOME}"
 # dependencies of this script
 make_dependencies=(stow zsh)
 # options for stow
-stow_options=(--target="$target" --ignore='df-build.zsh')
+stow_options=(--target="$target")
 logfile=${logfile:-/dev/null}
 
 define_presets() {
@@ -83,11 +83,11 @@ deploy() {
 
   while [[ -n ${1} ]]; do
     # run buildscript
-    if [[ -f ${1}/df-build.zsh ]]; then
-      source ${1}/df-build.zsh
+    if [[ -f ${1}-build.zsh ]]; then
+      source ${1}-build.zsh
       echo -n "-> building $1..."
       build_${1}
-      # cd back to the repo
+      # cd back to the repo in case we forgot in the buildscript
       cd `dirname $0`
     fi
 
@@ -147,8 +147,8 @@ clean() {
   # call all clean scripts
   if [[ $1 == "-r" ]]; then
     for i in *; do
-      if [[ -f $i/df-build.zsh ]]; then
-        source $i/df-build.zsh
+      if [[ -f ${i}-build.zsh ]]; then
+        source ${i}-build.zsh
         clean_$i
       fi
     done
@@ -174,8 +174,6 @@ cd `dirname $0`
 check_make_env $make_dependencies
 # load preset definitions
 define_presets
-# load build/clean scripts
-source */df-build.zsh
 
 # read parameters
 case "$1" in
