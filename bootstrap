@@ -36,7 +36,7 @@ define_presets() {
   # definition of the presets
   small=(base $auto_plugins)
   medium=($small vim)
-  huge=($medium autoenv xorg)
+  huge=($medium xorg)
 
   # populate the huge array
   which openbox   &>/dev/null && huge+=("openbox")
