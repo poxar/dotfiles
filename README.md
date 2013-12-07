@@ -69,7 +69,7 @@ zsh .dotfiles/bootstrap huge
 To get rid of the symlinks again, type this
 
 ```sh
-zsh .dotfiles/bootstrap clean -f
+zsh .dotfiles/bootstrap clean -r
 ```
 
 ## Using this verbatim
