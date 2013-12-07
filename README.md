@@ -7,8 +7,7 @@ you, but feel free to steal from them.
 I change those files a lot and sometimes I break things, so be careful.
 
 My [vim config](https://github.com/poxar/vimfiles) lives in in a separate
-repository, so I can use it without having to fetch all of my dotfiles
-(maybe Windows©, don't ask).
+repository, so I can use it without having to fetch all of my dotfiles.
 
 ## How?
 
@@ -16,42 +15,28 @@ I use [GNU Stow](http://www.gnu.org/software/stow/ "GNU Stow") to link the
 files in place. This pulls another dependency, but it's easy and effective, so
 meh.
 
-Every folder in this repo is a *preset*. The files in those presets are simply
-linked into `$HOME` as they are. Stow tries to be smart about "folding", that
-means creating subdirectories instead of linking them, if necessary. So if you
-want to place files into a subdirectory, but not under version control remove
-the symlink, create the folder and relink (call make again).
+Every folder in this repo is a *preset* or *topic* and represents the
+configuration for a program or a suite of programs. The files in those presets
+are simply linked into `$HOME` as they are. Stow tries to be smart about
+"folding", that means creating subdirectories instead of linking them, if
+necessary. So if you want to place files into a subdirectory, but not under
+version control remove the symlink, create the folder and relink (call make
+again).
 
-The dotfiles for a certain machine are then a combination of some presets.
-
+Presets are only installed, if the appropriate executable exists.
 This cuts down on guards in the actual dotfiles (and thus may or may not speed
 up some things, a little bit). Even better it lets me easily disable some
-settings (right now most of my stuff simply lies in base, but that might
-change).
-
-I might add a single preset for every application in the future, so maybe I can
-link my dotfiles as soon as I install some application (and unlink them when
-uninstalling). However part of me thinks, this would be even worse than now,
-part of me thinks that would be the best thing ever (TM).
-
-The advantage of the current scheme is, that I can just drop new dotfiles in
-some preset and be done with it. Whereas having a folder for every application,
-I'd have to edit the Makefile every time.
+settings.
 
 ## ZSH
 
-Everything in `$HOME/.zsh` will be sourced, so it's rather easy to add
+Everything in `$HOME/.zsh.d` will be sourced, so it's rather easy to add
 functionality to zsh, or manipulate the environment.
 
 `$HOME/.zpath` is for custom completion scripts and shell functions.
 
-Since order in the zsh configuration is really important some files are
-prepended with numbers.
-
-* **00-09** operation-system specifics (GNU vs BSD etc).
-* **10-19** zsh configuration
-* **20-29** machine specific zsh configuration
-* **no-number** aliases, functions, plugins, etc.
+Files are sourced in alphanumeric order, so you can force a certain order by
+prefixing numbers to the filenames.
 
 ## Install
 
@@ -64,19 +49,18 @@ zsh .dotfiles/bootstrap small
 ```
 
 Note, that no old files will be overwritten. That means you have to move them
-away by hand.
+away by hand. (You'll get a warning about that.)
 
-If you want to my vim configuration too, try this instead:
+If you want to my vim configuration and syntax highlighting in zsh:
 
 ```sh
 zsh .dotfiles/bootstrap medium
 ```
 
 This will pull my vim configuration from GitHub.
-Again you will have to move your vim configuration away for this to work (or
-call `make cleanall`).
+Again you will have to move your vim configuration away for this to work.
 
-Finally, if you also want my X11 configuration files, call
+Finally, if you also want my X11 and WM configuration files, call
 
 ```sh
 zsh .dotfiles/bootstrap huge
@@ -85,7 +69,7 @@ zsh .dotfiles/bootstrap huge
 To get rid of the symlinks again, type this
 
 ```sh
-zsh .dotfiles/bootstrap clean
+zsh .dotfiles/bootstrap clean -f
 ```
 
 ## Using this verbatim
@@ -95,6 +79,5 @@ Don't.
 Seriously, bad idea.
 
 I recommend you cook up your own zsh configuration or clone something like
-[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) or the
-[grml-zsh-config](http://grml.org/zsh/).
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), [dotphiles](https://github.com/dotphiles/dotphiles) or the [grml-zsh-config](http://grml.org/zsh/).
 
