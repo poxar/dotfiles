@@ -35,7 +35,7 @@ define_presets() {
 
   # definition of the presets
   small=(base $auto_plugins)
-  medium=($small vim)
+  medium=($small vim zsh-syntax)
   huge=($medium xorg)
 
   # populate the huge array
