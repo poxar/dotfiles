@@ -209,26 +209,8 @@
       <action name="Iconify"/>
     </keybind>
     <!-- Keybindings for window switching -->
-    <keybind key="W-j">
-      <action name="NextWindow">
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
     <keybind key="A-Tab">
       <action name="NextWindow">
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="W-k">
-      <action name="PreviousWindow">
         <finalactions>
           <action name="Focus"/>
           <action name="Raise"/>
