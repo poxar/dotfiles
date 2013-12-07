@@ -6,7 +6,8 @@ set historyexpansion 1
 set border 1
 set wingravity c
 
-escape M-j
+escape Super_L
+bind s-Space meta
 bind Escape abort
 
 alias acpi exec ratpoison -c "echo `acpi`"
@@ -18,8 +19,8 @@ bind d exec dmenu_run
 bind grave notes
 
 unbind c
-bind c      exec rp-ror xterm "xterm -title xterm -e tm-aon"
-bind C      exec xterm -title xterm -e tm-aon
+bind c      exec rp-ror st "st -c 'terminal' -t 'terminal' -e tm-aon"
+bind C      exec st -c 'terminal' -t 'terminal' -e tm-aon
 bind e      exec rp-ror gvim
 bind E      exec gvim
 bind t      exec rp-ror firefox
@@ -38,7 +39,7 @@ bind Z         exec rp-grep
 # no modifier: all
 # Control    : other window classes
 # Shift      : same window class
-bind M-j  other
+bind   j  other
 bind C-j cother
 bind   J iother
 
@@ -72,21 +73,21 @@ bind q exec rp-sw
 
 # better splitting
 unbind S
-unbind C-S
+unbind s-S
 bind S   split 2/3
-bind C-S split 2/3
+bind s-S split 2/3
 
 bind v   hsplit
-bind C-v hsplit
+bind s-v hsplit
 bind V   hsplit 2/3
-bind C-V hsplit 2/3
+bind s-V hsplit 2/3
 
 # alt-tab
-definekey top M-Tab focus
-definekey top M-ISO_Left_Tab focus_last
+definekey top s-Tab focus
+definekey top s-ISO_Left_Tab focus_last
 # mod4-tab for monitors
-definekey top s-Tab nextscreen
-definekey top s-ISO_Left_Tab prevscreen
+definekey top M-Tab nextscreen
+definekey top M-ISO_Left_Tab prevscreen
 
 # better redraw
 bind L exec ratpoison -c "split" && ratpoison -c "undo"

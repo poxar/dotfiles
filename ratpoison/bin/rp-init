@@ -4,13 +4,14 @@
 rp-screens startup
 
 # autostart
-xcompmgr &
-nitrogen --restore &
-pgrep dropbox &>/dev/null || dropboxd &
+compton &
 nm-applet &
+nitrogen --restore &
+pasystray &
+xrandr | grep -q "HDMI2 connected" && xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto
 
-# start xterm with tmux
+# start st with tmux
 # attach, if session exists, create a new one else
-xterm -title "xterm" -e tm-aon &
+st -c "terminal" -t "terminal" -e ~/bin/tm-aon &
 
 ratpoison
