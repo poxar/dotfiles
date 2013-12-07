@@ -1,6 +1,8 @@
+Session.vim
 tags
 TAGS
 .vimrc
+.netrwhist
 .clang_complete
 .env
 *.log
