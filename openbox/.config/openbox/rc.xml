@@ -61,13 +61,18 @@
     <titleLayout>NLIMC</titleLayout>
   </theme>
   <desktops>
-    <number>4</number>
+    <number>9</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>1</name>
       <name>2</name>
       <name>3</name>
       <name>4</name>
+      <name>5</name>
+      <name>6</name>
+      <name>7</name>
+      <name>8</name>
+      <name>9</name>
     </names>
     <popupTime>875</popupTime>
   </desktops>
@@ -98,52 +103,121 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <chainQuitKey>Esc</chainQuitKey>
+    <keybind key="W-q">
+        <keybind key="d">
+            <action name="ToggleDockAutohide"/>
+        </keybind>
+      <keybind key="r">
+        <action name="Reconfigure"/>
+      </keybind>
+      <keybind key="w">
+        <action name="Restart"/>
+      </keybind>
+      <keybind key="q">
+        <action name="Exit"/>
+      </keybind>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="W-1">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>st</name>
-        </startupnotify>
-        <command>ob-ror st st</command>
+      <action name="Desktop">
+        <desktop>1</desktop>
       </action>
     </keybind>
     <keybind key="W-2">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>vim</name>
-        </startupnotify>
-        <command>ob-ror Gvim gvim</command>
+      <action name="Desktop">
+        <desktop>2</desktop>
       </action>
     </keybind>
     <keybind key="W-3">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>firefox</name>
-        </startupnotify>
-        <command>ob-ror Firefox firefox</command>
+      <action name="Desktop">
+        <desktop>3</desktop>
       </action>
     </keybind>
     <keybind key="W-4">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>thunderbird</name>
-        </startupnotify>
-        <command>ob-ror Thunderbird thunderbird</command>
+      <action name="Desktop">
+        <desktop>4</desktop>
       </action>
     </keybind>
     <keybind key="W-5">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>nautilus</name>
-        </startupnotify>
-        <command>ob-ror Nautilus nautilus</command>
+      <action name="Desktop">
+        <desktop>5</desktop>
       </action>
     </keybind>
+    <keybind key="W-6">
+      <action name="Desktop">
+        <desktop>6</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-7">
+      <action name="Desktop">
+        <desktop>7</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-8">
+      <action name="Desktop">
+        <desktop>8</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-9">
+      <action name="Desktop">
+        <desktop>9</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-1">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>1</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>2</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>3</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>4</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-5">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>5</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-6">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>6</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-7">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>7</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-8">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>8</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-S-9">
+      <action name="SendToDesktop">
+        <wrap>no</wrap>
+        <desktop>9</desktop>
+      </action>
+    </keybind>
+    <!-- application switching/running -->
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -152,63 +226,6 @@
         <monitor>next</monitor>
       </action>
     </keybind>
-    <!-- Keybindings for windows -->
-    <keybind key="W-F4">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="W-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
-    </keybind>
-    <!-- window management -->
-    <keybind key="W-Left">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge">
-        <direction>west</direction>
-      </action>
-    </keybind>
-    <keybind key="W-Right">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdge">
-        <direction>east</direction>
-      </action>
-    </keybind>
-    <keybind key="A-Left">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>67%</width>
-      </action>
-      <action name="MoveToEdge">
-        <direction>west</direction>
-      </action>
-    </keybind>
-    <keybind key="A-Right">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>33%</width>
-      </action>
-      <action name="MoveToEdge">
-        <direction>east</direction>
-      </action>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="ToggleMaximize"/>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="Iconify"/>
-    </keybind>
-    <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
         <finalactions>
@@ -225,7 +242,6 @@
       </command>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
     <keybind key="W-p">
       <action name="Execute">
         <startupnotify>
@@ -235,6 +251,21 @@
         <command>dmenu_run</command>
       </action>
     </keybind>
+    <keybind key="W-BackSpace">
+      <action name="Execute">
+        <execute>gvim</execute>
+      </action>
+    </keybind>
+    <!-- Keybindings for windows -->
+    <keybind key="W-F4">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="W-Escape">
+      <action name="Lower"/>
+      <action name="FocusToBottom"/>
+      <action name="Unfocus"/>
+    </keybind>
+    <!-- window management -->
     <keybind key="W-space">
         <keybind key="g">
             <action name="GrowToEdge">
@@ -250,50 +281,47 @@
                 <direction>south</direction>
             </action>
         </keybind>
-      <keybind key="space">
-        <action name="Execute">
-          <command>st tm-aon</command>
-        </action>
-      </keybind>
-      <keybind key="b">
-        <action name="Execute">
-          <command>firefox</command>
-        </action>
-      </keybind>
-      <keybind key="m">
-        <action name="Execute">
-          <command>donner</command>
-        </action>
-      </keybind>
-      <keybind key="t">
-        <action name="Execute">
-          <command>thunar</command>
-        </action>
-      </keybind>
     </keybind>
-    <keybind key="W-q">
-        <keybind key="d">
-            <action name="ToggleDockAutohide"/>
-        </keybind>
-      <keybind key="r">
-        <action name="Reconfigure"/>
-      </keybind>
-      <keybind key="w">
-        <action name="Restart"/>
-      </keybind>
-      <keybind key="q">
-        <action name="Exit"/>
-      </keybind>
+    <keybind key="W-Left">
+      <action name="Unmaximize"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <width>50%</width>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="Unmaximize"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <width>50%</width>
+      </action>
+    </keybind>
+    <keybind key="A-Left">
+      <action name="Unmaximize"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <width>67%</width>
+      </action>
+    </keybind>
+    <keybind key="A-Right">
+      <action name="Unmaximize"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <width>33%</width>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="Iconify"/>
     </keybind>
     <keybind key="W-Return">
-      <action name="Execute">
-        <execute>xterm</execute>
-      </action>
-    </keybind>
-    <keybind key="W-BackSpace">
-      <action name="Execute">
-        <execute>gvim</execute>
-      </action>
+      <action name="ToggleMaximize"/>
     </keybind>
   </keyboard>
   <mouse>
@@ -620,6 +648,12 @@
           <decor>no</decor>
       </application>
       <application class="Gvim">
+          <decor>no</decor>
+      </application>
+      <application class="Firefox">
+          <decor>no</decor>
+      </application>
+      <application class="Thunderbird">
           <decor>no</decor>
       </application>
   </applications>
