@@ -22,6 +22,8 @@ alias lf='l -a -- *(.)'
 alias df="df -hT"
 alias dff="df -x tmpfs -x devtmpfs"
 alias dfl="dff -l"
+alias dffc="dfc -t -rootfs,tmpfs,devtmpfs"
+alias dflc="dffc -l"
 
 alias du="du -ch"
 alias dus="du -s"

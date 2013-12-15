@@ -43,7 +43,7 @@ define_presets() {
   which ratpoison &>/dev/null && huge+=("ratpoison")
 
   # dependecies
-  base_depends=(less)
+  base_depends=(less dfc)
   vim_depends=(vim ctags python)
 
   # remove duplicates
