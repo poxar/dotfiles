@@ -3,7 +3,14 @@
 # .zsh/plugin/git.zsh
 #
 
-alias g="git"
+function g() {
+  if [[ $# > 0 ]]; then
+    git $@
+  else
+    git status --short
+  fi
+}
+compdef g='git'
 
 alias ga="git add"
 alias garm="git add -A"
@@ -17,8 +24,7 @@ alias gpu="git pull"
 alias gco="git checkout"
 alias gbr="git branch"
 
-alias gs="git status"
-alias gss="git status --no-short"
+alias gs="git status --no-short"
 alias gd="git diff"
 
 alias gundo="git reset --soft HEAD~1"
