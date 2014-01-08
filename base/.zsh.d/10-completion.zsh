@@ -19,6 +19,8 @@ zstyle ':completion:*:descriptions' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:corrections' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:messages' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:warnings' format $'%{[0;31m%}%d%{[0m%}'
+# also suggest completions that don't start with the typed string
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # ignore some files and completions for programs we don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:(all-|)files' ignored patterns "(*.BAK|*.bak|*.o|*.aux|*.toc|*.swp|*~)"
