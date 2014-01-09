@@ -13,3 +13,6 @@ alias reflector="$SUDO reflector -c Germany -l 10 --sort score --save \
 
 # build, install and clean a PKGBUILD
 alias mpkg="makepkg -rsiL"
+
+# command-not-found hook via pkgfile
+source /usr/share/doc/pkgfile/command-not-found.zsh

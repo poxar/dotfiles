@@ -19,6 +19,7 @@ define_presets() {
   [[ $OSTYPE =~ ".*freebsd.*" ]] && stow_options=(--ignore='df-build.zsh')
 
   which "pacman"   &>/dev/null && auto_plugins+=("archlinux")
+  archlinux_depends=(pkgfile)
   which "aptitude" &>/dev/null && auto_plugins+=("aptitude")
 
   which "ack"      &>/dev/null && auto_plugins+=("ack")
