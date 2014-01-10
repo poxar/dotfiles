@@ -66,6 +66,16 @@ zle -N magic-abbrev-expand
 no-magic-abbrev-expand() { LBUFFER+=' ' } 
 zle -N no-magic-abbrev-expand
 
+# Expands .... to ../..
+function expand-dot-to-parent-directory-path() {
+  if [[ $LBUFFER = *.. ]]; then
+LBUFFER+='/..'
+  else
+LBUFFER+='.'
+  fi
+}
+zle -N expand-dot-to-parent-directory-path
+
 help-show-abbrev() { zle -M "$(print -a -C 2 ${(kv)abbreviations})" }
 zle -N help-show-abbrev
 
@@ -202,6 +212,10 @@ bindkey -M emacs '^S^D' insert-date
 
 # foreground from grml.org
 bindkey -M emacs '^Z' grml-zsh-fg
+
+# Expand ... to ../..
+bindkey -M emacs "." expand-dot-to-parent-directory-path
+bindkey -M isearch . self-insert
 #}}}
 # vi command mode {{{
 bindkey -M vicmd 'gg' beginning-of-history
