@@ -38,6 +38,9 @@ alias cmx="chmod -x"
 alias d="dirs -v"
 alias j="jobs -l"
 
+# quick find
+ff() { find . -name "$*" }
+
 # be colorful
 which colordiff &>/dev/null && \
     alias diff="colordiff"
