@@ -6,11 +6,17 @@
 #
 
 HISTFILE="$HOME/.zhist"
-HISTSIZE=10000
-SAVEHIST=12000
+HISTSIZE=20000
+SAVEHIST=20000
 HISTIGNORE="exit"
 
-setopt share_history        # share the history over multiple instances
-setopt extended_history     # put the time into history
 setopt hist_ignore_all_dups # delete old duplicates
 setopt hist_ignore_space    # ignore commands starting with space for history
+setopt hist_lex_words       # parse history files correctly
+setopt inc_append_history   # append to the histfile directly
+
+unsetopt share_history      # don't share the history automatically
+unsetopt extended_history   # use the simple history format
+
+# manually sync the history between instances
+alias histsync="fc -RI"
