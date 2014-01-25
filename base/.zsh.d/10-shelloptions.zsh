@@ -22,3 +22,4 @@ setopt interactive_comments # allow comments in interactive shells
 setopt rm_starsilent        # i know what i'm doing (most of the time)
 
 unsetopt flowcontrol        # deactivate "freezing"
+unsetopt nomatch            # pass unmatched globs to the argument list
