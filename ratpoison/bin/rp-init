@@ -5,10 +5,9 @@ rp-screens startup
 
 # autostart
 compton &
-nm-applet &
-nitrogen --restore &
 pasystray &
-xrandr | grep -q "HDMI2 connected" && xrandr --output LVDS1 --auto --left-of HDMI2 --output HDMI2 --auto
+autorandr -c
+nitrogen --restore &
 
 # start st with tmux
 # attach, if session exists, create a new one else

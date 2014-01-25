@@ -27,4 +27,7 @@ xset -b
 xbindkeys &
 xchainkeys &
 
+# listen for and act on udev signals
+udevedu &
+
 exec openbox-session

@@ -47,6 +47,11 @@ define_presets() {
   base_depends=(less dfc)
   vim_depends=(vim ctags python)
 
+  # TODO: there are more than those
+  xorg_depends=(autorandr xbindkeys xchainkeys openbox)
+  openbox_depends=(udevedu nitrogen compton stalonetray conky pasystray)
+  ratpoison_depends=(udevedu nitrogen compton stalonetray conky pasystray)
+
   # remove duplicates
   typeset -U small medium huge auto_plugins
 }
