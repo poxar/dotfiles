@@ -12,6 +12,9 @@
 alias l="ls -lhF"
 alias la="ls -lAh"
 
+alias sul="sudo ls -lhF $ls_options"
+alias sula="sudo ls -lAh $ls_options"
+
 # ls only (dot)dirs
 alias lad='l -d -- .*(/)'
 alias ld='l -d -- *(/)'
