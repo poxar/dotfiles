@@ -8,6 +8,7 @@ TAGS
 *.log
 *~
 *.swp
+*.latexmain
 
 # OS specific stuff
 desktop.ini
