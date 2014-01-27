@@ -48,7 +48,7 @@ define_presets() {
   vim_depends=(vim ctags python)
 
   # TODO: there are more than those
-  xorg_depends=(autorandr xbindkeys xchainkeys openbox)
+  xorg_depends=(autorandr xbindkeys openbox)
   openbox_depends=(udevedu nitrogen compton stalonetray conky pasystray)
   ratpoison_depends=(udevedu nitrogen compton stalonetray conky pasystray)
 
