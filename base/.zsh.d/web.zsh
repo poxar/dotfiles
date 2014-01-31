@@ -13,3 +13,6 @@ alias myip="lynx -dump tnx.nl/ip"
 imgur() { curl "$1" | grep _blank | awk '{print $2}' | cut -d \" -f 2 | \
     xargs wget }
 
+# generate common .gitignore entries
+gi() { curl http://www.gitignore.io/api/"$@" ;}
+
