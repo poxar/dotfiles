@@ -17,6 +17,7 @@ function precmd() {
   last_cmd=$?
   [[ $last_cmd -ne 0 ]] && echo -e "\e[01;31m$last_cmd\e[00m"
   unset last_cmd
+  set-prompt $KEYMAP
 }
 
 # use a function to set the prompt according to the mode we're in

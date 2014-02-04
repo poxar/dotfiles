@@ -1,0 +1,8 @@
+# ZLE widget after-first-word
+# jump after first word (to add switches)
+zle beginning-of-line
+zle vi-forward-blank-word
+[[ $LBUFFER[(w)1] == 'sudo' ]] && \
+  zle vi-forward-blank-word
+zle backward-char
+LBUFFER+=' '
