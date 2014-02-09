@@ -1,0 +1,15 @@
+# go up to the first parent directory matching $1
+# http://www.reddit.com/r/commandline/comments/1j7y16/handy_bash_function_i_just_wrote_to_move_up/
+if [[ $1 == "" ]]; then
+  newdir=/
+else
+  local newdir=$(dirname $(pwd))
+fi
+
+while [[ "$(basename $newdir)" != *$1* ]] && [[ "$(basename $newdir)" != "/" ]]
+do
+  newdir=$(dirname $newdir)
+done
+
+echo $newdir
+cd $newdir

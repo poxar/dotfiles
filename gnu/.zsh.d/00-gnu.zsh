@@ -5,13 +5,11 @@
 #
 
 # be colorful
-if [ -x `which dircolors` ]; then
-  eval `dircolors -b` && \
+eval `dircolors -b` && \
   export ZLS_COLORS=$LS_COLORS
-fi
 
 ls_options+=(--color=auto)
-grep_options+=(--color=auto)
+export GREP_OPTIONS="--color=auto $GREP_OPTIONS"
 
 # colorful ls in less
 ll() { ls -lAh --color=always "$@" | less -r }
