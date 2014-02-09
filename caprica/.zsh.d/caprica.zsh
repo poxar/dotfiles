@@ -16,6 +16,7 @@ export PROJECT_HOME=$PROJECTS
 [[ -d $WORKON_HOME ]] && \
     source `which virtualenvwrapper.sh` &>/dev/null
 
+# directories
 hash -d data=$HOME/data
 hash -d dokumente=~data/Dokumente
 hash -d dropbox=~data/Dropbox
@@ -25,8 +26,17 @@ hash -d shares=/run/user/1000/gvfs
 
 alias dup="sudo duply mybook"
 
+alias t="todo.sh"
+alias soon='todo.sh list | grep -E "due:`date +%Y-%m-%d`|due:`date -d tomorrow +%Y-%m-%d`"'
+
+# google drive
+alias gdrive="cd /media/storage/gdrive && grive"
+
+# easy mounting of my nas
 function mount-tauron() {
   udevil mount -o credentials=/home/philipp/.smbcred-tauron smb://pmi@tauron/$1
 }
 compctl -k "(pmi public backup download configuration)" mount-tauron
 
+# autocomplete cheat
+compdef "_path_files -W $HOME/.cheat/" cheat
