@@ -12,6 +12,8 @@ export LESSHISTFILE=/dev/null
 fpath=($HOME/.zpath $fpath)
 fpath=($HOME/.zcomp/src $fpath)
 
+cdpath=($HOME $cdpath)
+
 # configuration directories
 ZSHRCD=$HOME/.zsh.d
 ZLOGIND=$HOME/.zlogin.d

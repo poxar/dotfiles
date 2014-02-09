@@ -17,11 +17,8 @@ export PROJECT_HOME=$PROJECTS
     source `which virtualenvwrapper.sh` &>/dev/null
 
 # directories
-hash -d data=$HOME/data
-hash -d dokumente=~data/Dokumente
-hash -d dropbox=~data/Dropbox
-hash -d bib=~data/Bibliothek
-hash -d uni=~dropbox/Uni
+cdpath+=($HOME/data)
+cdpath+=($HOME/data/Dropbox/Uni)
 hash -d shares=/run/user/1000/gvfs
 
 alias dup="sudo duply mybook"
