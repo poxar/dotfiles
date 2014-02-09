@@ -34,6 +34,3 @@ function mount-tauron() {
   udevil mount -o credentials=/home/philipp/.smbcred-tauron smb://pmi@tauron/$1
 }
 compctl -k "(pmi public backup download configuration)" mount-tauron
-
-# autocomplete cheat
-compdef "_path_files -W $HOME/.cheat/" cheat
