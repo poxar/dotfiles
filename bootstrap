@@ -4,7 +4,7 @@ emulate zsh
 # where to install to?
 target="${target:-$HOME}"
 # dependencies of this script
-make_dependencies=(stow zsh)
+make_dependencies=(stow zsh git)
 # options for stow
 stow_options=(--target="$target")
 logfile=${logfile:-/dev/null}
@@ -50,7 +50,7 @@ define_presets() {
   ratpoison_depends=(udevedu nitrogen compton stalonetray conky pasystray)
 
   # remove duplicates
-  typeset -U small medium huge auto_plugins
+  typeset -U small huge auto_plugins
 }
 
 #------------------------------------------------------------------------------#
@@ -128,10 +128,10 @@ case "$1" in
     deploy $huge
     ;;
   "clean" | "c")
-    clean $2
+    clean
     ;;
   *)
-    echo "Usage: $0 {small|huge|clean [-r]}"
+    echo "Usage: $0 {small|huge|clean}"
     ;;
 esac
 

@@ -20,8 +20,7 @@ configuration for a program or a suite of programs. The files in those presets
 are simply linked into `$HOME` as they are. Stow tries to be smart about
 "folding", that means creating subdirectories instead of linking them, if
 necessary. So if you want to place files into a subdirectory, but not under
-version control remove the symlink, create the folder and relink (call make
-again).
+version control remove the symlink, create the folder and relink.
 
 Presets are only installed, if the appropriate executable exists.
 This cuts down on guards in the actual dotfiles (and thus may or may not speed
@@ -33,10 +32,10 @@ settings.
 Everything in `$HOME/.zsh.d` will be sourced, so it's rather easy to add
 functionality to zsh, or manipulate the environment.
 
-`$HOME/.zpath` is for custom completion scripts and shell functions.
-
 Files are sourced in alphanumeric order, so you can force a certain order by
 prefixing numbers to the filenames.
+
+`$HOME/.zpath` is for custom completion scripts and shell functions.
 
 ## Install
 
@@ -60,7 +59,13 @@ zsh .dotfiles/bootstrap huge
 To get rid of the symlinks again, type this
 
 ```sh
-zsh .dotfiles/bootstrap clean -r
+zsh .dotfiles/bootstrap clean
+```
+
+In case you want to select by hand what will be installed, call
+
+```sh
+stow -v base and all the topics you want
 ```
 
 ## Using this verbatim
