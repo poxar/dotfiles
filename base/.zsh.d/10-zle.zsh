@@ -92,7 +92,7 @@ bindkey -M emacs '^Sq' push-input
 #
 
 bindkey -M vicmd 'gg' beginning-of-history
-bindkey -M vicmd 'G'  end-of-history
+bindkey -M vicmd 'G'  vi-fetch-history
 
 # swap the search directions and add pattern search
 bindkey -M vicmd '/'  history-incremental-pattern-search-backward
@@ -115,8 +115,12 @@ bindkey -M vicmd 'Y' vi-yank-eol
 bindkey -M vicmd 'yy' vi-yank-whole-line
 
 # quick history search
-bindkey -M vicmd 'j' down-line-or-search
-bindkey -M vicmd 'k' up-line-or-search
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey -M vicmd 'j' down-line-or-beginning-search
+bindkey -M vicmd 'k' up-line-or-beginning-search
 bindkey -M vicmd 'gj' down-line-or-history
 bindkey -M vicmd 'gk' up-line-or-history
 

@@ -31,13 +31,6 @@ alias dflc="dffc -l"
 alias du="du -ch"
 alias dus="du -s"
 
-alias rm="rm -I"
-
-alias md="mkdir -p"
-
-alias cpx="chmod +x"
-alias cmx="chmod -x"
-
 alias d="dirs -v"
 alias j="jobs -l"
 
@@ -75,41 +68,6 @@ cdtmp() {
     echo $t
     builtin cd $t
 }
-
-# show a diff of two dirs
-diffdir() {
-    local DIR1_TMP
-    local DIR2_TMP
-    DIR1_TMP=$(mktemp $mktemp_options)
-    DIR2_TMP=$(mktemp $mktemp_options)
-
-    ls -a $1 > $DIR1_TMP
-    ls -a $2 > $DIR2_TMP
-
-    if which colordiff &>/dev/null; then
-        colordiff $DIR2_TMP $DIR1_TMP
-    else
-        diff $DIR2_TMP $DIR1_TMP
-    fi
-
-    rm -f $DIR1_TMP $DIR2_TMP
-}
-
-# quick alias / function editing (from grml.org)
-# edit a function via zle
-autoload zed
-edfunc() {
-    [[ -z "$1" ]] && { echo "Usage: edfunc <function_to_edit>" ; return 1 } || \
-        zed -f "$1" ;
-}
-compdef _functions edfunc
-
-# edit an alias via zle
-edalias() {
-    [[ -z "$1" ]] && { echo "Usage: edalias <alias_to_edit>" ; return 1 } || \
-        vared aliases'[$1]' ;
-}
-compdef _aliases edalias
 
 # colorful man pages
 man() {

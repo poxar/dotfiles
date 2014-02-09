@@ -51,16 +51,7 @@ zsh .dotfiles/bootstrap small
 Note, that no old files will be overwritten. That means you have to move them
 away by hand. (You'll get a warning about that.)
 
-If you want to my vim configuration and syntax highlighting in zsh:
-
-```sh
-zsh .dotfiles/bootstrap medium
-```
-
-This will pull my vim configuration from GitHub.
-Again you will have to move your vim configuration away for this to work.
-
-Finally, if you also want my X11 and WM configuration files, call
+If you also want my X11 and WM configuration files, call
 
 ```sh
 zsh .dotfiles/bootstrap huge

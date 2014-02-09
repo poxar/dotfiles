@@ -15,8 +15,6 @@ define_presets() {
 
   [[ $OSTYPE =~ ".*gnu.*" ]]     && auto_plugins+=("gnu")
   [[ $OSTYPE =~ ".*freebsd.*" ]] && auto_plugins+=("freebsd")
-  # work around a bug in stow
-  [[ $OSTYPE =~ ".*freebsd.*" ]] && stow_options=(--ignore='df-build.zsh')
 
   which "pacman"   &>/dev/null && auto_plugins+=("archlinux")
   archlinux_depends=(pkgfile)
@@ -25,6 +23,7 @@ define_presets() {
   which "ack"      &>/dev/null && auto_plugins+=("ack")
   which "ack-grep" &>/dev/null && auto_plugins+=("ack")
   which "aunpack"  &>/dev/null && auto_plugins+=("atool")
+  atool_depend=(pigz pbzip2 colordiff)
   which "git"      &>/dev/null && auto_plugins+=("git")
   git_depends=(tig)
   which "hg"       &>/dev/null && auto_plugins+=("hg")
@@ -36,8 +35,7 @@ define_presets() {
 
   # definition of the presets
   small=(base $auto_plugins)
-  medium=($small vim zsh-syntax)
-  huge=($medium xorg)
+  huge=($small xorg)
 
   # populate the huge array
   which openbox   &>/dev/null && huge+=("openbox")
@@ -88,15 +86,6 @@ deploy() {
   echo ""
 
   while [[ -n ${1} ]]; do
-    # run buildscript
-    if [[ -f ${1}-build.zsh ]]; then
-      source ${1}-build.zsh
-      echo -n "-> building $1..."
-      build_${1}
-      # cd back to the repo in case we forgot in the buildscript
-      cd `dirname $0`
-    fi
-
     # check dependecies
     dependencies=${1}_depends
     [[ -n ${(P)dependencies} ]] && \
@@ -109,64 +98,10 @@ deploy() {
   done
 }
 
-# common used git checkout
-clone_git() {
-# clone_git name url dir
-# name: name of plugin
-# url:  git remote url
-# dir:  directory to clone to
-  check_make_env git
-
-  local name="$1"
-  local git_url="$2"
-  local dir="$3"
-
-  echo "\n--- plugin $name on `date` ---" &>>$logfile
-
-  # try to update, if the $dir already exists
-  if [[ -d "$dir" ]]; then
-    echo -n "update..."
-    cd "$dir"
-    git pull &>>$logfile || {
-      echo "failed!"
-      cd -
-      return 1
-    }
-    cd -
-  else
-    # clone if nonexistent
-    echo -n "clone..."
-    git clone "$git_url" "$dir" &>>$logfile || {
-      echo "failed!"
-      cd -
-      return 1
-    }
-    cd -
-  fi
-}
-
 # clean up
 clean() {
   echo "Cleaning symlinks from $target"
   stow ${stow_options} -D *(/)
-
-  # call all clean scripts
-  if [[ $1 == "-r" ]]; then
-    for i in *; do
-      if [[ -f ${i}-build.zsh ]]; then
-        source ${i}-build.zsh
-        clean_$i
-      fi
-    done
-  fi
-}
-
-# delete $1 interactively
-clean_dir() {
-  if [[ -d "$1" ]]; then
-    read -q "?Delete $1? " && rm -rf "$1"
-    echo ""
-  fi
 }
 
 #------------------------------------------------------------------------------#
@@ -181,13 +116,14 @@ check_make_env $make_dependencies
 # load preset definitions
 define_presets
 
+# load submodules
+git submodule init
+git submodule update
+
 # read parameters
 case "$1" in
   "small" | "s")
     deploy $small
-    ;;
-  "medium" | "m")
-    deploy $medium
     ;;
   "huge" | "h")
     deploy $huge
@@ -196,7 +132,7 @@ case "$1" in
     clean $2
     ;;
   *)
-    echo "Usage: $0 {small|medium|huge|clean [-r]}"
+    echo "Usage: $0 {small|huge|clean [-r]}"
     ;;
 esac
 

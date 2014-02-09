@@ -3,7 +3,7 @@
 # .zsh.d/syntax-highlighting.zsh
 #
 
-source ~/.zsh-syntax/zsh-syntax-highlighting.zsh
+source ~/.zsyntax/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_STYLES[precommand]="fg=green,bold"
 ZSH_HIGHLIGHT_STYLES[path]="fg=blue,bold"
