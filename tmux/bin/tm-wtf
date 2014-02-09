@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+pushd ~
+
+if ! tmux has-session -t monitor
+then
+  tmux -l new-session -s monitor -d "top"
+  tmux split-window -t monitor:1 -d "journalctl -alfp 3"
+  tmux split-window -t monitor:1 -d "top -o '%MEM'"
+  tmux select-layout -t monitor:1 tiled
+  tmux rename-window -t monitor:1 proc
+
+  tmux new-window -t monitor:2 -d "sudo iftop"
+  tmux split-window -h -t monitor:2 -d "watch -n 3 'netstat -at | grep -v LISTEN'"
+  tmux rename-window -t monitor:2 net
+fi
+
+tmux attach -t monitor
+popd -
