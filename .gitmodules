@@ -4,6 +4,3 @@
 [submodule "base/.zsyntax"]
 	path = base/.zsyntax
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "ratpoison/.zcompl-rp"]
-	path = ratpoison/.zcompl-rp
-	url = https://github.com/ivoarch/zsh-completion-ratpoison
