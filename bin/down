@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+emulate zsh
+
+# load functions
+old_pwd=$(pwd)
+cd `dirname $0`
+source lib.zsh
+
+read_config
+cd "$REPOSITORY"
+
+clean $plugins
+
+if [[ "$1" == 'x' ]]; then
+  clean $extra
+fi
+
+cd $old_pwd
