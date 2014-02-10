@@ -5,10 +5,9 @@
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.1.0/bin:$PATH"
 
-export GEM_HOME="$HOME/.gem/ruby/2.0.0"
+export PATH="$HOME/.gem/ruby/2.1.0/bin:$PATH"
+export GEM_HOME="$HOME/.gem/ruby/2.1.0"
 
 # python virtualenv
 export WORKON_HOME=~/.virtualenvs
