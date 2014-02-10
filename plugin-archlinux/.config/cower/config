@@ -1,6 +1,0 @@
-Color = auto
-ConnectTimeout = 0
-TargetDir = ~/build
-MaxThreads = 10
-
-IgnorePkg = 

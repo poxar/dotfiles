@@ -19,5 +19,6 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # aura search
 function search() {
-  aura -Ss $* && aura -As $*
+  aura -Ss $*
+  aura -As $*
 }
