@@ -16,3 +16,8 @@ alias mpkg="makepkg -rsiL"
 
 # command-not-found hook via pkgfile
 source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# aura search
+function search() {
+  aura -Ss $* && aura -As $*
+}
