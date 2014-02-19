@@ -30,11 +30,11 @@ which "tmux"     &>/dev/null && plugins+=("plugin-tmux") && \
 
 # populate the extra array
 which Xorg      &>/dev/null && extra+=("plugin-xorg") && \
-  dependencies+=("autorandr" "xbindkeys" "openbox")
+  dependencies+=("autorandr" "openbox")
 which openbox   &>/dev/null && extra+=("plugin-openbox") && \
-  dependencies+=("udevedu" "nitrogen" "compton" "stalonetray" "conky" "pasystray")
+  dependencies+=("udevedu" "nitrogen" "stalonetray" "conky")
 which ratpoison &>/dev/null && extra+=("plugin-ratpoison") && \
-  dependencies+=("udevedu" "nitrogen" "compton" "stalonetray" "conky" "pasystray")
+  dependencies+=("udevedu" "nitrogen" "stalonetray" "conky")
 
 # remove duplicates
 typeset -U plugins extra

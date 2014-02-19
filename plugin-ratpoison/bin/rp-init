@@ -4,8 +4,6 @@
 rp-screens startup
 
 # autostart
-compton &
-pasystray &
 autorandr -c
 nitrogen --restore &
 
