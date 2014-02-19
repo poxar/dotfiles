@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# workflow automation for pacman and cower
+# aur download script
+
+source ${PAC_CONF:-$HOME/.pac/config}
+
+[[ -z "$1" ]] && echo "Usage: $(basename $0) package" >&2 && exit 1
+
+cd $PAC_BUILD
+cower -d "$1"
+$PAC_BIN/pac-build "$_"

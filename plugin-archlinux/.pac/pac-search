@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+# workflow automation for pacman and cower
+# search script
+
+source ${PAC_CONF:-$HOME/.pac/config}
+
+pacman -Ss $*
+cower -s $*

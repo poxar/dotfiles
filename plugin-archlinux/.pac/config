@@ -1,0 +1,9 @@
+# workflow automation for pacman and cower
+# configuration file
+
+PAC_BIN=~/.pac
+
+PAC_CACHE=~/.cache/pac
+PAC_BUILD=~/build/aur
+
+PAC_DIFF=colordiff

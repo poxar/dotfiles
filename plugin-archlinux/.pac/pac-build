@@ -1,0 +1,51 @@
+#!/usr/bin/env zsh
+# workflow automation for pacman and cower
+# aur build/install script
+
+source ${PAC_CONF:-$HOME/.pac/config}
+
+package="$1"
+oldpackage="$PAC_CACHE/old/$package"
+
+## MAIN
+
+[[ -z "$1" ]] && echo "Usage: $(basename $0) directory" >&2 && exit 1
+
+# cd into build directory
+cd $(dirname "$1")
+
+# show a diff, if an old PKGBUILD can be found
+if [[ -d "$oldpackage" ]]; then
+
+  $PAC_DIFF "$oldpackage/PKGBUILD" "${package}/PKGBUILD"
+
+  # ask if PKGBUILD should be opened in $EDITOR
+  if read -q "?Edit? "; then
+    echo "" >&2
+    $EDITOR "${package}/PKGBUILD"
+  else
+    echo "" >&2
+  fi
+
+else # just show the PKGBUILD else
+  $EDITOR "${package}/PKGBUILD"
+fi
+
+# make sure, the user still wants to install
+if read -q "?Continue? "; then
+  echo "" >&2
+  cd "$package"
+  if makepkg -rsiL --noconfirm >/dev/null; then
+    cd -
+    rm -rf "$oldpackage"
+    mv "$package" "$oldpackage"
+    echo "success. build directory is clean." >&2
+  else
+    echo "makepkg failed. please investigate." >&2
+    echo "build directory was $i" >&2
+    exit 1
+  fi
+else
+  echo "\nabort. build directory was $i" >&2
+  exit 1
+fi

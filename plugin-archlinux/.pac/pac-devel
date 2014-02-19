@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+# workflow automation for pacman and cower
+# aur rebuild for development packages
+
+source ${PAC_CONF:-$HOME/.pac/config}
+
+dev_regex='-\(git\|hg\|svn\|darcs\|cvs\|bzr\)$'
+# parse output into array
+dev_pkgs=($(pacman -Qmq | grep -- "${dev_regex}"))
+
+for i in $dev_pkgs; do
+  # try to rebuild
+  if [ -d "$PAC_CACHE/old/$i" ];then
+
+    cd "$PAC_CACHE/old/$i"
+    makepkg -rsiL --noconfirm >/dev/null
+    cd -
+
+  else # no old packages found, so get it from aur
+    $PAC_BIN/pac-get $i
+  fi
+
+done
+

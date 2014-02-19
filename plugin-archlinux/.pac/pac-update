@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+# workflow automation for pacman and cower
+# aur/pacman update script
+
+source ${PAC_CONF:-$HOME/.pac/config}
+
+sudo pacman -Syu
+
+for i in $(cower -u); do
+  $PAC_BIN/pac-get $i
+done
+
