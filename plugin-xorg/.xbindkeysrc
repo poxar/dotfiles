@@ -26,8 +26,13 @@
     m:0x0 + c:174
     XF86AudioStop
 
-## Misc
-#screenlock
+## ThinkPad
+"synclient TouchpadOff=$(if [[ $(expr `synclient -l | grep TouchpadOff | cut -f2 -d =`) == 0 ]]; then echo 1; else echo 0; fi)"
+    m:0x0 + c:199
+    XF86TouchpadToggle
 "slock & xset dpms force off"
-    m:0x0 + c:127
-    Pause
+    m:0x0 + c:160
+    XF86ScreenSaver
+"notify-send Battery "$(acpi)""
+    m:0x0 + c:244
+    XF86Battery
