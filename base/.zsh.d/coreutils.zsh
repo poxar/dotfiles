@@ -34,6 +34,8 @@ alias du="du -ch"
 alias d="dirs -v"
 alias j="jobs -l"
 
+alias bc="bc -ql"
+
 # auto sudo
 alias poweroff="$SUDO poweroff"
 alias reboot="$SUDO reboot"
