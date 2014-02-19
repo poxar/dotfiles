@@ -4,5 +4,7 @@ if [[ -z $TMUX ]]; then
   tm-init
 fi
 
-tmux new-window -t 0 irssi
-tmux split-window -h -t 0 "irssi --home ~/.irssi-bitlbee/"
+tmux new-window "mosh pmi@aerelon.de -- tmux attach -t irc"
+tmux split-window -h "irssi --home ~/.irssi-bitlbee/"
+tmux rename-window irc
+tmux move-window -t 0
