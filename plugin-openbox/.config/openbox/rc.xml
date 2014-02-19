@@ -117,7 +117,7 @@
         <action name="Exit"/>
       </keybind>
     </keybind>
-    <!-- Keybindings for desktop switching -->
+    <!-- virtual desktops -->
     <keybind key="W-1">
       <action name="Desktop">
         <desktop>1</desktop>
@@ -251,12 +251,105 @@
         <command>dmenu_run</command>
       </action>
     </keybind>
-    <keybind key="W-BackSpace">
-      <action name="Execute">
-        <execute>gvim</execute>
-      </action>
+    <!-- window management -->
+    <keybind key="W-j">
+      <keybind key="g">
+        <action name="GrowToEdge">
+          <direction>west</direction>
+        </action>
+        <action name="GrowToEdge">
+          <direction>east</direction>
+        </action>
+        <action name="GrowToEdge">
+          <direction>north</direction>
+        </action>
+        <action name="GrowToEdge">
+          <direction>south</direction>
+        </action>
+      </keybind>
+      <keybind key="h">
+        <action name="Unmaximize"/>
+        <action name="MaximizeVert"/>
+        <action name="MoveResizeTo">
+          <x>0</x>
+          <width>67%</width>
+        </action>
+      </keybind>
+      <keybind key="j">
+        <action name="Unmaximize"/>
+        <action name="MoveResizeTo">
+          <y>-0</y>
+          <height>33%</height>
+        </action>
+      </keybind>
+      <keybind key="k">
+        <action name="Unmaximize"/>
+        <action name="MoveResizeTo">
+          <y>0</y>
+          <height>67%</height>
+        </action>
+      </keybind>
+      <keybind key="l">
+        <action name="Unmaximize"/>
+        <action name="MaximizeVert"/>
+        <action name="MoveResizeTo">
+          <x>-0</x>
+          <width>33%</width>
+        </action>
+      </keybind>
+      <keybind key="S-h">
+        <action name="Unmaximize"/>
+        <action name="MaximizeVert"/>
+        <action name="MoveResizeTo">
+          <x>0</x>
+          <width>50%</width>
+        </action>
+      </keybind>
+      <keybind key="S-j">
+        <action name="Unmaximize"/>
+        <action name="MoveResizeTo">
+          <y>-0</y>
+          <height>50%</height>
+        </action>
+      </keybind>
+      <keybind key="S-k">
+        <action name="Unmaximize"/>
+        <action name="MoveResizeTo">
+          <y>0</y>
+          <height>50%</height>
+        </action>
+      </keybind>
+      <keybind key="S-l">
+        <action name="Unmaximize"/>
+        <action name="MaximizeVert"/>
+        <action name="MoveResizeTo">
+          <x>-0</x>
+          <width>50%</width>
+        </action>
+      </keybind>
+    <keybind key="Return">
+      <action name="ToggleMaximize"/>
     </keybind>
-    <!-- Keybindings for windows -->
+    </keybind>
+    <keybind key="W-k">
+      <keybind key="k">
+        <action name="Close"/>
+      </keybind>
+      <keybind key="l">
+      <action name="Lower"/>
+      <action name="FocusToBottom"/>
+      <action name="Unfocus"/>
+      </keybind>
+      <keybind key="d">
+        <action name="ToggleDecorations"/>
+      </keybind>
+      <keybind key="s">
+        <action name="ToggleOmnipresent"/>
+      </keybind>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="ToggleMaximize"/>
+    </keybind>
     <keybind key="W-F4">
       <action name="Close"/>
     </keybind>
@@ -264,64 +357,6 @@
       <action name="Lower"/>
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
-    </keybind>
-    <!-- window management -->
-    <keybind key="W-space">
-        <keybind key="g">
-            <action name="GrowToEdge">
-                <direction>west</direction>
-            </action>
-            <action name="GrowToEdge">
-                <direction>east</direction>
-            </action>
-            <action name="GrowToEdge">
-                <direction>north</direction>
-            </action>
-            <action name="GrowToEdge">
-                <direction>south</direction>
-            </action>
-        </keybind>
-    </keybind>
-    <keybind key="W-Left">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <width>50%</width>
-      </action>
-    </keybind>
-    <keybind key="W-Right">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
-        <width>50%</width>
-      </action>
-    </keybind>
-    <keybind key="A-Left">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <x>0</x>
-        <width>67%</width>
-      </action>
-    </keybind>
-    <keybind key="A-Right">
-      <action name="Unmaximize"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <x>-0</x>
-        <width>33%</width>
-      </action>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="ToggleMaximize"/>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="Iconify"/>
-    </keybind>
-    <keybind key="W-Return">
-      <action name="ToggleMaximize"/>
     </keybind>
   </keyboard>
   <mouse>
@@ -650,10 +685,7 @@
       <application class="Gvim">
           <decor>no</decor>
       </application>
-      <application class="Firefox">
-          <decor>no</decor>
-      </application>
-      <application class="Thunderbird">
+      <application class="Zathura">
           <decor>no</decor>
       </application>
   </applications>

@@ -1,6 +1,6 @@
-compton &
 stalonetray --dockapp-mode simple &
-autorandr -c
-nitrogen --restore &
 conky &
-pasystray &
+nm-applet &
+autorandr -c
+nitrogen --restore
+synclient TouchpadOff=1
