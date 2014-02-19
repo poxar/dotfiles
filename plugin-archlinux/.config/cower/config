@@ -1,0 +1,6 @@
+Color = auto
+ConnectTimeout = 0
+TargetDir = ~/build/aur
+MaxThreads = 10
+
+IgnorePkg = 
