@@ -7,5 +7,18 @@ source ${PAC_CONF:-$HOME/.pac/config}
 [[ -z "$1" ]] && echo "Usage: $(basename $0) package" >&2 && exit 1
 
 cd $PAC_BUILD
-cower -d "$1"
-$PAC_BIN/pac-build "$_"
+
+while [[ -n "$1" ]]; do
+  if [[ -d "$1" ]]; then
+    if read -q "?$1 exists. Overwrite? "; then
+      echo ""
+      cower -fd "$1"
+    else
+      echo ""
+    fi
+  else
+    cower -d "$1"
+  fi
+  $PAC_BIN/pac-build "$1"
+  shift
+done
