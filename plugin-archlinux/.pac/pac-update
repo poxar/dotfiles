@@ -6,7 +6,7 @@ source ${PAC_CONF:-$HOME/.pac/config}
 
 sudo pacman -Syu
 
-for i in $(cower -u); do
+for i in $(cower -uq); do
   $PAC_BIN/pac-get $i
 done
 
