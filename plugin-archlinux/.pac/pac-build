@@ -35,17 +35,17 @@ fi
 if read -q "?Continue? "; then
   echo "" >&2
   cd "$package"
-  if makepkg -rsiL --noconfirm >/dev/null; then
+  if makepkg -rsiL; then
     cd -
     rm -rf "$oldpackage"
     mv "$package" "$oldpackage"
     echo "success. build directory is clean." >&2
   else
     echo "makepkg failed. please investigate." >&2
-    echo "build directory was $i" >&2
+    echo "build directory was $PWD/$package" >&2
     exit 1
   fi
 else
-  echo "\nabort. build directory was $i" >&2
+  echo "\nabort. build directory was $PWD/$package" >&2
   exit 1
 fi
