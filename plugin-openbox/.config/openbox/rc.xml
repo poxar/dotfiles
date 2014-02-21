@@ -246,9 +246,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>dmenu</name>
+          <name>launcher</name>
         </startupnotify>
-        <command>dmenu_run</command>
+        <command>launcher</command>
       </action>
     </keybind>
     <!-- window management -->

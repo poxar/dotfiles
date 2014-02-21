@@ -15,7 +15,7 @@ alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i -b | s
 alias notes exec cd $HOME/.notes && gvim `find . -type f | dmenu -i -l 15`
 
 # External applications
-bind d exec dmenu_run
+bind d exec launcher
 bind grave notes
 
 unbind c
