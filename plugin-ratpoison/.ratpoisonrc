@@ -6,8 +6,8 @@ set historyexpansion 1
 set border 1
 set wingravity c
 
-escape Super_L
-bind s-Space meta
+escape s-j
+bind s-space meta
 bind Escape abort
 
 alias acpi exec ratpoison -c "echo `acpi`"
@@ -19,9 +19,8 @@ bind d exec dmenu_run
 bind grave notes
 
 unbind c
-bind c      exec rp-ror st "st -c 'terminal' -t 'terminal' -e tm-aon"
-bind C      exec st -c 'terminal' -t 'terminal' -e tm-aon
-bind e      exec rp-ror gvim
+bind c      exec st
+bind e      exec rp-ror GVim gvim
 bind E      exec gvim
 bind t      exec rp-ror firefox
 bind T      exec firefox
