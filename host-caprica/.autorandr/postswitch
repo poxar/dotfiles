@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+pgrep ratpoison && ratpoison -c restart
+(sleep 1 && nitrogen --restore) &

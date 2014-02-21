@@ -1,6 +1,3 @@
 stalonetray --dockapp-mode simple &
-conky &
+conky -p 2 &
 nm-applet &
-autorandr -c
-nitrogen --restore
-synclient TouchpadOff=1

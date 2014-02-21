@@ -25,9 +25,11 @@ xset -b
 
 # load keybindings
 xbindkeys &
-xchainkeys &
 
-# listen for and act on udev signals
-udevedu &
+# load screen setup
+autorandr -c
+
+# disable touchpad
+synclient TouchpadOff=1
 
 exec openbox-session

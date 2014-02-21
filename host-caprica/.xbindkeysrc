@@ -36,3 +36,9 @@
 "notify-send Battery "$(acpi)""
     m:0x0 + c:244
     XF86Battery
+"autorandr -c"
+    m:0x0 + c:235
+    XF86Display
+"disper -c"
+    m:0x0 + c:220
+    XF86WebCam
