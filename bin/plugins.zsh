@@ -2,7 +2,6 @@ emulate zsh
 
 # base is required
 plugins=("base")
-dependencies=("less" "dfc" "ctags" "vim")
 
 # load host specific plugins
 [[ -d "$REPOSITORY/host-$HOST" ]] && plugins+=("host-$HOST")
@@ -12,29 +11,21 @@ dependencies=("less" "dfc" "ctags" "vim")
 [[ $OSTYPE =~ ".*freebsd.*" ]] && plugins+=("os-freebsd")
 
 # guess if other plugins should be included
-which "pacman"   &>/dev/null && plugins+=("plugin-archlinux") && \
-  dependencies+=("pkgfile")
+which "pacman"   &>/dev/null && plugins+=("plugin-archlinux")
 which "aptitude" &>/dev/null && plugins+=("plugin-aptitude")
 
 which "ack"      &>/dev/null && plugins+=("plugin-ack")
 which "ack-grep" &>/dev/null && plugins+=("plugin-ack")
-which "aunpack"  &>/dev/null && plugins+=("plugin-atool") && \
-  dependencies+=("pigz" "pbzip2" "colordiff")
-which "git"      &>/dev/null && plugins+=("plugin-git") && \
-  dependencies+=("tig")
+which "aunpack"  &>/dev/null && plugins+=("plugin-atool")
+which "git"      &>/dev/null && plugins+=("plugin-git")
 which "hg"       &>/dev/null && plugins+=("plugin-mercurial")
 which "keychain" &>/dev/null && plugins+=("plugin-keychain")
 which "svn"      &>/dev/null && plugins+=("plugin-subversion")
-which "tmux"     &>/dev/null && plugins+=("plugin-tmux") && \
-  dependencies+=("urlview")
+which "tmux"     &>/dev/null && plugins+=("plugin-tmux")
 
-# populate the extra array
-which Xorg      &>/dev/null && extra+=("plugin-xorg") && \
-  dependencies+=("autorandr" "openbox")
-which openbox   &>/dev/null && extra+=("plugin-openbox") && \
-  dependencies+=("udevedu" "nitrogen" "stalonetray" "conky")
-which ratpoison &>/dev/null && extra+=("plugin-ratpoison") && \
-  dependencies+=("udevedu" "nitrogen" "stalonetray" "conky")
+which Xorg       &>/dev/null && plugins+=("plugin-xorg")
+which openbox    &>/dev/null && plugins+=("plugin-openbox")
+which ratpoison  &>/dev/null && plugins+=("plugin-ratpoison")
 
 # remove duplicates
-typeset -U plugins extra
+typeset -U plugins

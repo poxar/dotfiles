@@ -16,10 +16,4 @@ fi
 
 deploy $plugins
 
-if [[ "$1" == 'x' ]]; then
-  deploy $extra
-fi
-
-check_env $dependencies $extra_dependencies
-
 cd $old_pwd

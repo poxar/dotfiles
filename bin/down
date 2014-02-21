@@ -11,8 +11,4 @@ cd "$REPOSITORY"
 
 clean $plugins
 
-if [[ "$1" == 'x' ]]; then
-  clean $extra
-fi
-
 cd $old_pwd

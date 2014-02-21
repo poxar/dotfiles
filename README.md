@@ -52,16 +52,10 @@ git clone git://github.com/poxar/dotfiles.git .dotfiles
 Note, that no old files will be overwritten. That means you have to move them
 away by hand. (You'll get a warning about that.)
 
-If you also want my X11 and WM configuration files, call
-
-```sh
-.dotfiles/bin/up x
-```
-
 To get rid of the symlinks again, type this
 
 ```sh
-.dotfiles/bin/down x
+.dotfiles/bin/down
 ```
 
 In case you want to select by hand what will be installed, call
@@ -76,7 +70,7 @@ or write the plugins you want int `$HOME/.dotrc.zsh` like so
 plugins=("base" "and" "something" "else")
 ```
 
-and call `up`.
+and call `bin/up`.
 
 ## Using this verbatim
 

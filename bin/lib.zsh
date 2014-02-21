@@ -7,17 +7,12 @@ DEFINITIONS=${DEFINITIONS:-plugins.zsh}
 
 stow_options=(--target="$TARGET")
 
-# issue a message and die
-die() {
-  echo $1
-  exit 1
-}
-
 # check if a program can be found
 check_env() {
   while [[ -n ${1} ]]; do
     if ! which $1 &>/dev/null; then
-      ${finish:-echo} "[!] $1 not found"
+      echo "[!] $1 not found" >&2
+      exit 1
     fi
     shift
   done
@@ -48,9 +43,10 @@ read_config() {
   elif [[ -f "$DEFINITIONS" ]]; then
     source "$DEFINITIONS"
   else
-    die "[!] Neither $PWD/$DEFINITIONS nor $CONFFILE exist. Stop."
+    echo "[!] Neither $PWD/$DEFINITIONS nor $CONFFILE exist. Stop." >&2
+    exit 1
   fi
 }
 
 # make sure the make environment is sane
-finish=die check_env stow zsh git
+check_env stow zsh git
