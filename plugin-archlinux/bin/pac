@@ -26,6 +26,12 @@ case "$1" in
     $PAC_BIN/pac-build $*
     ;;
 
+  "depend"|"p")
+    shift
+    cd $PAC_BUILD
+    $PAC_BIN/pac-depend $*
+    ;;
+
   "devel"|"d")
     $PAC_BIN/pac-devel
     ;;
