@@ -33,6 +33,7 @@ alias du="du -ch"
 
 alias d="dirs -v"
 alias j="jobs -l"
+alias h="history"
 
 alias bc="bc -ql"
 
