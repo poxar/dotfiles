@@ -1,0 +1,50 @@
+#compdef pac
+
+_pac_completions_aur() {
+  local -a aur_packages
+  aur_packages=($(_call_program packages cower -sq $words[CURRENT] 2>/dev/null))
+  compadd "$@" -a aur_packages
+}
+
+_pac() {
+
+  local curcontext=$curcontext state line ret=1
+  typeset -A opt_args
+
+  _arguments -C \
+    ': :->command' \
+    '*:: :->option-or-argument' && ret=0
+
+  case "$state" in
+    (command)
+      local commands
+      commands=(
+      'update:check for updates in official repos and aur'
+      'search:search in repos and aur'
+      'get:load PKGBUILD from aur, build and install'
+      'build:build the PKGBUILD in the specified directory'
+      'depend:build as with build, but install as dependency'
+      'devel:update developement packages'
+      )
+      _describe -t commands 'commands' commands && ret=0
+      ;;
+
+    (option-or-argument)
+      curcontext=${curcontext%:*}-$line[1]:
+      case $line[1] in
+        (update|devel)
+          _nothing
+          ;;
+        (search)
+          _arguments -C '*:search string:' && ret=0
+          ;;
+        (get)
+          _arguments -s -w : \
+          '*:package:_pac_completions_aur' && ret=0
+          ;;
+        (build|depend)
+          _arguments -C '*:build dir:_files -/ ' && ret=0
+      esac
+      ;;
+  esac
+}
