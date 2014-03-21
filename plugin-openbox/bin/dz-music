@@ -1,0 +1,5 @@
+#!/bin/sh
+
+killall dzen2
+mpc status | dzen2 -l 5 -p 5 -ta c -fn 'DejaVu Sans Mono' -w 800 -fg black -bg white
+

@@ -327,9 +327,30 @@
           <width>50%</width>
         </action>
       </keybind>
-    <keybind key="Return">
-      <action name="ToggleMaximize"/>
-    </keybind>
+      <keybind key="Return">
+        <action name="ToggleMaximize"/>
+      </keybind>
+      <keybind key="a">
+        <action name="Execute">
+          <command>
+            dz-date
+          </command>
+        </action>
+      </keybind>
+      <keybind key="s">
+        <action name="Execute">
+          <command>
+            dz-bat
+          </command>
+        </action>
+      </keybind>
+      <keybind key="d">
+        <action name="Execute">
+          <command>
+            dz-music
+          </command>
+        </action>
+      </keybind>
     </keybind>
     <keybind key="W-k">
       <keybind key="k">
