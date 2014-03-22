@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+if [[ -z $TMUX ]]; then
+  tm-init
+fi
+
+tmux new-window
+tmux send-keys -l 'fetchr
+'
+tmux split-window -h
+tmux send-keys -l 'cd ~/down; mutt
+'
+tmux resize-pane -Z

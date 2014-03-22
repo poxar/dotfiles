@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+if [[ -z $TMUX ]]; then
+
+  tmux new -s std -d
+  tmux send-keys -t std 'fetchr' C-m
+  tmux split-window -t std -h
+  tmux send-keys -t std 'cd ~/down; mutt' C-m
+  tmux resize-pane -t std -Z
+  tmux neww -t std
+  tmux send-keys -t std 'cd' C-m C-l
+
+  tmux attach -t std
+
+fi
