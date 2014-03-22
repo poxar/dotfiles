@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+if [[ -z $PATTERN ]]; then
+  PATTERN='TODO\|HACK\|FIXME\|OPTIMIZE'
+fi
+
+if [[ -z $@ ]]; then
+  FILES=(**/*(.))
+else
+  FILES=($@)
+fi
+
+grep $PATTERN $FILES
