@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+SCANDIR=~/.cache/papers/`date '+%Y-%m-%d_%H:%M:%S'`
+n=1
+
+OLDPWD=$PWD
+mkdir -p $SCANDIR
+cd $SCANDIR
+
+while read -q '?Scan image? '; do
+  echo ""
+
+  scanimage \
+    --progress \
+    --mode Lineart \
+    --resolution 300 \
+    -x 210 -y 297 \
+    --format=tiff \
+    > ${(l:10::0:)n}.tiff
+
+  n=$(($n+1))
+
+  echo ""
+done
+
+if [[ ! -f 0000000001.tiff ]]; then
+  echo "\nNo scans found. Stop."
+  exit 1
+fi
+
+# merge & ocr
+echo ""
+convert *.tiff paper.pdf
+pdfsandwich -lang deu paper.pdf
+
+# copy to $1 or current pwd
+if [[ -n "$1" ]]; then
+  cp paper_ocr.pdf "$OLDPWD/$1"
+  echo "saved as $OLDPWD/$1"
+else
+  cp paper_ocr.pdf "$OLDPWD"/`date '+%Y-%m-%d_%H:%M:%S'`.pdf
+  echo "saved as $OLDPWD/`date '+%Y-%m-%d_%H:%M:%S'`.pdf"
+fi
