@@ -11,6 +11,11 @@
 --color-match=red
 --group
 
-# types
+# Ignore some folders
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-dir=doc
+
+# Types
 --type-add=vim=vimrc
 --type-set=markdown=.markdown,.md,.mdown
