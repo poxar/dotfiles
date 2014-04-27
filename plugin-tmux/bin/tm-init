@@ -3,12 +3,15 @@
 if [[ -z $TMUX ]]; then
 
   tmux new -s std -d
-  tmux send-keys -t std 'fetchr' C-m
   tmux split-window -t std -h
-  tmux send-keys -t std 'cd ~/down; mutt' C-m
-  tmux resize-pane -t std -Z
-  tmux neww -t std
-  tmux send-keys -t std 'cd' C-m C-l
+  tmux split-window -t std:1.1 -v
+  tmux resize-pane -t std:1.1 -y 2
+
+  tmux send-keys -t std:1.3 'cd ~/down; mutt' C-m
+  tmux send-keys -t std:1.1 'fetchr' C-m
+
+  tmux select-pane -t std:1.2
+  tmux rename-window -t std:1 com
 
   tmux attach -t std
 
