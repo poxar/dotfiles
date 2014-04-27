@@ -6,6 +6,8 @@
 NOTEDIR=${NOTEDIR:-"$HOME/.notes"}
 NOTEARGS+=('+set ft=markdown')
 NOTEARGS+=('+set fdm=syntax')
+NOTEARGS+=('+set autowriteall')
+NOTEARGS+=('+set autoread')
 
 # open note or make new one
 n() { $EDITOR $EDITORARGS $NOTEARGS $NOTEDIR/"$*" }
