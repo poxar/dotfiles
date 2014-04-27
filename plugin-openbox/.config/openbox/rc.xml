@@ -92,7 +92,7 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>BottomRight</position>
+    <position>TopLeft</position>
     <stacking>Above</stacking>
     <direction>Horizontal</direction>
     <autoHide>yes</autoHide>
