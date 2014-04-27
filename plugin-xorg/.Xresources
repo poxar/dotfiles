@@ -18,7 +18,6 @@ xterm*metaSendsEscape:    true
 xterm*bellIsUrgent:       true
 xterm*cutNewline:         true
 xterm*scrollKey:          true
-xterm*selectToClipboard:  true
 xterm*scrollTtyOutput:    false
 xterm*allowTitleOps:      false
 
