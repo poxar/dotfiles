@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-SCANDIR=~/.cache/papers/`date '+%Y-%m-%d_%H:%M:%S'`
+SCANDIR=/tmp/papers_`date '+%Y-%m-%d_%H:%M:%S'`
 n=1
 
 OLDPWD=$PWD
