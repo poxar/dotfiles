@@ -351,6 +351,13 @@
           </command>
         </action>
       </keybind>
+      <keybind key="n">
+        <action name="Execute">
+          <command>
+            nmcli_dmenu
+          </command>
+        </action>
+      </keybind>
     </keybind>
     <keybind key="W-k">
       <keybind key="k">

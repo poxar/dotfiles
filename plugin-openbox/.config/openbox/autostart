@@ -1,1 +1,3 @@
 stalonetray --icon-size=24 --kludges=force_icons_size --dockapp-mode simple &
+nm-applet &
+CopyAgent &
