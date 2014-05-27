@@ -10,7 +10,15 @@ NOTEARGS+=('+set autowriteall')
 NOTEARGS+=('+set autoread')
 
 # open note or make new one
-n() { $EDITOR $EDITORARGS $NOTEARGS $NOTEDIR/"$*" }
+n() {
+    cd $NOTEDIR
+    if [[ -z "$1" ]] && where fzf &>/dev/null; then
+	$EDITOR $EDITORARGS $NOTEARGS $(fzf)
+    else
+	$EDITOR $EDITORARGS $NOTEARGS "$*"
+    fi
+    cd -
+}
 compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
