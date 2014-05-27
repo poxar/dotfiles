@@ -19,7 +19,7 @@ cdpath+=($HOME/data)
 cdpath+=($HOME/data/Dropbox/Uni)
 hash -d shares=/run/user/1000/gvfs
 
-alias dup="sudo duply mybook"
+alias dup="sudo duply sandisk"
 
 alias t="todo.sh"
 alias soon='todo.sh list | grep -E "due:`date +%Y-%m-%d`|due:`date -d tomorrow +%Y-%m-%d`"'
