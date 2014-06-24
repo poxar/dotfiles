@@ -4,6 +4,6 @@
 PAC_BIN=~/.pac
 
 PAC_CACHE=~/.cache/pac
-PAC_BUILD=~/build/aur
+PAC_BUILD=~/Build/aur
 
 PAC_DIFF=colordiff

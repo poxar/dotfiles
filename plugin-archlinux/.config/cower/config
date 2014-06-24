@@ -1,6 +1,6 @@
 Color = auto
 ConnectTimeout = 20
-TargetDir = ~/build/aur
+TargetDir = ~/Build/aur
 MaxThreads = 10
 
-IgnorePkg = 
+IgnorePkg = pandoc-static

@@ -15,8 +15,6 @@ export PROJECT_HOME=$PROJECTS
     source `which virtualenvwrapper.sh` &>/dev/null
 
 # directories
-cdpath+=($HOME/data)
-cdpath+=($HOME/data/Dropbox/Uni)
 hash -d shares=/run/user/1000/gvfs
 
 alias dup="sudo duply sandisk"
@@ -29,6 +27,6 @@ alias gdrive="cd /media/storage/gdrive && grive"
 
 # easy mounting of my nas
 function mount-tauron() {
-  udevil mount -o credentials=/home/philipp/.smbcred-tauron smb://pmi@tauron/$1
+  udevil mount -o credentials=/home/pmi/.smbcred-tauron smb://pmi@tauron/$1
 }
 compctl -k "(pmi public backup download configuration)" mount-tauron
