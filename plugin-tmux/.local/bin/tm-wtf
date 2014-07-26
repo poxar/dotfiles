@@ -5,7 +5,11 @@ pushd ~
 if ! tmux has-session -t monitor
 then
   tmux -l new-session -s monitor -d "top"
-  tmux split-window -t monitor:1 -d "journalctl -alfp 3"
+  if which journalctl &>/dev/null; then
+    tmux split-window -t monitor:1 -d "journalctl -alfp 3"
+  else
+    tmux split-window -t monitor:1 -d "tail -f /var/log/auth.log"
+  fi
   tmux split-window -t monitor:1 -d "top -o '%MEM'"
   tmux select-layout -t monitor:1 tiled
   tmux rename-window -t monitor:1 proc
