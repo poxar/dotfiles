@@ -19,7 +19,7 @@
     <primaryMonitor>Active</primaryMonitor>
   </placement>
   <theme>
-    <name>Clearlooks</name>
+    <name>Numix</name>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>DejaVu Sans</name>
@@ -58,7 +58,7 @@
       <slant>Normal</slant>
     </font>
     <keepBorder>yes</keepBorder>
-    <titleLayout>NLIMC</titleLayout>
+    <titleLayout>LIMC</titleLayout>
   </theme>
   <desktops>
     <number>9</number>
@@ -104,9 +104,9 @@
     <chainQuitKey>C-g</chainQuitKey>
     <chainQuitKey>Esc</chainQuitKey>
     <keybind key="W-q">
-        <keybind key="d">
-            <action name="ToggleDockAutohide"/>
-        </keybind>
+      <keybind key="d">
+        <action name="ToggleDockAutohide"/>
+      </keybind>
       <keybind key="r">
         <action name="Reconfigure"/>
       </keybind>
@@ -215,6 +215,11 @@
       <action name="SendToDesktop">
         <wrap>no</wrap>
         <desktop>9</desktop>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="GoToDesktop">
+        <to>last</to>
       </action>
     </keybind>
     <!-- application switching/running -->
@@ -364,9 +369,9 @@
         <action name="Close"/>
       </keybind>
       <keybind key="l">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
       </keybind>
       <keybind key="d">
         <action name="ToggleDecorations"/>
@@ -376,7 +381,17 @@
       </keybind>
     </keybind>
     <keybind key="W-Return">
-      <action name="ToggleMaximize"/>
+      <action name="If">
+        <maximized>yes</maximized>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="Decorate"/>
+        </then>
+        <else>
+          <action name="Maximize"/>
+          <action name="Undecorate"/>
+        </else>
+      </action>
     </keybind>
     <keybind key="W-F4">
       <action name="Close"/>
@@ -442,7 +457,17 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
-        <action name="ToggleMaximize"/>
+        <action name="If">
+          <maximized>yes</maximized>
+          <then>
+            <action name="Unmaximize"/>
+            <action name="Decorate"/>
+          </then>
+          <else>
+            <action name="Maximize"/>
+            <action name="Undecorate"/>
+          </else>
+        </action>
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="if">
@@ -704,17 +729,25 @@
     <manageDesktops>yes</manageDesktops>
   </menu>
   <applications>
-      <application class="XTerm">
-          <decor>no</decor>
-      </application>
-      <application title="st">
-          <decor>no</decor>
-      </application>
-      <application class="Gvim">
-          <decor>no</decor>
-      </application>
-      <application class="Zathura">
-          <decor>no</decor>
-      </application>
+    <application class="Firefox*">
+      <desktop>2</desktop>
+    </application>
+    <application class="Firefox*" name="Navigator" role="browser">
+      <desktop>2</desktop>
+      <decor>no</decor>
+      <maximized>yes</maximized>
+    </application>
+    <application class="Thunderbird*">
+      <desktop>2</desktop>
+    </application>
+    <application class="Thunderbird*" name="Mail" role="3pane">
+      <desktop>2</desktop>
+      <decor>no</decor>
+      <maximized>yes</maximized>
+    </application>
+    <application name="st-256color">
+      <decor>no</decor>
+      <maximized>yes</maximized>
+    </application>
   </applications>
 </openbox_config>
