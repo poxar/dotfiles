@@ -23,9 +23,9 @@ compdef "_path_files -W $NOTEDIR" n
 
 # list notes or search for title
 if which tree &>/dev/null; then
-    nls() { tree -DCt --noreport $NOTEDIR | grep "$*" }
+    nls() { tree -DCcr --noreport $NOTEDIR | grep "$*" }
 else
-    nls() { ls $ls_options -t $NOTEDIR | grep "$*" }
+    nls() { ls $ls_options -cr $NOTEDIR | grep "$*" }
 fi
 nl() { nls "$*" | head -n 15 }
 
