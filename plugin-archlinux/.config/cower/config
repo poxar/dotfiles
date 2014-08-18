@@ -3,4 +3,4 @@ ConnectTimeout = 20
 TargetDir = ~/Build/aur
 MaxThreads = 10
 
-IgnorePkg = pandoc-static
+IgnorePkg = cv-git
