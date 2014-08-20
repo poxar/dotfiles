@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
-pushd ~
+cd
 
 if ! tmux has-session -t monitor
 then
@@ -20,4 +20,4 @@ then
 fi
 
 tmux attach -t monitor
-popd -
+cd -
