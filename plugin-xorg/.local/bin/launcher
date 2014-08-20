@@ -1,7 +1,3 @@
 #!/usr/bin/env zsh
 
-if which wmgo >/dev/null; then
-  wmgo -i
-elif which dmenu_run >/dev/null; then
-  dmenu_run -i
-fi
+dmenu_run -i
