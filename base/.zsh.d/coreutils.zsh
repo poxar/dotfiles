@@ -9,12 +9,8 @@ test -n $mv_options && alias mv="mv $mv_options"
 test -n $ls_options && alias ls="ls $ls_options"
 
 alias l="ls -vh"
-alias la="ls -vAh"
-alias lt="ls -lh"
-alias lat="ls -lAh"
-
-alias sul="sudo ls -vh $ls_options"
-alias sula="sudo ls -vAh $ls_options"
+alias la="ls -vhA"
+alias sul="sudo ls -vhA $ls_options"
 
 # ls only (dot)dirs
 alias lad='l -d -- .*(/)'
@@ -23,11 +19,8 @@ alias ld='l -d -- *(/)'
 alias laf='l -a -- .*(.)'
 alias lf='l -a -- *(.)'
 
-alias df="df -hT"
-alias dff="df -x tmpfs -x devtmpfs"
-alias dfl="dff -l"
-alias dffc="dfc -t -rootfs,tmpfs,devtmpfs"
-alias dflc="dffc -l"
+alias df="df -hT -x tmpfs -x devtmpfs"
+alias dfc="dfc -t -rootfs,tmpfs,devtmpfs,autofs"
 
 alias du="du -ch"
 
@@ -36,10 +29,6 @@ alias j="jobs -l"
 alias h="history"
 
 alias bc="bc -ql"
-
-# auto sudo
-alias poweroff="$SUDO poweroff"
-alias reboot="$SUDO reboot"
 
 # colorful diff
 which colordiff &>/dev/null && \
