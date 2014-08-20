@@ -9,17 +9,22 @@ export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=vim
 export GPG_TTY=$(tty)
 export LESSHISTFILE=/dev/null
-fpath=($HOME/.zpath $fpath)
-fpath=($HOME/.zcomp/src $fpath)
-
-cdpath=($HOME $cdpath)
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZCONFDIR="$XDG_CONFIG_HOME/zsh"
 
 # configuration directories
-ZSHRCD=$HOME/.zsh.d
-ZLOGIND=$HOME/.zlogin.d
-ZLOGOUTD=$HOME/.zlogout.d
+ZSHRCD=$ZCONFDIR/config
+ZLOGIND=$ZCONFDIR/login
+ZLOGOUTD=$ZCONFDIR/logout
+ZCOMPLETE=$ZCONFDIR/completions
+ZFUNCTION=$ZCONFDIR/functions
+HELPDIR=$ZCONFDIR/help
 
-HELPDIR=$HOME/.zhelp
+fpath=($ZCOMPLETE $fpath)
+fpath=($ZFUNCTION $fpath)
+fpath=($ZCONFDIR/zsh-completions/src $fpath)
+
+cdpath=($HOME $cdpath)
 
 # sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
@@ -27,6 +32,10 @@ HELPDIR=$HOME/.zhelp
 # load configuration files
 for zfile in $ZSHRCD/*.zsh; do; source $zfile; done
 unset zfile
+
+# autoload functions
+for zfunc in $ZFUNCTION/*; do; autoload -Uz $(basename $zfunc); done
+unset zfunc
 
 # automatically remove duplicates
 typeset -U path cdpath fpath manpath

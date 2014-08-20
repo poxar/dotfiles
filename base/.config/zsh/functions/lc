@@ -1,0 +1,3 @@
+#!/bin/zsh
+# count the files/folders in a directory
+ls "$@" | wc -l

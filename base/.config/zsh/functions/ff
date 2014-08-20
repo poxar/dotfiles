@@ -1,0 +1,3 @@
+#!/bin/zsh
+# quick find
+find . -name "$*"

@@ -1,0 +1,6 @@
+#!/bin/zsh
+if [[ $# > 0 ]]; then
+  svn $@
+else
+  svn status
+fi

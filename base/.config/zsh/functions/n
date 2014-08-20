@@ -1,0 +1,9 @@
+#!/bin/zsh
+# open note or make new one
+cd $NOTEDIR
+if [[ -z "$1" ]] && where fzf &>/dev/null; then
+    $EDITOR $EDITORARGS $NOTEARGS $(fzf)
+else
+    $EDITOR $EDITORARGS $NOTEARGS "$*"
+fi
+cd -

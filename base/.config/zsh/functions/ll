@@ -1,0 +1,8 @@
+#!/bin/zsh
+# colorful ls in less
+if test "$OS" == 'GNU'; then
+  ls -lAh --color=always "$@" | less -r
+elif test "$OS" == 'BSD'; then
+  CLICOLOR_FORCE=1 ls -lAh "$@" | less -r
+fi
+

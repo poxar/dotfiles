@@ -1,0 +1,2 @@
+#compdef c
+compdef "_path_files -/ -W $PROJECTS" c

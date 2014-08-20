@@ -1,0 +1,3 @@
+#!/bin/zsh
+# convert nfo files to utf8
+iconv -f 437 -t UTF8 "$@" | ${PAGER:-less} 

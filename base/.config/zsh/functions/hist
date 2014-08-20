@@ -1,0 +1,3 @@
+#!/bin/zsh
+# grep the history
+fc -fl -m "*(#i)$1*" 1 | grep -i $1

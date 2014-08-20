@@ -25,19 +25,20 @@ create the folder and relink.
 
 ## ZSH
 
-Everything in `$HOME/.zsh.d` will be sourced, so it's rather easy to add
-functionality to zsh, or manipulate the environment. Next to every plugin in
-this repository does this.
+Everything in `$XDG_CONFIG_HOME/zsh/config` will be sourced, so it's rather easy
+to add functionality to zsh, or manipulate the environment. Next to every plugin
+in this repository does this.
 
 Files are sourced in alphanumeric order, so you can force a certain order by
 prefixing numbers to the filenames.
 
-`$HOME/.zpath` is for custom completion scripts and shell functions (i.e. it's
-in `$fpath`).
+`$XDG_CONFIG_HOME/zsh/completions` is reserved for custom completion scripts.
+Every file containing a function in `$XDG_CONFIG_HOME/zsh/functions` will be
+autoloaded.
 
-Everything in `$HOME/.zlogin.d` will be sourced, when the shell starts.
-
-Everything in `$HOME/.zlogout.d` will be sourced, when the shell exits.
+Everything in `$XDG_CONFIG_HOME/zsh/login` will be sourced, when the shell
+starts, and everything in `$XDG_CONFIG_HOME/zsh/logout` will be sourced, when it
+exits.
 
 ## Install
 

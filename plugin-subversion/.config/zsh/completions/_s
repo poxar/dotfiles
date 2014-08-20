@@ -1,0 +1,2 @@
+#compdef s
+compdef s='svn'

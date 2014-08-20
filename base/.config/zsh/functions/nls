@@ -1,0 +1,7 @@
+#!/bin/zsh
+# list notes or search for title
+if which tree &>/dev/null; then
+    tree -DCcr --noreport $NOTEDIR | grep "$*"
+else
+    ls -cr $NOTEDIR | grep "$*"
+fi

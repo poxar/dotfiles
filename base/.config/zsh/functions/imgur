@@ -1,0 +1,8 @@
+#!/bin/zsh
+# download album from imgur
+curl "$1"        | \
+grep _blank      | \
+awk '{print $2}' | \
+cut -d \" -f 2   | \
+xargs wget
+

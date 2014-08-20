@@ -1,0 +1,2 @@
+#!/bin/zsh
+xdg-open $* &>/dev/null &

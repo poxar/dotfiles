@@ -1,0 +1,3 @@
+#!/bin/zsh
+# quick cd to project directories
+builtin cd $PROJECTS/$1
