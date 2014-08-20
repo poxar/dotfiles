@@ -1,5 +1,4 @@
+#!/bin/zsh
 # create a dir in tmp and cd to it
-local t
-t=$(mktemp $mktemp_options -d)
-echo $t
-builtin cd $t
+cd $(mktemp -d /tmp/tmp.XXXXXX)
+pwd
