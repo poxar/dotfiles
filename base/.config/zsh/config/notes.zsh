@@ -1,8 +1,3 @@
-
-#
-# .zsh/notes.zsh
-#
-
 export NOTEDIR=${NOTEDIR:-"$HOME/.notes"}
 NOTEARGS+=('+set ft=markdown')
 NOTEARGS+=('+set fdm=syntax')

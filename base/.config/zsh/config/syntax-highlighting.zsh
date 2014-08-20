@@ -1,8 +1,3 @@
-
-#
-# .zsh.d/syntax-highlighting.zsh
-#
-
 source $ZCONFDIR/syntax/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_STYLES[precommand]="fg=green,bold"

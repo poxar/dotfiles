@@ -1,10 +1,3 @@
-
-
-#
-# ~/.zsh/10-history.zsh
-# settings for the history
-#
-
 HISTFILE="$ZCONFDIR/history"
 HISTSIZE=20000
 SAVEHIST=20000

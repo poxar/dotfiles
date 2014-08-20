@@ -1,8 +1,3 @@
-
-#
-# .zsh/50-coreutils.zsh
-#
-
 # apply default flags
 test -n $cp_options && alias cp="cp $cp_options"
 test -n $mv_options && alias mv="mv $mv_options"

@@ -1,8 +1,3 @@
-
-#
-# .zsh/plugin/git.zsh
-#
-
 # Wrap git with hub, if available
 if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 

@@ -1,9 +1,3 @@
-
-#
-# .zsh/00-gnu.zsh
-# defaults for GNU Coreutils
-#
-
 export OS='GNU'
 
 # be colorful

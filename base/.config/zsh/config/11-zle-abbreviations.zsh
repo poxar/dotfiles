@@ -1,8 +1,3 @@
-
-#
-# .zsh/11-zle-abbreviations.zsh
-#
-
 typeset -A abbreviations
 abbreviations=(
   "Il"  "| ${PAGER:-less}"

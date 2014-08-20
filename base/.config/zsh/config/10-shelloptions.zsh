@@ -1,9 +1,3 @@
-
-
-#
-# ~/.zsh/10-shelloptions.zsh
-#
-
 setopt auto_cd              # change directories easily
 setopt no_beep              # don't beep at me!
 setopt complete_in_word     # complete in words

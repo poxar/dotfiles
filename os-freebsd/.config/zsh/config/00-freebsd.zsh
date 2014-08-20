@@ -1,9 +1,3 @@
-
-#
-# ~/.zsh/00-freebsd.zsh
-# defaults for FreeBSD
-#
-
 export OS='BSD'
 
 # be colorful

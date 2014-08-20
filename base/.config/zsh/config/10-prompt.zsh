@@ -1,8 +1,3 @@
-
-#
-# .zsh/10-prompt.zsh
-#
-
 # change the prompt on mode-switch
 function zle-line-init zle-keymap-select {
   set-prompt $KEYMAP

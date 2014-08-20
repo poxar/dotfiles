@@ -1,9 +1,3 @@
-
-#
-# .zsh/10-zle.zsh
-# configure the behaviour of the zsh line editor
-#
-
 bindkey -v
 
 WORDCHARS='*?_[]~=&;!#$%^(){}'

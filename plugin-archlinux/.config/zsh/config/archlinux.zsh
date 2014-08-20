@@ -1,8 +1,3 @@
-
-#
-# .zsh/archlinux.zsh
-#
-
 which udevil &>/dev/null && \
     alias uu="udevil umount"
 compdef "_umount" uu

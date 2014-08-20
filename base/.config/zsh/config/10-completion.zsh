@@ -1,8 +1,3 @@
-
-#
-# .zsh/10-completion.zsh
-#
-
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
 zmodload -i zsh/complist
