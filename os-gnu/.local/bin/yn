@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+# flip a coin
+
+print -n "thinking"
+for i in {1..4}; do
+	print -n "."
+	sleep 0.3
+done
+shuf -n 1 -e 'Yes!' 'No!'
