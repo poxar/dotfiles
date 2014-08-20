@@ -1,3 +1,4 @@
+#!/bin/zsh
 # go up to the first parent directory matching $1
 # http://www.reddit.com/r/commandline/comments/1j7y16/handy_bash_function_i_just_wrote_to_move_up/
 if [[ $1 == "" ]]; then
