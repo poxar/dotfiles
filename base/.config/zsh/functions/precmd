@@ -1,0 +1,6 @@
+#!/bin/zsh
+# echo return code in red if !=0
+last_cmd=$?
+[[ $last_cmd -ne 0 ]] && echo -e "\e[01;31m$last_cmd\e[00m"
+unset last_cmd
+set-prompt $KEYMAP

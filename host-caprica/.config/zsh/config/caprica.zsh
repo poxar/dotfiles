@@ -3,6 +3,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.1.0/bin:$PATH"
 export GEM_HOME="$HOME/.gem/ruby/2.1.0"
 
+export PROJECTS=$HOME/Developement
+
 # python virtualenv
 export WORKON_HOME=~/.virtualenvs
 export PROJECT_HOME=$PROJECTS

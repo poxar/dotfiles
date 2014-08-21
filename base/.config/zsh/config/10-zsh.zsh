@@ -1,3 +1,6 @@
+# basic zsh config
+
+#### OPTIONS
 setopt auto_cd              # change directories easily
 setopt no_beep              # don't beep at me!
 setopt complete_in_word     # complete in words
@@ -17,3 +20,41 @@ setopt rm_starsilent        # i know what i'm doing (most of the time)
 
 unsetopt flowcontrol        # deactivate "freezing"
 unsetopt nomatch            # pass unmatched globs to the argument list
+
+#### MODULES
+autoload -U colors && colors # be colorful
+autoload -U zfinit && zfinit # zftp
+autoload -U zmv              # renaming tool
+autoload -U zcalc            # calculator
+
+#### HISTORY
+HISTFILE="$ZCONFDIR/history"
+HISTSIZE=20000
+SAVEHIST=20000
+HISTIGNORE="exit"
+
+setopt hist_ignore_all_dups # delete old duplicates
+setopt hist_ignore_space    # ignore commands starting with space for history
+setopt hist_lex_words       # parse history files correctly
+setopt inc_append_history   # append to the histfile directly
+setopt share_history        # share the history automatically
+
+unsetopt extended_history   # use the simple history format
+
+#### DIRS
+hash -d doc=/usr/share/doc
+hash -d log=/var/log
+
+#### PROMPT
+# change the prompt on mode-switch
+function zle-line-init zle-keymap-select {
+  set-prompt $KEYMAP
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# set the prompt now
+autoload -Uz set-prompt
+set-prompt
