@@ -1,0 +1,29 @@
+#!/bin/zsh
+# simple benchmark for shells and vim
+
+export TIMEFMT='%E'
+
+main() {
+  echo "Purging the disk cache..."
+  sync ; sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
+
+  zsh_elapsed_time=$( (time zsh -ic "echo -n") 2>&1 )
+  echo "zsh:\t$zsh_elapsed_time"
+
+  if test -x =bash; then
+    bash_elapsed_time=$( (time bash -ic "echo -n") 2>&1 )
+    echo "bash:\t$bash_elapsed_time"
+  fi
+
+  if test -x =fish; then
+    fish_elapsed_time=$( (time fish -ic "echo -n") 2>&1 )
+    echo "fish:\t$fish_elapsed_time"
+  fi
+
+  if test -x =vim; then
+    vim_elapsed_time=$( (time vim +q) 2>&1 >$(tty) )
+    echo "vim:\t$vim_elapsed_time"
+  fi
+}
+
+main
