@@ -14,7 +14,7 @@ then
   tmux select-layout -t monitor:1 tiled
   tmux rename-window -t monitor:1 proc
 
-  tmux new-window -t monitor:2 -d "sudo iftop"
+  tmux new-window -t monitor:2 -d "sudo iftop -i any"
   tmux split-window -h -t monitor:2 -d "watch -n 3 'netstat -at | grep -v LISTEN'"
   tmux rename-window -t monitor:2 net
 fi
