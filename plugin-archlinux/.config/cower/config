@@ -3,4 +3,3 @@ ConnectTimeout = 20
 TargetDir = ~/Build/aur
 MaxThreads = 10
 
-IgnorePkg = cv-git
