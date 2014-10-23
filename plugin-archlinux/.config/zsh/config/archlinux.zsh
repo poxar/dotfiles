@@ -11,6 +11,7 @@ alias mpkg="makepkg -rsiL"
 
 # saner abs
 export ABSROOT=~/build/abs
+export ASPROOT=~/.cache/asp
 
 # command-not-found hook via pkgfile
 source /usr/share/doc/pkgfile/command-not-found.zsh
