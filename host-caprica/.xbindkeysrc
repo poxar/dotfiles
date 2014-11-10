@@ -1,14 +1,14 @@
 ## Volume Control
-"amixer sset Master 5%+"
+"pulseaudio-ctl up"
     m:0x0 + c:123
     XF86AudioRaiseVolume
-"amixer sset Master 5%-"
+"pulseaudio-ctl down"
     m:0x0 + c:122
     XF86AudioLowerVolume
-"amixer sset Master toggle"
+"pulseaudio-ctl mute"
     m:0x0 + c:121
     XF86AudioMute
-"amixer sset Capture toggle"
+"pulseaudio-ctl mute-input"
     m:0x0 + c:198
     XF86AudioMicMute
 
