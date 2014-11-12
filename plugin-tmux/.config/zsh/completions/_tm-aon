@@ -1,0 +1,2 @@
+#compdef tm-aon
+_values "open sessions" $(tmux list-sessions | sed 's/:.*$//')
