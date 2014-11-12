@@ -380,6 +380,36 @@
         <action name="ToggleOmnipresent"/>
       </keybind>
     </keybind>
+    <keybind key="W-h">
+      <keybind key="h W-h">
+        <action name="Execute">
+          <command>
+            wmctrl -a "tmux: std"
+          </command>
+        </action>
+      </keybind>
+      <keybind key="j W-j">
+        <action name="Execute">
+          <command>
+            wmctrl -xa "firefox"
+          </command>
+        </action>
+      </keybind>
+      <keybind key="k W-k">
+        <action name="Execute">
+          <command>
+            wmctrl -xa "thunderbird"
+          </command>
+        </action>
+      </keybind>
+      <keybind key="l W-l">
+        <action name="Execute">
+          <command>
+            wmctrl -a "tmux: repl"
+          </command>
+        </action>
+      </keybind>
+    </keybind>
     <keybind key="W-Return">
       <action name="If">
         <maximized>yes</maximized>
