@@ -1,3 +1,4 @@
+#!/bin/sh
 
 #
 # .xinitrc
@@ -32,4 +33,9 @@ autorandr -c
 # disable touchpad
 synclient TouchpadOff=1
 
+# start the gnome keyring
+eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GPG_AGENT_INFO SSH_AUTH_SOCK
+
+# start the session
 exec openbox-session
