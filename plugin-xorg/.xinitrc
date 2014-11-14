@@ -25,7 +25,6 @@ xset -b
 
 # load keybindings
 xbindkeys &
-xcape
 
 # load screen setup
 autorandr -c
