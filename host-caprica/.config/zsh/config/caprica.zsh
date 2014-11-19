@@ -9,6 +9,3 @@ export PROJECT_HOME=$PROJECTS
 # directories
 hash -d shares=/run/user/1000/gvfs
 
-alias t="todo.sh"
-alias soon='todo.sh list | grep -E "due:`date +%Y-%m-%d`|due:`date -d tomorrow +%Y-%m-%d`"'
-
