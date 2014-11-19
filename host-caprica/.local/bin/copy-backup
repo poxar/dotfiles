@@ -8,7 +8,6 @@ print "Backing up Pictures"
 mountpoint $PICTURES_DECRYPT || \
 	encfs ~/Share/Copy/Bilder/ $PICTURES_DECRYPT
 rsync -Pav /mnt/data/pmi/Pictures/ $PICTURES_DECRYPT
-fusermount -u $PICTURES_DECRYPT
 
 print "\n"
 
@@ -16,5 +15,4 @@ print "Backing up Documents"
 mountpoint $DOCUMENTS_DECRYPT || \
 	encfs ~/Share/Copy/Dokumente/ $DOCUMENTS_DECRYPT
 rsync -Pav /mnt/data/pmi/Documents/ $DOCUMENTS_DECRYPT
-fusermount -u $DOCUMENTS_DECRYPT
 
