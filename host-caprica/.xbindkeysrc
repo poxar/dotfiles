@@ -1,11 +1,11 @@
 ## Volume Control
-"pulseaudio-ctl up"
+"ponymix increase -N 8; canberra-gtk-play --id='audio-volume-change'"
     m:0x0 + c:123
     XF86AudioRaiseVolume
-"pulseaudio-ctl down"
+"ponymix decrease -N 8; canberra-gtk-play --id='audio-volume-change'"
     m:0x0 + c:122
     XF86AudioLowerVolume
-"pulseaudio-ctl mute"
+"ponymix -N toggle; canberra-gtk-play --id='audio-volume-change'"
     m:0x0 + c:121
     XF86AudioMute
 "pulseaudio-ctl mute-input"
