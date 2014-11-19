@@ -1,23 +1,41 @@
+### https://raw.github.com/github/gitignore/master/Global/Linux.gitignore
+
+*~
+
+# KDE directory preferences
+.directory
+
+
+### https://raw.github.com/github/gitignore/master/Global/vim.gitignore
+
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
 Session.vim
-tags
-TAGS
-tags-ja
-.vimrc
 .netrwhist
+*~
+
+
+### https://raw.github.com/github/gitignore/master/Global/Tags.gitignore
+
+# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
+TAGS
+!TAGS/
+tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+
+### others
+.vimrc
 .clang_complete
 .env
 *.log
-*~
-*.swp
 *.latexmain
-
-# OS specific stuff
-desktop.ini
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
