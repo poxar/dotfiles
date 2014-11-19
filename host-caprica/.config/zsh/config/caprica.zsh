@@ -8,4 +8,5 @@ export PROJECT_HOME=$PROJECTS
 
 # directories
 hash -d shares=/run/user/1000/gvfs
+hash -d media=/run/media/pmi
 
