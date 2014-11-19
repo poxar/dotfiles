@@ -1,29 +1,62 @@
-#!/bin/zsh
-# simple benchmark for shells and vim
+#!/usr/bin/env ruby
+# encoding: utf-8
+require 'benchmark'
 
-export TIMEFMT='%E'
+# Cross-platform way of finding an executable in the $PATH.
+# See http://stackoverflow.com/a/5471032
+#   which('ruby') #=> /usr/bin/ruby
+def which(cmd)
+  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+    exts.each { |ext|
+      exe = File.join(path, "#{cmd}#{ext}")
+      return exe if File.executable?(exe) && !File.directory?(exe)
+    }
+  end
+  return nil
+end
 
-main() {
-  echo "Purging the disk cache..."
-  sync ; sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches'
+def run_benchmark(name, command, repetitions = REP)
+  total = 0
 
-  zsh_elapsed_time=$( (time zsh -ic "echo -n") 2>&1 )
-  echo "zsh:\t$zsh_elapsed_time"
+  print(name.ljust(6))
+  dot = (repetitions / 10).to_i
 
-  if test -x =bash; then
-    bash_elapsed_time=$( (time bash -ic "echo -n") 2>&1 )
-    echo "bash:\t$bash_elapsed_time"
-  fi
+  repetitions.times do |n|
+    print(".") if (n % dot == 0)
+    time = Benchmark.realtime { `#{command}` }
+    total += time
+  end
 
-  if test -x =fish; then
-    fish_elapsed_time=$( (time fish -ic "echo -n") 2>&1 )
-    echo "fish:\t$fish_elapsed_time"
-  fi
+  avg = total / repetitions
+  printf("\r%s %0.02fs    \n", name.ljust(6), avg)
+end
 
-  if test -x =vim; then
-    vim_elapsed_time=$( (time vim +q) 2>&1 >$(tty) )
-    echo "vim:\t$vim_elapsed_time"
-  fi
-}
+def find_shells
+  shells = []
+  %w{zsh bash fish}.each do |shell|
+    shells << shell unless which(shell).nil?
+  end
+  shells
+end
 
-main
+time = Benchmark.realtime do
+  if ARGV[0].nil?
+    REP = 200
+  else
+    REP = ARGV[0].to_i
+    exit! if REP < 10
+  end
+
+  puts "Average of #{REP} runs."
+
+  shells = find_shells
+
+  shells.each do |shell|
+    run_benchmark(shell, "#{shell} -ic 'echo -n'")
+  end unless shells.empty?
+
+  run_benchmark("vim", "vim +q 2>&1 >$(tty)", (REP/5).to_i)
+end
+
+printf("Benchmark took %0.02fs to run\n", time)
