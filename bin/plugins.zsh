@@ -14,6 +14,8 @@ plugins=("base")
 which "pacman"    &>/dev/null && plugins+=("plugin-archlinux")
 which "aptitude"  &>/dev/null && plugins+=("plugin-aptitude")
 
+which "ruby"      &>/dev/null && plugins+=("plugin-ruby")
+
 which "ack"       &>/dev/null && plugins+=("plugin-ack")
 which "ack-grep"  &>/dev/null && plugins+=("plugin-ack")
 which "aunpack"   &>/dev/null && plugins+=("plugin-atool")
