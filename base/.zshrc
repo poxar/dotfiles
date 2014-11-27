@@ -24,8 +24,6 @@ fpath=($ZCOMPLETE $fpath)
 fpath=($ZFUNCTION $fpath)
 fpath=($ZCONFDIR/zsh-completions/src $fpath)
 
-cdpath=($HOME $cdpath)
-
 # sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
 
