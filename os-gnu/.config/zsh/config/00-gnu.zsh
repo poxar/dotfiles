@@ -5,7 +5,7 @@ eval `dircolors -b` && \
   export ZLS_COLORS=$LS_COLORS
 
 ls_options+=(--color=auto)
-export GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+grep_options+=(--color=auto)
 
 # create backup files
 export VERSION_CONTROL=numbered
