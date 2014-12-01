@@ -9,8 +9,6 @@ zle -N self-insert url-quote-magic
 # open commandline in editor
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey -M emacs '^Sv'  edit-command-line
-bindkey -M emacs '^S^V' edit-command-line
 bindkey -M vicmd 'v' edit-command-line
 
 # get quick help for current command
@@ -23,8 +21,7 @@ bindkey -M vicmd 'K' run-help
 # toggle sudo
 autoload -U run-with-sudo
 zle -N run-with-sudo
-bindkey -M emacs '^Ss'  run-with-sudo
-bindkey -M emacs '^S^S' run-with-sudo
+bindkey -M emacs '^S' run-with-sudo
 bindkey -M vicmd '^S' run-with-sudo
 bindkey -M viins '^S' run-with-sudo
 
@@ -38,14 +35,13 @@ bindkey -M isearch "." self-insert
 # jump after first word (to add switches)
 autoload -U after-first-word
 zle -N after-first-word
-bindkey -M emacs '^S^A' after-first-word
-bindkey -M emacs '^Sa'  after-first-word
-
-# insert current date
-function insert-date() { LBUFFER+=${(%):-'%D{%Y-%m-%d}'}; }
-zle -N insert-date
-bindkey -M emacs '^Sd'  insert-date
-bindkey -M emacs '^S^D' insert-date
+function after-first-word-insert {
+  zle after-first-word
+  zle vi-insert
+}
+zle -N after-first-word-insert
+bindkey -M vicmd 'I' after-first-word-insert
+bindkey -M vicmd '_' after-first-word
 
 # quickly put job to foreground
 autoload -U grml-zsh-fg
@@ -58,28 +54,17 @@ bindkey -M viins '^Z' grml-zsh-fg
 # emacs
 #
 
-# clear ^S we'll use it as prefix
-bindkey -rM emacs '^S'
-
-# better than ^X^V
-bindkey -M emacs '^[' vi-cmd-mode
-
 # fixes
 bindkey -M emacs '^X^R' redo
 bindkey -M emacs '^[p'  history-beginning-search-backward
 bindkey -M emacs '^[n'  history-beginning-search-forward
 # use patterns for search
 bindkey -M emacs '^R'  history-incremental-pattern-search-backward
-bindkey -M emacs '^Sr' history-incremental-pattern-search-forward
 # use ^E^U to kill the whole line
 bindkey -M emacs '^U' backward-kill-line
 # quick help
 bindkey -M emacs '^Sh'  where-is
 bindkey -M emacs '^S^H' describe-key-briefly
-# comment out current line
-bindkey -M emacs '^S#' pound-insert
-# push everything on the stack
-bindkey -M emacs '^Sq' push-input
 
 #
 # vi command mode
@@ -142,9 +127,13 @@ bindkey -M viins "^U" backward-kill-line
 # preserve some readline bindings
 bindkey -M viins "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
+bindkey -M viins "^R" history-incremental-pattern-search-backward
+bindkey -M viins '^P' history-beginning-search-backward
+bindkey -M viins '^N' history-beginning-search-forward
 
 # insert last word
-bindkey -M viins '^K' insert-last-word
+bindkey -M viins '^K' use-Alt-.
+bindkey -M viins '^[.' insert-last-word
 
 # help
 bindkey -M viins '^_' describe-key-briefly

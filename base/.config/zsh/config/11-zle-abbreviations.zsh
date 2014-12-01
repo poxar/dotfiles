@@ -35,8 +35,8 @@ help-show-abbrev() { zle -M "$(print -a -C 2 ${(kv)abbreviations})" }
 zle -N help-show-abbrev
 
 bindkey -M emacs ' '   magic-abbrev-expand
-bindkey -M emacs '^S ' no-magic-abbrev-expand
-bindkey -M emacs '^S?' help-show-abbrev
+bindkey -M emacs '^X ' no-magic-abbrev-expand
+bindkey -M emacs '^X?' help-show-abbrev
 
 bindkey -M viins ' ' magic-abbrev-expand
 bindkey -M viins '^X ' no-magic-abbrev-expand
