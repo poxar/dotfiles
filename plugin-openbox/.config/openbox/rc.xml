@@ -779,5 +779,9 @@
       <decor>no</decor>
       <maximized>yes</maximized>
     </application>
+    <application name="spotify">
+      <decor>no</decor>
+      <maximized>yes</maximized>
+    </application>
   </applications>
 </openbox_config>
