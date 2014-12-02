@@ -1,6 +1,0 @@
-[submodule "base/.zcomp"]
-	path = base/.config/zsh/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
-[submodule "base/.zsyntax"]
-	path = base/.config/zsh/syntax
-	url = https://github.com/zsh-users/zsh-syntax-highlighting

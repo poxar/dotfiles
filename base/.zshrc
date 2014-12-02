@@ -17,11 +17,11 @@ ZLOGIND=$ZCONFDIR/login
 ZLOGOUTD=$ZCONFDIR/logout
 ZCOMPLETE=$ZCONFDIR/completions
 ZFUNCTION=$ZCONFDIR/functions
+ZBUNDLE=$ZCONFDIR/bundle
 HELPDIR=$ZCONFDIR/help
 
 fpath=($ZCOMPLETE $fpath)
 fpath=($ZFUNCTION $fpath)
-fpath=($ZCONFDIR/zsh-completions/src $fpath)
 
 # sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
