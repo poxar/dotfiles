@@ -1,0 +1,2 @@
+#compdef git-show-tree
+#description show branch tree of commit history

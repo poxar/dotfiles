@@ -1,0 +1,2 @@
+#compdef _git-fresh-branch
+#description create empty local branch

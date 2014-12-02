@@ -7,3 +7,6 @@ alias gp="git push"
 alias gd="git diff"
 alias gl="git l"
 alias gco="git checkout"
+
+# completions for git-extra
+fpath=($ZBUNDLE/git-extra-completion $fpath)

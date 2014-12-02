@@ -1,0 +1,19 @@
+#compdef git-delete-branch
+#description delete local and remote branch
+__git_command_successful () {
+    if (( ${#pipestatus:#0} > 0 )); then
+        _message 'not a git repository'
+        return 1
+    fi
+    return 0
+}
+__git_branch_names() {
+    local expl
+    declare -a branch_names
+    branch_names=(${${(f)"$(_call_program branchrefs git for-each-ref --format='"%(refname)"' refs/heads 2>/dev/null)"}#refs/heads/})
+    __git_command_successful || return
+    _wanted branch-names expl branch-name compadd $* - $branch_names
+}
+
+_arguments \
+    ':branch-name:__git_branch_names'

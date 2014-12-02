@@ -1,0 +1,2 @@
+#compdef _git-info
+#description show info about the repository

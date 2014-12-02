@@ -1,0 +1,2 @@
+#compdef _git-local-commits
+#description list unpushed commits on the local branch

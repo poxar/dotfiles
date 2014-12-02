@@ -1,0 +1,5 @@
+#compdef git-effort
+#description display effort statistics
+
+_arguments \
+    '--above[ignore file with less than x commits]' \

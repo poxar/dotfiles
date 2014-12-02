@@ -1,0 +1,2 @@
+#compdef _git-ignore
+#description add patterns to .gitignore
