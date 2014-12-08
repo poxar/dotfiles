@@ -1,0 +1,18 @@
+# ~/.tmuxinator/wtf.yml
+
+name: wtf
+root: ~/
+
+windows:
+  - proc:
+      layout: tiled
+      panes:
+        - top
+        - top -o '%MEM'
+        - clear; journalctl -alfp 3
+  - net:
+      layout: even-horizontal
+      panes:
+        - sudo iftop -i any
+        - watch -n 3 'netstat -at | grep -v LISTEN'
+
