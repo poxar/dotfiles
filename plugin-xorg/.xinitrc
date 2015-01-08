@@ -24,18 +24,12 @@ xset -dpms
 # disable bell
 xset -b
 
-# load keybindings
-xbindkeys &
-
 # load screen setup
 autorandr -c
-
-# disable touchpad
-synclient TouchpadOff=1
 
 # start the gnome keyring
 eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # start the session
-exec openbox-session
+exec cinnamon-session
