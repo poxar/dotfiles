@@ -11,7 +11,7 @@ xterm*bellIsUrgent:       true
 xterm*cutNewline:         true
 xterm*scrollKey:          true
 xterm*scrollTtyOutput:    false
-xterm*allowTitleOps:      false
+xterm*allowTitleOps:      true
 
 ! utf8 and 256 colors
 xterm*locale:   true
