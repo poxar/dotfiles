@@ -107,6 +107,22 @@ bindkey -M vicmd 'gk' up-line-or-history
 bindkey -M vicmd 'gp' copy-prev-word
 bindkey -M vicmd 'gP' copy-prev-shell-word
 
+# move back to end of word (vim style ge/gE)
+vi-back-word-end() {
+  zle vi-backward-word
+  zle vi-backward-word
+  zle vi-forward-word-end
+}
+vi-back-blank-word-end() {
+  zle vi-backward-blank-word
+  zle vi-backward-blank-word
+  zle vi-forward-blank-word-end
+}
+zle -N vi-back-word-end
+zle -N vi-back-blank-word-end
+bindkey -M vicmd 'ge' vi-back-word-end
+bindkey -M vicmd 'gE' vi-back-blank-word-end
+
 #
 # vi insert mode
 #

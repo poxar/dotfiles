@@ -1,5 +1,4 @@
-zstyle :compinstall filename "$HOME/.zshrc"
-autoload -Uz compinit && compinit
+autoload -Uz compinit
 zmodload -i zsh/complist
 
 zstyle ':completion:*' completer _complete _correct _approximate

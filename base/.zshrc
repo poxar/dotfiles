@@ -34,6 +34,9 @@ unset zfile
 for zfunc in $ZFUNCTION/*; do; autoload -Uz $(basename $zfunc); done
 unset zfunc
 
+# load all completion functions
+compinit
+
 # automatically remove duplicates
 typeset -U path cdpath fpath manpath
 
