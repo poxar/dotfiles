@@ -11,7 +11,7 @@ windows:
         - top -o '%MEM'
         - clear; journalctl -alfp 3
   - net:
-      layout: even-horizontal
+      layout: even-vertical
       panes:
         - sudo iftop -i any
         - watch -n 3 'netstat -at | grep -v LISTEN'
