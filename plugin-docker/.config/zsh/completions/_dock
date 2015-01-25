@@ -1,0 +1,2 @@
+#compdef dock
+compdef dock='docker'
