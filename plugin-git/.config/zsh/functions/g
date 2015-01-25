@@ -6,7 +6,7 @@ else
 fi
 
 if [[ $# > 0 ]]; then
-  $git_command $@
+  $git_command "$@"
 else
   $git_command status --short
 fi
