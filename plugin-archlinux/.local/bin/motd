@@ -4,7 +4,9 @@
 motd="/etc/motd"
 
 clear > $motd
-echo -e "[H[2J"                                    >> $motd
-echo -e "Welcome to [37;1m$(uname -n)"               >> $motd
-echo -e "[37;1mArch[34mLinux[0;37m $(uname -rm)" >> $motd
-echo -e "$X"                                           >> $motd
+{
+  echo -e "[H[2J"
+  echo -e "Welcome to [37;1m$(uname -n)"
+  echo -e "[37;1mArch[34mLinux[0;37m $(uname -rm)"
+  echo -e "$X"
+} >> $motd

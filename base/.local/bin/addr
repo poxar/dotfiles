@@ -3,7 +3,7 @@
 # Show IPv4 address for interface <if> or all interfaces with
 # no <if> given.
 
-ifconfig -a $1     |
+ifconfig -a "$1"   |
 grep 'inet '       |
 grep broadcast     |
 awk '{ print $2 }'

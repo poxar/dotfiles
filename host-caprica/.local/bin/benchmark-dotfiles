@@ -8,12 +8,11 @@ require 'benchmark'
 def which(cmd)
   exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
   ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
-    exts.each { |ext|
+    exts.each do |ext|
       exe = File.join(path, "#{cmd}#{ext}")
       return exe if File.executable?(exe) && !File.directory?(exe)
-    }
+    end
   end
-  return nil
 end
 
 def run_benchmark(name, command, repetitions = REP)
@@ -23,7 +22,7 @@ def run_benchmark(name, command, repetitions = REP)
   dot = (repetitions / 10).to_i
 
   repetitions.times do |n|
-    print(".") if (n % dot == 0)
+    print('.') if (n % dot == 0)
     time = Benchmark.realtime { `#{command}` }
     total += time
   end
@@ -34,7 +33,7 @@ end
 
 def find_shells
   shells = []
-  %w{zsh bash fish}.each do |shell|
+  %w(zsh bash fish).each do |shell|
     shells << shell unless which(shell).nil?
   end
   shells
