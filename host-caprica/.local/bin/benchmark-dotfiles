@@ -55,7 +55,8 @@ time = Benchmark.realtime do
     run_benchmark(shell, "#{shell} -ic 'echo -n'")
   end unless shells.empty?
 
-  run_benchmark("vim", "vim +q 2>&1 >$(tty)", (REP/5).to_i)
+  run_benchmark('vim',     'vim +q 2>&1 >$(tty)', (REP / 5).to_i)
+  run_benchmark('neovim', 'nvim +q 2>&1 >$(tty)', (REP / 5).to_i)
 end
 
 printf("Benchmark took %0.02fs to run\n", time)
