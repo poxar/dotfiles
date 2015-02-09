@@ -7,6 +7,7 @@ test -n $grep_options && alias grep="grep $ls_options"
 alias l="ls -vh"
 alias la="ls -vhA"
 alias sul="sudo ls -vhA $ls_options"
+alias lg="ls -hal | grep -iI -D skip --color=auto"
 
 # ls only (dot)dirs
 alias lad='l -d -- .*(/)'
