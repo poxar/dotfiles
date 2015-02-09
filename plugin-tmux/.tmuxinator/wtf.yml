@@ -14,5 +14,5 @@ windows:
       layout: even-vertical
       panes:
         - sudo iftop -i any
-        - watch -n 3 'netstat -at | grep -v LISTEN'
+        - watch -n 3 'netstat -t | grep -v LISTEN'
 
