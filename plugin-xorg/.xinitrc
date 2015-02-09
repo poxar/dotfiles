@@ -31,5 +31,8 @@ autorandr -c
 eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+xbindkeys
+synclient TouchpadOff=1
+
 # start the session
-exec cinnamon-session
+exec openbox-session
