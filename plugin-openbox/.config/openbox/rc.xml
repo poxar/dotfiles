@@ -19,7 +19,7 @@
     <primaryMonitor>Active</primaryMonitor>
   </placement>
   <theme>
-    <name>Numix</name>
+    <name>Clearlooks</name>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>DejaVu Sans</name>
@@ -58,7 +58,7 @@
       <slant>Normal</slant>
     </font>
     <keepBorder>yes</keepBorder>
-    <titleLayout>LIMC</titleLayout>
+    <titleLayout>DSLIMC</titleLayout>
   </theme>
   <desktops>
     <number>9</number>
