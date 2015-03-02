@@ -1,7 +1,9 @@
 #!/bin/zsh
 
 # show a diff of two dirs
-if test -x "$(which colordiff)"; then
+if test -x "$(which icdiff)"; then
+  icdiff <(ls -a "$1") <(ls -a "$2")
+elif test -x "$(which colordiff)"; then
   colordiff <(ls -a "$1") <(ls -a "$2")
 else
   diff <(ls -a "$1") <(ls -a "$2")
