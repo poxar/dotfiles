@@ -10,6 +10,7 @@ while read -q '?Scan image? '; do
   echo ""
 
   scanimage \
+    --device-name=plustek \
     --progress \
     --mode Lineart \
     --resolution 300 \
