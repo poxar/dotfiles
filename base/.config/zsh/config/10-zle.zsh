@@ -24,6 +24,11 @@ zle -N run-with-sudo
 bindkey -M emacs '^S' run-with-sudo
 bindkey -M vicmd '^S' run-with-sudo
 bindkey -M viins '^S' run-with-sudo
+autoload -U run-last-with-sudo
+zle -N run-last-with-sudo
+bindkey -M emacs '^F' run-last-with-sudo
+bindkey -M vicmd '^F' run-last-with-sudo
+bindkey -M viins '^F' run-last-with-sudo
 
 # Expands ... to ../..
 autoload -U expand-dot
