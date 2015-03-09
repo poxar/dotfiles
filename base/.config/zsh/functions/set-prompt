@@ -18,5 +18,5 @@ PS2="%_ $PS1"
 RPS1=""
 # number of running background jobs in green if >0
 RPS1+="%1(j.[%F{green}%j%f].)"
-# pwd in blue
-RPS1+=" %B%F{blue}%~%f%b"
+# pwd in blue (restricted to the last two directories)
+RPS1+=" %B%F{blue}%2~%f%b"
