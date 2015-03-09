@@ -1,7 +1,3 @@
-# automatic execution of .env files (zsh version)
-zsh_plug 'sharat87/autoenv' \
-  source activate.sh
-
 # additional completions
 zsh_plug 'zsh-users/zsh-completions' \
   fpath src
