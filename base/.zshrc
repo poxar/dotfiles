@@ -20,18 +20,18 @@ ZFUNCTION=$ZCONFDIR/functions
 ZBUNDLE=$ZCONFDIR/bundle
 HELPDIR=$ZCONFDIR/help
 
-fpath=($ZCOMPLETE $fpath)
-fpath=($ZFUNCTION $fpath)
+fpath+=($ZCOMPLETE)
+fpath+=($ZFUNCTION)
 
 # sudo mask
 (( EUID != 0 )) && SUDO='sudo' || SUDO=''
 
 # load configuration files
-for zfile in $ZSHRCD/*.zsh; do; source $zfile; done
+for zfile in $ZSHRCD/*.zsh; do source "$zfile"; done
 unset zfile
 
 # autoload functions
-for zfunc in $ZFUNCTION/*; do; autoload -Uz $(basename $zfunc); done
+for zfunc in $ZFUNCTION/*; do autoload -Uz $(basename "$zfunc"); done
 unset zfunc
 
 # load all completion functions
