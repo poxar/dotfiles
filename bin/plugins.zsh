@@ -7,14 +7,15 @@ plugins=("base")
 [[ -d "$REPOSITORY/host-$HOST" ]] && plugins+=("host-$HOST")
 
 # load os specific plugins
-[[ $OSTYPE =~ ".*gnu.*" ]]     && plugins+=("os-gnu")
-[[ $OSTYPE =~ ".*freebsd.*" ]] && plugins+=("os-freebsd")
+[[ $OSTYPE =~ .*gnu.* ]]      && plugins+=("os-gnu")
+[[ $OSTYPE =~ .*freebsd.* ]]  && plugins+=("os-freebsd")
 
 # guess if other plugins should be included
 which "pacman"    &>/dev/null && plugins+=("plugin-archlinux")
 which "aptitude"  &>/dev/null && plugins+=("plugin-aptitude")
 
 which "ruby"      &>/dev/null && plugins+=("plugin-ruby")
+which "ghc"       &>/dev/null && plugins+=("plugin-haskell")
 
 which "ack"       &>/dev/null && plugins+=("plugin-ack")
 which "ack-grep"  &>/dev/null && plugins+=("plugin-ack")
