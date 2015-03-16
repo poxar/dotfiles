@@ -7,7 +7,7 @@
 # load settings for X
 xset +fp /usr/share/fonts/local
 xset fp rehash
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+test -f ~/.Xresources && xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
 
 # xinitrc.d global settings
@@ -28,11 +28,11 @@ xset -b
 autorandr -c
 
 # start the gnome keyring
-eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
 export SSH_AUTH_SOCK
 
 xbindkeys
-synclient TouchpadOff=1
+xinput set-prop 11 "Device Enabled" 0
 
 # start the session
 exec openbox-session
