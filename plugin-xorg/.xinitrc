@@ -32,7 +32,7 @@ eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
 export SSH_AUTH_SOCK
 
 xbindkeys
-xinput set-prop 11 "Device Enabled" 0
+toggle-touchpad
 
 # start the session
 exec openbox-session
