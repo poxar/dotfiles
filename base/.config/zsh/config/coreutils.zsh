@@ -4,7 +4,7 @@ test -n $mv_options   && alias mv="mv $mv_options"
 test -n $ls_options   && alias ls="ls $ls_options"
 test -n $grep_options && alias grep="grep $ls_options"
 
-alias l="ls -vh"
+alias l="ls -vhL"
 alias la="ls -vhA"
 alias sul="sudo ls -vhA $ls_options"
 alias lg="ls -hal | grep -iI -D skip --color=auto"
