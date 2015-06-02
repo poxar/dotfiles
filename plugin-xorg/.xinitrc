@@ -35,4 +35,12 @@ xbindkeys
 toggle-touchpad
 
 # start the session
-exec openbox-session
+gnome-encfs --mount &
+nm-applet &
+dropbox &
+CopyAgent &
+keepassx &
+firefox &
+st &
+dwmstatus &
+exec dwm
