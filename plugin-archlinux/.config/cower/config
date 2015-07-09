@@ -1,5 +1,4 @@
 Color = auto
 ConnectTimeout = 20
-TargetDir = ~/Build/aur
 MaxThreads = 10
 
