@@ -35,10 +35,9 @@ xbindkeys
 toggle-touchpad
 
 # start the session
-gnome-encfs --mount &
 nm-applet &
 dropbox &
-CopyAgent &
+seafile-applet &
 keepassx &
 firefox &
 st &
