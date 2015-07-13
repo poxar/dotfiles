@@ -1,0 +1,15 @@
+PostCheckout:
+  IndexTags:
+    enabled: true
+
+PostCommit:
+  IndexTags:
+    enabled: true
+
+PostMerge:
+  IndexTags:
+    enabled: true
+
+PostRewrite:
+  IndexTags:
+    enabled: true

@@ -36,6 +36,7 @@ cscope.po.out
 ### others
 .vimrc
 .clang_complete
+.overcommit.yml
 .env
 *.log
 *.latexmain
