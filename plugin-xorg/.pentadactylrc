@@ -25,3 +25,4 @@ set defsearch=duckduckgo
 
 nmap \\\\ <C-^>
 
+set titlestring="Mozilla Firefox"
