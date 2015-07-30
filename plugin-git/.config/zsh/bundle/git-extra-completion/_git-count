@@ -1,5 +1,0 @@
-#compdef git-count
-#description count commits
-
-_arguments \
-    '--all[detailed commit count]'

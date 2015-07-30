@@ -1,5 +1,0 @@
-#compdef git-changelog
-#description populate changelog file with commits since the previous tag
-
-    _arguments \
-        '(-l --list)'{-l,--list}'[list commits]' \

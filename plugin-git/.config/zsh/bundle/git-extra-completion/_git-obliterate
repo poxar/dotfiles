@@ -1,2 +1,0 @@
-#compdef _git-obliterate
-#description Completely remove a file from the repository, including past commits and tags
