@@ -33,13 +33,16 @@ HISTSIZE=20000
 SAVEHIST=20000
 HISTIGNORE="exit"
 
-setopt hist_ignore_all_dups # delete old duplicates
-setopt hist_ignore_space    # ignore commands starting with space for history
-setopt hist_lex_words       # parse history files correctly
-setopt inc_append_history   # append to the histfile directly
-setopt share_history        # share the history automatically
+setopt hist_ignore_all_dups    # delete old duplicates
+setopt hist_ignore_space       # ignore commands starting with space for history
+setopt hist_lex_words          # parse history files correctly
+setopt inc_append_history_time # append to the histfile directly (with correct times)
+setopt extended_history        # use the extended history format
+setopt hist_fcntl_lock         # use modern locking
 
-unsetopt extended_history   # use the simple history format
+unsetopt share_history         # don't load history automatically
+
+# History can now be shared manually (one-time) with `fc -RI`
 
 #### DIRS
 hash -d doc=/usr/share/doc
