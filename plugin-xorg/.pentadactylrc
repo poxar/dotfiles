@@ -11,6 +11,9 @@ nmap cob :sidebar! Bookmarks<CR>
 nmap coh :sidebar! History<CR>
 nmap cod :sidebar! Downloads<CR>
 
+nmap -builtin <C-j> <nop>
+nmap -builtin <C-k> <nop>
+
 nmap vi :dialog pageinfo<CR>
 nmap vb :dialog bookmarks<CR>
 
