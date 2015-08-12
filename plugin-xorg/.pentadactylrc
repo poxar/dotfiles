@@ -20,10 +20,7 @@ nmap vb :dialog bookmarks<CR>
 nmap s :open !
 nmap S :tabopen !
 
-nmap -builtin j 5j
-nmap -builtin k 5k
-
-set guioptions=bCrsn
+set guioptions=bCrs
 set defsearch=duckduckgo
 
 nmap \\\\ <C-^>
