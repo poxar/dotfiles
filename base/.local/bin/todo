@@ -5,9 +5,9 @@ if [[ -z $PATTERN ]]; then
 fi
 
 if [[ -z $@ ]]; then
-  FILES=(**/*(.))
+  FILES=(.)
 else
   FILES=($@)
 fi
 
-grep --color=auto "$PATTERN" "${FILES[@]}"
+grep --color=auto -R "$PATTERN" "${FILES[@]}"
