@@ -10,4 +10,4 @@ else
   FILES=($@)
 fi
 
-grep "$PATTERN" "${FILES[@]}"
+grep --color=auto "$PATTERN" "${FILES[@]}"
