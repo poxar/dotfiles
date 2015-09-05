@@ -29,6 +29,7 @@ which "tmux"       &>/dev/null && plugins+=("plugin-tmux")
 which "etckeeper"  &>/dev/null && plugins+=("plugin-etckeeper")
 which "overcommit" &>/dev/null && plugins+=("plugin-overcommit")
 which "npm"        &>/dev/null && plugins+=("plugin-nodejs")
+which "pass"       &>/dev/null && plugins+=("plugin-pass")
 
 which Xorg         &>/dev/null && plugins+=("plugin-xorg")
 which openbox      &>/dev/null && plugins+=("plugin-openbox")

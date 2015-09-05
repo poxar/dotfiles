@@ -1,0 +1,4 @@
+## pass
+"~/.local/bin/dmenu-autotype"
+    m:0x40 + c:55
+    Mod4 + v

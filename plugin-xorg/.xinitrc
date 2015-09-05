@@ -38,7 +38,6 @@ toggle-touchpad
 nm-applet &
 dropbox &
 seafile-applet &
-keepassx &
 firefox &
 st &
 dwmstatus &
