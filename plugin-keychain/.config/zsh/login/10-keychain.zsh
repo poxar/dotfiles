@@ -1,1 +1,1 @@
-eval `keychain -q --nogui --eval`
+eval `keychain --quiet --quick --nogui --eval --clear --agents gpg,ssh`
