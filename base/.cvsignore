@@ -40,3 +40,8 @@ cscope.po.out
 .env
 *.log
 *.latexmain
+*.pyc
+
+
+.tmux.conf
+rusty-tags.vi
