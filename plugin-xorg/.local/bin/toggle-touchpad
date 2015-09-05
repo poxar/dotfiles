@@ -1,5 +1,9 @@
 #! /bin/bash
 # taken from https://gist.github.com/7histle/24870cd5a7bc513042c5
+# bash "strict mode", see
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+IFS=$'\n\t'
 
 id=$(xinput list \
   | grep -i Touchpad \
