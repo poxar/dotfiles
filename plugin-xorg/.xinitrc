@@ -27,6 +27,15 @@ xset -b
 # load screen setup
 autorandr -c
 
+# setup keyboard
+setxkbmap \
+  -model thinkpad \
+  -layout us,de \
+  -variant altgr-intl,nodeadkeys \
+  -option ctrl:nocaps \
+  -option compose:menu-altgr \
+  -option grp:shifts_toggle \
+  -option grp_led:caps
 xbindkeys
 toggle-touchpad
 
