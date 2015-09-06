@@ -9,7 +9,7 @@ if [[ ! -d "$password_store" ]]; then
     exit 1
 fi
 
-local candidates="$(find "$password_store" -name '*gpg' -print0 |
+local candidates="$(find "$password_store/web" -name '*gpg' -print0 |
 tr "\0" "\n" |
 sed "s#$password_store/##;s#\.gpg\$##")"
 
