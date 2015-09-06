@@ -46,3 +46,4 @@
   addremove = add -A
   ctags = !.git/hooks/ctags
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=short
+  supm = branch --set-upstream-to=origin/master master
