@@ -13,7 +13,7 @@ local candidates="$(find "$password_store/web" -name '*gpg' -print0 |
 tr "\0" "\n" |
 sed "s#$password_store/##;s#\.gpg\$##")"
 
-local choice="$(printf "$candidates" | sort | dmenu -p 'pass-autotype' )"
+local choice="$(printf "$candidates" | sort | dmenu -i -p 'pass-autotype' )"
 
 if [[ -n "$choice" ]]; then
     printf "Using $choice.\n" 1>&2
