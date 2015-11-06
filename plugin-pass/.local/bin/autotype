@@ -16,7 +16,7 @@ fi
 password="$(printf "%s" "$output" | head -n 1)"
 username="$(printf "%s" "$output" | grep '^login: ' | awk '{ print $2 }')"
 
-active_window_id="$(xdotool search --onlyvisible --limit 1 --name Firefox)"
+active_window_id="$(xdotool getwindowfocus)"
 
 if [[ -n "$password" ]]; then
     if [[ -n "$username" ]]; then
