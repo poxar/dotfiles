@@ -38,6 +38,7 @@ toggle-touchpad
 
 # start the session
 nm-applet &
+dropbox &
 firefox &
 st &
 dwmstatus &
