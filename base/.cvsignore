@@ -45,3 +45,4 @@ cscope.po.out
 
 .tmux.conf
 rusty-tags.vi
+.git_hooks
