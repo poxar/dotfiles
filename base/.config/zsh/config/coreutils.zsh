@@ -1,8 +1,8 @@
 # apply default flags
-test -n $cp_options   && alias cp="cp $cp_options"
-test -n $mv_options   && alias mv="mv $mv_options"
-test -n $ls_options   && alias ls="ls -vh $ls_options"
-test -n $grep_options && alias grep="grep $grep_options"
+test -n "$cp_options"   && alias cp="cp $cp_options"
+test -n "$mv_options"   && alias mv="mv $mv_options"
+test -n "$ls_options"   && alias ls="ls -vh $ls_options"
+test -n "$grep_options" && alias grep="grep $grep_options"
 
 alias l="ls"
 alias la="ls -A"
