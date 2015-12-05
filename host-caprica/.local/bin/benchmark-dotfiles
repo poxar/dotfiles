@@ -2,17 +2,8 @@
 # encoding: utf-8
 require 'benchmark'
 
-# Cross-platform way of finding an executable in the $PATH.
-# See http://stackoverflow.com/a/5471032
-#   which('ruby') #=> /usr/bin/ruby
-def which(cmd)
-  exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
-  ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
-    exts.each do |ext|
-      exe = File.join(path, "#{cmd}#{ext}")
-      return exe if File.executable?(exe) && !File.directory?(exe)
-    end
-  end
+def which?(cmd)
+  system("which #{cmd} > /dev/null 2>&1")
 end
 
 def run_benchmark(name, command, repetitions = REP)
@@ -33,8 +24,8 @@ end
 
 def find_shells
   shells = []
-  %w(zsh bash fish).each do |shell|
-    shells << shell unless which(shell).nil?
+  %w(zsh bash sh fish tcsh csh).each do |shell|
+    shells << shell if which?(shell)
   end
   shells
 end
@@ -55,8 +46,8 @@ time = Benchmark.realtime do
     run_benchmark(shell, "#{shell} -ic 'echo -n'")
   end unless shells.empty?
 
-  run_benchmark('vim',     'vim +q 2>&1 >$(tty)', (REP / 5).to_i)
-  run_benchmark('neovim', 'nvim +q 2>&1 >$(tty)', (REP / 5).to_i)
+  run_benchmark('vim',     'vim +q 2>&1 >$(tty)', (REP / 5).to_i) if which?("vim")
+  run_benchmark('neovim', 'nvim +q 2>&1 >$(tty)', (REP / 5).to_i) if which?("nvim")
 end
 
 printf("Benchmark took %0.02fs to run\n", time)
