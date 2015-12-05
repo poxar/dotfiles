@@ -8,6 +8,7 @@ ls_options+=(--color=auto)
 grep_options+=(--color=auto)
 
 # create backup files
-export VERSION_CONTROL=numbered
+export VERSION_CONTROL='existing'
+export SIMPLE_BACKUP_SUFFIX='.backup'
 cp_options+=(-b)
 mv_options+=(-b)
