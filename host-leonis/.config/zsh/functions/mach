@@ -1,0 +1,7 @@
+#!/bin/zsh
+if [[ -x mach ]]; then
+  python2 mach $@
+else
+  echo "Not a mozilla build directory" >&2
+  return 1
+fi
