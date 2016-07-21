@@ -31,13 +31,12 @@ fi
 # merge & ocr
 echo ""
 convert *.tiff paper.pdf
-pdfsandwich -lang deu paper.pdf
 
 # copy to $1 or current pwd
 if [[ -n "$1" ]]; then
-  cp paper_ocr.pdf "$OLDPWD/$1"
+  cp paper.pdf "$OLDPWD/$1"
   echo "saved as $OLDPWD/$1"
 else
-  cp paper_ocr.pdf "$OLDPWD"/`date '+%Y-%m-%d_%H:%M:%S'`.pdf
+  cp paper.pdf "$OLDPWD"/`date '+%Y-%m-%d_%H:%M:%S'`.pdf
   echo "saved as $OLDPWD/`date '+%Y-%m-%d_%H:%M:%S'`.pdf"
 fi
