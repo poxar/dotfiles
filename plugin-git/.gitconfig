@@ -50,3 +50,8 @@
   ctags = !.git/hooks/ctags
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=short
   supm = branch --set-upstream-to=origin/master master
+  publish = push -u origin
+  pub = push -u origin
+  feat = !sh -c 'git checkout -b feat/$1' -
+  bug = !sh -c 'git checkout -b fix/$1' -
+  fix = !sh -c 'git checkout -b fix/$1' -
