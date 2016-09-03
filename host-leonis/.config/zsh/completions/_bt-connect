@@ -1,0 +1,2 @@
+#compdef bt-connect
+_values "devices" D4

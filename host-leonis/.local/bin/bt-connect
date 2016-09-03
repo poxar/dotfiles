@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+ALIAS=${1:-"D4"}
+
+case "$ALIAS" in
+  "D4") DEVICE="C8:84:47:0C:F8:D4" ;;
+  *)    DEVICE=$1 ;;
+esac
+
+if bluetooth | grep off; then
+  sudo bluetooth on
+fi
+
+bluetoothctl << EOL
+power on
+connect $DEVICE
+EOL
