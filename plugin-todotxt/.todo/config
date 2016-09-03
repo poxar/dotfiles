@@ -1,0 +1,38 @@
+# Your todo.txt directory
+export TODO_DIR="$HOME/.todo"
+
+# Your todo/done/report.txt locations
+export TODO_FILE="$TODOTXT_PREFIX/todo.txt"
+export DONE_FILE="$TODOTXT_PREFIX/done.txt"
+export REPORT_FILE="$TODOTXT_PREFIX/report.txt"
+
+# You can customize your actions directory location
+export TODO_ACTIONS_DIR="$TODO_DIR/actions.d"
+export TODO_FILTERS_DIR="$TODO_DIR/filters.d"
+
+# what to do, when called without arguments
+export TODOTXT_DEFAULT_ACTION=top
+
+# automatically prepend the date on new items
+export TODOTXT_DATE_ON_ADD=1
+export TODOTXT_AUTO_ARCHIVE=0
+export TODOTXT_PRESERVE_LINE_NUMBERS=0
+
+# colors
+export COLOR_PROJECT=$RED
+export COLOR_CONTEXT=$LIGHT_GREEN
+export COLOR_DONE=$DARK_GREY
+
+## customize list output
+#
+# TODOTXT_SORT_COMMAND will filter after line numbers are
+# inserted, but before colorization, and before hiding of
+# priority, context, and project.
+#
+# export TODOTXT_SORT_COMMAND='env LC_COLLATE=C sort -f -k2'
+
+# TODOTXT_FINAL_FILTER will filter list output after colorization,
+# priority hiding, context hiding, and project hiding. That is,
+# just before the list output is displayed.
+#
+export TODOTXT_FINAL_FILTER="$TODO_FILTERS_DIR/futuretasks"

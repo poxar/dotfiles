@@ -1,0 +1,5 @@
+#!/bin/sh
+
+"$TODO_FULL_SH" command list \
+  | grep -iE --color=auto "due:$(date +%Y-%m-%d)|due:$(date -d tomorrow +%Y-%m-%d)|due:$(date -d '+2 days' +%Y-%m-%d)"
+

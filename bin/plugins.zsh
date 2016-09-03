@@ -29,6 +29,7 @@ which "npm"        &>/dev/null && plugins+=("plugin-nodejs")
 which "pass"       &>/dev/null && plugins+=("plugin-pass")
 which "svn"        &>/dev/null && plugins+=("plugin-subversion")
 which "tmux"       &>/dev/null && plugins+=("plugin-tmux")
+which "todo.sh"    &>/dev/null && plugins+=("plugin-todotxt")
 
 which "ruby"       &>/dev/null && plugins+=("plugin-benchmark")
 

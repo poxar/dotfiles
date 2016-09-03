@@ -1,0 +1,4 @@
+#!/bin/sh
+
+"$TODO_FULL_SH" command list | grep --color=auto -E "due:`date +%Y-%m-%d`"
+

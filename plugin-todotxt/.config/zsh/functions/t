@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+if [[ $# > 0 ]]; then
+  todo.sh "$@"
+else
+  todo.sh top "${TODOSH_EXCLUDE[@]//#/-}"
+fi
