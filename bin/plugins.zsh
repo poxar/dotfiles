@@ -16,6 +16,7 @@ which "aptitude"   &>/dev/null && plugins+=("plugin-aptitude")
 
 which "ruby"       &>/dev/null && plugins+=("plugin-ruby")
 which "ghc"        &>/dev/null && plugins+=("plugin-haskell")
+which "sbt"        &>/dev/null && plugins+=("plugin-scala")
 
 which "gpg2"       &>/dev/null && plugins+=("plugin-gnupg")
 which "ack"        &>/dev/null && plugins+=("plugin-ack")

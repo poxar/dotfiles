@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Populate the a quickfix file (for vim) from the output of sbt
+
+QFIX=target/sbt.quickfix.test
+
+nice -n8 sbt "$@" | tee \
+  >(while read -r line; do
+      cleanline=$(echo "$line" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g")
+      # this would color the whole pane according to status
+      # however it also makes reading the output really hard ;)
+      # if echo "$cleanline" | grep '\[error\]'; then tmux select-pane -t"$TMUX_PANE" -P 'bg=red'
+      # elif echo "$cleanline" | grep '\[success\]'; then tmux select-pane -t"$TMUX_PANE" -P 'bg=green'
+      # else echo "$cleanline" | grep 'Compiling' && tmux select-pane -t"$TMUX_PANE" -P 'bg=black'
+      # fi
+      echo "$cleanline" \
+        | grep '\[error\]\|\[warn\]\|\[info\]' \
+        | grep -v '\[error\] \.\|\[warn\] \.\|\[info\] \.' \
+        >> ${QFIX}
+    done > /dev/null
+    ) \
+  >(while read -r line; do
+      echo "$line" | grep 'Compiling' && rm ${QFIX}
+    done
+    )
