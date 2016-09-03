@@ -32,9 +32,6 @@
 [merge]
   tool = vimdiff
 
-[push]
-  default = matching
-
 [init]
   templatedir = ~/.git_template
 
