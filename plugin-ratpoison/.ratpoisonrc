@@ -10,7 +10,7 @@ escape s-j
 bind s-space meta
 bind Escape abort
 
-alias acpi exec ratpoison -c "echo `acpi`"
+alias acpi exec ratpoison -c "echo $(date; acpi)"
 alias dwindows exec ratpoison -c "select `ratpoison -c windows | dmenu -i -b | sed 's/\([0-9]*\).*/\1/'`" 
 alias notes exec cd $HOME/.notes && gvim `find . -type f | dmenu -i -l 15`
 
@@ -51,14 +51,26 @@ bind C-n cnext
 bind   N inext
 
 # store/restore frame layout
-bind C-F1 exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
-bind C-F2 exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
-bind C-F3 exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
-bind C-F4 exec ratpoison -c "setenv fs4 `ratpoison -c 'fdump'`"
-bind F1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
-bind F2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
-bind F3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
-bind F4 exec ratpoison -c "frestore `ratpoison -c 'getenv fs4'`"
+bind M-1 exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
+bind M-2 exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
+bind M-3 exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
+bind M-4 exec ratpoison -c "setenv fs4 `ratpoison -c 'fdump'`"
+bind M-5 exec ratpoison -c "setenv fs5 `ratpoison -c 'fdump'`"
+bind M-6 exec ratpoison -c "setenv fs6 `ratpoison -c 'fdump'`"
+bind M-7 exec ratpoison -c "setenv fs7 `ratpoison -c 'fdump'`"
+bind M-8 exec ratpoison -c "setenv fs8 `ratpoison -c 'fdump'`"
+bind M-9 exec ratpoison -c "setenv fs9 `ratpoison -c 'fdump'`"
+bind M-0 exec ratpoison -c "setenv fs0 `ratpoison -c 'fdump'`"
+bind 1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
+bind 2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
+bind 3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+bind 4 exec ratpoison -c "frestore `ratpoison -c 'getenv fs4'`"
+bind 5 exec ratpoison -c "frestore `ratpoison -c 'getenv fs5'`"
+bind 6 exec ratpoison -c "frestore `ratpoison -c 'getenv fs6'`"
+bind 7 exec ratpoison -c "frestore `ratpoison -c 'getenv fs7'`"
+bind 8 exec ratpoison -c "frestore `ratpoison -c 'getenv fs8'`"
+bind 9 exec ratpoison -c "frestore `ratpoison -c 'getenv fs9'`"
+bind 0 exec ratpoison -c "frestore `ratpoison -c 'getenv fs0'`"
 
 # easier to remember/type
 unbind Q
