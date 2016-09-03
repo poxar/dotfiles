@@ -1,0 +1,60 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+usage() {
+  echo "Usage: $(basename "$0") [ACTION] [ARGUMENT]"
+  echo "Actions:"
+  echo "reset            resets all sinks to the same state"
+  echo "inc ARGUMENT     increases volume on all sinks by ARGUMENT %"
+  echo "dec ARGUMENT     decreases volume on all sinks by ARGUMENT %"
+  echo "toggle           toggles mute on all sinks"
+  exit 1
+}
+
+get_sinks() {
+  pactl list sinks short | awk '{ print $1 }'
+}
+
+play_canberra() {
+  canberra-gtk-play --id='audio-volume-change'
+}
+
+reset() {
+  for sink in $(get_sinks); do
+    pactl set-sink-mute "$sink" false
+    pactl set-sink-volume "$sink" 100%
+  done
+
+  play_canberra
+}
+
+change_volume() {
+  test -z "$arg" && usage
+
+  for sink in $(get_sinks); do
+    pactl set-sink-mute "$sink" false
+    pactl set-sink-volume "$sink" "${1}${arg}%"
+  done
+
+  play_canberra
+}
+
+toggle() {
+  for sink in $(get_sinks); do
+    pactl set-sink-mute "$sink" toggle
+  done
+
+  play_canberra
+}
+
+task=${1:-""}
+arg=${2:-""}
+
+case $task in
+  "reset")  reset ;;
+  "inc")    change_volume "+" ;;
+  "dec")    change_volume "-" ;;
+  "toggle") toggle ;;
+  *)        usage ;;
+esac
