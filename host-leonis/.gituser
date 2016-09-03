@@ -1,6 +1,7 @@
 [user]
   name = Philipp Millar
   email = philipp.millar@poxar.de
+  signingkey = 5588401F4D5B41A6
 
 [github]
   user = poxar
