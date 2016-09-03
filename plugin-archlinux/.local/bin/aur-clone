@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+for repo in "$@"; do
+  git clone "git+ssh://aur@aur.archlinux.org/$repo.git" "$repo"
+done
