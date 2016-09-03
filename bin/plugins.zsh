@@ -4,7 +4,7 @@ emulate zsh
 plugins=("base")
 
 # load host specific plugins
-[[ -d "$REPOSITORY/host-$HOST" ]] && plugins+=("host-$HOST")
+[[ -d "$REPOSITORY/host-$(hostname -s)" ]] && plugins+=("host-$(hostname -s)")
 
 # load os specific plugins
 [[ $OSTYPE =~ .*gnu.* ]]      && plugins+=("os-gnu")
