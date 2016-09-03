@@ -6,10 +6,6 @@
 [[ -x =rbenv ]] && \
   eval "$(rbenv init -)"
 
-# select the highest (newest) available ruby version for gems
-export GEM_HOME=$(echo $HOME/.gem/ruby/*([-1]))
-export PATH="$GEM_HOME/bin:$PATH"
-
 # colorful ri in less
 RI_EXEC=$(which ri)
 function ri() {
