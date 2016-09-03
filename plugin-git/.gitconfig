@@ -71,3 +71,13 @@
   feat = !sh -c 'git checkout -b feat/$1' -
   bug = !sh -c 'git checkout -b fix/$1' -
   fix = !sh -c 'git checkout -b fix/$1' -
+
+[url "ssh://aur@aur.archlinux.org/"]
+  insteadOf = https://aur.archlinux.org/
+  insteadOf = http://aur.archlinux.org/
+  insteadOf = git://aur.archlinux.org/
+
+[url "git@github.com:"]
+  insteadOf = git://github.com/
+  insteadOf = http://github.com/
+  insteadOf = https://github.com/
