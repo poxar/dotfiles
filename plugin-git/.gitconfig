@@ -42,11 +42,29 @@
 
 [alias]
   co = checkout
+  ci = commit
   br = branch
+  st = status
+
+  l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
+  ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --max-count=15
+  lg = log -p
+  lc = log ORIG_HEAD.. --stat --no-merges
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  who = shortlog -s --
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+
+  prune-all = !git remote | xargs -n 1 git remote prune
+  diffstat = diff --stat -r
+  edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vim `f`"
+  add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+
   undo = reset --soft HEAD~1
+  unstage = reset HEAD --
   addremove = add -A
+
   ctags = !.git/hooks/ctags
-  l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=short
+
   supm = branch --set-upstream-to=origin/master master
   publish = push -u origin
   pub = push -u origin
