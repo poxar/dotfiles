@@ -35,6 +35,9 @@
 [init]
   templatedir = ~/.git_template
 
+[commit]
+  gpgsign = on
+
 [include]
   path = ~/.gituser
   path = ~/.gittokens
