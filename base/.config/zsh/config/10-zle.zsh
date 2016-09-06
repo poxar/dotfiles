@@ -153,7 +153,6 @@ bindkey -M viins '^P' history-beginning-search-backward
 bindkey -M viins '^N' history-beginning-search-forward
 
 # insert last word
-bindkey -M viins '^K' use-Alt-.
 bindkey -M viins '^[.' insert-last-word
 
 # help
