@@ -11,6 +11,7 @@
 TAGS
 !TAGS/
 tags
+.tags
 !tags/
 gtags.files
 GTAGS
@@ -24,7 +25,9 @@ cscope.po.out
 
 ### others
 Session.vim
+Session_*.vim
 .vimrc
+.nvimrc
 .clang_complete
 .env
 *.log
@@ -34,3 +37,4 @@ Session.vim
 .tmux.conf
 rusty-tags.vi
 .git_hooks
+.projections.json
