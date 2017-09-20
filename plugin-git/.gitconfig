@@ -24,7 +24,7 @@
 
 [diff]
   tool = vimdiff
-  compactionHeuristic = true
+  indentHeuristic = true
 
 [difftool]
   prompt = false
@@ -32,11 +32,14 @@
 [merge]
   tool = vimdiff
 
+[pull]
+  rebase = true
+
 [init]
   templatedir = ~/.git_template
 
 [commit]
-  gpgsign = on
+  gpgsign = off
 
 [include]
   path = ~/.gituser
@@ -62,7 +65,6 @@
   edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vim `f`"
   add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
 
-  undo = reset --soft HEAD~1
   unstage = reset HEAD --
   addremove = add -A
 
@@ -72,7 +74,6 @@
   publish = push -u origin
   pub = push -u origin
   feat = !sh -c 'git checkout -b feat/$1' -
-  bug = !sh -c 'git checkout -b fix/$1' -
   fix = !sh -c 'git checkout -b fix/$1' -
 
 [url "ssh://aur@aur.archlinux.org/"]

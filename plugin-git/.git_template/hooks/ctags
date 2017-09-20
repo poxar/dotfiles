@@ -6,6 +6,11 @@ then
   PATH="/usr/bin:$PATH"
   trap 'rm -f .git/tags.$$' EXIT
 
-  ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --exclude=@.git/excludes
+  if test -f .git/exclude; then
+    ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --exclude=@.git/exclude
+  else
+    echo "[ctags] no excludes" >&2
+    ctags --tag-relative -Rf.git/tags.$$ --exclude=.git
+  fi
   mv .git/tags.$$ .git/tags
 fi

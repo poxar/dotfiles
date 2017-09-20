@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if ! command -v rg >/dev/null; then
+  echo "rg not found!"
+  exit 1
+fi
+
+if rg -e '[[:space:]]$' .
+then
+   echo "REJECTED. Found trailing whitespace." >&2
+   exit 1
+fi
+
+if rg 'FIXME:|XXX:|TODO:' .
+then
+  echo "REJECTED. Found open TODOs." >&2
+  exit 1
+fi
+
