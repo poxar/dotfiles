@@ -2,7 +2,11 @@
 
 # Populate the a quickfix file (for vim) from the output of sbt
 
-QFIX=target/sbt.quickfix.test
+QFIX=target/sbt.quickfix
+export TERM=xterm-color
+
+test -d "$(dirname "$QFIX")" || mkdir -p "$(dirname "$QFIX")"
+test -f "$QFIX" || touch "$QFIX"
 
 nice -n8 sbt "$@" | tee \
   >(while read -r line; do
