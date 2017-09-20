@@ -14,6 +14,7 @@ plugins=("base")
 which "pacman"     &>/dev/null && plugins+=("plugin-archlinux")
 which "aptitude"   &>/dev/null && plugins+=("plugin-aptitude")
 
+which "rustc"      &>/dev/null && plugins+=("plugin-rust")
 which "ruby"       &>/dev/null && plugins+=("plugin-ruby")
 which "ghc"        &>/dev/null && plugins+=("plugin-haskell")
 which "sbt"        &>/dev/null && plugins+=("plugin-scala")
