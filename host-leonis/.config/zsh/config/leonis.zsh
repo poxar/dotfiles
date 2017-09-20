@@ -1,4 +1,4 @@
-export PROJECTS=$HOME/Developement
+export PROJECTS=$HOME/Development
 
 # python virtualenv
 export WORKON_HOME=~/.virtualenvs
