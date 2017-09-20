@@ -1,7 +1,11 @@
 #!/usr/bin/env zsh
 
 if [[ -z $PATTERN ]]; then
-  PATTERN='TODO\|HACK\|FIXME\|OPTIMIZE'
+  if command -v rg >/dev/null; then
+    PATTERN='TODO|HACK|FIXME|OPTIMIZE'
+  else
+    PATTERN='TODO\|HACK\|FIXME\|OPTIMIZE'
+  fi
 fi
 
 if [[ -z $@ ]]; then
@@ -10,4 +14,8 @@ else
   FILES=($@)
 fi
 
-grep --color=auto -R "$PATTERN" "${FILES[@]}"
+if command -v rg >/dev/null; then
+  rg "$PATTERN" "${FILES[@]}"
+else
+  grep --color=auto -R "$PATTERN" "${FILES[@]}"
+fi
