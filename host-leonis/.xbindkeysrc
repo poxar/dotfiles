@@ -1,14 +1,19 @@
 ## Volume Control
-"pulse-all inc 8"
+#"amixer -c 1 set Master 1%+ && canberra-gtk-play --id='audio-volume-change'"
+"pulse-all inc 4"
     m:0x0 + c:123
     XF86AudioRaiseVolume
-"pulse-all dec 8"
+#"amixer -c 1 set Master 1%- && canberra-gtk-play --id='audio-volume-change'"
+"pulse-all dec 4"
     m:0x0 + c:122
     XF86AudioLowerVolume
+#"amixer -c 1 set Master toggle && canberra-gtk-play --id='audio-volume-change'"
 "pulse-all toggle"
     m:0x0 + c:121
     XF86AudioMute
-"pulseaudio-ctl mute-input"
+#"pulseaudio-ctl mute-input"
+#"amixer -c 1 set Capture toggle"
+"pulse-all toggle-input"
     m:0x0 + c:198
     XF86AudioMicMute
 
