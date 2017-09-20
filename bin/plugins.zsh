@@ -34,6 +34,7 @@ which "pass"       &>/dev/null && plugins+=("plugin-pass")
 which "svn"        &>/dev/null && plugins+=("plugin-subversion")
 which "tmux"       &>/dev/null && plugins+=("plugin-tmux")
 which "todo.sh"    &>/dev/null && plugins+=("plugin-todotxt")
+which "task"       &>/dev/null && plugins+=("plugin-taskwarrior")
 
 which "ruby"       &>/dev/null && plugins+=("plugin-benchmark")
 

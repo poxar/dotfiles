@@ -1,0 +1,33 @@
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org 
+# 'man task' 'man task-color' 'man task-sync' 'man taskrc'
+
+# Files
+data.location=~/.task
+
+# Terminal
+editor=vim
+
+# Dates
+dateformat=d.m.y
+dateformat.report=d.m.y
+dateformat.holiday=d.m.y
+dateformat.edit=d.m.y H:N:S
+dateformat.info=d.m.y H:N:S
+dateformat.annotation=d.m.y H:N:S
+
+weekstart=Monday
+
+# Colors
+include ~/.task/color.rc
+fontunderline=off
+color.tag.later=color246
+color.tag.work=rgb541
+color.tagged=
+
+# Urgency
+urgency.user.tag.maybe.coefficient=-3.0
+urgency.user.tag.later.coefficient=-6.0
+urgency.user.tag.soon.coefficient=1.0
+
+include ~/.task/local.rc
