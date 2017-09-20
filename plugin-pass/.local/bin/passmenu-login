@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+set -ue
+
+clipboard() {
+  xclip -selection c
+  notify-send --icon=gtk-paste "Copied to clipboard."
+}
+
+local password_store="$HOME/.password-store"
+
+if [[ ! -d "$password_store" ]]; then
+    printf "Configure \$password_store within $(command -v passmenu-login).\n" 1>&2
+    printf "Its default location, $password_store, does not exist.\n" 1>&2
+    exit 1
+fi
+
+local candidates="$(find "$password_store/web" -name '*gpg' -print0 |
+tr "\0" "\n" |
+sed "s#$password_store/##;s#\.gpg\$##")"
+
+local choice="$(printf "$candidates" | sort | dmenu -i -p 'pass-autotype' )"
+
+if [[ -n "$choice" ]]; then
+    printf "Using $choice.\n" 1>&2
+    pass "$choice" | grep '^login:' | awk '{ print $2 }' | clipboard
+else
+    printf "Nothing choosen.\n" 1>&2
+fi
