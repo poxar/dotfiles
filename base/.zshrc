@@ -6,7 +6,6 @@
 
 # defaults
 export PATH="$HOME/.local/bin:$PATH"
-export EDITOR=vim
 export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZCONFDIR="$XDG_CONFIG_HOME/zsh"
