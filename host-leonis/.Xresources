@@ -20,7 +20,7 @@ xterm*termName: xterm-256color
 ! looks
 xterm*borderWidth:     0
 xterm*faceName:        DejaVu Sans Mono
-xterm*faceSize:        11
+xterm*faceSize:        8
 xterm*cursorBlink:     true
 xterm*underLine:       false
 

@@ -35,6 +35,9 @@
     Shift + Print
 
 ## pass
-"~/.local/bin/dmenu-autotype"
+"dmenu-autotype"
     m:0x40 + c:55
     Mod4 + v
+"passmenu-login"
+    m:0x40 + c:54
+    Mod4 + c

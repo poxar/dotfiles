@@ -1,1 +1,1 @@
-export TODOTXT_PREFIX="$HOME/Dropbox/Sync/todo"
+export TODOTXT_PREFIX="$HOME/Dropbox/Apps/todo"
