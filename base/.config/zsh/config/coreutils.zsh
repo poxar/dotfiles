@@ -19,7 +19,7 @@ alias laf='l -a -- .*(.)'
 alias lf='l -a -- *(.)'
 
 alias df="df -hT -x tmpfs -x devtmpfs"
-alias dfc="dfc -t -rootfs,tmpfs,devtmpfs,autofs"
+alias dfc="dfc -d -t -rootfs,tmpfs,devtmpfs,autofs"
 
 alias du="du -ch"
 
