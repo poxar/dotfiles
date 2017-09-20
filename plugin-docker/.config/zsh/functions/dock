@@ -1,7 +1,0 @@
-#!/bin/zsh
-if [[ $# > 0 ]]; then
-  docker "$@"
-else
-  docker ps
-fi
-
