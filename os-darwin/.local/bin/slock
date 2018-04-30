@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eu
+/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend

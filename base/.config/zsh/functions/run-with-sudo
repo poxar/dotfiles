@@ -1,8 +1,0 @@
-# ZLE widget run-with-sudo
-# prepend sudo or remove it if present
-if [[ $LBUFFER[(w)1] == 'sudo' ]]
-then
-  LBUFFER="${LBUFFER##sudo }"
-else
-  LBUFFER="sudo ${LBUFFER}"
-fi

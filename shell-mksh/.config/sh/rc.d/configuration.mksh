@@ -1,0 +1,57 @@
+## History
+mkdir -p "$XDG_DATA_HOME/mksh"
+export HISTFILE="$XDG_DATA_HOME/mksh/history"
+export HISTSIZE=10000
+
+## Prompt
+PS1='$(test -n "$SSH_CLIENT" && echo "$(hostname) ")$(if (( USER_ID )); then echo ">"; else echo "#"; fi) '
+
+## Editing
+# Unbind some keys from stty
+stty -ixon        # C-q/C-s
+stty susp undef   # C-z
+stty werase undef # C-w
+
+# prepend sudo to commandline
+bind -m '^S=^Asudo ^E'
+# run last command with sudo
+bind -m '^[s=^Usudo !!'
+# bring back last background process
+bind -m '^z=^Ufg^J^Y'
+# jump after the first word
+bind -m '^[a=^a^[f'
+# history search
+bind '^[p=up-history'
+bind '^[n=down-history'
+bind '^p=search-history-up'
+bind '^n=search-history-down'
+# clear screen
+bind '^l=clear-screen'
+# make C-w consistent
+bind '^w=delete-word-backward'
+bind '^[w=kill-region'
+# make C-u kill from cursor
+bind -m '^u=^[ ^a^x^x^[w'
+
+# macros
+typeset -a macros
+macros=(
+  '^\^\=| '
+  '^\l=| less'
+  '^\a=| awk'
+  '^\g=| grep '
+  '^\h=| head'
+  '^\t=| tail'
+  '^\f=| tail -f'
+  '^\s=| sort'
+  '^\w=| wc'
+  '^\x=| xargs '
+  '^\c=| clipboard'
+  '^\e=2>/dev/null'
+  '^\n=>/dev/null'
+  '^\o=>/dev/null 2>&1'
+)
+
+bind '^\=prefix-2'
+for abb in "${macros[@]}"; do bind -m "$abb"; done
+unset macros

@@ -1,9 +1,0 @@
-#!/bin/zsh
-# quick cd to project directories
-# create nonexistant directories
-
-if [[ ! -d "$PROJECTS"/"$1" ]]; then
-  mkdir "$PROJECTS"/"$1"
-fi
-
-builtin cd "$PROJECTS"/"$1"

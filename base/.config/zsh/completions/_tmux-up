@@ -1,2 +1,0 @@
-#compdef tmux-up
-compdef "_path_files -g \*.conf -W $HOME/.tmux" tmux-up

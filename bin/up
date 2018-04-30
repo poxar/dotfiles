@@ -1,19 +1,14 @@
-#!/usr/bin/env zsh
-emulate zsh
+#!/bin/sh
+set -eu
 
 # load functions
 old_pwd=$(pwd)
-cd `dirname $0`
-source lib.zsh
+cd "$(dirname "$0")"
+. ./lib.sh
 
 read_config
 cd "$REPOSITORY"
 
-if git branch &>/dev/null; then
-  git submodule init
-  git submodule update
-fi
-
 deploy $plugins
 
-cd $old_pwd
+cd "$old_pwd"

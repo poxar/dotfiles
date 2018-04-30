@@ -1,12 +1,12 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 #define the filename to use as output
 motd="/etc/motd"
 
 clear > $motd
 {
-  echo -e "[H[2J"
-  echo -e "Welcome to [37;1m$(uname -n)"
-  echo -e "[37;1mArch[34mLinux[0;37m $(uname -rm)"
-  echo -e "$X"
+  echo '[H[2J'
+  echo "Welcome to [37;1m$(uname -n)"
+  echo "[37;1mArch[34mLinux[0;37m $(uname -rm)"
+  echo "$X"
 } >> $motd

@@ -1,2 +1,0 @@
-#compdef n
-compdef "_path_files -W $NOTEDIR" n

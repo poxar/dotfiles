@@ -1,3 +1,0 @@
-#!/bin/zsh
-# search in zshall(1)
-PAGER="less -g -s '+/^       "$@"'" man zshall

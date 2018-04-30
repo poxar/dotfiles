@@ -1,8 +1,0 @@
-#!/bin/zsh
-# search content
-if [[ -n $* ]]; then
-    # to prevent grep from displaying the whole path
-    cd $NOTEDIR
-    grep -rni "$*" *
-    popd >/dev/null
-fi

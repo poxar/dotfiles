@@ -1,4 +1,0 @@
-#!/bin/zsh
-# create a dir in tmp and cd to it
-cd $(mktemp -d /tmp/tmp.XXXXXX)
-pwd

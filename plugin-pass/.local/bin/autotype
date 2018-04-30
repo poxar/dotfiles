@@ -1,15 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -ue
 
-if ! command -v xdotool &> /dev/null; then
-    printf "You need to install xdotool.\n" 1>&2
+if ! command -v xdotool > /dev/null; then
+    echo "You need to install xdotool." 1>&2
     exit 1
 fi
 
 output="$(pass "$@")"
 
 exit_code="$?"
-if [[ "$exit_code" -gt 0 ]]; then
+if test "$exit_code" -gt 0; then
     exit "$exit_code"
 fi
 
@@ -18,11 +18,10 @@ username="$(printf "%s" "$output" | grep '^login: ' | awk '{ print $2 }')"
 
 active_window_id="$(xdotool getwindowfocus)"
 
-if [[ -n "$password" ]]; then
-    if [[ -n "$username" ]]; then
+if test -n "$password"; then
+    if test -n "$username"; then
         xdotool type --window "$active_window_id" "$username"
         xdotool key --window "$active_window_id" "Tab"
     fi
     xdotool type --window "$active_window_id" "$password"
-    # xdotool key --window "$active_window_id" "Return"
 fi

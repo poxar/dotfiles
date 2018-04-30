@@ -1,2 +1,0 @@
-#compdef mount-tauron
-_values "mount points" pmi public backup download configuration

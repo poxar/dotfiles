@@ -1,5 +1,4 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+#!/bin/sh
+set -eu
 
 while ! ssh -o ConnectTimeout=2 "$@"; do sleep 2; done

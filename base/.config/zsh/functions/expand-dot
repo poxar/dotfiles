@@ -1,7 +1,0 @@
-# ZLE widget expand-dot
-# Expands .... to ../..
-if [[ $LBUFFER = *.. ]]; then
-  LBUFFER+='/..'
-else
-  LBUFFER+='.'
-fi

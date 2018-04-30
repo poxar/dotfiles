@@ -1,0 +1,11 @@
+#compdef
+#description Add hook templates to your repository
+_git-hookup() {
+  local context state state_descr line
+  typeset -A val_args
+
+  _values "available templates" \
+    'help[display help information about hookup]' \
+    'ctags[automatically regenerate ctags]' \
+    'todo[check for todo markers before pushing]'
+}

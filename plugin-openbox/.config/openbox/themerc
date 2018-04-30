@@ -1,4 +1,0 @@
-!! Borders
-window.active.border.color: #005577
-window.inactive.border.color: #444444
-border.width: 2

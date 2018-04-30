@@ -1,2 +1,0 @@
-#compdef tm-view
-_values "open sessions" $(tmux list-sessions | sed 's/:.*$//')

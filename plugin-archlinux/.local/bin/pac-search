@@ -1,6 +1,7 @@
-#!/usr/bin/env zsh
+#!/bin/sh
+set -u
 
 test -z "$*" && exit 1
 
-/usr/bin/pacman -Ss $*
-/usr/bin/cower -s $*
+/usr/bin/pacman -Ss "$@"
+/usr/bin/cower -s "$@"

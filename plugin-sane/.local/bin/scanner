@@ -1,0 +1,45 @@
+#!/bin/sh
+set -eu
+
+SCANDIR=/tmp/papers_$(date '+%Y-%m-%d_%H:%M:%S')
+n=1
+
+OLDPWD=$PWD
+mkdir -p "$SCANDIR"
+cd "$SCANDIR"
+
+while read -r '?Scan image? '; do
+  echo ""
+
+  number=$(printf "%10d" $n)
+  scanimage \
+    --device-name=plustek \
+    --progress \
+    --mode Lineart \
+    --resolution 300 \
+    -x 210 -y 297 \
+    --format=tiff \
+    > "$number.tiff"
+
+  n=$(( n + 1 ))
+
+  echo ""
+done
+
+if ! test -f 0000000001.tiff; then
+  echo "No scans found. Stop."
+  exit 1
+fi
+
+# merge & ocr
+echo ""
+convert ./*.tiff paper.pdf
+
+# copy to $1 or current pwd
+if test -n "$1"; then
+  cp paper.pdf "$OLDPWD/$1"
+  echo "saved as $OLDPWD/$1"
+else
+  cp paper.pdf "$OLDPWD/$(date '+%Y-%m-%d_%H:%M:%S').pdf"
+  echo "saved as $OLDPWD/$(date '+%Y-%m-%d_%H:%M:%S').pdf"
+fi

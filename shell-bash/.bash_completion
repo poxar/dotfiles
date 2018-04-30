@@ -1,0 +1,6 @@
+# load additional completions
+compdir="${BASH_COMPDIR:-"$XDG_DATA_HOME/bash/completion"}"
+if test -d "$compdir"; then
+  for file in "$compdir"/*.bash; do source "$file"; done
+fi
+unset compdir

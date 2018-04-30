@@ -1,3 +1,0 @@
-#!/bin/zsh
-# delete a note
-rm -rf $NOTEDIR/"$*"

@@ -1,29 +1,25 @@
-#!/bin/bash
-
-# Populate the a quickfix file (for vim) from the output of sbt
-
-QFIX=target/sbt.quickfix
-export TERM=xterm-color
-
-test -d "$(dirname "$QFIX")" || mkdir -p "$(dirname "$QFIX")"
-test -f "$QFIX" || touch "$QFIX"
-
-nice -n8 sbt "$@" | tee \
-  >(while read -r line; do
-      cleanline=$(echo "$line" | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g")
-      # this would color the whole pane according to status
-      # however it also makes reading the output really hard ;)
-      # if echo "$cleanline" | grep '\[error\]'; then tmux select-pane -t"$TMUX_PANE" -P 'bg=red'
-      # elif echo "$cleanline" | grep '\[success\]'; then tmux select-pane -t"$TMUX_PANE" -P 'bg=green'
-      # else echo "$cleanline" | grep 'Compiling' && tmux select-pane -t"$TMUX_PANE" -P 'bg=black'
-      # fi
-      echo "$cleanline" \
-        | grep '\[error\]\|\[warn\]\|\[info\]' \
-        | grep -v '\[error\] \.\|\[warn\] \.\|\[info\] \.' \
-        >> ${QFIX}
-    done > /dev/null
-    ) \
-  >(while read -r line; do
-      echo "$line" | grep 'Compiling' && rm ${QFIX}
-    done
-    )
+#!/usr/bin/env bash
+ 
+############
+# QuickSBT #
+############
+ 
+# Launch SBT with support for generating /tmp/sbt.quickfix file for Vim
+# http://github.com/aloiscochard / https://gist.github.com/4698501
+ 
+gitroot=$(git rev-parse --show-toplevel);\
+quickfix=${gitroot}/.git/sbt.quickfix;\
+sbt "$@" | tee \
+>(while read line;\
+do \
+if echo "$line" | gsed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g" | grep '\[warn\]\|\[error\]' >> ${quickfix}.raw;\
+then gsed -n '/\^/{x;d;};1h;1!{x;p;};${x;p;}' ${quickfix}.raw > $quickfix; fi;\
+done > /dev/null\
+) \
+>(clean=false; while read line; \
+do \
+if echo "$line" | grep '^> .*$'; then clean=true; fi;\
+if $clean; then rm ${quickfix}.raw 2> /dev/null; rm $quickfix 2> /dev/null; clean=false; fi;\
+if echo "$line" | grep 'Waiting for source changes'; then clean=true; fi \
+done > /dev/null\
+)

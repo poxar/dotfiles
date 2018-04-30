@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 tmpfile="$(mktemp)"
 mirrorfile="/etc/pacman.d/mirrorlist"
@@ -24,7 +25,7 @@ read -r consent
 
 if test "$consent" != "y" && test "$consent" != ""; then
   echo "Aborting."
-  quit 1
+  quit 0
 fi
 
 sudo mv "$tmpfile" "$mirrorfile"

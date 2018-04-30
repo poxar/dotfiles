@@ -1,6 +1,0 @@
-#!/bin/sh
-
-killall dzen2
-(date; echo ""; cal) |\
-  dzen2 -l 10 -p 5 -ta c -sa c -fn 'DejaVu Sans Mono' -w 350 -fg black -bg white
-

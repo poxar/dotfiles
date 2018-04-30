@@ -1,0 +1,40 @@
+set bell-style none
+
+set blink-matching-paren on
+set enable-bracketed-paste on
+
+set visible-stats on
+set colored-stats on
+set colored-completion-prefix on
+set completion-ignore-case on
+set completion-map-case on
+set show-all-if-unmodified on
+set match-hidden-files off
+set skip-completed-text on
+set page-completions off
+
+set show-mode-in-prompt on
+set emacs-mode-string ""
+set vi-cmd-mode-string ":"
+set vi-ins-mode-string "-"
+
+# The following bindings are effective in whatever keymap was selected. To
+# enable switching the keymap on the fly we need to remap manually (eg for bash)
+
+# search history by typed substring
+Control-p:history-search-backward
+Control-n:history-search-forward
+$if mode=emacs
+Meta-b:previous-history
+Meta-f:next-history
+$endif
+
+# automatically expand history substitutions an aliases on space
+" ":magic-space
+
+# consider / a word boundary
+Control-w:unix-filename-rubout
+$if mode=emacs
+Control-b:shell-backward-word
+Control-f:shell-forward-word
+$endif

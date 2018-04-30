@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+# flip a coin
+
+printf "thinking"
+i=0
+while test $i -lt 4; do
+	printf "."
+	sleep 0.3
+	i=$(( i + 1))
+done
+shuf -n 1 -e 'Yes!' 'No!'

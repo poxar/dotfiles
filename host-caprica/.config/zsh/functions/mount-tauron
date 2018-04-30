@@ -1,3 +1,0 @@
-#!/bin/zsh
-# easy mounting of my nas
-udevil mount -o credentials=/home/pmi/.smbcred-tauron smb://pmi@tauron/$1

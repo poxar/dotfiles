@@ -1,6 +1,6 @@
 #!/bin/sh
 
-tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
+tmp=${TMPDIR-"/tmp"}/pacman-disowned-$UID-$$
 db=$tmp/db
 fs=$tmp/fs
 

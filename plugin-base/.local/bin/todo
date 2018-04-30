@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+if test -x "$(command -v rg)"; then
+  PATTERN=${PATTERN:-'TODO|HACK|FIXME|OPTIMIZE'}
+  cmd=rg
+else
+  PATTERN=${PATTERN:-'TODO\|HACK\|FIXME\|OPTIMIZE'}
+  cmd='grep -R'
+fi
+
+if test -z "$*"; then
+  $cmd "$PATTERN" .
+else
+  $cmd "$PATTERN" "$@"
+fi

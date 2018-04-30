@@ -1,5 +1,0 @@
-#!/bin/sh
-
-killall dzen2
-acpi | dzen2 -l 5 -p 5 -ta c -fn 'DejaVu Sans Mono' -w 400 -fg black -bg white
-
