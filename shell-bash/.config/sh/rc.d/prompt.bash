@@ -10,9 +10,9 @@ __prompt() {
 
   local prompt="$bold"
   if test $EUID -eq 0; then
-    color+="$red# "
+    prompt+="$red# "
   else
-    color+="> "
+    prompt+="> "
   fi
 
   PS1="$host$prompt$reset"

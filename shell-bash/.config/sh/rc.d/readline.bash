@@ -81,6 +81,9 @@ bind -m emacs '"\C-f":shell-forward-word'
 bind -m vi-command '"gg":beginning-of-history'
 bind -m vi-command '"G":end-of-history'
 
+# clear screen
+bind -m vi-insert '"\C-l":clear-screen'
+
 # inline abbreviations
 abbreviations=(
   '"|l":"| less"'
