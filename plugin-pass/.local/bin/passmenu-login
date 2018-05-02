@@ -6,17 +6,17 @@ clipboard() {
   notify-send --icon=gtk-paste "Copied to clipboard."
 }
 
-password_store="$HOME/.password-store"
+PASSWORD_STORE_DIR="${PASSWORD_STORE_DIR:-"$HOME/.password-store"}"
 
-if ! test -d "$password_store"; then
-    echo "Configure \$password_store within $(command -v passmenu-login)." 1>&2
-    echo "Its default location, $password_store, does not exist." 1>&2
+if ! test -d "$PASSWORD_STORE_DIR"; then
+    echo "Configure \$PASSWORD_STORE_DIR or create the store." 1>&2
+    echo "Its current location, $PASSWORD_STORE_DIR, does not exist." 1>&2
     exit 1
 fi
 
-candidates="$(find "$password_store/web" -name '*gpg' -print0 |
+candidates="$(find "$PASSWORD_STORE_DIR/web" -name '*gpg' -print0 |
 tr "\\0" "\\n" |
-sed "s#$password_store/##;s#\\.gpg\$##")"
+sed "s#$PASSWORD_STORE_DIR/##;s#\\.gpg\$##")"
 
 choice="$(printf "%s" "$candidates" | sort | dmenu -i -p 'pass-login' )"
 

@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ue
+set -eu
 
 if ! command -v xdotool > /dev/null; then
     echo "You need to install xdotool." 1>&2
