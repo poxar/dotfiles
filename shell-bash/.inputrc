@@ -28,13 +28,3 @@ $if mode=emacs
 Meta-b:previous-history
 Meta-f:next-history
 $endif
-
-# automatically expand history substitutions an aliases on space
-" ":magic-space
-
-# consider / a word boundary
-Control-w:unix-filename-rubout
-$if mode=emacs
-Control-b:shell-backward-word
-Control-f:shell-forward-word
-$endif

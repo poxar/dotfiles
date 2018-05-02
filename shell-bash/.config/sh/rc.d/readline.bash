@@ -57,11 +57,10 @@ bind -m emacs '"\ea":"\C-a\ef"'
 bind -m vi-command '"I":"0ea"'
 
 # automatically expand history substitutions on space
-# (rebond from .inputrc to enable in all modes)
 bind -m emacs '" ":magic-space'
 bind -m vi-insert '" ":magic-space'
 
-# history search (rebond from .inputrc to enable in all modes)
+# history search (rebound from .inputrc to enable in all modes)
 bind -m emacs '"\[p":previous-history'
 bind -m emacs '"\[n":next-history'
 bind -m emacs '"\C-p":history-search-backward'
@@ -71,7 +70,7 @@ bind -m vi-insert '"\C-n":history-search-forward'
 bind -m vi-command '"gk":history-search-backward'
 bind -m vi-command '"gj":history-search-forward'
 
-# consider / a word boundary (rebond from .inputrc to enable in all modes)
+# consider / a word boundary
 bind -m emacs '"\C-w":unix-filename-rubout'
 bind -m vi-insert '"\C-w":unix-filename-rubout'
 bind -m emacs '"\C-b":shell-backward-word'
