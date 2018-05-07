@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+sudoedit /etc/dnscrypt-proxy/cloaking-rules.txt
+sudo systemctl restart dnscrypt-proxy.service
+sudo systemctl restart dnsmasq.service
