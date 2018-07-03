@@ -8,22 +8,31 @@ OLDPWD=$PWD
 mkdir -p "$SCANDIR"
 cd "$SCANDIR"
 
-while read -r '?Scan image? '; do
-  echo ""
+DOCNAME="${1:-""}"
 
-  number=$(printf "%10d" $n)
+do_scan() {
+  number=$(printf "%010d" $n)
   scanimage \
     --device-name=plustek \
     --progress \
-    --mode Lineart \
-    --resolution 300 \
+    --mode Color \
+    --resolution 200 \
     -x 210 -y 297 \
     --format=tiff \
     > "$number.tiff"
 
   n=$(( n + 1 ))
-
   echo ""
+}
+
+CONTINUE='true'
+while test $CONTINUE == 'true' && printf 'Scan image? ' && read -r ret; do
+  case $ret in
+    [yY]* ) do_scan              ;;
+    ''    ) do_scan              ;;
+    [nN]* ) CONTINUE='false'     ;;
+    *     ) echo "Invalid input" ;;
+  esac
 done
 
 if ! test -f 0000000001.tiff; then
@@ -36,7 +45,7 @@ echo ""
 convert ./*.tiff paper.pdf
 
 # copy to $1 or current pwd
-if test -n "$1"; then
+if test -n "$DOCNAME"; then
   cp paper.pdf "$OLDPWD/$1"
   echo "saved as $OLDPWD/$1"
 else
