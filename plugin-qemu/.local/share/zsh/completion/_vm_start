@@ -1,0 +1,2 @@
+#compdef vm_start
+_path_files -W "${VMDIR:-"$HOME/.local/share/vm"}"
