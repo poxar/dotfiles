@@ -25,6 +25,7 @@ check "scalac"    && plugins="$plugins plugin-scala"
 check "python"    && plugins="$plugins plugin-python"
 check "go"        && plugins="$plugins plugin-go"
 check "npm"       && plugins="$plugins plugin-nodejs"
+check "ruby"      && plugins="$plugins plugin-ruby"
 
 check "aunpack"   && plugins="$plugins plugin-atool"
 check "autossh"   && plugins="$plugins plugin-irc"
