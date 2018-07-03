@@ -1,8 +1,8 @@
-TODOTXT_PREFIX="$HOME/Dropbox/Apps/todo"
+TODOTXT_PREFIX="$HOME/var/Dropbox/Apps/todo"
 export TODOTXT_PREFIX
 
 NOTEDIR="$HOME/.local/share/notes"
 export NOTEDIR
 
-PROJECTS="$HOME/Development"
+PROJECTS="$HOME/src"
 export PROJECTS

@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd ~/Downloads || exit 1
+cd ~/tmp || exit 1
 sleep 0.2; exec scrot "$@" -e 'xclip -selection c -t image/png $f'

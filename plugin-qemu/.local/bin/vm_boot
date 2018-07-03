@@ -1,6 +1,9 @@
 #!/bin/sh
 set -eu
 
+VMDIR="${VMDIR:-"$HOME/.local/share/vm"}"
+cd "$VMDIR" || exit 1
+
 fs_file="${1:-""}"
 cd_file="${2:-""}"
 
