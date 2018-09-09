@@ -43,6 +43,10 @@ _pd_check colordiff && alias diff="colordiff"
 
 
 ## less
+alias less='less -FqX'
+PAGER='less -FqX'
+export PAGER
+
 # directory listing in less
 alias ll='less .'
 
@@ -50,10 +54,9 @@ alias ll='less .'
 LESSHISTFILE=/dev/null
 export LESSHISTFILE
 
-if _pd_check lesspipe.sh; then
-  LESSOPEN="|lesspipe.sh %s"
-  export LESSOPEN
-fi
+# don't use lesspipe
+LESSOPEN=""
+export LESSOPEN
 
 # colorful man with limited width
 man() {
