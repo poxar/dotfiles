@@ -47,7 +47,6 @@ xinput set-prop 12 276 0.8
 dropbox &
 wmname LG3D
 firefox &
-zeal &
 st &
 dwmstatus &
 exec dwm
