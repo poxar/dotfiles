@@ -27,6 +27,7 @@ bind l:.,cmd shell '/Users/pmi/.local/bin/slock'
 
 # quick window selection
 bind t:.,cmd focus 'iTerm2'
+bind y:.,cmd focus 'Terminal'
 bind s:.,cmd focus 'Slack'
 bind f:.,cmd focus 'Firefox'
 bind c:.,cmd focus 'Google Chrome'
