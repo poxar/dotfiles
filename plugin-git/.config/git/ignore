@@ -12,6 +12,9 @@ rusty-tags.vi
 
 .projections.json
 
+# scala
+.bloop
+
 # tmux
 .tmux.conf
 
