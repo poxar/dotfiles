@@ -9,12 +9,31 @@ bindkey -M emacs '^X^E' edit-command-line
 bindkey -M vicmd 'v' edit-command-line
 
 # get quick help for current command
-if [[ -d $HELPDIR ]]; then
-    unalias run-help
-    autoload -U run-help
-fi
+unalias run-help
+autoload -Uz run-help
+autoload -Uz run-help-git
+autoload -Uz run-help-ip
+autoload -Uz run-help-openssl
+autoload -Uz run-help-sudo
+autoload -Uz run-help-svn
 bindkey -M emacs '^[/' run-help
 bindkey -M vicmd 'K' run-help
+
+# proper bracketed paste
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
+# quickly insert filenames
+autoload -Uz insert-files
+zle -N insert-files
+bindkey -M emacs '^Xf' insert-files
+
+# predictive typing
+autoload -Uz predict-on
+zle -N predict-on
+zle -N predict-off
+bindkey '^X^Z' predict-on
+bindkey '^Xz' predict-off
 
 # prepend sudo or remove it if present
 run-with-sudo() {
@@ -121,6 +140,12 @@ bindkey -M emacs '^X^H' describe-key-briefly
 bindkey -M viins '^_' describe-key-briefly
 bindkey -M emacs '^_' describe-key-briefly
 
+# control arrow keys
+bindkey -M emacs ';5D' backward-word
+bindkey -M emacs ';5C' forward-word
+bindkey -M viins ';5D' backward-word
+bindkey -M viins ';5C' forward-word
+
 #
 # emacs
 #
@@ -131,6 +156,8 @@ bindkey -M emacs '^X^R' redo
 bindkey -M emacs '^R'  history-incremental-pattern-search-backward
 # use ^E^U to kill the whole line
 bindkey -M emacs '^U' backward-kill-line
+# drop into vi mode
+bindkey -M emacs 'jk' vi-cmd-mode
 
 #
 # vi command mode
