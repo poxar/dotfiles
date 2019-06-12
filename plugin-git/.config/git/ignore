@@ -17,3 +17,6 @@ rusty-tags.vi
 
 # Darwin
 .DS_Store
+
+# environment setup
+.env
