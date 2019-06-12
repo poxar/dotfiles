@@ -30,10 +30,12 @@ bind t:.,cmd focus 'iTerm2'
 bind y:.,cmd focus 'Terminal'
 bind s:.,cmd focus 'Slack'
 bind f:.,cmd focus 'Firefox'
+bind e:.,cmd focus 'Firefox Developer Edition'
 bind c:.,cmd focus 'Google Chrome'
 bind d:.,cmd focus 'Dash'
 bind y:.,cmd focus 'Skype'
-bind p:.,cmd focus 'PSequel'
+bind m:.,cmd focus 'Spotify'
+bind p:.,cmd focus 'TablePlus'
 bind v:.,cmd focus 'Preview'
 
 # Window Hints
