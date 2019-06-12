@@ -34,6 +34,9 @@
 [pull]
   rebase = true
 
+[commit]
+  verbose = true
+
 [include]
   path = user
   path = tokens
