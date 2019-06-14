@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+NUM="${1:-1}"
+GRP="$(ratpoison -c 'groups' \
+  | grep '[[:digit:]]*\*' \
+  | tr '*' ' ' \
+  | awk '{ print $1 }')"
+
+ratpoison -c "setenv fs_${GRP}_${NUM} $(ratpoison -c fdump)"

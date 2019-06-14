@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+ratpoison -c windows \
+  | dmenu -i -l 10 \
+  | tr '*+-' ' ' \
+  | awk '{ print $1 }' \
+  | xargs -I '{}' ratpoison -c 'select {}'

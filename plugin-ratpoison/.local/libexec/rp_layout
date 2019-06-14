@@ -1,0 +1,15 @@
+#!/bin/sh
+set -u
+
+ratpoison -c "set winname class"
+ratpoison -c "select Firefox"
+ratpoison -c "title Firefox"
+ratpoison -c "number 0"
+ratpoison -c "set winname title"
+
+ratpoison -c "select Mutt"
+ratpoison -c "number 1"
+
+ratpoison -c "select 0"
+
+true
