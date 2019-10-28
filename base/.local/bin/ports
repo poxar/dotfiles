@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+if test -x "$(command -v lsof)"; then
+  lsof -iTCP -sTCP:LISTEN -P "$@"
+elif test -x "$(command -v fstat)"; then
+  fstat "$@" | grep -E 'internet6? stream'
+else
+  echo 'Neither lsof nor fstat found. Exiting.'
+  exit 1
+fi

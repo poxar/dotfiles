@@ -1,0 +1,38 @@
+/*
+ * .Xresources
+ * Configuration resources for X applications
+ */
+
+!! xterm
+xterm*highlightSelection: true
+xterm*metaSendsEscape:    true
+xterm*bellIsUrgent:       true
+xterm*cutNewline:         false
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          false
+xterm*allowTitleOps:      true
+
+! utf8 and 256 colors
+xterm*locale:   true
+xterm*termName: xterm-256color
+
+! looks
+xterm*borderWidth:     0
+xterm*faceName:        Inconsolata
+xterm*faceSize:        14
+xterm*cursorBlink:     false
+xterm*underLine:       false
+
+! colors
+*background:  black
+*foreground:  grey
+
+! fonts
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.dpi: 192
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb

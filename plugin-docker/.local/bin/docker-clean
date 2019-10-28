@@ -1,5 +1,0 @@
-#!/bin/sh
-set -eu
-
-docker ps -aq | xargs docker rm -v
-docker images --filter=dangling=true -q | xargs docker rmi

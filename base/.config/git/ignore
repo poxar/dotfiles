@@ -1,0 +1,27 @@
+# backup files
+*~
+
+# vim files
+Session*.vim
+.tags
+tags
+
+# scala
+.bloop
+
+# tmux
+.tmux.conf
+
+# Darwin
+.DS_Store
+
+# environment setup
+.env
+.envrc
+.direnv
+.rp
+
+# other
+TODO
+@todo
+@note

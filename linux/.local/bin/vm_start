@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+
+VMDIR="${VMDIR:-"${XDG_DATA_HOME:-"$HOME/.local/share"}/vm"}"
+cd "$VMDIR" || exit 1
+
+fs_file="${1:-""}"
+
+if test -z "$fs_file"; then
+    echo "Usage: $0 image.qcow"
+    echo "Environment variables:"
+    echo "VM_MEMORY the memory (in MiB) to use (default: 1024)"
+    echo "VM_CPU_COUNT amount of cpu cores to dedicate (default: 2)"
+    exit 1
+fi
+
+memory="${VM_MEMORY:-"1024"}"
+cpu_count="${VM_CPU_COUNT:-"2"}"
+
+iommu="-enable-kvm -machine q35,accel=kvm"
+mem="-m $memory"
+cpus="-smp $cpu_count"
+net="-net nic,model=virtio -net vde"
+drive="-drive file=$fs_file,if=virtio"
+graph="-vga std -display none"
+
+exec qemu-system-x86_64 $iommu $mem $cpus $net $graph $drive

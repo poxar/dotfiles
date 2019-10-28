@@ -1,0 +1,46 @@
+#!/bin/sh
+
+# Load system defaults
+if test -d /etc/X11/xinit/xinitrc.d; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  test -x "$f" && . "$f"
+ done
+ unset f
+fi
+
+# Load resources
+xrfile="${XDG_CONFIG_HOME:-"$HOME/.config"}/Xresources"
+test -f "$xrfile" && xrdb -merge "$xrfile"
+unset xrfile
+
+# Disable screensaver
+xset dpms 0 0 0
+xset s off
+
+# Disable bell
+xset -b
+
+setxkbmap \
+  -layout us \
+  -variant altgr-intl \
+  -option ctrl:nocaps
+
+# Setup special keybindings
+xbindkeysrc="${XDG_CONFIG_HOME:-"$HOME/.config"}/xbindkeysrc"
+xbindkeys -f "$xbindkeysrc"
+unset xbindkeysrc
+
+# Automatically lock the screen on suspend
+xss-lock slock &
+
+# control the mouse from the keyboard
+keynav &
+
+# Startup programs
+nitrogen --restore
+gpg-connect-agent /bye
+redshift &
+firefox &
+
+# Window Manager
+exec ratpoison -f "${XDG_CONFIG_HOME:-"$HOME/.config"}/ratpoisonrc"

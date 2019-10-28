@@ -1,0 +1,39 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Slate interaction
+# bind tab:cmd    switch
+bind r:.,cmd    relaunch
+bind u:.,cmd    undo
+
+# Push Bindings
+bind right:.,cmd  push right bar-resize:screenSizeX/2
+bind left:.,cmd   push left  bar-resize:screenSizeX/2
+bind up:.,cmd     push up    bar-resize:screenSizeY/2
+bind down:.,cmd   push down  bar-resize:screenSizeY/2
+
+# Throw Bindings
+bind 1:.,cmd         throw 0 resize
+bind 2:.,cmd         throw 1 resize
+bind 3:.,cmd         throw 2 resize
+
+# Focus Bindings
+bind up:alt:.,cmd    focus behind
+bind down:alt:.,cmd  focus behind
+
+# quick window selection
+bind t:.,cmd focus 'iTerm2'
+bind y:.,cmd focus 'Terminal'
+bind s:.,cmd focus 'Slack'
+bind f:.,cmd focus 'Firefox'
+bind e:.,cmd focus 'Firefox Developer Edition'
+bind c:.,cmd focus 'Google Chrome'
+bind d:.,cmd focus 'Dash'
+bind y:.,cmd focus 'Skype'
+bind m:.,cmd focus 'Spotify'
+bind p:.,cmd focus 'TablePlus'
+bind v:.,cmd focus 'Preview'
+
+# Window Hints
+bind esc:cmd hint
