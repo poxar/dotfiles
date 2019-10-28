@@ -37,7 +37,7 @@ definekey top M-asciitilde iprev
 bind backslash gother
 bind C-backslash gother
 bind apostrophe wmenu
-bind g exec gmenu
+bind g gmenu
 bind grave focuslast
 
 # Launching and starting
