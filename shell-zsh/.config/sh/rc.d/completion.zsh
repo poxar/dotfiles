@@ -1,16 +1,13 @@
 autoload -Uz compinit
 zmodload -i zsh/complist
 
-zstyle ':completion:*' completer _complete _correct _approximate
-zstyle ':completion:*:correct:::' max-errors 2 not-numeric
-zstyle ':completion:*:approximate:::' max-errors 2 numeric
+zstyle ':completion:*' completer _complete
 zstyle ':completion::complete:*' rehash true
 # be colorful and informative
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format $'%{[0;31m%}%d%{[0m%}'
-zstyle ':completion:*:corrections' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:messages' format $'%{[0;31m%}%d%{[0m%}'
 zstyle ':completion:*:warnings' format $'%{[0;31m%}%d%{[0m%}'
 # also suggest completions that don't start with the typed string

@@ -134,6 +134,9 @@ bindkey -M vicmd 'k' up-line-or-beginning-search
 bindkey -M vicmd 'gj' down-line-or-history
 bindkey -M vicmd 'gk' up-line-or-history
 
+# corrections
+bindkey -M emacs '^Xc' _correct_word
+
 # quick help
 bindkey -M emacs '^Xh'  where-is
 bindkey -M emacs '^X^H' describe-key-briefly
