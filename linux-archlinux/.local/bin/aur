@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+
+update() {
+  cd "$HOME/src/build/aur"
+  ./update.sh
+}
+
+clone() {
+  cd "$HOME/src/build/aur"
+  git clone --depth=1 "https://aur.archlinux.org/$*.git"
+  cd "$*"
+  echo "==> Dropping into $SHELL for installation"
+  $SHELL
+}
+
+usage() {
+  echo "Usage: $(basename "$0") CMD [ARGS]"
+  echo ''
+  echo 'Arguments:'
+  echo '  help		Display this message'
+  echo '  update	Check all available clones for updates'
+  echo '  clone PKG	Clone PKG to the build directory'
+}
+
+ARG="${1:-""}"
+case $ARG in
+  update ) update     ;;
+  clone  ) clone "$2" ;;
+  help   ) usage "$@" ;;
+  *      ) usage "$@"; exit 1 ;;
+esac
