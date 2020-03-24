@@ -33,14 +33,13 @@ unset xbindkeysrc
 # Automatically lock the screen on suspend
 xss-lock slock &
 
-# control the mouse from the keyboard
-keynav &
-
 # Startup programs
 nitrogen --restore
 gpg-connect-agent /bye
 redshift &
 firefox &
+gvim "var/notes/@inbox.txt"
+autorandr -c &
 
 # Window Manager
 exec ratpoison -f "${XDG_CONFIG_HOME:-"$HOME/.config"}/ratpoisonrc"

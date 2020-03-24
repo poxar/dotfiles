@@ -12,7 +12,6 @@ bind Escape abort
 # Settings
 set warp 1
 set wingravity c
-set resizeunit 10
 set startupmessage 0
 set historysize 300
 set border 0
@@ -50,7 +49,7 @@ bind C ror termite
 # Split and unsplit
 bind s hsplit 2/3
 bind C-s hsplit
-bind S hsplit
+bind S split
 bind C-S split 2/3
 bind q only
 bind C-q only
@@ -60,9 +59,9 @@ bind I exec ratpoison -c "echo $(acpi)"
 bind W exec sh /usr/local/share/ratpoison/allwindows.sh
 
 # Screenshots
-bind Print exec scrot -s -e 'imv $f' $HOME/tmp/'%Y-%m-%d-%H%M%S_scrot.png'
-bind C-Print exec scrot -e 'imv $f' $HOME/tmp/'%Y-%m-%d-%H%M%S_scrot.png'
-bind S-Print exec scrot -m -e 'imv $f' $HOME/tmp/'%Y-%m-%d-%H%M%S_scrot.png'
+bind Print exec shot --select
+bind C-Print exec shot
+bind S-Print exec shot --multidisp
 
 # save and restore window layouts
 bind M-exclam     nsave 1

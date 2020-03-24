@@ -6,6 +6,7 @@ my @windows = sort { $b->[1] <=> $a->[1] }
               map { [split /\\000/] } 
               grep { /^$class\\000/i } 
               split /\n/, `ratpoison -c "windows %c\\000%l\\000%n"`;
+system("ratpoison -c 'only'");
 exec $command unless scalar @windows;
 my $current = `ratpoison -c "info %n"`;
 shift @windows if $windows[0]->[2] == $current;
