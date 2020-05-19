@@ -1,9 +1,0 @@
-[options]
-font = Inconsolata 14
-audible_bell = false
-cursor_blink = off
-mouse_autohide = true
-urgent_on_bell = true
-
-browser = firefox
-clickable_url = true
