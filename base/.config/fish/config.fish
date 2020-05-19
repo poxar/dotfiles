@@ -28,7 +28,3 @@ function man
     MANWIDTH="$width" \
     man $argv
 end
-
-# list open ports
-command -sq fstat; and alias ports="fstat | egrep 'internet6? stream'"
-command -sq lsof; and alias ports="lsof -iTCP -sTCP:LISTEN -P"
