@@ -3,7 +3,7 @@
 My public configuration files and personal scripts. I change those files a lot
 and sometimes I break things, so be careful.
 
-**TL;DR** Start browsing in `base` and maybe `xorg`.
+**TL;DR** Start browsing in `base`.
 
 My [vim configuration](https://github.com/poxar/vimfiles) lives in a separate
 repository, so I can use it without having to fetch all of my dotfiles and the
@@ -62,15 +62,15 @@ efforts. Sadly some programs still refuse to stop randomly dropping files in my
 
 ### Keybindings
 
-* **sudo** *C-s*: Add sudo in command position or remove it if present
-* **fixup** *A-s*: Populate commandline with the last command from the history,
-    prepended with `sudo `.
+* **sudo** *C-s*: Add sudo in command position or remove it if present.
+	If the commandline is empty it fetches the last line from history
+	and does the same.
 * **magic_dot**: Automatically expand `...` to `../..` anywhere in the
     commandline
 
 ### scp
 
-The shell will warn you, if you issue a `scp` command, that has no colon. You
+The shell will warn you, if you issue a `scp` command that has no colon. You
 should use `cp` for copying on the local system. I added this as I routinely
 forgot the colon and put something like `/` instead, thus copying files to
 random locations on my machine.
@@ -103,10 +103,10 @@ stow --target=$HOME -D base
 As a more complete example, here's how I would setup my usual notebook:
 
 ```sh
-stow --target=$HOME base linux linux-archlinux xorg
+stow --target=$HOME base linux linux-archlinux
 ```
 
-Or if I really have to work on a Mac:
+Or if I have to work on a Mac:
 
 ```sh
 stow --target=$HOME base darwin
