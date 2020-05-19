@@ -25,3 +25,6 @@ tags
 TODO
 @todo
 @note
+
+# clang compile database for lsp
+compile_commands.json
