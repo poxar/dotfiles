@@ -1,2 +1,2 @@
 #!/bin/sh
-exec autossh -M 0 irc.poxar.net
+exec autossh -M 0 irc@scorpia.poxar.net
