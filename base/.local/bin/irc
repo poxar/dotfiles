@@ -1,0 +1,2 @@
+#!/bin/sh
+exec autossh -M 0 irc@scorpia.poxar.net

@@ -1,8 +1,0 @@
-#!/bin/sh
-set -eu
-
-ratpoison -c groups \
-  | dmenu -i -l 10 \
-  | tr '*+-' ' ' \
-  | awk '{ print $1 }' \
-  | xargs -I '{}' ratpoison -c 'gselect {}'

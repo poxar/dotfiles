@@ -1,6 +1,0 @@
-#!/bin/sh
-set -eu
-
-for repo in "$@"; do
-  git clone "https://aur.archlinux.org/$repo.git" "$repo"
-done

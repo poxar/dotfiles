@@ -1,5 +1,0 @@
-#compdef kp
-#description Send signal to process selected via fzf
-
-local curcontext="$curcontext" line state ret=1
-_arguments -C '1::signal:_signals -s' && return 0

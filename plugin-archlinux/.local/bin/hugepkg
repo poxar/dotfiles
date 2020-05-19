@@ -1,5 +1,0 @@
-#!/bin/sh
-set -eu
-
-LINES=${1:-"10"}
-expac -s -H M '%-30n %m' | sort -rhk 2 | head -n "$LINES"
