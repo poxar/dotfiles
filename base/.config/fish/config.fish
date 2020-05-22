@@ -11,6 +11,10 @@ set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE /dev/null
 set -xg LESSOPEN ""
 
+# $VIMNAME needs to be expanded on call site
+abbr -ag v gvim --servername '$VIMNAME' --remote-silent
+abbr -ag vs gvim --servername '$VIMNAME' -S Session.vim
+
 # colorful man with limited width
 function man
   set -q MANWIDTH; or set -l MANWIDTH 80
