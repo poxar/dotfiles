@@ -1,9 +1,10 @@
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
-alias gd="git diff"
-alias gl="git l"
-alias gco="git checkout"
+abbr -ag ga git add
+abbr -ag gc git commit
+abbr -ag gP git push
+abbr -ag gp git pull
+abbr -ag gd git diff
+abbr -ag gl git l
+abbr -ag gco git checkout
 
 function g \
 	--description "Shorthand for git interaction" \

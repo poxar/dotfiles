@@ -6,7 +6,7 @@ function cdtmp
   pwd
 end
 
-alias less='less -FqX'
+abbr -ag less less -FqX
 set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE /dev/null
 set -xg LESSOPEN ""
