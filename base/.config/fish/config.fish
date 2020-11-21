@@ -11,6 +11,11 @@ set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE /dev/null
 set -xg LESSOPEN ""
 
+abbr -ag ll ls -lAh
+abbr -ag sl ls
+
+abbr -ag du du -h
+
 # $VIMNAME needs to be expanded on call site
 abbr -ag v gvim --servername '$VIMNAME' --remote-silent
 abbr -ag vs gvim --servername '$VIMNAME' -S Session.vim
