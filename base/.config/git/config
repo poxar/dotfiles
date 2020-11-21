@@ -62,8 +62,11 @@
 
   ctags = !.git/hooks/ctags
 
-  supm = branch --set-upstream-to=origin/master master
+  default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
+  supm = branch --set-upstream-to=origin/$(git default-branch) $(git default-branch)
   publish = push -u origin
   pub = push -u origin
   feat = !sh -c 'git checkout -b feat/$1' -
   fix = !sh -c 'git checkout -b fix/$1' -
+[init]
+	defaultBranch = main
