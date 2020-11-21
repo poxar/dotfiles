@@ -11,6 +11,7 @@ transplant =
 record =
 progress =
 extdiff =
+fsmonitor =
 
 [hooks]
 changegroup = hg diff --stat -r $HG_NODE -r tip
