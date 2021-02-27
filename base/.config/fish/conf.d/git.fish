@@ -3,6 +3,7 @@ abbr -ag gc git commit
 abbr -ag gP git push
 abbr -ag gp git pull
 abbr -ag gd git diff
+abbr -ag gdw git diff --word-diff --color-words
 abbr -ag gdo git diff origin
 abbr -ag gl git l
 abbr -ag gco git checkout
