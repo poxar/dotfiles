@@ -16,9 +16,8 @@ abbr -ag sl ls
 
 abbr -ag du du -h
 
-# $VIMNAME needs to be expanded on call site
-abbr -ag v gvim --servername '$VIMNAME' --remote-silent
-abbr -ag vs gvim --servername '$VIMNAME' -S Session.vim
+abbr -ag v gvim --remote-silent
+abbr -ag vs gvim -S Session.vim
 
 # colorful man with limited width
 function man
