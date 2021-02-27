@@ -1,6 +1,8 @@
 # config.fish
 # main user configuration for the fish shell
 
+set -xg EDITOR vim
+
 function cdtmp
   cd (mktemp -d /tmp/tmp.XXXXXX); or return 1
   pwd

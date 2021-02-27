@@ -1,13 +1,15 @@
 #!/bin/sh
 set -eu
 
+AUR_DIR="${AUR_DIR:-"$HOME/src/build/aur"}"
+
 update() {
-  cd "$HOME/src/build/aur"
+  cd "$AUR_DIR"
   ./update.sh
 }
 
 clone() {
-  cd "$HOME/src/build/aur"
+  cd "$AUR_DIR"
   git clone --depth=1 "https://aur.archlinux.org/$*.git"
   cd "$*"
   echo "==> Dropping into $SHELL for installation"

@@ -25,22 +25,6 @@ Firstly **base** includes most of my configuration. If you're just browsing,
 start there. The other folders contain configuration for specific systems and
 should only be installed on the appropriate systems.
 
-## Shell initialization
-
-I use [fish](https://fishshell.com/), but I don't `chsh` to it, so the usual
-initialization for login shells, as provided by the operating system or
-distribution from `/etc/profile` will be executed as intended.
-
-Additionally everything in `~/.config/sh/profile.d` will be sourced as well (see
-`base/.profile` for details). This will only work if the default shell is set to
-a bourne or ksh compatible shell (like bash when invoked as `/bin/sh`).
-Consequently everything there has to be fully POSIX compliant.
-
-Lastly on every invocation of an interactive shell `~/.config/sh/rc` will be
-sourced, which finally drops us into `fish` (see `base/.config/sh/rc` for
-details). Additional startup code, that should be executed before `fish` can be
-dropped into the `~/.config/sh/rc.d` directory.
-
 ## Notable changes
 
 These are just some examples and certainly not extensive.
@@ -49,9 +33,10 @@ These are just some examples and certainly not extensive.
 
 I try to keep as much of my configuration compliant with the [XDG base
 directory spec](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-as possible. Take a look at `base/.config/sh/profile.d` to see most of these
-efforts. Sadly some programs still refuse to stop randomly dropping files in my
-`$HOME`.
+as possible. Take a look at `base/.config/fish/conf.d/env.fish` to see
+most of these efforts. Sadly some programs still refuse to stop randomly
+dropping files in my `$HOME`, [I've writte a blog post about this
+situation](https://www.poxar.net/blog/readonly-home/).
 
 ### Coreutils(ish)
 
@@ -85,14 +70,12 @@ The following will install just the base configurations:
 cd ~
 git clone git://github.com/poxar/dotfiles.git .dotfiles
 stow --target=$HOME base
+./setup.fish
 ```
 
 Note, that no old files will be overwritten. That means you have to move them
-away by hand. (You'll get an error about that.)
-
-You can include your own or system configurations by simply copying them to
-`$XDG_CONFIG_HOME/sh/rc.d`. Make sure they end in `.sh` or the appropriate
-suffix for your shell.
+away by hand. (You'll get an error about that.) `setup.fish` however
+will happily overwrite your universal variables, so use with care.
 
 To get rid of the symlinks again, type this
 
