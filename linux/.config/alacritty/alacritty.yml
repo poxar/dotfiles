@@ -1,0 +1,63 @@
+window:
+  dynamic_padding: true
+  decorations: none
+  startup_mode: Maximized
+  gtk_theme_variant: dark
+
+shell:
+  program: tmux
+
+font:
+  size: 11.0
+  normal:
+    family: Fira Code
+    style: Light
+  bold:
+    family: Fira Code
+    style: Medium
+  italic:
+    family: Fira Code
+    style: Light Italic
+  bold_italic:
+    family: Fira Code
+    style: Medium Italic
+
+colors:
+  primary:
+    background: '#141413'
+    foreground: '#f8f6f2'
+  normal:
+    black:   '#000000'
+    red:     '#cc0403'
+    green:   '#19cb00'
+    yellow:  '#cecb00'
+    blue:    '#0d73cc'
+    magenta: '#cb1ed1'
+    cyan:    '#0dcdcd'
+    white:   '#dddddd'
+  bright:
+    black:   '#767676'
+    red:     '#f2201f'
+    green:   '#23fd00'
+    yellow:  '#fffd00'
+    blue:    '#1a8fff'
+    magenta: '#fd28ff'
+    cyan:    '#14ffff'
+    white:   '#ffffff'
+
+selection:
+  save_to_clipboard: true
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: N,     mods: Control|Shift,  action: SpawnNewInstance,  }
+  - { key: J,     mods: Control|Shift,  action: ScrollLineDown,    }
+  - { key: K,     mods: Control|Shift,  action: ScrollLineUp,      }
+  - { key: F,     mods: Control|Shift,  action: ScrollPageDown,    }
+  - { key: B,     mods: Control|Shift,  action: ScrollPageUp,      }
+  - { key: O,     mods: Control|Shift,  action: ToggleViMode,      }
+
+  - { key: Up,     mods: Shift,         action: ScrollLineUp,   mode: ~Alt,  }
+  - { key: Down,   mods: Shift,         action: ScrollLineDown, mode: ~Alt,  }
