@@ -9,7 +9,7 @@ if test -z "$*"; then
     exec $TMUX_CMD attach-session -d
   else
     WEECHAT_DIR="${XDG_CONFIG_HOME:-"$HOME/.config"}/weechat"
-    $TMUX_CMD new-session -d -x- -y- -n weechat weechat --dir "$WEECHAT_DIR"
+    $TMUX_CMD new-session -d -n weechat weechat --dir "$WEECHAT_DIR"
     $TMUX_CMD new-window
     exec $TMUX_CMD attach-session -d
   fi
