@@ -2,7 +2,12 @@
 # main user configuration for the fish shell
 
 set -g fish_greeting
-set -xg EDITOR vim
+
+if test -x (command -v nvim)
+  set -xg EDITOR nvim
+else
+  set -xg EDITOR vim
+end
 
 function cdtmp
   cd (mktemp -d /tmp/tmp.XXXXXX); or return 1
@@ -28,14 +33,19 @@ function man
   set -l width (tput cols)
 
   test "$width" -gt "$MANWIDTH"; and set width $MANWIDTH
-  env \
-    LESS_TERMCAP_mb=(printf "\\e[1;31m") \
-    LESS_TERMCAP_md=(printf "\\e[1;31m") \
-    LESS_TERMCAP_me=(printf "\\e[0m") \
-    LESS_TERMCAP_se=(printf "\\e[0m") \
-    LESS_TERMCAP_so=(printf "\\e[1;44;33m") \
-    LESS_TERMCAP_ue=(printf "\\e[0m") \
-    LESS_TERMCAP_us=(printf "\\e[1;32m") \
-    MANWIDTH="$width" \
-    man $argv
+
+  if test -x (command -v nvim)
+    set -gx MANPAGER nvim +Man!
+  else
+    env \
+      LESS_TERMCAP_mb=(printf "\\e[1;31m") \
+      LESS_TERMCAP_md=(printf "\\e[1;31m") \
+      LESS_TERMCAP_me=(printf "\\e[0m") \
+      LESS_TERMCAP_se=(printf "\\e[0m") \
+      LESS_TERMCAP_so=(printf "\\e[1;44;33m") \
+      LESS_TERMCAP_ue=(printf "\\e[0m") \
+      LESS_TERMCAP_us=(printf "\\e[1;32m") \
+      MANWIDTH="$width" \
+      man $argv
+  end
 end
