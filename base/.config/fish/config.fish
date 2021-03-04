@@ -1,6 +1,7 @@
 # config.fish
 # main user configuration for the fish shell
 
+set -g fish_greeting
 set -xg EDITOR vim
 
 function cdtmp

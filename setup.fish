@@ -14,9 +14,6 @@ set -Ux XDG_DATA_HOME   $HOME/.local/share
 
 set -U fish_user_paths $XDG_BIN_HOME
 
-# Disable greeting on every startup
-set -U fish_greeting ''
-
 # Don't underline anything
 set -U fish_color_valid_path \x2d\x2d
 set -U fish_pager_color_prefix white\x1e\x2d\x2dbold\x1e\x2d\x2d
