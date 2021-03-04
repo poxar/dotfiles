@@ -6,6 +6,9 @@ window:
 
 shell:
   program: tmux
+  args:
+    - new-session
+    - -A
 
 font:
   size: 11.0
