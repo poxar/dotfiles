@@ -9,6 +9,9 @@ else
   set -xg EDITOR vim
 end
 
+# only group and owner
+umask 0027
+
 function cdtmp
   cd (mktemp -d /tmp/tmp.XXXXXX); or return 1
   pwd
