@@ -5,6 +5,9 @@ else
   bind \cs 'fish_commandline_prepend sudo'
 end
 
+# Use A-W to delete bigword instead of a quick help
+bind \ew backward-kill-bigword
+
 # jump after first word (ignoring sudo/doas)
 function __command_position
   set -l cli (commandline -j)
