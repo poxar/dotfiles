@@ -36,6 +36,7 @@ function man
 
   if test -x (command -v nvim)
     set -gx MANPAGER nvim +Man!
+    command man $argv
   else
     env \
       LESS_TERMCAP_mb=(printf "\\e[1;31m") \
