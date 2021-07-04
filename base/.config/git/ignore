@@ -11,6 +11,7 @@ tags
 
 # tmux
 .tmux.conf
+.tmux.sh
 
 # Darwin
 .DS_Store
@@ -23,8 +24,6 @@ tags
 
 # other
 TODO
-@todo
-@note
 
 # clang compile database for lsp
 compile_commands.json
