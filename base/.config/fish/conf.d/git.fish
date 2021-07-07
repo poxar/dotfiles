@@ -9,6 +9,8 @@ abbr -ag gl git l
 abbr -ag gco git checkout
 abbr -ag gf git fetch
 abbr -ag gfo git fetch origin
+abbr -ag gr git rebase
+abbr -ag gri git rebase -i
 
 function g \
 	--description "Shorthand for git interaction" \
