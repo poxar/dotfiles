@@ -19,13 +19,11 @@ end
 
 abbr -ag less less -FqX
 set -xg PAGER 'less -FqX'
-set -xg LESSHISTFILE /dev/null
+set -xg LESSHISTFILE -
 set -xg LESSOPEN ""
 
 abbr -ag ll ls -lAh
 abbr -ag sl ls
-
-abbr -ag du du -h
 
 # colorful man with limited width
 function man
