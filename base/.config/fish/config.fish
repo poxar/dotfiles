@@ -27,9 +27,6 @@ abbr -ag sl ls
 
 abbr -ag du du -h
 
-abbr -ag v gvim --remote-silent
-abbr -ag vs gvim -S Session.vim
-
 # colorful man with limited width
 function man
   set -q MANWIDTH; or set -l MANWIDTH 80
