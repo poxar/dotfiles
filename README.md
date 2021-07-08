@@ -29,15 +29,6 @@ should only be installed on the appropriate systems.
 
 These are just some examples and certainly not extensive.
 
-### XDG
-
-I try to keep as much of my configuration compliant with the [XDG base
-directory spec](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
-as possible. Take a look at `base/.config/fish/conf.d/env.fish` to see
-most of these efforts. Sadly some programs still refuse to stop randomly
-dropping files in my `$HOME`, [I've writte a blog post about this
-situation](https://www.poxar.net/blog/readonly-home/).
-
 ### Coreutils(ish)
 
 * GNU coreutils will generate backup files, when overwriting files wit `cp`/`mv`.
