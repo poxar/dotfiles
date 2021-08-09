@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+SNIP_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/snippets"
+cd "$SNIP_DIR"
+
+selected="$(sk -e --preview 'cat {}' || echo '')"
+
+if test -z "$selected"; then
+  vim
+else
+  vim "$selected"
+fi

@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+SNIP_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/snippets"
+cd "$SNIP_DIR"
+
+selected="$(sk -e --preview 'cat {}')"
+
+if test "$XDG_SESSION_TYPE" == "wayland"; then
+  cat "$selected" | head -c -1 | wl-copy
+else
+  cat "$selected" | head -c -1 | xsel -b
+fi
