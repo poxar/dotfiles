@@ -12,6 +12,7 @@ tags
 # tmux
 .tmux.conf
 .tmux.sh
+tmux.sh
 
 # Darwin
 .DS_Store
