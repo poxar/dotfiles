@@ -4,7 +4,11 @@ set -eu
 SNIP_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/snippets"
 cd "$SNIP_DIR"
 
-selected="$(sk -e --preview 'cat {}')"
+if test -x "$(command -v rg)"; then
+  selected="$(sk -e -c 'rg --files' --preview 'cat {}')"
+else
+  selected="$(sk -e --preview 'cat {}')"
+fi
 
 if test "$XDG_SESSION_TYPE" == "wayland"; then
   cat "$selected" | head -c -1 | wl-copy

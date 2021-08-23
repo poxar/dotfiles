@@ -4,10 +4,14 @@ set -eu
 SNIP_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/snippets"
 cd "$SNIP_DIR"
 
-selected="$(sk -e --preview 'cat {}' || echo '')"
+if test -x "$(command -v rg)"; then
+  selected="$(sk -e -c 'rg --files' --preview 'cat {}')"
+else
+  selected="$(sk -e --preview 'cat {}')"
+fi
 
 if test -z "$selected"; then
-  vim
+  $EDITOR
 else
-  vim "$selected"
+  $EDITOR "$selected"
 fi
