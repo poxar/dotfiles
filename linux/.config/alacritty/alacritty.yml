@@ -1,14 +1,12 @@
 window:
   dynamic_padding: true
-  decorations: none
-  startup_mode: Maximized
+  decorations: full
+  startup_mode: Windowed
   gtk_theme_variant: dark
 
-shell:
-  program: tmux
-  args:
-    - new-session
-    - -A
+  dimensions:
+    columns: 90
+    lines: 30
 
 font:
   size: 11.0
