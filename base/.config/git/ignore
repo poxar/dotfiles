@@ -10,18 +10,18 @@ tags
 .bloop
 
 # tmux
-.tmux.conf
-.tmux.sh
-tmux.sh
+.tmuxp.yaml
 
 # Darwin
 .DS_Store
+
+# NixOS
+.shell.drv
 
 # environment setup
 .env
 .envrc
 .direnv
-.rp
 
 # other
 TODO
