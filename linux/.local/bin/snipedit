@@ -1,17 +1,5 @@
 #!/bin/sh
 set -eu
 
-SNIP_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/snippets"
-cd "$SNIP_DIR"
-
-if test -x "$(command -v rg)"; then
-  selected="$(sk -e -c 'rg --files' --preview 'cat {}')"
-else
-  selected="$(sk -e --preview 'cat {}')"
-fi
-
-if test -z "$selected"; then
-  $EDITOR
-else
-  $EDITOR "$selected"
-fi
+cd "${XDG_CONFIG_HOME:-$HOME/.config}/snippets"
+$EDITOR .
