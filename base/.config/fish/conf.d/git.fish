@@ -1,5 +1,6 @@
 abbr -ag ga git add
 abbr -ag gc git commit
+abbr -ag gca git commit --amend
 abbr -ag gP git push
 abbr -ag gp git pull
 abbr -ag gd git diff
