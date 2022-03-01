@@ -1,10 +1,3 @@
-# Use C-s to prepend sudo/doas
-if command -v doas >/dev/null
-  bind \cs 'fish_commandline_prepend doas'
-else
-  bind \cs 'fish_commandline_prepend sudo'
-end
-
 # Use A-W to delete bigword instead of a quick help
 bind \ew backward-kill-bigword
 
