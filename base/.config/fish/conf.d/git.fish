@@ -16,11 +16,13 @@ abbr -ag gri git rebase -i
 
 # new style checkout
 abbr -ag gs git switch
+abbr -ag gsm git switch main
+abbr -ag gsd git switch dev
 abbr -ag grs git restore
 
 function g \
-	--description "Shorthand for git interaction" \
-	--wraps git
+  --description "Shorthand for git interaction" \
+  --wraps git
   if test (count $argv) -gt 0
     git $argv
   else
