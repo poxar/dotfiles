@@ -22,7 +22,6 @@ set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE -
 set -xg LESSOPEN ""
 
-abbr -ag ll ls -lAh
 abbr -ag sl ls
 
 # colorful man with limited width
