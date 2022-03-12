@@ -12,7 +12,7 @@ set -Ux XDG_PREFIX_HOME $HOME/.local
 set -Ux XDG_BIN_HOME    $HOME/.local/bin
 set -Ux XDG_DATA_HOME   $HOME/.local/share
 
-set -U fish_user_paths $XDG_BIN_HOME
+fish_add_path $XDG_BIN_HOME
 
 # Don't underline anything
 set -U fish_color_valid_path \x2d\x2d
