@@ -15,8 +15,11 @@ set -Ux XDG_DATA_HOME   $HOME/.local/share
 fish_add_path $XDG_BIN_HOME
 
 # Don't underline anything
-set -U fish_color_valid_path \x2d\x2d
+set -U fish_color_valid_path
 set -U fish_pager_color_prefix white\x1e\x2d\x2dbold\x1e\x2d\x2d
 
 # Sane comment color
 set -U fish_color_comment 585858
+
+# Color options like commands
+set -U fish_color_option 005fd7
