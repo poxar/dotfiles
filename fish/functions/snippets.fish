@@ -8,6 +8,11 @@ function snippets --description="Copy a snippet into the system clipboard"
     set clip_cmd xsel -b
   end
 
-  head -c -1 (rg --files | sk --exact --select-1 --preview 'cat {}') | $clip_cmd
+  set -l snippet (rg --files | sk --exact --select-1 --preview 'cat {}')
+
+  if test -n "$snippet"
+    head -c -1 $snippet | $clip_cmd
+  end
+
   popd
 end
