@@ -1,0 +1,21 @@
+[ui]
+username = Philipp Millar <philipp.millar@poxar.net>
+
+[extensions]
+graphlog =
+mq =
+color =
+rebase =
+transplant =
+record =
+progress =
+
+[hooks]
+changegroup = hg diff --stat -r $HG_NODE -r tip
+
+[merge-tools]
+vimdiff.executable = nvim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[diff]
+git = True

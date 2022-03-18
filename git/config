@@ -1,0 +1,79 @@
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = true
+  pager = true
+
+[status]
+  short = true
+  branch = true
+
+[advice]
+  pushNonFastForward = false
+  statusHints = false
+  commitBeforeMerge = false
+  resolveConflict = false
+  implicitIdentity = false
+  detachedHead = false
+
+[core]
+  autocrlf = input
+
+[diff]
+  indentHeuristic = true
+
+[difftool]
+  prompt = false
+
+[pull]
+  rebase = true
+
+[commit]
+  verbose = true
+
+[include]
+  path = user
+  path = tokens
+  path = config.local
+
+[alias]
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
+
+  l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
+  ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --max-count=15
+  lg = log -p
+  lc = log ORIG_HEAD.. --stat --no-merges
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  who = shortlog -s --
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+
+  prune-all = !git remote | xargs -n 1 git remote prune
+  diffstat = diff --stat -r
+  edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; v `f`"
+  add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+
+  unstage = reset HEAD --
+  addremove = add -A
+
+  ctags = !.git/hooks/ctags
+
+  default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
+  supm = branch --set-upstream-to=origin/$(git default-branch) $(git default-branch)
+  publish = push -u origin
+  pub = push -u origin
+  feat = !sh -c 'git checkout -b feat/$1' -
+  fix = !sh -c 'git checkout -b fix/$1' -
+
+  ls = ls-tree --full-tree -r --name-only HEAD
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

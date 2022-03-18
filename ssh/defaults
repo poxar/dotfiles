@@ -1,0 +1,10 @@
+AddKeysToAgent yes
+ExitOnForwardFailure yes
+
+# retry instead of waiting
+ConnectTimeout 2
+ConnectionAttempts 10
+
+# make sure the connection is still alive
+ServerAliveInterval 1
+ServerAliveCountMax 5

@@ -1,0 +1,30 @@
+# backup files
+*~
+
+# vim files
+Session*.vim
+.tags
+tags
+
+# scala
+.bloop
+
+# tmux
+.tmuxp.yaml
+
+# Darwin
+.DS_Store
+
+# NixOS
+.shell.drv
+
+# environment setup
+.env
+.envrc
+.direnv
+
+# other
+TODO
+
+# clang compile database for lsp
+compile_commands.json
