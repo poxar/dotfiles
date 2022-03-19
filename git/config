@@ -39,7 +39,7 @@
 [include]
   path = user
   path = tokens
-  path = config.local
+  path = local.config
 
 [alias]
   co = checkout
