@@ -33,6 +33,9 @@
 [commit]
   verbose = true
 
+[fetch]
+  parallel = 0
+
 [include]
   path = user
   path = tokens
