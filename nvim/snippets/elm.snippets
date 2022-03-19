@@ -1,0 +1,39 @@
+snippet -
+	${1} ->
+		$0
+snippet fn
+	${1:name} : ${2:a} -> ${3:a}
+	$1 ${4:argument} =
+		$0
+snippet h
+	${1:type} [${2}] [${3}] ${0}
+snippet imp
+	import ${0:Html}
+snippet impa
+	import ${1:Json.Encode} as ${0:Encode}
+snippet impae
+	import ${1:Json.Encode} as ${2:Encode} exposing (${3:Encode})${0}
+snippet impe
+	import ${1:Html} exposing ($1${2})${0}
+snippet \l
+	(\\${1:x} -> ${2})$0
+snippet let
+	let
+		${1:var} =
+			${2:definition}
+	in
+		${0}
+snippet module
+	module ${1:`substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')`} exposing ($1${2})
+
+	${0}
+snippet req
+	Http.request
+		{ url = ${1:url}
+		, expect = Http.expectJson ${2:Msg} ${3:decoder}
+		, method = "${4:GET}"
+		, body = Http.${5:emptyBody}
+		, timeout = ${6:Nothing}
+		, tracker = ${7:Nothing}
+		, headers = [${8}]
+		}$0

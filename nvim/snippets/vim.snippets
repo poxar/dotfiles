@@ -1,0 +1,12 @@
+snippet aug
+	augroup ${1:my_group}
+		au! ${2:event} ${3:match} ${0}
+	augroup END
+snippet letg
+	let g:${1:name} = $2
+snippet nn
+	nnoremap ${1} ${2}<CR>
+snippet fun
+	function! ${1:name}(${2:...})
+		${0}
+	endfunction

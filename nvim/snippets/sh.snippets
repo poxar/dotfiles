@@ -1,0 +1,23 @@
+snippet #!
+	#!/bin/sh
+	set -eu
+
+	$0
+snippet fn
+	${1:name}() {
+		${2:${VISUAL}}
+	}
+snippet for
+	for ${1:needle} in ${2:haystack}; do
+		${0:${VISUAL}}
+	done
+snippet fori
+	for (( ${2:i} = 0; $2 < ${1:count}; $2++ )); do
+		${0:${VISUAL}}
+	done
+snippet wh
+	while ${1:condition}; do ${2:action}; done${3}
+snippet while
+	while ${1:condition}; do
+		${2:action}
+	done

@@ -1,0 +1,23 @@
+snippet #!
+	#!/usr/bin/env python3
+
+	$0
+snippet docs
+	"""
+	File: ${1:`expand('%:t')`}
+	Author: `g:snips_author`
+	Email: `g:snips_email`
+	Description: ${0}
+	"""
+snippet init
+	def __init__(self${1:, arguments}):
+		$0
+snippet main
+	if __name__ == "__main__":
+		${0:${VISUAL:main()}}
+snippet imp
+	import ${0:package}
+snippet impa
+	import ${1:package} as ${0:name}
+snippet impf
+	from ${1:package} import ${0:thing}
