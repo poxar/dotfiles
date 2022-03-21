@@ -89,8 +89,11 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'direnv/direnv.vim'
 Plug 'hauleth/vim-backscratch' " :Scratch
+
+if executable('direnv')
+  Plug 'direnv/direnv.vim'
+endif
 
 if has('nvim-0.5.0')
   Plug 'neovim/nvim-lspconfig'
