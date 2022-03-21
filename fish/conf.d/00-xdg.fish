@@ -3,6 +3,10 @@ set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME   $HOME/.local/share
 set -xg XDG_STATE_HOME  $HOME/.local/state
 
+# Local scripts and tools
+contains $HOME/.local/bin $PATH
+or set -xgp PATH $HOME/.local/bin
+
 # rust
 set -xg CARGO_HOME $XDG_STATE_HOME/cargo
 set -xg RUSTUP_HOME $XDG_STATE_HOME/rustup

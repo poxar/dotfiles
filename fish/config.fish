@@ -22,10 +22,6 @@ set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE -
 set -xg LESSOPEN ""
 
-# Local scripts and tools
-contains $HOME/.local/bin $PATH
-or set -xgp PATH $HOME/.local/bin
-
 # Automatically fix typos
 abbr -ag sl ls
 
