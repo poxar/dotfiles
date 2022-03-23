@@ -1,12 +1,15 @@
 window:
   dynamic_padding: true
   decorations: full
-  startup_mode: Windowed
+  startup_mode: Maximized
   gtk_theme_variant: dark
 
   dimensions:
     columns: 90
     lines: 30
+
+env:
+  TERM: xterm-256color
 
 font:
   size: 11.0
@@ -75,3 +78,5 @@ key_bindings:
 
   - { key: Up,     mods: Shift,         action: ScrollLineUp,   mode: ~Alt,  }
   - { key: Down,   mods: Shift,         action: ScrollLineDown, mode: ~Alt,  }
+
+  - { key: F,     mods: Control|Alt,    action: ToggleFullscreen }
