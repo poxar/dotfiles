@@ -67,7 +67,9 @@ colorscheme badwolf
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Highlight yanked area
-au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
+if has('nvim-0.5.0')
+  au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
+endif
 
 " Completion
 set omnifunc=syntaxcomplete#Complete
