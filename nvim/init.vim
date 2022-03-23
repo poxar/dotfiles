@@ -34,6 +34,7 @@ set inccommand=nosplit
 set tagcase=followscs
 
 " Display
+set noshowmode
 set showmatch
 set matchpairs+=<:>
 let g:matchparen_insert_timeout=10

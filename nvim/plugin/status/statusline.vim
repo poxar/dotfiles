@@ -21,6 +21,17 @@ function! statusline#refresh()
   endfor
 endfunction
 
+let g:currentmode={
+      \ 'n':       'Normal',
+      \ 'i':       'Insert',
+      \ 'v':       'Visual',
+      \ 't':       'Terminal',
+      \ 'c':       'Command',
+      \ 'R':       'Replace',
+      \ 'V':       'V·Line',
+      \ 'Rv':      'V·Replace',
+      \ "\<C-V>":  'V·Block',
+      \}
 
 function! statusline#status(nr)
   let l:active = a:nr == winnr()
@@ -36,7 +47,7 @@ function! statusline#status(nr)
   elseif l:btype ==# 'quickfix'
     return ' Quickfix %t%=%P '
   elseif l:btype ==# 'terminal'
-    return ' Terminal %t'
+    return '%2* %{g:currentmode[mode()]} %* Terminal %t'
   elseif getbufvar(l:bufnum, '&previewwindow')
     return ' Preview %t%=%P '
   elseif name ==# '__Gundo__'
@@ -49,6 +60,7 @@ function! statusline#status(nr)
   let l:readonly = getbufvar(bufnum, '&readonly')
 
   let l:status = ''
+  let l:status.='%2* %{g:currentmode[mode()]} %*'
   let l:status.=readonly ? '%1* RO %*' : ''
   let l:status.=' %{statusline#path()}'
   let l:status.=modified ? ' +' : ''
