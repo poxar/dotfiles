@@ -71,6 +71,9 @@ if has('nvim-0.5.0')
   au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
 endif
 
+" Spelling
+set spelllang=en_gb,de_20
+
 " Completion
 set omnifunc=syntaxcomplete#Complete
 set wildmode=longest:full
@@ -93,6 +96,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'hauleth/vim-backscratch' " :Scratch
+Plug 'justinmk/vim-dirvish' " simpler file browser than netrw
 
 if executable('direnv')
   Plug 'direnv/direnv.vim'
@@ -107,15 +111,6 @@ if has('nvim-0.6.0')
   Plug 'nvim-treesitter/playground'
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 endif
-
-" netrw {{{2
-
-let g:loaded_netrw = 1
-
-" A much simplified netrw with sane defaults
-Plug 'justinmk/vim-dirvish'
-" Provides the gx mapping from netrw through xdg-open
-Plug 'arp242/xdg_open.vim'
 
 " man.vim {{{2
 let $MANWIDTH = 80

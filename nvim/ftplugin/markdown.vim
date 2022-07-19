@@ -5,8 +5,6 @@ setlocal omnifunc=htmlcomplete#CompleteTags
 setlocal complete+=kspell " Complete from current spell checking
 setlocal complete+=s " Complete from thesaurus
 
-setlocal spelllang=en
-
 setlocal tabstop=4
 setlocal noexpandtab
 
