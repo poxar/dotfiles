@@ -10,9 +10,6 @@ setlocal spelllang=en
 setlocal tabstop=4
 setlocal noexpandtab
 
-setlocal textwidth=72
-setlocal formatoptions=qrn2jo
-
 setlocal nonumber
 
 let g:vim_markdown_strikethrough = 1
