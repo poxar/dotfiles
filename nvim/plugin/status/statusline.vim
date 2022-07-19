@@ -8,6 +8,7 @@ if exists('g:loaded_statusline')
   finish
 endif
 let g:loaded_statusline = 1
+let g:statusline_mode_enabled = 1
 
 augroup statusline
   au! statusline
@@ -60,7 +61,9 @@ function! statusline#status(nr)
   let l:readonly = getbufvar(bufnum, '&readonly')
 
   let l:status = ''
-  let l:status.='%2* %{g:currentmode[mode()]} %*'
+  if g:statusline_mode_enabled
+    let l:status.='%2* %{g:currentmode[mode()]} %*'
+  endif
   let l:status.=readonly ? '%1* RO %*' : ''
   let l:status.=' %{statusline#path()}'
   let l:status.=modified ? ' +' : ''

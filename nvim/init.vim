@@ -163,6 +163,31 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg --files %s'
 endif
 
+" goyo.vim {{{2
+Plug 'junegunn/goyo.vim'
+
+function! s:goyo_enter()
+  let g:statusline_mode_enabled = 0
+  let g:cursorlines_enabled = 0
+  set nocursorline
+  set noshowcmd
+  set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+  let g:statusline_mode_enabled = 1
+  let g:cursorlines_enabled = 1
+  call cursorlines#refresh()
+  set showcmd
+  set scrolloff=1
+endfunction
+
+augroup goyo_hooks
+  au! goyo_hooks
+  au! User GoyoEnter nested call <SID>goyo_enter()
+  au! User GoyoLeave nested call <SID>goyo_leave()
+augroup END
+
 " Close the last fold }}}2
 call plug#end()
 
