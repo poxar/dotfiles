@@ -109,8 +109,8 @@ function! statusline#stats()
   let l:filestats = ''
 
   " Git branch
-  if exists('g:loaded_fugitive') && strlen(g:fugitive#head())
-    let l:filestats .= g:fugitive#head() . ' '
+  if exists('g:loaded_fugitive') && strlen(FugitiveHead())
+    let l:filestats .= FugitiveHead() . ' '
   endif
 
   " Filetype or none
