@@ -1,7 +1,4 @@
-iabbrev <buffer> d ## <C-R>=strftime("%Y_%m_%d, %A")<cr>
 iabbrev <buffer> #d ## <C-R>=strftime("%Y_%m_%d, %A")<cr>
-
-iabbrev <buffer> m # <C-R>=strftime("%Y_%m, %B")<cr>
 iabbrev <buffer> #m # <C-R>=strftime("%Y_%m, %B")<cr>
 
 iabbrev <buffer> . ·
