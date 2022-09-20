@@ -46,6 +46,9 @@
   ci = commit
   br = branch
   st = status
+  sw = switch
+
+  s = !sh -c git checkout "$(git branch --list --format '%(refname:short)' | sk --preview='git ll --color=always {1}' -1)"
 
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
   ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --max-count=15
