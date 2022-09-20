@@ -57,6 +57,7 @@ hints:
    - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
              [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
      command: xdg-open
+     hyperlinks: true
      post_processing: true
      mouse:
        enabled: true
@@ -69,12 +70,19 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - { key: N,     mods: Control|Shift,  action: SpawnNewInstance,  }
+  - { key: C,     mods: Control,        action: Copy }
+  - { key: V,     mods: Control,        action: Paste }
+  - { key: C,     mods: Control|Shift,  chars:  }
+  - { key: V,     mods: Control|Shift,  chars:  }
+
+  - { key: N,     mods: Control|Shift,  action: CreateNewWindow,   }
   - { key: J,     mods: Control|Shift,  action: ScrollLineDown,    }
   - { key: K,     mods: Control|Shift,  action: ScrollLineUp,      }
   - { key: F,     mods: Control|Shift,  action: ScrollPageDown,    }
   - { key: B,     mods: Control|Shift,  action: ScrollPageUp,      }
   - { key: O,     mods: Control|Shift,  action: ToggleViMode,      }
+
+  - { key: S,     mods: Control|Shift,  action: SearchBackward,    }
 
   - { key: Up,     mods: Shift,         action: ScrollLineUp,   mode: ~Alt,  }
   - { key: Down,   mods: Shift,         action: ScrollLineDown, mode: ~Alt,  }
