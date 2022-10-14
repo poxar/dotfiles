@@ -191,20 +191,10 @@ call plug#end()
 inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
-nnoremap Y :normal y$<cr>
-
 nnoremap ' `
 nnoremap ` '
 
 nnoremap <leader>f :find<space>
-nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
-
-" Start a new change (undo point) when deleting lines/words in insert mode
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
-
-" Don't use Ex mode, use Q to repeat last :command
-nnoremap Q @:
 
 " Allow some typos in omni completion
 inoremap <c-x>o <c-x><c-o>
@@ -221,9 +211,6 @@ nnoremap gS :%s/\<<c-r>=expand('<cword>')<cr>\>/
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
-" When you forget to sudoedit
-cabbrev w!! w !sudo tee % >/dev/null
-
 " Edit and reload configuration
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ev :edit $MYVIMRC<cr>
@@ -232,7 +219,7 @@ nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 " Operate on the directory of the current file
 nnoremap <leader>e.  :edit <c-r>=expand("%:p:h") . "/" <cr>
 nnoremap <leader>es. :vsplit <c-r>=expand("%:p:h") . "/" <cr>
-nnoremap <leader>c.  :lcd %:p:h<cr>
+nnoremap <leader>c.  :lcd <c-r>=expand("%:p:h")<cr>
 cabbrev <expr> %% expand('%:p:h')
 
 " Close all temporary windows (quickfix, locationlist, preview)
