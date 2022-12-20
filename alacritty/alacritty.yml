@@ -68,11 +68,6 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - { key: C,     mods: Control,        action: Copy }
-  - { key: V,     mods: Control,        action: Paste }
-  - { key: C,     mods: Control|Shift,  chars:  }
-  - { key: V,     mods: Control|Shift,  chars:  }
-
   - { key: N,     mods: Control|Shift,  action: CreateNewWindow,   }
   - { key: J,     mods: Control|Shift,  action: ScrollLineDown,    }
   - { key: K,     mods: Control|Shift,  action: ScrollLineUp,      }
