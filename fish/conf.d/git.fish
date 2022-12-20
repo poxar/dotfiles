@@ -16,6 +16,7 @@ abbr -ag gr git rebase
 
 # new style checkout
 abbr -ag gs git switch
+abbr -ag gsw git switch
 abbr -ag gsm git switch main
 abbr -ag gsd git switch dev
 abbr -ag grs git restore
