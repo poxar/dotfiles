@@ -25,6 +25,19 @@ set -xg LESSOPEN ""
 # Automatically fix typos
 abbr -ag sl ls
 
+# simple piping
+if test (echo $FISH_VERSION | tr -d . | sed 's/-.*//') -ge 360
+  abbr -a --position anywhere --set-cursor L "% | less -FqX"
+  abbr -a --position anywhere --set-cursor G "% | grep"
+  abbr -a --position anywhere --set-cursor S "% | sort"
+  abbr -a --position anywhere --set-cursor T "% | tail"
+  abbr -a --position anywhere --set-cursor F "% | tail -f"
+
+  if command -q wl-copy
+    abbr -a --position anywhere --set-cursor C "% | wl-copy"
+  end
+end
+
 # Setup some tools
 command -q lsof; and abbr -ag ports "lsof -iTCP -sTCP:LISTEN -P"
 command -q direnv; and direnv hook fish | source
