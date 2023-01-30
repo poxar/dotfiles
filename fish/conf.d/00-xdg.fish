@@ -41,3 +41,9 @@ set -xg SQLITE_HISTORY $XDG_STATE_HOME/sqlite/history
 set -xg PSQL_HISTORY $XDG_STATE_HOME/psql/history
 set -xg MYSQL_HISTFILE $XDG_STATE_HOME/mysql/history
 set -xg REDISCLI_HISTFILE $XDG_STATE_HOME/redis/history
+
+# docker
+set -xg DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+
+# wget
+set -xg WGETRC $XDG_CONFIG_HOME/wgetrc
