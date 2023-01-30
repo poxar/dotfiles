@@ -1,4 +1,5 @@
 nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>
+nnoremap <buffer> mf<cr> :silent %!prettier --stdin-filepath %<cr>
 
 setlocal omnifunc=htmlcomplete#CompleteTags
 
