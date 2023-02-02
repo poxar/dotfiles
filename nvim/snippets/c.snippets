@@ -8,6 +8,6 @@ snippet once
 	#ifndef ${1:`substitute(toupper(expand('%:t')), '\.', '_', 'g')`}
 	#define $1
 
-	${0:{VISUAL}}
+	${0}
 
 	#endif /* $1 */

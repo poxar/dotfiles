@@ -83,6 +83,9 @@ let g:man_hardwrap = 1
 " open git status (tpope/fugitive)
 nnoremap <leader>gs :Git<cr>
 
+" snippets
+let g:snips_author = "Philipp Millar"
+let g:snips_email = "philipp.millar@poxar.net"
 
 " operate on tables (godlygeek/tabular)
 nnoremap g= :Tabularize /

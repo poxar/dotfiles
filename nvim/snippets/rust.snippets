@@ -6,3 +6,8 @@ snippet for
 	for ${1:needle} in ${2:haystack} {
 		${0:${VISUAL}}
 	}
+snippet match
+	match ${1:option} {
+		Some(${2:value}) => ${3:do_something(value)},
+		None => ${4:handle_none()}
+	}${0}
