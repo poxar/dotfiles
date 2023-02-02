@@ -127,14 +127,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'dcampos/nvim-snippy'
 Plug 'dcampos/cmp-snippy'
 
-" plugin/treesitter.lua
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
-Plug 'nvim-treesitter/playground'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'windwp/nvim-ts-autotag'
-
 " operate on tables
 Plug 'godlygeek/tabular'
 nnoremap g= :Tabularize /
