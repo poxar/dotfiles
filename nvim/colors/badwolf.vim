@@ -353,6 +353,14 @@ if has("spell")
 endif
 
 " }}}
+" Neovim {{{
+
+call s:HL('DiagnosticError', 'taffy')
+call s:HL('DiagnosticWarn', 'orange')
+call s:HL('DiagnosticInfo', 'toffee')
+call s:HL('DiagnosticHint', 'gravel')
+
+" }}}
 
 " }}}
 " Plugins {{{
@@ -684,6 +692,12 @@ call s:HL('VimMapMod',    'dress', '', 'none')
 call s:HL('VimMapModKey', 'dress', '', 'none')
 call s:HL('VimNotation', 'dress', '', 'none')
 call s:HL('VimBracket', 'dress', '', 'none')
+
+" }}}
+" Rust {{{
+
+call s:HL('rustModPath', 'brightgravel', '', 'none')
+call s:HL('rustQuestionMark', 'taffy', '', 'bold')
 
 " }}}
 

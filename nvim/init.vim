@@ -5,13 +5,9 @@
 "
 
 " Settings {{{1
-set shada=!,'200,s20,h
-set nobackup
-set nowritebackup
 set undofile
 set nomodeline
 
-set hidden
 set virtualedit=block
 set clipboard+=unnamedplus
 
@@ -19,8 +15,7 @@ let g:mapleader      = ' '
 let g:maplocalleader = '\\'
 
 " Text formatting
-set textwidth=80
-set nojoinspaces
+set textwidth=100
 set formatoptions=qcrn2j
 set shiftround
 set expandtab
@@ -30,7 +25,6 @@ set shiftwidth=2
 set ignorecase
 set smartcase
 set gdefault
-set inccommand=nosplit
 set tagcase=followscs
 
 " Display
@@ -41,6 +35,7 @@ let g:matchparen_insert_timeout=10
 
 set number
 set relativenumber
+set signcolumn=number
 
 set showbreak=↪
 set listchars=tab:⇥\ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣
@@ -50,7 +45,7 @@ set breakindent
 set breakindentopt=sbr
 
 set diffopt+=vertical
-set scrolloff=1
+set scrolloff=10
 set sidescrolloff=5
 set linebreak
 set splitright
@@ -61,6 +56,7 @@ set notimeout
 set lazyredraw
 set termguicolors
 set guicursor+=a:Cursor
+set cursorline
 colorscheme badwolf
 
 " Highlight git conflict markers
@@ -81,45 +77,68 @@ set wildignorecase
 
 " Plugins {{{1
 
+let $MANWIDTH = 80
+let g:man_hardwrap = 1
+
 call plug#begin()
-" misc {{{2
-Plug 'tpope/vim-eunuch' " :Remove :Delete and friends
+
+Plug 'tpope/vim-eunuch' " File operations as commands (:Delete, :Move, etc)
 Plug 'tpope/vim-abolish' " :Subvert and such
 Plug 'tpope/vim-capslock' " <C-G>c for temporary capslock
-Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession' " automatic session management
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
+
 Plug 'tpope/vim-fugitive'
+nnoremap <leader>gs :Git<cr>
+
+Plug 'wuelnerdotexe/vim-enfocado'
+Plug 'andreypopp/vim-colors-plain'
+
+" database interaction
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['autoindent']
+
 Plug 'editorconfig/editorconfig-vim'
-Plug 'hauleth/vim-backscratch' " :Scratch
+Plug 'hauleth/vim-backscratch' " :Scratch buffers
 Plug 'justinmk/vim-dirvish' " simpler file browser than netrw
 
 if executable('direnv')
   Plug 'direnv/direnv.vim'
 endif
 
-if has('nvim-0.5.0')
-  Plug 'neovim/nvim-lspconfig'
-endif
+" plugin/telescope.lua
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.*' }
+Plug 'nvim-telescope/telescope-symbols.nvim'
+Plug 'sudormrfbin/cheatsheet.nvim'
 
-if has('nvim-0.6.0')
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/playground'
-  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-endif
+" plugin/lsp.lua
+Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-lint'
+Plug 'folke/neodev.nvim'
 
-" man.vim {{{2
-let $MANWIDTH = 80
-let g:man_hardwrap = 1
+" plugin/cmp.lua
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'dcampos/nvim-snippy'
+Plug 'dcampos/cmp-snippy'
 
-" termdebug {{{2
-let g:termdebug_wide=161
+" plugin/treesitter.lua
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/playground'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'windwp/nvim-ts-autotag'
 
-" tabular {{{2
+" operate on tables
 Plug 'godlygeek/tabular'
 nnoremap g= :Tabularize /
 vnoremap g= :Tabularize /
@@ -130,60 +149,20 @@ vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
-" snipmate {{{2
-Plug 'garbas/vim-snipmate'
-Plug 'marcweber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+" Execute tests
+Plug 'vim-test/vim-test'
+let test#strategy = "dispatch"
+nnoremap mtt :TestNearest<cr>
+nnoremap mtf :TestFile<cr>
+nnoremap mta :TestSuite<cr>
+nnoremap mtl :TestLast<cr>
+nnoremap mtg :TestVisit<cr>
 
-command! Snipedit SnipMateOpenSnippetFiles
-let g:snips_author = 'Philipp Millar'
-let g:snips_email = 'philipp.millar@poxar.net'
-let g:snipMate = { 'snippet_version' : 1 }
-
-" undotree {{{2
+" visual undotree
 Plug 'mbbill/undotree'
 let g:undotree_ShortIndicators = 1
 nnoremap yot :UndotreeToggle<cr>
 
-" ctrlp.vim {{{2
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_extensions = ['tag', 'buffertag']
-
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>t :CtrlPBufTag<cr>
-nnoremap <leader>T :CtrlPTag<cr>
-nnoremap <leader>n :CtrlP $HOME/Notes<cr>
-
-if executable('rg')
-  let g:ctrlp_user_command = 'rg --files %s'
-endif
-
-" goyo.vim {{{2
-Plug 'junegunn/goyo.vim'
-
-function! s:goyo_enter()
-  let g:statusline_mode_enabled = 0
-  let g:cursorlines_enabled = 0
-  set nocursorline
-  set noshowcmd
-  set scrolloff=999
-endfunction
-
-function! s:goyo_leave()
-  let g:statusline_mode_enabled = 1
-  let g:cursorlines_enabled = 1
-  call cursorlines#refresh()
-  set showcmd
-  set scrolloff=1
-endfunction
-
-augroup goyo_hooks
-  au! goyo_hooks
-  au! User GoyoEnter nested call <SID>goyo_enter()
-  au! User GoyoLeave nested call <SID>goyo_leave()
-augroup END
-
-" Close the last fold }}}2
 call plug#end()
 
 " Mappings {{{1
@@ -225,12 +204,10 @@ cabbrev <expr> %% expand('%:p:h')
 " Close all temporary windows (quickfix, locationlist, preview)
 nnoremap <leader>q :pclose\|cclose\|lclose<cr>
 
-nnoremap <leader>Q :copen<cr>
 nnoremap <leader>0 :cfirst<cr>
 nnoremap <leader>j :cnext<cr>
 nnoremap <leader>k :cprevious<cr>
 
-nnoremap <leader>L :lopen<cr>
 nnoremap <leader>1 :lfirst<cr>
 nnoremap <leader>l :lnext<cr>
 nnoremap <leader>h :lprevious<cr>
@@ -247,7 +224,6 @@ cnoremap <c-a> <home>
 cnoremap <c-x><c-a> <c-a>
 
 " toggles
-" more complicated examples are in plugin/toggles
 function! s:toggle_map(letter, option) abort
   let set_on = '"setlocal '.a:option.'"'
   let set_off = '"setlocal no'.a:option.'"'

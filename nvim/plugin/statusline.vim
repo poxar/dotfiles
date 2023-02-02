@@ -1,9 +1,3 @@
-" My status line
-" It currently depends on my colorscheme of choice, badwolf.
-
-" If you don't use badwolf, you'll need the highlighting group
-" #InterestingWord1# for the buffer number highlighting
-
 if exists('g:loaded_statusline')
   finish
 endif
@@ -14,7 +8,6 @@ augroup statusline
   au! statusline
   au! WinEnter,VimEnter,BufWinEnter * call statusline#refresh()
 augroup END
-
 
 function! statusline#refresh()
   for nr in range(1, winnr('$'))
@@ -51,10 +44,6 @@ function! statusline#status(nr)
     return '%2* %{g:currentmode[mode()]} %* Terminal %t'
   elseif getbufvar(l:bufnum, '&previewwindow')
     return ' Preview %t%=%P '
-  elseif name ==# '__Gundo__'
-    return ' Gundo'
-  elseif name ==# '__Gundo_Preview__'
-    return ' Gundo Preview'
   endif
 
   let l:modified = getbufvar(bufnum, '&modified')

@@ -19,4 +19,4 @@ elseif executable('ack')
 endif
 
 command! -nargs=+ -complete=file Grep silent grep! <args> | cw
-nnoremap <leader>g :Grep<space>
+nnoremap <leader>gg :Grep<space>

@@ -1,19 +1,15 @@
-nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>
-nnoremap <buffer> mf<cr> :silent %!prettier --stdin-filepath %<cr>
-
-setlocal omnifunc=htmlcomplete#CompleteTags
-
-setlocal complete+=kspell " Complete from current spell checking
-setlocal complete+=s " Complete from thesaurus
-
 setlocal tabstop=4
 setlocal noexpandtab
 
 setlocal nonumber
+setlocal norelativenumber
+
+setlocal nolist
 
 setlocal suffixesadd=.md,.markdown,.txt
 
 let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_folding_disabled = 1
 
 " swap j/k/0/$ and gj/gk/g0/g$
 " so the g variations work on physical lines and the default ones on display
