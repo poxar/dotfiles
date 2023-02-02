@@ -154,6 +154,9 @@ nnoremap <leader>1 :lfirst<cr>
 nnoremap <leader>l :lnext<cr>
 nnoremap <leader>h :lprevious<cr>
 
+nnoremap ]a :next<cr>
+nnoremap [a :previous<cr>
+
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
 tnoremap <c-w> <c-\><c-n><c-w>
