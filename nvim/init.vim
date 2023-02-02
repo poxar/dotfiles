@@ -83,7 +83,6 @@ let g:man_hardwrap = 1
 " open git status (tpope/fugitive)
 nnoremap <leader>gs :Git<cr>
 
-let g:polyglot_disabled = ['autoindent']
 
 " operate on tables (godlygeek/tabular)
 nnoremap g= :Tabularize /
