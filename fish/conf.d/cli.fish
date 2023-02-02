@@ -29,30 +29,3 @@ function __magic_dot
 end
 
 bind . __magic_dot
-
-# skim files
-# Having these as shortcuts enables history search on the actual results
-if command -q sk; and command -q rg
-  function __skim_files
-    set -l file (rg --files | sk)
-    if test -n "$file"
-      commandline --append '"'
-      commandline --append $file
-      commandline --append '"'
-      commandline --cursor (math (commandline --cursor) + (string length $file) + 2)
-    end
-  end
-
-  bind \co __skim_files
-
-  function __skim_grep
-    set -l rg_cmd 'rg --smart-case --color=always --line-number "{}"'
-    set -l line (sk --ansi --interactive --cmd $rg_cmd | awk -F: '{ print $1" +"$2 }')
-    if test -n "$line"
-      commandline --replace "$EDITOR $line"
-      commandline --cursor (string length "$EDITOR $line")
-    end
-  end
-
-  bind \cg __skim_grep
-end
