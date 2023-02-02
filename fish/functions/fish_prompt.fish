@@ -3,7 +3,7 @@ function fish_prompt
 
   # hostname if connected via ssh
   if set -q SSH_TTY
-    echo -n -s ' '(prompt_hostname)
+    echo -n -s (prompt_hostname)' '
   end
 
   # working directory
