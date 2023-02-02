@@ -83,3 +83,27 @@
 [submodule "nvim/pack/misc/start/undotree"]
 	path = nvim/pack/misc/start/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "nvim/pack/lang/start/vim-caddyfile"]
+	path = nvim/pack/lang/start/vim-caddyfile
+	url = https://github.com/isobit/vim-caddyfile
+[submodule "nvim/pack/lang/start/vim-fish"]
+	path = nvim/pack/lang/start/vim-fish
+	url = https://github.com/blankname/vim-fish
+[submodule "nvim/pack/lang/start/vim-log-highlighting"]
+	path = nvim/pack/lang/start/vim-log-highlighting
+	url = https://github.com/MTDL9/vim-log-highlighting
+[submodule "nvim/pack/lang/start/vim-markdown"]
+	path = nvim/pack/lang/start/vim-markdown
+	url = https://github.com/preservim/vim-markdown
+[submodule "nvim/pack/lang/start/vim-nftables"]
+	path = nvim/pack/lang/start/vim-nftables
+	url = https://github.com/nfnty/vim-nftables
+[submodule "nvim/pack/lang/start/vim-nix"]
+	path = nvim/pack/lang/start/vim-nix
+	url = https://github.com/LnL7/vim-nix
+[submodule "nvim/pack/lang/start/vim-systemd-syntax"]
+	path = nvim/pack/lang/start/vim-systemd-syntax
+	url = https://github.com/wgwoods/vim-systemd-syntax
+[submodule "nvim/pack/lang/start/vala-lang"]
+	path = nvim/pack/lang/start/vala-lang
+	url = https://github.com/vala-lang/vala.vim
