@@ -71,9 +71,6 @@
 [submodule "nvim/pack/misc/start/editorconfig-vim"]
 	path = nvim/pack/misc/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
-[submodule "nvim/pack/misc/start/vim-dirvish"]
-	path = nvim/pack/misc/start/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish
 [submodule "nvim/pack/misc/start/tabular"]
 	path = nvim/pack/misc/start/tabular
 	url = https://github.com/godlygeek/tabular
@@ -107,3 +104,6 @@
 [submodule "nvim/pack/lang/start/vala-lang"]
 	path = nvim/pack/lang/start/vala-lang
 	url = https://github.com/vala-lang/vala.vim
+[submodule "nvim/pack/tpope/start/vim-vinegar"]
+	path = nvim/pack/tpope/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
