@@ -95,9 +95,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Git<cr>
 
-Plug 'wuelnerdotexe/vim-enfocado'
-Plug 'andreypopp/vim-colors-plain'
-
 " database interaction
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
