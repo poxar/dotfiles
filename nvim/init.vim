@@ -80,55 +80,12 @@ set wildignorecase
 let $MANWIDTH = 80
 let g:man_hardwrap = 1
 
-call plug#begin()
-
-Plug 'tpope/vim-eunuch' " File operations as commands (:Delete, :Move, etc)
-Plug 'tpope/vim-abolish' " :Subvert and such
-Plug 'tpope/vim-capslock' " <C-G>c for temporary capslock
-Plug 'tpope/vim-obsession' " automatic session management
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-
-Plug 'tpope/vim-fugitive'
+" open git status (tpope/fugitive)
 nnoremap <leader>gs :Git<cr>
 
-" database interaction
-Plug 'tpope/vim-dadbod'
-Plug 'kristijanhusak/vim-dadbod-ui'
-
-Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['autoindent']
 
-Plug 'editorconfig/editorconfig-vim'
-Plug 'hauleth/vim-backscratch' " :Scratch buffers
-Plug 'justinmk/vim-dirvish' " simpler file browser than netrw
-
-if executable('direnv')
-  Plug 'direnv/direnv.vim'
-endif
-
-" plugin/telescope.lua
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.*' }
-Plug 'nvim-telescope/telescope-symbols.nvim'
-Plug 'sudormrfbin/cheatsheet.nvim'
-
-" plugin/lsp.lua
-Plug 'neovim/nvim-lspconfig'
-Plug 'mfussenegger/nvim-lint'
-Plug 'folke/neodev.nvim'
-
-" plugin/cmp.lua
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'dcampos/nvim-snippy'
-Plug 'dcampos/cmp-snippy'
-
-" operate on tables
-Plug 'godlygeek/tabular'
+" operate on tables (godlygeek/tabular)
 nnoremap g= :Tabularize /
 vnoremap g= :Tabularize /
 nnoremap g\: :Tabularize /:\zs<cr>
@@ -138,8 +95,7 @@ vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
-" Execute tests
-Plug 'vim-test/vim-test'
+" Execute tests (vim-test)
 let test#strategy = "dispatch"
 nnoremap mtt :TestNearest<cr>
 nnoremap mtf :TestFile<cr>
@@ -148,11 +104,8 @@ nnoremap mtl :TestLast<cr>
 nnoremap mtg :TestVisit<cr>
 
 " visual undotree
-Plug 'mbbill/undotree'
 let g:undotree_ShortIndicators = 1
 nnoremap yot :UndotreeToggle<cr>
-
-call plug#end()
 
 " Mappings {{{1
 

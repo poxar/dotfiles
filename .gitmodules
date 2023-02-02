@@ -1,0 +1,85 @@
+[submodule "nvim/pack/tpope/start/vim-eunuch"]
+	path = nvim/pack/tpope/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "nvim/pack/tpope/start/vim-abolish"]
+	path = nvim/pack/tpope/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish
+[submodule "nvim/pack/tpope/start/vim-capslock"]
+	path = nvim/pack/tpope/start/vim-capslock
+	url = https://github.com/tpope/vim-capslock
+[submodule "nvim/pack/tpope/start/vim-obsession"]
+	path = nvim/pack/tpope/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+[submodule "nvim/pack/tpope/start/vim-surround"]
+	path = nvim/pack/tpope/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "nvim/pack/tpope/start/vim-endwise"]
+	path = nvim/pack/tpope/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise
+[submodule "nvim/pack/tpope/start/vim-repeat"]
+	path = nvim/pack/tpope/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "nvim/pack/tpope/start/vim-commentary"]
+	path = nvim/pack/tpope/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "nvim/pack/tpope/start/vim-dispatch"]
+	path = nvim/pack/tpope/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "nvim/pack/tpope/start/vim-fugitive"]
+	path = nvim/pack/tpope/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "nvim/pack/tpope/start/vim-dadbod"]
+	path = nvim/pack/tpope/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "nvim/pack/tpope/start/vim-dadbod-ui"]
+	path = nvim/pack/tpope/start/vim-dadbod-ui
+	url = https://github.com/kristijanhusak/vim-dadbod-ui
+[submodule "nvim/pack/telescope/start/telescope.nvim"]
+	path = nvim/pack/telescope/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+	branch = 0.1.x
+[submodule "nvim/pack/telescope/start/telescope-symbols.nvim"]
+	path = nvim/pack/telescope/start/telescope-symbols.nvim
+	url = https://github.com/nvim-telescope/telescope-symbols.nvim
+[submodule "nvim/pack/telescope/start/cheatsheet.nvim"]
+	path = nvim/pack/telescope/start/cheatsheet.nvim
+	url = https://github.com/sudormrfbin/cheatsheet.nvim
+[submodule "nvim/pack/lsp/start/nvim-lspconfig"]
+	path = nvim/pack/lsp/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "nvim/pack/lsp/start/nvim-lint"]
+	path = nvim/pack/lsp/start/nvim-lint
+	url = https://github.com/mfussenegger/nvim-lint
+[submodule "nvim/pack/lsp/start/neodev.nvim"]
+	path = nvim/pack/lsp/start/neodev.nvim
+	url = https://github.com/folke/neodev.nvim
+[submodule "nvim/pack/misc/start/plenary.nvim"]
+	path = nvim/pack/misc/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "nvim/pack/cmp/start/nvim-cmp"]
+	path = nvim/pack/cmp/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "nvim/pack/cmp/start/cmp-nvim-lsp"]
+	path = nvim/pack/cmp/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "nvim/pack/cmp/start/nvim-snippy"]
+	path = nvim/pack/cmp/start/nvim-snippy
+	url = https://github.com/dcampos/nvim-snippy
+[submodule "nvim/pack/cmp/start/cmp-snippy"]
+	path = nvim/pack/cmp/start/cmp-snippy
+	url = https://github.com/dcampos/cmp-snippy
+[submodule "nvim/pack/misc/start/editorconfig-vim"]
+	path = nvim/pack/misc/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "nvim/pack/misc/start/vim-dirvish"]
+	path = nvim/pack/misc/start/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish
+[submodule "nvim/pack/misc/start/tabular"]
+	path = nvim/pack/misc/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "nvim/pack/misc/start/vim-test"]
+	path = nvim/pack/misc/start/vim-test
+	url = https://github.com/vim-test/vim-test
+[submodule "nvim/pack/misc/start/undotree"]
+	path = nvim/pack/misc/start/undotree
+	url = https://github.com/mbbill/undotree
