@@ -1,5 +1,4 @@
 setlocal noexpandtab
-nnoremap <buffer> ml<cr> :Dispatch -compiler=proselint<cr>
 
 " swap j/k/0/$ and gj/gk/g0/g$
 " so the g variations work on physical lines and the default ones on display

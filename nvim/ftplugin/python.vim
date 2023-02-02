@@ -9,6 +9,3 @@ setlocal autoindent    " align the new line indent with the previous line
 
 nnoremap <buffer> ml<cr> :Dispatch -compiler=flake8<cr>
 nnoremap <buffer> mf<cr> :w<cr>:silent !black --quiet %<cr>:e<cr>
-
-" documentation
-nnoremap gK :silent !open dash://python:<cword><cr>
