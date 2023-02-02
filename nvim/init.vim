@@ -161,6 +161,11 @@ tnoremap <c-w><c-w> <c-w>
 tnoremap <c-w><esc> <esc>
 tnoremap <c-w><space> <c-\><c-n><c-^>
 
+augroup terminal_settings
+  au! TermOpen,TermEnter * setlocal nonumber|setlocal norelativenumber
+  au! BufEnter term://* startinsert
+augroup END
+
 " Readline mappings for command line mode
 cnoremap <c-a> <home>
 cnoremap <c-x><c-a> <c-a>
