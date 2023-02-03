@@ -27,3 +27,15 @@ nmap('<leader>ft', ts_builtin.builtin, '[F]ind [T]elescope builtin')
 nmap('<leader>fe', ts_builtin.symbols, '[F]ind [E]moji')
 
 nmap('<leader>fn', function() ts_builtin.find_files { cwd = '$HOME/Notes' } end, '[F]ind [N]otes')
+
+nmap('<leader>fv', function()
+  ts_builtin.git_files {
+    cwd = vim.fn.stdpath('config'),
+    use_git_root = false,
+    show_untracked = true,
+  }
+end, '[F]ind [V]imfile')
+
+nmap('<leader>fsn', function()
+  ts_builtin.find_files { cwd = vim.fn.stdpath('config') .. '/snippets' }
+end, '[F]ind [Sn]ippets')
