@@ -190,6 +190,9 @@ let g:man_hardwrap = 1
 
 " open git status (tpope/fugitive)
 nnoremap <leader>gs :Git<cr>
+nnoremap <leader>gd :Gdiffsplit<cr>
+nnoremap <leader>gc :Git commit<cr>
+nnoremap <leader>g<space> :Git<space>
 
 " snippets
 let g:snips_author = "Philipp Millar"
