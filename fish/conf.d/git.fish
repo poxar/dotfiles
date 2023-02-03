@@ -13,6 +13,7 @@ abbr -ag gbr git branch
 abbr -ag gf git fetch
 abbr -ag gfo git fetch origin
 abbr -ag gr git rebase
+abbr -ag gsu git submodule
 
 # new style checkout
 abbr -ag gs git switch
