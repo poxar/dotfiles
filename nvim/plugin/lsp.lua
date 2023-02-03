@@ -71,8 +71,8 @@ local servers = {
   "phpactor",
   "psalm",
   -- python
-  -- pacman -S ruff-lsp python-lsp-server python-lsp-black
-  -- pacman -S --asdeps python-pydocstyle python-rope
+  -- pacman -S --needed ruff-lsp python-lsp-server python-lsp-black
+  -- pacman -S --needed --asdeps python-pydocstyle python-rope flake8
   "ruff_lsp",
   "pylsp",
 }
