@@ -75,40 +75,6 @@ set omnifunc=syntaxcomplete#Complete
 set wildmode=longest:full
 set wildignorecase
 
-" Plugins {{{1
-
-let $MANWIDTH = 80
-let g:man_hardwrap = 1
-
-" open git status (tpope/fugitive)
-nnoremap <leader>gs :Git<cr>
-
-" snippets
-let g:snips_author = "Philipp Millar"
-let g:snips_email = "philipp.millar@poxar.net"
-
-" operate on tables (godlygeek/tabular)
-nnoremap g= :Tabularize /
-vnoremap g= :Tabularize /
-nnoremap g\: :Tabularize /:\zs<cr>
-vnoremap g\: :Tabularize /:\zs<cr>
-nnoremap g\, :Tabularize /,\zs<cr>
-vnoremap g\, :Tabularize /,\zs<cr>
-nnoremap g\= :Tabularize /=<cr>
-vnoremap g\= :Tabularize /=<cr>
-
-" Execute tests (vim-test)
-let test#strategy = "dispatch"
-nnoremap mtt :TestNearest<cr>
-nnoremap mtf :TestFile<cr>
-nnoremap mta :TestSuite<cr>
-nnoremap mtl :TestLast<cr>
-nnoremap mtg :TestVisit<cr>
-
-" visual undotree
-let g:undotree_ShortIndicators = 1
-nnoremap yot :UndotreeToggle<cr>
-
 " Mappings {{{1
 
 inoremap <c-f> <c-x><c-f>
@@ -210,6 +176,40 @@ command! Ftedit execute ":edit ". stdpath('config') ."/ftplugin/".&ft.".vim"
 " pretty print
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 command! -range=% HtmlPP :<line1>,<line2>!pandoc --from=html --to=markdown | pandoc --from=markdown --to=html
+
+" Plugins {{{1
+
+let $MANWIDTH = 80
+let g:man_hardwrap = 1
+
+" open git status (tpope/fugitive)
+nnoremap <leader>gs :Git<cr>
+
+" snippets
+let g:snips_author = "Philipp Millar"
+let g:snips_email = "philipp.millar@poxar.net"
+
+" operate on tables (godlygeek/tabular)
+nnoremap g= :Tabularize /
+vnoremap g= :Tabularize /
+nnoremap g\: :Tabularize /:\zs<cr>
+vnoremap g\: :Tabularize /:\zs<cr>
+nnoremap g\, :Tabularize /,\zs<cr>
+vnoremap g\, :Tabularize /,\zs<cr>
+nnoremap g\= :Tabularize /=<cr>
+vnoremap g\= :Tabularize /=<cr>
+
+" Execute tests (vim-test)
+let test#strategy = "dispatch"
+nnoremap mtt :TestNearest<cr>
+nnoremap mtf :TestFile<cr>
+nnoremap mta :TestSuite<cr>
+nnoremap mtl :TestLast<cr>
+nnoremap mtg :TestVisit<cr>
+
+" visual undotree
+let g:undotree_ShortIndicators = 1
+nnoremap yot :UndotreeToggle<cr>
 
 " Abbreviations {{{1
 iabbrev (C) ©
