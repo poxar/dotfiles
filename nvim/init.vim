@@ -113,12 +113,20 @@ cabbrev <expr> %% expand('%:p:h')
 nnoremap <leader>q :pclose\|cclose\|lclose<cr>
 
 nnoremap <leader>0 :cfirst<cr>
+nnoremap [Q :cfirst<cr>
+nnoremap ]Q :clast<cr>
 nnoremap <leader>j :cnext<cr>
+nnoremap ]q :cnext<cr>
 nnoremap <leader>k :cprevious<cr>
+nnoremap [q :cprevious<cr>
 
 nnoremap <leader>1 :lfirst<cr>
+nnoremap [L :lfirst<cr>
+nnoremap ]L :llast<cr>
 nnoremap <leader>l :lnext<cr>
+nnoremap ]l :lnext<cr>
 nnoremap <leader>h :lprevious<cr>
+nnoremap [l :lprevious<cr>
 
 nnoremap ]a :next<cr>
 nnoremap [a :previous<cr>
