@@ -65,12 +65,16 @@ end
 local servers = {
   "clangd",
   "elmls",
-  "hls",
-  "phpactor",
-  "psalm",
-  "pyright",
   "rust_analyzer",
   "tsserver",
+  -- php
+  "phpactor",
+  "psalm",
+  -- python
+  -- pacman -S ruff-lsp python-lsp-server python-lsp-black
+  -- pacman -S --asdeps python-pydocstyle python-rope
+  "ruff_lsp",
+  "pylsp",
 }
 
 for _, lsp in ipairs(servers) do
@@ -94,7 +98,6 @@ nvim_lsp.sumneko_lua.setup {
 require('lint').linters_by_ft = {
   ansible = { 'ansible_lint' },
   bash = { 'shellcheck' },
-  python = { 'flake8' },
   sh = { 'shellcheck' },
   zsh = { 'shellcheck' },
 }
