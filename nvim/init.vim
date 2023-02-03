@@ -131,6 +131,10 @@ nnoremap [l :lprevious<cr>
 nnoremap ]a :next<cr>
 nnoremap [a :previous<cr>
 
+" Move visual selection around
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
 tnoremap <c-w> <c-\><c-n><c-w>
