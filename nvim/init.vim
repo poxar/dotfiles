@@ -83,8 +83,6 @@ nnoremap gg gg0
 nnoremap ' `
 nnoremap ` '
 
-nnoremap <leader>f :find<space>
-
 " Allow some typos in omni completion
 inoremap <c-x>o <c-x><c-o>
 inoremap <c-x>n <c-x><c-o>
