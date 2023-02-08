@@ -12,6 +12,9 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> mD<cr> :Termdebug target/debug/
 
   setlocal path+=./src
+
+  let g:termdebugger = "rust-gdb"
+  packadd termdebug
 endif
 
 let g:rust_fold = 0

@@ -193,6 +193,8 @@ command! -range=% HtmlPP :<line1>,<line2>!pandoc --from=html --to=markdown | pan
 let $MANWIDTH = 80
 let g:man_hardwrap = 1
 
+let g:termdebug_wide = 1
+
 " open git status (tpope/fugitive)
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gdiffsplit<cr>
