@@ -225,6 +225,20 @@ nnoremap mtg :TestVisit<cr>
 let g:undotree_ShortIndicators = 1
 nnoremap yot :UndotreeToggle<cr>
 
+" better :sort
+lua require('sort').setup {}
+nnoremap <silent> go <cmd>Sort<cr>
+vnoremap <silent> go <esc><cmd>Sort<cr>
+nnoremap <silent> go" vi"<esc><cmd>Sort<cr>
+nnoremap <silent> go' vi'<esc><cmd>Sort<cr>
+nnoremap <silent> go( vi(<esc><cmd>Sort<cr>
+nnoremap <silent> go) vi)<esc><cmd>Sort<cr>
+nnoremap <silent> go[ vi[<esc><cmd>Sort<cr>
+nnoremap <silent> go] vi]<esc><cmd>Sort<cr>
+nnoremap <silent> go{ vi{<esc><cmd>Sort<cr>
+nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
+nnoremap <silent> gop vip<esc><cmd>Sort<cr>
+
 " Abbreviations {{{1
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
