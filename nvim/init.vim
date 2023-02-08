@@ -74,6 +74,9 @@ set omnifunc=syntaxcomplete#Complete
 set wildmode=longest:full
 set wildignorecase
 
+" Disable mouse support to avoid touchpad accidents
+set mouse=
+
 " Mappings {{{1
 
 inoremap <c-f> <c-x><c-f>
