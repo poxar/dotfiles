@@ -51,7 +51,6 @@ set splitright
 set splitbelow
 
 set shortmess=atToOIc
-set notimeout
 set lazyredraw
 set termguicolors
 set guicursor+=a:Cursor
@@ -82,8 +81,8 @@ set mouse=
 inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
-nnoremap ' `
-nnoremap ` '
+" nnoremap ' `
+" nnoremap ` '
 
 " Allow some typos in omni completion
 inoremap <c-x>o <c-x><c-o>
