@@ -107,3 +107,6 @@
 [submodule "nvim/pack/tpope/start/vim-vinegar"]
 	path = nvim/pack/tpope/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule "nvim/pack/misc/start/direnv.vim"]
+	path = nvim/pack/misc/start/direnv.vim
+	url = https://github.com/direnv/direnv.vim
