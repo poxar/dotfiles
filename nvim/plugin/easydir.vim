@@ -18,7 +18,7 @@ augroup END
 
 function <SID>create_and_save_directory()
   let s:directory = expand('<afile>:p:h')
-  if s:directory !~# '^\(scp\|ftp\|dav\|fetch\|ftp\|http\|rcp\|rsync\|sftp\|file\):'
+  if s:directory !~# '^\(scp\|ftp\|dav\|fetch\|ftp\|http\|rcp\|rsync\|sftp\|file\|fugitive\):'
   \ && !isdirectory(s:directory)
     call mkdir(s:directory, 'p')
   endif
