@@ -119,3 +119,6 @@
 [submodule "nvim/pack/misc/start/sort.nvim"]
 	path = nvim/pack/misc/start/sort.nvim
 	url = https://github.com/sQVe/sort.nvim
+[submodule "nvim/pack/misc/start/dressing.nvim"]
+	path = nvim/pack/lsp/start/dressing.nvim
+	url = https://github.com/stevearc/dressing.nvim
