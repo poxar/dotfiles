@@ -104,9 +104,6 @@
 [submodule "nvim/pack/lang/start/vala-lang"]
 	path = nvim/pack/lang/start/vala-lang
 	url = https://github.com/vala-lang/vala.vim
-[submodule "nvim/pack/tpope/start/vim-vinegar"]
-	path = nvim/pack/tpope/start/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar
 [submodule "nvim/pack/misc/start/direnv.vim"]
 	path = nvim/pack/misc/start/direnv.vim
 	url = https://github.com/direnv/direnv.vim
@@ -122,3 +119,6 @@
 [submodule "nvim/pack/misc/start/dressing.nvim"]
 	path = nvim/pack/lsp/start/dressing.nvim
 	url = https://github.com/stevearc/dressing.nvim
+[submodule "nvim/pack/misc/start/vim-dirvish"]
+	path = nvim/pack/misc/start/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish

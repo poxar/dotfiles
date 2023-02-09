@@ -192,8 +192,11 @@ command! -range=% HtmlPP :<line1>,<line2>!pandoc --from=html --to=markdown | pan
 
 let $MANWIDTH = 80
 let g:man_hardwrap = 1
-
 let g:termdebug_wide = 1
+
+" dirvish, a replacement for netrw
+let g:loaded_netrwPlugin = 1
+let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
 
 " open git status (tpope/fugitive)
 nnoremap <leader>gs :Git<cr>
