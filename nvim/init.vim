@@ -44,7 +44,7 @@ set breakindent
 set breakindentopt=sbr
 
 set diffopt+=vertical
-set scrolloff=10
+set scrolloff=1
 set sidescrolloff=5
 set linebreak
 set splitright
