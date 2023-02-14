@@ -66,6 +66,7 @@ local servers = {
   "clangd",
   "elmls",
   "rust_analyzer",
+  "sumneko_lua",
   "tsserver",
   -- php
   "phpactor",
@@ -78,19 +79,19 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
-end
-
-nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = { command = "clippy" },
+        procMacro = { enable = true },
+      },
+      ["Lua"] = {
+        diagnostics = { globals = { 'vim' } }
+      },
+    },
   }
-}
+end
 
 -- FIXME: List all linters I use...
 -- List of available linters
