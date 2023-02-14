@@ -45,6 +45,7 @@ local on_attach = function(client, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('K', vim.lsp.buf.hover, 'Hover documentation')
+  nmap('gK', 'K', 'keywordprg documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature documentation')
 
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
@@ -69,6 +70,7 @@ local servers = {
   "sumneko_lua",
   "tsserver",
   "bashls",
+  "vimls",
   -- php
   "phpactor",
   "psalm",
