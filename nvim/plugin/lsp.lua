@@ -68,6 +68,7 @@ local servers = {
   "rust_analyzer",
   "sumneko_lua",
   "tsserver",
+  "bashls",
   -- php
   "phpactor",
   "psalm",
@@ -93,14 +94,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- FIXME: List all linters I use...
 -- List of available linters
 -- https://github.com/mfussenegger/nvim-lint#available-linters
 require('lint').linters_by_ft = {
   ansible = { 'ansible_lint' },
-  bash = { 'shellcheck' },
-  sh = { 'shellcheck' },
-  zsh = { 'shellcheck' },
 }
 
 vim.api.nvim_create_autocmd({ "BufNew", "BufWritePost", "InsertLeave", "TextChanged" }, {
