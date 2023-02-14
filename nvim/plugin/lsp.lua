@@ -64,13 +64,13 @@ end
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 local servers = {
-  "clangd",
-  "elmls",
-  "rust_analyzer",
-  "sumneko_lua",
-  "tsserver",
-  "bashls",
-  "vimls",
+  "bashls", -- pacman -S bash-language-server
+  "clangd", -- pacman -S clang
+  "elmls", -- https://aur.archlinux.org/elm-language-server.git
+  "rust_analyzer", -- pacman -S rust-analyzer
+  "sumneko_lua", -- pacman -S lua-language-server
+  "tsserver", -- pacman -S typescript-language-server
+  "vimls", -- https://aur.archlinux.org/vim-language-server.git
   -- php
   "phpactor",
   "psalm",
