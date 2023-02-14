@@ -1,6 +1,5 @@
 window:
   dynamic_padding: true
-  startup_mode: Maximized
   decorations: None
   decorations_theme_variant: dark
 
