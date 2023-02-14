@@ -95,15 +95,3 @@ for _, lsp in ipairs(servers) do
     },
   }
 end
-
--- List of available linters
--- https://github.com/mfussenegger/nvim-lint#available-linters
-require('lint').linters_by_ft = {
-  ansible = { 'ansible_lint' },
-}
-
-vim.api.nvim_create_autocmd({ "BufNew", "BufWritePost", "InsertLeave", "TextChanged" }, {
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
