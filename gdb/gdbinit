@@ -1,0 +1,7 @@
+set verbose off
+set pagination off
+
+set print pretty on
+set print array-indexes on
+
+set history save

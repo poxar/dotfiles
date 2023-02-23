@@ -6,6 +6,9 @@ Session*.vim
 .tags
 tags
 
+# gdb
+.gdb_history
+
 # scala
 .bloop
 
