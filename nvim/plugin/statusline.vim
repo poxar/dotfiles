@@ -50,7 +50,7 @@ function! statusline#status(nr)
   let l:readonly = getbufvar(bufnum, '&readonly')
 
   let l:status = ''
-  if g:statusline_mode_enabled
+  if g:statusline_mode_enabled && l:active
     let l:status.='%2* %{g:currentmode[mode()]} %*'
   endif
   let l:status.=readonly ? '%1* RO %*' : ''
