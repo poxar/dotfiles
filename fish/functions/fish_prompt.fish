@@ -2,7 +2,7 @@ function fish_prompt
   set -l last_status $status
 
   # hostname if connected via ssh
-  if set -q SSH_TTY
+  if set -q SSH_TTY; or set -q ET_VERSION
     echo -n -s (prompt_hostname)' '
   end
 
