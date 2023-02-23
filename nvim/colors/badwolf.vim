@@ -260,11 +260,6 @@ call s:HL('FoldColumn', 'mediumgravel', s:gutter)
 call s:HL('CursorLineNr', 'dalespale', s:gutter, 'bold')
 
 " }}}
-" Cursor {{{
-
-call s:HL('Cursor', 'coal', 'tardis', 'none')
-
-" }}}
 " Syntax highlighting {{{
 
 " Start with a simple base.
