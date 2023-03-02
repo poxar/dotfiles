@@ -3,26 +3,8 @@ function fish_prompt
 
   # hostname if connected via ssh
   if set -q SSH_TTY; or set -q ET_VERSION
-    echo -n -s (prompt_hostname)' '
+    echo -n -s (prompt_hostname)
   end
-
-  # working directory
-  # replace $HOME with ~
-  set -l my_pwd (string replace -r '^'$HOME'($|/)' '~$1' $PWD)
-  # reduce to the last two path components
-  set -l pwd_paths (string split -r / $my_pwd)
-  set my_pwd (string join '/' $pwd_paths[-2-1])
-  # add the result to the prompt
-  echo -n -s (set_color brblue) "$my_pwd" (set_color normal)
-
-  # git info if in repository
-  set -x __fish_git_prompt_showcolorhints 1
-  set -x __fish_git_prompt_color_branch --bold bryellow
-  set -x __fish_git_prompt_color_branch_detached --bold brred
-  set -x __fish_git_prompt_use_informative_chars 1
-  set -x __fish_git_prompt_char_stateseparator ' '
-  set -x __fish_git_prompt_showstashstate 1
-  fish_git_prompt " %s"
 
   # the prompt character
   set -l prompt_char

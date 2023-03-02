@@ -3,6 +3,10 @@ set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME   $HOME/.local/share
 set -xg XDG_STATE_HOME  $HOME/.local/state
 
+# Scripts and tools in this configuration
+contains $XDG_CONFIG_HOME/bin $PATH
+or set -xgp PATH $XDG_CONFIG_HOME/bin
+
 # Local scripts and tools
 contains $HOME/.local/bin $PATH
 or set -xgp PATH $HOME/.local/bin

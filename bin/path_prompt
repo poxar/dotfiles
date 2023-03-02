@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+cd $argv[1]; or exit 1
+prompt_pwd -D 2

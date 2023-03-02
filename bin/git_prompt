@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+set -x __fish_git_prompt_use_informative_chars 1
+set -x __fish_git_prompt_char_stateseparator ' '
+set -x __fish_git_prompt_showstashstate 1
+
+cd $argv[1]; or exit 1
+fish_git_prompt " %s"
