@@ -55,7 +55,7 @@ set lazyredraw
 set termguicolors
 set guicursor+=a:Cursor
 set cursorline
-colorscheme badwolf
+colorscheme poxar
 
 " Highlight git conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -161,6 +161,13 @@ call <sid>toggle_map('r', 'relativenumber')
 call <sid>toggle_map('s', 'spell')
 
 nnoremap yod :<c-u><c-r>=&diff ? "diffoff" : "diffthis"<cr><cr>
+
+" show highlighting group under cursor
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+nnoremap <leader>cc :call SynGroup()<cr>
 
 " Commands {{{1
 

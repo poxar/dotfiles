@@ -43,7 +43,9 @@ command -q lsof; and abbr -ag ports "lsof -iTCP -sTCP:LISTEN -P"
 command -q direnv; and direnv hook fish | source
 
 # Some tweaks to the default colors
-set fish_color_valid_path
-set fish_pager_color_prefix white\x1e\x2d\x2dbold\x1e\x2d\x2d
-set fish_color_comment 585858
-set fish_color_option 005fd7
+fish_config theme choose None
+set fish_color_comment brblack
+set fish_color_error red
+set fish_color_quote green
+set fish_color_valid_path blue
+set fish_pager_color_prefix --bold

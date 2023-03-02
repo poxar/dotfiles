@@ -25,26 +25,36 @@ font:
 
 colors:
   primary:
-    background: '#141413'
-    foreground: '#f8f6f2'
+    foreground: '#000000'
+    background: '#f4e4e1'
   normal:
     black:   '#000000'
-    red:     '#cc0403'
-    green:   '#19cb00'
-    yellow:  '#cecb00'
-    blue:    '#0d73cc'
-    magenta: '#cb1ed1'
-    cyan:    '#0dcdcd'
-    white:   '#dddddd'
+    red:     '#d70000'
+    green:   '#005f00'
+    yellow:  '#d75f00'
+    blue:    '#005fd7'
+    magenta: '#5f00d7'
+    cyan:    '#0087af'
+    white:   '#b2b2b2'
   bright:
-    black:   '#767676'
-    red:     '#f2201f'
-    green:   '#23fd00'
-    yellow:  '#fffd00'
-    blue:    '#1a8fff'
-    magenta: '#fd28ff'
-    cyan:    '#14ffff'
-    white:   '#ffffff'
+    black:   '#585858'
+    red:     '#d70000'
+    green:   '#005f00'
+    yellow:  '#d75f00'
+    blue:    '#005fd7'
+    magenta: '#5f00d7'
+    cyan:    '#0087af'
+    white:   '#b2b2b2'
+  hints:
+    start:
+      foreground: '#1d1f21'
+      background: '#e3bcb5'
+    end:
+      foreground: '#e3bcb5'
+      background: '#1d1f21'
+  selection:
+    text: '#000000'
+    background: '#e3bcb5'
 
 selection:
   save_to_clipboard: true

@@ -16,15 +16,15 @@ function! statusline#refresh()
 endfunction
 
 let g:currentmode={
-      \ 'n':       'Normal',
-      \ 'i':       'Insert',
-      \ 'v':       'Visual',
-      \ 't':       'Terminal',
-      \ 'c':       'Command',
-      \ 'R':       'Replace',
-      \ 'V':       'V·Line',
-      \ 'Rv':      'V·Replace',
-      \ "\<C-V>":  'V·Block',
+      \ 'n':       '%2* Normal',
+      \ 'i':       '%3* Insert',
+      \ 'v':       '%2* Visual',
+      \ 't':       '%4* Terminal',
+      \ 'c':       '%5* Command',
+      \ 'R':       '%2* Replace',
+      \ 'V':       '%2* V·Line',
+      \ 'Rv':      '%2* V·Replace',
+      \ "\<C-V>":  '%2* V·Block',
       \}
 
 function! statusline#status(nr)
@@ -41,7 +41,11 @@ function! statusline#status(nr)
   elseif l:btype ==# 'quickfix'
     return ' Quickfix %t%=%P '
   elseif l:btype ==# 'terminal'
-    return '%2* %{g:currentmode[mode()]} %* Terminal %t'
+    if l:active
+      return g:currentmode[mode()].' %* Terminal %t'
+    else
+      return '%* Terminal %t'
+    endif
   elseif getbufvar(l:bufnum, '&previewwindow')
     return ' Preview %t%=%P '
   endif
@@ -51,7 +55,7 @@ function! statusline#status(nr)
 
   let l:status = ''
   if g:statusline_mode_enabled && l:active
-    let l:status.='%2* %{g:currentmode[mode()]} %*'
+    let l:status.=g:currentmode[mode()].' %*'
   endif
   let l:status.=readonly ? '%1* RO %*' : ''
   let l:status.=' %{statusline#path()}'
@@ -59,7 +63,7 @@ function! statusline#status(nr)
   let l:status.='%='
 
   if l:active
-    let l:status.='%2* %{statusline#stats()}%*'
+    let l:status.='%1* %{statusline#stats()}%*'
     let l:status.=' %4l:%-3v'
   else
     let l:status.='%p%% '
