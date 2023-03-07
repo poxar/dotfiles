@@ -13,7 +13,7 @@
 "
 " highlight   #e3bcb5
 "
-" red         #d70000
+" red         #b80000
 " green       #005f00
 " blue        #005fd7
 "
@@ -59,7 +59,7 @@ hi Underlined   guifg=none    guibg=none    gui=none
 hi Tag          guifg=#005fd7 guibg=none    gui=none
 
 hi SpellCap     gui=undercurl guisp=#d75f00 guifg=#d75f00
-hi SpellBad     gui=undercurl guisp=#d70000
+hi SpellBad     gui=undercurl guisp=#b80000
 hi SpellLocal   gui=undercurl guisp=#005f00
 hi SpellRare    gui=undercurl guisp=#5f00d7 guifg=#5f00d7
 
@@ -90,8 +90,8 @@ hi TabLine      guifg=fg      guibg=bg      gui=none
 hi TabLineFill  guifg=fg      guibg=bg      gui=none
 hi TabLineSel   guifg=bg      guibg=fg      gui=none
 
-hi ErrorMsg     guifg=bg      guibg=#d70000 gui=bold
-hi WarningMsg   guifg=#d70000 guibg=bg      gui=none
+hi ErrorMsg     guifg=bg      guibg=#b80000 gui=bold
+hi WarningMsg   guifg=#b80000 guibg=bg      gui=none
 
 hi MoreMsg      guifg=none    guibg=none    gui=bold
 hi ModeMsg      guifg=none    guibg=none    gui=bold
@@ -102,12 +102,12 @@ hi PmenuSel     guifg=fg      guibg=#e3bcb5
 hi PmenuSbar                  guibg=#eadbd8
 hi PmenuThumb                 guibg=fg
 
-hi DiagnosticError guifg=#d70000
+hi DiagnosticError guifg=#b80000
 hi DiagnosticWarn  guifg=#d75f00
 hi DiagnosticInfo  guifg=#726b6a
 hi DiagnosticHint  guifg=#726b6a
 
-hi DiagnosticFloatingError guifg=#d70000
+hi DiagnosticFloatingError guifg=#b80000
 hi DiagnosticFloatingWarn  guifg=#d75f00
 hi DiagnosticFloatingInfo  guifg=fg
 hi DiagnosticFloatingHint  guifg=fg
@@ -141,7 +141,7 @@ hi Namespace  guifg=#726b6a guibg=none gui=none
 hi PreProc    guifg=#5f00d7 guibg=none gui=none
 hi Number     guifg=#005fd7 guibg=none gui=none
 
-hi Error      guifg=bg guibg=#d70000 gui=none
+hi Error      guifg=bg guibg=#b80000 gui=none
 
 hi Operator   guifg=none guibg=none gui=none
 hi Identifier guifg=none guibg=none gui=none
@@ -152,7 +152,7 @@ hi Todo           guifg=#726b6a guibg=none gui=bold
 hi SpecialComment guifg=#726b6a guibg=none gui=bold
 
 hi DiffAdd    guifg=bg   guibg=#005f00 gui=none
-hi DiffDelete guifg=bg   guibg=#d70000 gui=none
+hi DiffDelete guifg=bg   guibg=#b80000 gui=none
 hi DiffChange guifg=none guibg=none    gui=none
 hi DiffText   guifg=fg   guibg=#d75f00 gui=none
 
@@ -178,7 +178,7 @@ hi! link helpSectionDelim None
 " Git {{{
 
 hi diffAdded   guifg=#005f00
-hi diffRemoved guifg=#d70000
+hi diffRemoved guifg=#b80000
 
 " }}}
 " Markdown {{{

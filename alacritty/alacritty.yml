@@ -29,7 +29,7 @@ colors:
     background: '#f4e4e1'
   normal:
     black:   '#000000'
-    red:     '#d70000'
+    red:     '#b80000'
     green:   '#005f00'
     yellow:  '#d75f00'
     blue:    '#005fd7'
@@ -38,7 +38,7 @@ colors:
     white:   '#b2b2b2'
   bright:
     black:   '#585858'
-    red:     '#d70000'
+    red:     '#b80000'
     green:   '#005f00'
     yellow:  '#d75f00'
     blue:    '#005fd7'
