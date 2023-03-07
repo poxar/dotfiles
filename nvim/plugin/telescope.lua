@@ -27,6 +27,7 @@ nmap('<leader>ft', ts_builtin.builtin, '[F]ind [T]elescope builtin')
 nmap('<leader>fe', ts_builtin.symbols, '[F]ind [E]moji')
 
 nmap('<leader>fn', function() ts_builtin.find_files { cwd = '$HOME/Notes' } end, '[F]ind [N]otes')
+nmap('<leader>fC', function() ts_builtin.find_files { cwd = '$HOME/.config'} end, '[F]ind [C]onfiguration file')
 
 nmap('<leader>fv', function()
   ts_builtin.git_files {
