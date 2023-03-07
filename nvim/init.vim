@@ -33,6 +33,11 @@ set showmatch
 set matchpairs+=<:>
 let g:matchparen_insert_timeout=10
 
+" Automatically Rebalance windows
+augroup balance_windows
+  au! VimResized * :wincmd =
+augroup END
+
 set number
 set relativenumber
 set signcolumn=number
