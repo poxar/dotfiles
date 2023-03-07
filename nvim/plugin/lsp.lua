@@ -72,7 +72,6 @@ local servers = {
   "vimls", -- https://aur.archlinux.org/vim-language-server.git
   -- php
   "phpactor",
-  "psalm",
   -- python
   -- pacman -S --needed ruff-lsp python-lsp-server python-lsp-black
   -- pacman -S --needed --asdeps python-pydocstyle python-rope flake8
