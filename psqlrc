@@ -1,0 +1,17 @@
+-- Store history per database
+\getenv XDG_STATE_HOME XDG_STATE_HOME
+\set HISTFILE :XDG_STATE_HOME/psql/history/:DBNAME
+\set HISTCONTROL ignoredups
+\set HISTSIZE = -1
+
+-- Always complete to upper case
+\set COMP_KEYWORD_CASE upper
+
+-- Verbose error reports
+\set VERBOSITY verbose
+
+-- Make null values easier to spot
+\pset null '[NULL]'
+
+-- Automatically switch to expanded table format
+\x auto
