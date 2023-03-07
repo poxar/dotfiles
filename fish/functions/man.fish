@@ -4,6 +4,9 @@ function man --wraps=man
   set -l width (tput cols)
 
   test "$width" -gt "$MANWIDTH"; and set width $MANWIDTH
-  env MANWIDTH="$width" man $argv
+  if command -q rustup
+    env MANWIDTH="$width" rustup man $argv
+  else
+    env MANWIDTH="$width" man $argv
   end
 end
