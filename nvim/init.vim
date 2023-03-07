@@ -92,6 +92,9 @@ inoremap <c-x><c-n> <c-x><c-o>
 " Open last/alternate buffer
 nnoremap <c-w><leader> <c-^>
 
+" Switch to last window
+nnoremap <c-w>; <c-w>p
+
 " Substitute word under the curser
 nnoremap gS :%s/\<<c-r>=expand('<cword>')<cr>\>/
 
@@ -220,6 +223,14 @@ nnoremap g\, :Tabularize /,\zs<cr>
 vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
+
+" Integrate window switching with tmux
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <a-h> :<C-U>TmuxNavigateLeft<cr>
+nnoremap <silent> <a-j> :<C-U>TmuxNavigateDown<cr>
+nnoremap <silent> <a-k> :<C-U>TmuxNavigateUp<cr>
+nnoremap <silent> <a-l> :<C-U>TmuxNavigateRight<cr>
+nnoremap <silent> <a-;> :<C-U>TmuxNavigatePrevious<cr>
 
 " Execute tests (vim-test)
 let test#strategy = "dispatch"

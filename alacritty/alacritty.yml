@@ -70,7 +70,7 @@ hints:
        enabled: true
        mods: None
      binding:
-       key: J
+       key: U
        mods: Alt
 
 mouse:
@@ -86,7 +86,7 @@ key_bindings:
 
   - { key: S,     mods: Control|Shift,  action: SearchBackward,    }
 
-  - { key: Up,     mods: Shift,         action: ScrollLineUp,   mode: ~Alt,  }
-  - { key: Down,   mods: Shift,         action: ScrollLineDown, mode: ~Alt,  }
+  - { key: Up,    mods: Shift,          action: ScrollLineUp,   mode: ~Alt,  }
+  - { key: Down,  mods: Shift,          action: ScrollLineDown, mode: ~Alt,  }
 
   - { key: F,     mods: Control|Alt,    action: ToggleFullscreen }
