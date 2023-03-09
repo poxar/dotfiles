@@ -209,5 +209,10 @@ hi! link rustModPath Namespace
 hi! link phpComparison None
 
 " }}}
+" Lua {{{
+
+hi! link luaFunction Keyword
+
+" }}}
 
 " }}}
