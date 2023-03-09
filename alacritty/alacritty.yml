@@ -87,3 +87,4 @@ key_bindings:
   - { key: S,     mods: Control|Shift,  action: SearchBackward,    }
 
   - { key: F,     mods: Control|Alt,    action: ToggleFullscreen }
+  - { key: M,     mods: Control|Alt,    action: ToggleMaximized }
