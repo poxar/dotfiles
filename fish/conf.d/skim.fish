@@ -1,7 +1,7 @@
 if command -q sk
   # search for files
   function __skim_files
-    set -l file (fd --type file --hidden | sk --preview "bat --color=always {}")
+    set -l file (fd --type file --hidden | sk --preview "sk_preview.sh {}")
     if test -n "$file"
       commandline --append '"'
       commandline --append $file
