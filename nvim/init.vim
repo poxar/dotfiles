@@ -258,3 +258,6 @@ nnoremap <silent> gop vip<esc><cmd>Sort<cr>
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
 iabbrev shrg ¯\_(ツ)_/¯
+
+cabbrev dg diffget
+cabbrev dp diffput
