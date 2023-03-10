@@ -40,3 +40,8 @@ end, '[F]ind [V]imfile')
 nmap('<leader>fsn', function()
   ts_builtin.find_files { cwd = vim.fn.stdpath('config') .. '/snippets' }
 end, '[F]ind [Sn]ippets')
+
+nmap('<leader>gb', ts_builtin.git_branches, 'find [G]it [B]ranches')
+nmap('<leader>gB', ts_builtin.git_branches, 'find [G]it [B]ranches for current file')
+nmap('<leader>gh', ts_builtin.git_commits, 'find [G]it [H]istory')
+nmap('<leader>gf', ts_builtin.git_status, 'find [G]it changed [F]iles')
