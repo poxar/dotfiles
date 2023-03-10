@@ -230,11 +230,11 @@ nnoremap <silent> <a-;> :<C-U>TmuxNavigatePrevious<cr>
 
 " Execute tests (vim-test)
 let test#strategy = "dispatch"
-nnoremap mtt :TestNearest<cr>
-nnoremap mtf :TestFile<cr>
-nnoremap mta :TestSuite<cr>
-nnoremap mtl :TestLast<cr>
-nnoremap mtg :TestVisit<cr>
+nnoremap <leader>tn :TestNearest<cr>
+nnoremap <leader>tf :TestFile<cr>
+nnoremap <leader>ta :TestSuite<cr>
+nnoremap <leader>tl :TestLast<cr>
+nnoremap <leader>tg :TestVisit<cr>
 
 " visual undotree
 let g:undotree_ShortIndicators = 1
