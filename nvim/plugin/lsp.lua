@@ -4,7 +4,10 @@ require('neodev').setup()
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>L', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>L', function()
+  vim.diagnostic.setloclist()
+  vim.cmd("lopen")
+end)
 
 vim.diagnostic.config({
     underline = false,
