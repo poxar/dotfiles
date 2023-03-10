@@ -10,7 +10,6 @@ vim.keymap.set('n', '<leader>L', function()
 end)
 
 vim.diagnostic.config({
-    underline = false,
     virtual_text = false,
 })
 
