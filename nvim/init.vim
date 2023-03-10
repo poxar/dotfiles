@@ -142,14 +142,9 @@ nnoremap [a :previous<cr>
 
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
-tnoremap <c-w> <c-\><c-n><c-w>
-tnoremap <c-w><c-w> <c-w>
-tnoremap <c-w><esc> <esc>
-tnoremap <c-w><space> <c-\><c-n><c-^>
 
 augroup terminal_settings
   au! TermOpen,TermEnter * setlocal nonumber|setlocal norelativenumber
-  au! BufEnter term://* startinsert
 augroup END
 
 " Readline mappings for command line mode
@@ -178,11 +173,6 @@ endfun
 nnoremap <leader>cc :call SynGroup()<cr>
 
 " Commands {{{1
-
-" open split terminals
-command! -complete=shellcmd -nargs=1 Terminal <mods> split term://<args> | startinsert
-nnoremap <a-n> :Terminal $SHELL<cr>
-nnoremap <a-m> :vertical Terminal $SHELL<cr>
 
 " Strip trailing whitespace
 command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
