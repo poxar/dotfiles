@@ -32,6 +32,7 @@ set noshowmode
 set showmatch
 set matchpairs+=<:>
 let g:matchparen_insert_timeout=10
+set pumheight=10
 
 " Automatically Rebalance windows
 augroup balance_windows

@@ -11,6 +11,12 @@ vim.diagnostic.config({
     virtual_text = false,
 })
 
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, { border = "single" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, { border = "single"})
+
 vim.cmd('sign define DiagnosticSignError text=● texthl=DiagnosticSignError linehl= numhl=')
 vim.cmd('sign define DiagnosticSignWarn text=◉ texthl=DiagnosticSignWarn linehl= numhl=')
 vim.cmd('sign define DiagnosticSignInfo text=◒ texthl=DiagnosticSignInfo linehl= numhl=')
