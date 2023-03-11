@@ -97,6 +97,10 @@ inoremap <c-x>o <c-x><c-o>
 inoremap <c-x>n <c-x><c-o>
 inoremap <c-x><c-n> <c-x><c-o>
 
+" Quicksave
+inoremap <c-s> <c-\><c-o>:w<cr>
+nnoremap <c-s> :w<cr>
+
 " Open last/alternate buffer
 nnoremap <c-w><leader> <c-^>
 
@@ -121,20 +125,14 @@ cabbrev <expr> %% expand('%:p:h')
 " Close all temporary windows (quickfix, locationlist, preview)
 nnoremap <leader>q :pclose\|cclose\|lclose<cr>
 
-nnoremap <leader>0 :cfirst<cr>
 nnoremap [Q :cfirst<cr>
 nnoremap ]Q :clast<cr>
-nnoremap <leader>j :cnext<cr>
 nnoremap ]q :cnext<cr>
-nnoremap <leader>k :cprevious<cr>
 nnoremap [q :cprevious<cr>
 
-nnoremap <leader>1 :lfirst<cr>
 nnoremap [L :lfirst<cr>
 nnoremap ]L :llast<cr>
-nnoremap <leader>l :lnext<cr>
 nnoremap ]l :lnext<cr>
-nnoremap <leader>h :lprevious<cr>
 nnoremap [l :lprevious<cr>
 
 nnoremap ]a :next<cr>

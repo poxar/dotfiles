@@ -10,17 +10,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete({}),
+    ['<C-y>'] = cmp.mapping.complete({}),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.confirm({ select = true })
-      elseif snippy.can_expand_or_advance() then
-        snippy.expand_or_advance()
-      else
-        fallback()
-      end
-    end, { "i", "s" })
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
