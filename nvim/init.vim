@@ -113,12 +113,9 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 " Edit and reload configuration
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>esv :vsplit $MYVIMRC<cr>
 
 " Operate on the directory of the current file
 nnoremap <leader>e.  :edit <c-r>=expand("%:p:h") . "/" <cr>
-nnoremap <leader>es. :vsplit <c-r>=expand("%:p:h") . "/" <cr>
-nnoremap <leader>c.  :lcd <c-r>=expand("%:p:h")<cr>
 cabbrev <expr> %% expand('%:p:h')
 
 " Close all temporary windows (quickfix, locationlist, preview)
