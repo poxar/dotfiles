@@ -2,12 +2,12 @@ if filereadable('Cargo.toml')
   compiler cargo
 
   nnoremap <buffer> m<cr> :Make check<cr>
-  nnoremap <buffer> <space>ml :Make clippy<cr>
-  nnoremap <buffer> <space>mc :Make clean<cr>
-  nnoremap <buffer> <space>mb :Make build<cr>
-  nnoremap <buffer> <space>mf :Make fmt<cr>
-  nnoremap <buffer> <space>mr :Start -wait=never cargo run<cr>
-  nnoremap <buffer> <space>md :Termdebug target/debug/
+  nnoremap <buffer> <leader>ml :Make clippy<cr>
+  nnoremap <buffer> <leader>mc :Make clean<cr>
+  nnoremap <buffer> <leader>mb :Make build<cr>
+  nnoremap <buffer> <leader>mf :Make fmt<cr>
+  nnoremap <buffer> <leader>mr :Start -wait=never cargo run<cr>
+  nnoremap <buffer> <leader>md :Termdebug target/debug/
 
   setlocal path+=./src
 
