@@ -5,3 +5,7 @@ set print pretty on
 set print array-indexes on
 
 set history save
+
+tui new-layout poxar -horizontal {status 0 cmd 1} 1 src 1
+layout src
+focus cmd
