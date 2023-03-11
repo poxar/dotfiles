@@ -87,8 +87,10 @@ set mouse=
 inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
-" nnoremap ' `
-" nnoremap ` '
+
+" Jump to exact mark position by default
+nnoremap ' `
+nnoremap ` '
 
 " Allow some typos in omni completion
 inoremap <c-x>o <c-x><c-o>
