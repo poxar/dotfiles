@@ -184,6 +184,7 @@ command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 
 " edit current filetypeplugin
 command! Ftedit execute ":edit ". stdpath('config') ."/ftplugin/".&ft.".vim"
+nnoremap <leader>ef :Ftedit<cr>
 
 " pretty print
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
