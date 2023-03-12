@@ -234,11 +234,11 @@ nnoremap <leader>ta :TestSuite<cr>
 nnoremap <leader>tl :TestLast<cr>
 nnoremap <leader>tg :TestVisit<cr>
 
-" visual undotree
+" Visual undotree
 let g:undotree_ShortIndicators = 1
 nnoremap yot :UndotreeToggle<cr>
 
-" better :sort
+" Better :sort
 lua require('sort').setup {}
 nnoremap <silent> go <cmd>Sort<cr>
 vnoremap <silent> go <esc><cmd>Sort<cr>
@@ -251,6 +251,11 @@ nnoremap <silent> go] vi]<esc><cmd>Sort<cr>
 nnoremap <silent> go{ vi{<esc><cmd>Sort<cr>
 nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
 nnoremap <silent> gop vip<esc><cmd>Sort<cr>
+
+" Automatically run linters
+let g:ale_disable_lsp = 1
+let g:ale_use_neovim_diagnostics_api = 1
+let g:ale_virtualtext_cursor = 'current'
 
 " Abbreviations {{{1
 iabbrev (C) ©

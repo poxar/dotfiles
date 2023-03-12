@@ -128,3 +128,6 @@
 [submodule "nvim/pack/misc/start/vim-tmux-navigator"]
 	path = nvim/pack/misc/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "nvim/pack/misc/start/ale"]
+	path = nvim/pack/misc/start/ale
+	url = https://github.com/dense-analysis/ale
