@@ -6,7 +6,7 @@ set -eu
 cmd="$(tmux display -p '#{pane_current_command}')"
 cmd="$(basename "$cmd" | tr A-Z a-z)"
 
-if [ "$cmd" = "nvim" ]; then
+if test "$cmd" = "nvim" || test "$cmd" = "vim" || test "$cmd" = "vi"; then
   case "$1" in
     "-l") direction='\;' ;;
     "-L") direction='h' ;;
