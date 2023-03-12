@@ -118,6 +118,9 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 
+" Quickly edit notes inbox
+nnoremap <leader>en :edit ~/Notes/Eingang.md<cr>
+
 " Operate on the directory of the current file
 nnoremap <leader>e.  :edit <c-r>=expand("%:p:h") . "/" <cr>
 cabbrev <expr> %% expand('%:p:h')
