@@ -81,6 +81,7 @@ local servers = {
   "sumneko_lua", -- pacman -S lua-language-server
   "tsserver", -- pacman -S typescript-language-server
   "vimls", -- https://aur.archlinux.org/vim-language-server.git
+  "vuels", -- https://aur.archlinux.org/nodejs-vls.git
   -- php
   "phpactor",
   -- python
