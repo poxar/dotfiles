@@ -58,10 +58,10 @@ hi SpecialKey   guifg=#726b6a guibg=none    gui=none
 hi Underlined   guifg=none    guibg=none    gui=none
 hi Tag          guifg=#005fd7 guibg=none    gui=none
 
-hi SpellCap     gui=undercurl guisp=#d75f00 guifg=#d75f00
-hi SpellBad     gui=undercurl guisp=#b80000
-hi SpellLocal   gui=undercurl guisp=#005f00
-hi SpellRare    gui=undercurl guisp=#5f00d7 guifg=#5f00d7
+hi SpellCap     gui=underline guisp=#d75f00 guifg=#d75f00
+hi SpellBad     gui=underline guisp=#b80000
+hi SpellLocal   gui=underline guisp=#005f00
+hi SpellRare    gui=underline guisp=#5f00d7 guifg=#5f00d7
 
 " }}}
 " UI {{{
@@ -111,6 +111,11 @@ hi DiagnosticFloatingError guifg=#b80000
 hi DiagnosticFloatingWarn  guifg=#d75f00
 hi DiagnosticFloatingInfo  guifg=fg
 hi DiagnosticFloatingHint  guifg=fg
+
+hi DiagnosticUnderlineError gui=undercurl guisp=#b80000
+hi DiagnosticUnderlineWarn gui=undercurl guisp=#d75f00
+hi DiagnosticUnderlineHint gui=undercurl
+hi DiagnosticUnderlineInfo gui=undercurl
 
 " }}}
 " Plugins {{{
