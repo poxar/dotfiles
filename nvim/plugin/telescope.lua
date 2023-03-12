@@ -16,7 +16,7 @@ nmap('<leader>ff', ts_builtin.find_files, '[F]ind [F]iles')
 nmap('<leader>fb', ts_builtin.buffers, '[F]ind [B]uffers')
 nmap('<leader>fB', ts_builtin.git_branches, '[F]ind git [B]ranch')
 nmap('<leader>fh', ts_builtin.help_tags, '[F]ind [H]elp')
-nmap('<leader>fc', ts_builtin.commands, '[F]ind [C]ommand')
+nmap('<leader>fC', ts_builtin.commands, '[F]ind [C]ommand')
 nmap('<leader>fw', ts_builtin.grep_string, '[F]ind current [W]ord')
 nmap('<leader>fg', ts_builtin.live_grep, '[F]ind with [G]rep')
 nmap('<leader>fd', ts_builtin.diagnostics, '[F]ind in [D]iagnostics')
@@ -27,7 +27,7 @@ nmap('<leader>ft', ts_builtin.builtin, '[F]ind [T]elescope builtin')
 nmap('<leader>fe', ts_builtin.symbols, '[F]ind [E]moji')
 
 nmap('<leader>fn', function() ts_builtin.find_files { cwd = '$HOME/Notes' } end, '[F]ind [N]otes')
-nmap('<leader>fC', function() ts_builtin.find_files { cwd = '$HOME/.config'} end, '[F]ind [C]onfiguration file')
+nmap('<leader>fc', function() ts_builtin.find_files { cwd = '$HOME/.config'} end, '[F]ind [C]onfiguration file')
 
 nmap('<leader>fv', function()
   ts_builtin.git_files {
