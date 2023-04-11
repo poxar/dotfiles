@@ -65,9 +65,6 @@
 [submodule "nvim/pack/cmp/start/cmp-snippy"]
 	path = nvim/pack/cmp/start/cmp-snippy
 	url = https://github.com/dcampos/cmp-snippy
-[submodule "nvim/pack/misc/start/editorconfig-vim"]
-	path = nvim/pack/misc/start/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim
 [submodule "nvim/pack/misc/start/tabular"]
 	path = nvim/pack/misc/start/tabular
 	url = https://github.com/godlygeek/tabular
