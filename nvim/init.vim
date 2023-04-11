@@ -51,7 +51,7 @@ set fillchars=fold:\ ,vert:│
 set breakindent
 set breakindentopt=sbr
 
-set diffopt+=vertical
+set diffopt+=vertical,linematch:60
 set scrolloff=1
 set sidescrolloff=5
 set linebreak
