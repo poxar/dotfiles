@@ -117,6 +117,8 @@ hi DiagnosticUnderlineWarn gui=undercurl guisp=#d75f00
 hi DiagnosticUnderlineHint gui=undercurl
 hi DiagnosticUnderlineInfo gui=undercurl
 
+hi @lsp.mod.deprecated gui=strikethrough
+
 " }}}
 " Plugins {{{
 
