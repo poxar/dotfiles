@@ -8,6 +8,8 @@
 set undofile
 set nomodeline
 
+set exrc
+
 set virtualedit=block
 set clipboard+=unnamedplus
 
