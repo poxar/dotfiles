@@ -1,4 +1,7 @@
 window:
+  padding:
+    x: 5
+    y: 5
   dynamic_padding: true
   decorations: none
   decorations_theme_variant: Dark
