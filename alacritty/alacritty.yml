@@ -1,7 +1,7 @@
 window:
   dynamic_padding: true
-  decorations: None
-  decorations_theme_variant: dark
+  decorations: none
+  decorations_theme_variant: Dark
 
   dimensions:
     columns: 90
