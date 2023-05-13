@@ -5,6 +5,7 @@ window:
   dynamic_padding: true
   decorations: none
   decorations_theme_variant: Dark
+  startup_mode: Maximized
 
   dimensions:
     columns: 90
