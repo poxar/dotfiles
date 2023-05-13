@@ -192,6 +192,7 @@ nnoremap <leader>ef :Ftedit<cr>
 " pretty print
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 command! -range=% HtmlPP :<line1>,<line2>!pandoc --from=html --to=markdown | pandoc --from=markdown --to=html
+command! -range=% XmlPP :<line1>,<line2>!xmllint --format -
 
 " Plugins {{{1
 
