@@ -41,6 +41,7 @@ end
 # Setup some tools
 command -q lsof; and abbr -ag ports "lsof -iTCP -sTCP:LISTEN -P"
 command -q direnv; and direnv hook fish | source
+command -q bsdtar; and abbr -a tar bsdtar
 
 # Some tweaks to the default colors
 fish_config theme choose None
