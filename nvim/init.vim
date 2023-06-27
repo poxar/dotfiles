@@ -59,6 +59,7 @@ set splitright
 set splitbelow
 
 set shortmess=atToOIc
+set notimeout
 set lazyredraw
 set termguicolors
 set guicursor+=a:Cursor
