@@ -74,7 +74,7 @@ hints:
        enabled: true
        mods: None
      binding:
-       key: U
+       key: J
        mods: Alt
 
 mouse:
