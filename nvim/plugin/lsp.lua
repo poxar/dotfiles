@@ -1,6 +1,13 @@
 local nvim_lsp = require('lspconfig')
 require('neodev').setup()
 
+require('fidget').setup {
+  text = { spinner = 'moon' },
+  timer = { spinner_rate = 200 },
+  window = { relative = 'editor' },
+  fmt = { max_messages = 4 },
+}
+
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
