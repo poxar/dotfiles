@@ -130,6 +130,13 @@ hi! link TelescopeResultsBorder Comment
 hi! link TelescopePreviewBorder Comment
 
 " }}}
+" Leap {{{
+
+hi LeapLabelPrimary   guifg=fg guibg=#e3bcb5
+hi LeapLabelSecondary guifg=fg guibg=#d75f00
+hi LeapLabelSelected  guifg=bg guibg=fg
+
+" }}}
 
 " }}}
 " Syntax {{{
