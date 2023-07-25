@@ -30,9 +30,9 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
   vim.lsp.handlers.signature_help, { border = "single"})
 
 vim.cmd('sign define DiagnosticSignError text=● texthl=DiagnosticSignError linehl= numhl=')
-vim.cmd('sign define DiagnosticSignWarn text=◉ texthl=DiagnosticSignWarn linehl= numhl=')
-vim.cmd('sign define DiagnosticSignInfo text=◒ texthl=DiagnosticSignInfo linehl= numhl=')
-vim.cmd('sign define DiagnosticSignHint text=⭘ texthl=DiagnosticSignHint linehl= numhl=')
+vim.cmd('sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn linehl= numhl=')
+vim.cmd('sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo linehl= numhl=')
+vim.cmd('sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint linehl= numhl=')
 
 local on_attach = function(client, bufnr)
   local function nmap(keys, func, desc)
