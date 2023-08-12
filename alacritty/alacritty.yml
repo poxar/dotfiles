@@ -78,7 +78,7 @@ hints:
        mods: Alt
 
 mouse:
-  hide_when_typing: true
+  hide_when_typing: false
 
 key_bindings:
   - { key: N,     mods: Control|Shift,  action: CreateNewWindow,   }
