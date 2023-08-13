@@ -14,7 +14,7 @@ check out the `old_main` branch if you're interested in my old approach.
 My new approach is to directly track `$HOME/.config` as a repository, that way
 I don't need to worry about symlinks that grow stale or copying stuff back and
 forth. On the other hand, only things that adhere to the XDG Base Directory
-spec can be included that way, but that's fine by me. ¯\\_(ツ)_/¯
+spec can be included that way, but that's fine by me. ¯\\\_(ツ)\_/¯
 
 To deal with ssh I have a `$HOME/.ssh/config` along these lines:
 
