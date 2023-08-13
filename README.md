@@ -9,7 +9,9 @@ already lives over at [poxar/nixfiles](https://github.com/poxar/nixfiles).
 # Structure
 
 The structure has changed a lot in 2022 and I did not carry the history over,
-check out the `old_main` branch if you're interested in my old approach.
+check out the
+[main_2022-03-12](https://github.com/poxar/dotfiles/tree/main_2022-03-12)
+branch if you're interested in my old approach.
 
 My new approach is to directly track `$HOME/.config` as a repository, that way
 I don't need to worry about symlinks that grow stale or copying stuff back and
