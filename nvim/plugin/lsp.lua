@@ -89,6 +89,7 @@ local servers = {
   "tsserver", -- pacman -S typescript-language-server
   "vimls", -- https://aur.archlinux.org/vim-language-server.git
   "vuels", -- https://aur.archlinux.org/nodejs-vls.git
+  "marksman", -- pacman -S marksman
   -- php
   "phpactor",
   -- python
