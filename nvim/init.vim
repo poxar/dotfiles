@@ -82,8 +82,8 @@ set omnifunc=syntaxcomplete#Complete
 set wildmode=longest:full
 set wildignorecase
 
-" Disable mouse support to avoid touchpad accidents
-set mouse=
+" Enable mouse in normal and visual modes and when viewing help files
+set mouse=nvh
 
 " Mappings {{{1
 
