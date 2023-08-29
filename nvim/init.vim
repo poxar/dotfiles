@@ -123,6 +123,7 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 
 " Quickly edit notes inbox
 nnoremap <leader>en :edit ~/Notes/Eingang.md<cr>
+nnoremap <leader>cn :lcd ~/Notes<cr>
 
 " Operate on the directory of the current file
 nnoremap <leader>e.  :edit <c-r>=expand("%:p:h") . "/" <cr>
