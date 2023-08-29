@@ -101,6 +101,7 @@ hi Pmenu        guifg=fg      guibg=#eadbd8
 hi PmenuSel     guifg=fg      guibg=#e3bcb5
 hi PmenuSbar                  guibg=#eadbd8
 hi PmenuThumb                 guibg=fg
+hi NormalFloat  guifg=fg      guibg=bg
 
 hi DiagnosticError guifg=#b80000
 hi DiagnosticWarn  guifg=#d75f00
