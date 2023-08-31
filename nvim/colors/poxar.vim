@@ -136,6 +136,13 @@ hi LeapLabelSecondary guifg=fg guibg=#d75f00
 hi LeapLabelSelected  guifg=bg guibg=fg
 
 " }}}
+" CheckHealth {{{
+
+hi healthSuccess guifg=bg guibg=#005f00
+hi healthWarning guifg=#d75f00
+hi healthError   guifg=#b80000
+
+" }}}
 
 " }}}
 " Syntax {{{
