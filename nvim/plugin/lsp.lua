@@ -85,7 +85,7 @@ local servers = {
   "clangd", -- pacman -S clang
   "elmls", -- https://aur.archlinux.org/elm-language-server.git
   "rust_analyzer", -- pacman -S rust-analyzer
-  "sumneko_lua", -- pacman -S lua-language-server
+  "lua_ls", -- pacman -S lua-language-server
   "tsserver", -- pacman -S typescript-language-server
   "vimls", -- https://aur.archlinux.org/vim-language-server.git
   "vuels", -- https://aur.archlinux.org/nodejs-vls.git
