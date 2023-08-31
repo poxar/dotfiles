@@ -8,8 +8,6 @@
 set undofile
 set nomodeline
 
-set exrc
-
 set virtualedit=block
 set clipboard+=unnamedplus
 
@@ -31,9 +29,7 @@ set tagcase=followscs
 
 " Display
 set noshowmode
-set showmatch
 set matchpairs+=<:>
-let g:matchparen_insert_timeout=10
 set pumheight=10
 
 " Automatically Rebalance windows
@@ -45,6 +41,7 @@ set number
 set relativenumber
 set signcolumn=number
 
+set linebreak
 set showbreak=↪
 set listchars=tab:⇥\ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣
 set fillchars=fold:\ ,vert:│
@@ -54,13 +51,11 @@ set breakindentopt=sbr
 set diffopt+=vertical,linematch:60
 set scrolloff=1
 set sidescrolloff=5
-set linebreak
 set splitright
 set splitbelow
 
-set shortmess=atToOIc
+set shortmess=tToOc
 set notimeout
-set lazyredraw
 set termguicolors
 set guicursor+=a:Cursor
 set cursorline
@@ -79,7 +74,8 @@ set spelllang=en_gb,de_20
 
 " Completion
 set omnifunc=syntaxcomplete#Complete
-set wildmode=longest:full
+set wildoptions=fuzzy,tagfile
+set wildmode=lastused:full
 set wildignorecase
 
 " Enable mouse in normal and visual modes and when viewing help files
@@ -90,6 +86,12 @@ set mouse=nvh
 inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
+nnoremap gh 0
+nnoremap gl $
+nnoremap gs _
+
+" Simpler redo
+nnoremap U <c-r>
 
 " Jump to exact mark position by default
 nnoremap ' `

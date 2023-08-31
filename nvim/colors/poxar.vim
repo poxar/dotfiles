@@ -69,6 +69,7 @@ hi SpellRare    gui=underline guisp=#5f00d7 guifg=#5f00d7
 hi Cursor       gui=reverse
 hi StatusLine   gui=reverse
 hi StatusLineNC guifg=fg      guibg=#c4b7b5 gui=none
+hi WildMenu                   guibg=#e3bcb5
 
 hi User1        guifg=fg      guibg=bg
 hi User2        guifg=fg      guibg=#e3bcb5
