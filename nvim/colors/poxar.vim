@@ -118,8 +118,6 @@ hi DiagnosticUnderlineWarn gui=undercurl guisp=#d75f00
 hi DiagnosticUnderlineHint gui=undercurl
 hi DiagnosticUnderlineInfo gui=undercurl
 
-hi @lsp.mod.deprecated gui=strikethrough
-
 " }}}
 " Plugins {{{
 
@@ -170,6 +168,16 @@ hi DiffAdd    guifg=bg   guibg=#005f00 gui=none
 hi DiffDelete guifg=bg   guibg=#b80000 gui=none
 hi DiffChange guifg=none guibg=none    gui=none
 hi DiffText   guifg=fg   guibg=#d75f00 gui=none
+
+lua << EOF
+  for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    vim.api.nvim_set_hl(0, group, {})
+  end
+EOF
+
+hi @lsp.mod.deprecated gui=strikethrough
+hi @lsp.type.decorator guifg=#5f00d7
+hi @lsp.type.macro     guifg=#5f00d7
 
 " }}}
 " Languages {{{
