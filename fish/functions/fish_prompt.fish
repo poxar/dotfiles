@@ -20,7 +20,4 @@ function fish_prompt
   else
     echo -n -s (set_color --bold brred) "$prompt_char " (set_color normal)
   end
-
-  # Mark the prompt for terminal applications
-  echo -en "\e]133;A\e\\"
 end
