@@ -28,10 +28,12 @@ abbr -ag sl ls
 # simple piping
 if test (echo $FISH_VERSION | tr -d . | sed 's/-.*//') -ge 360
   abbr -a --position anywhere --set-cursor L "% | less -FqX"
-  abbr -a --position anywhere --set-cursor G "% | grep"
-  abbr -a --position anywhere --set-cursor S "% | sort"
   abbr -a --position anywhere --set-cursor T "% | tail"
   abbr -a --position anywhere --set-cursor F "% | tail -f"
+
+  abbr -a --position anywhere G "| grep"
+  abbr -a --position anywhere S "| sort"
+  abbr -a --position anywhere U "| uniq"
 
   if command -q wl-copy
     abbr -a --position anywhere --set-cursor C "% | wl-copy"
