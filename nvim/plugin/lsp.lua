@@ -2,7 +2,7 @@ local nvim_lsp = require('lspconfig')
 require('neodev').setup()
 
 require('fidget').setup {
-  text = { spinner = 'moon' },
+  text = { spinner = 'dots' },
   timer = { spinner_rate = 200 },
   window = { relative = 'editor' },
   fmt = { max_messages = 4 },
