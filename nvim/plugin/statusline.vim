@@ -21,6 +21,7 @@ let g:currentmode={
       \ 'v':       '%2* Visual',
       \ 't':       '%4* Terminal',
       \ 'c':       '%5* Command',
+      \ 's':       '%2* Substitute',
       \ 'R':       '%2* Replace',
       \ 'V':       '%2* V·Line',
       \ 'Rv':      '%2* V·Replace',
