@@ -6,6 +6,9 @@ function fish_prompt
     echo -n -s (prompt_hostname)
   end
 
+  # cwd
+  echo -n (prompt_pwd)
+
   # the prompt character
   set -l prompt_char
   if fish_is_root_user
