@@ -1,0 +1,2 @@
+--ignore=README.md
+--target=$HOME/.config

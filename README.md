@@ -10,15 +10,16 @@ to me for now.
 
 # Structure
 
-I made a fresh start in 2022 and did not carry the history over, check out the
+I made a fresh start in 2022 to only track .config, and I did not carry the
+history over, check out the
 [main_2022-03-12](https://github.com/poxar/dotfiles/tree/main_2022-03-12)
 branch if you're interested in my old approach.
 
 # Installation
 
 Stow is used to manage the symlinks. Since most tools respect the XDG base
-directory spec now, it's just a matter of `stow -t $HOME/.config -S .`, but
-traditional dotfiles could also be tracked with a little restructuring.
+directory spec now, it's just a matter of `stow -S .`, but traditional dotfiles
+could also be tracked with a little restructuring.
 
 To deal with ssh I have a `$HOME/.ssh/config` along these lines:
 
