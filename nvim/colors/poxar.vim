@@ -98,10 +98,10 @@ hi MoreMsg      guifg=none    guibg=none    gui=bold
 hi ModeMsg      guifg=none    guibg=none    gui=bold
 hi Question     guifg=none    guibg=none    gui=none
 
-hi Pmenu        guifg=fg      guibg=#eadbd8
-hi PmenuSel     guifg=fg      guibg=#e3bcb5
-hi PmenuSbar                  guibg=#eadbd8
-hi PmenuThumb                 guibg=fg
+hi Pmenu        guifg=#f4e4e1 guibg=#000000
+hi PmenuSel     guifg=#000000 guibg=#e3bcb5
+hi PmenuSbar                  guibg=#000000
+hi PmenuThumb                 guibg=#e3bcb5
 hi NormalFloat  guifg=fg      guibg=bg
 
 hi DiagnosticError guifg=#b80000
