@@ -1,2 +1,3 @@
 --ignore=README.md
+--ignore=^\..*$
 --target=$HOME/.config
