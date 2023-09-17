@@ -85,13 +85,15 @@ mouse:
 
 key_bindings:
   - { key: N,     mods: Control|Shift,  action: CreateNewWindow,   }
+
   - { key: J,     mods: Control|Shift,  action: ScrollLineDown,    }
   - { key: K,     mods: Control|Shift,  action: ScrollLineUp,      }
   - { key: F,     mods: Control|Shift,  action: ScrollPageDown,    }
   - { key: B,     mods: Control|Shift,  action: ScrollPageUp,      }
-  - { key: O,     mods: Control|Shift,  action: ToggleViMode,      }
 
+  - { key: O,     mods: Control|Shift,  action: ToggleViMode,      }
   - { key: S,     mods: Control|Shift,  action: SearchBackward,    }
 
-  - { key: F,     mods: Control|Alt,    action: ToggleFullscreen }
-  - { key: M,     mods: Control|Alt,    action: ToggleMaximized }
+  - { key: Plus,  mods: Control,        action: IncreaseFontSize,  }
+  - { key: Minus, mods: Control,        action: DecreaseFontSize,  }
+  - { key: 0,     mods: Control,        action: ResetFontSize,     }
