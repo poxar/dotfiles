@@ -73,6 +73,12 @@ hints:
     binding:
       key: J
       mods: Alt
+  - regex: "([a-f0-9]{40})|([a-f0-9]{12})|([a-f0-9]{7})"
+    action: Paste
+    post_processing: true
+    binding:
+      key: G
+      mods: Alt
 
 mouse:
   hide_when_typing: true
