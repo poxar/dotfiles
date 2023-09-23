@@ -149,6 +149,8 @@ nnoremap [a :previous<cr>
 
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
+nnoremap <leader>ts :split<cr>:terminal<cr>:startinsert<cr>
+nnoremap <leader>tv :vsplit<cr>:terminal<cr>:startinsert<cr>
 
 augroup terminal_settings
   au! TermOpen,TermEnter * setlocal nonumber|setlocal norelativenumber
