@@ -233,6 +233,7 @@ hi! link cssImportant Bold
 " Rust {{{
 
 hi! link rustModPath Namespace
+hi! link rustModPathSep Namespace
 
 " }}}
 " PHP {{{
