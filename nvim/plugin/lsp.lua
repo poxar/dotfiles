@@ -11,7 +11,7 @@ require('fidget').setup {
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>L', function()
+vim.keymap.set('n', '<leader>l', function()
   vim.diagnostic.setloclist()
   vim.cmd("lopen")
 end)
