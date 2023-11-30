@@ -82,17 +82,11 @@ end
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 local servers = {
-  "bashls", -- pacman -S bash-language-server
   "clangd", -- pacman -S clang
-  "elmls", -- https://aur.archlinux.org/elm-language-server.git
   "rust_analyzer", -- pacman -S rust-analyzer
   "lua_ls", -- pacman -S lua-language-server
   "tsserver", -- pacman -S typescript-language-server
-  "vimls", -- https://aur.archlinux.org/vim-language-server.git
-  "vuels", -- https://aur.archlinux.org/nodejs-vls.git
   "marksman", -- pacman -S marksman
-  -- php
-  "phpactor",
   -- python
   -- pacman -S --needed ruff-lsp python-lsp-server python-lsp-black
   -- pacman -S --needed --asdeps python-pydocstyle python-rope flake8
