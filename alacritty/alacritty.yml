@@ -72,7 +72,7 @@ hints:
       mods: None
     binding:
       key: J
-      mods: Alt
+      mods: Control
   - regex: "([a-f0-9]{40})|([a-f0-9]{12})|([a-f0-9]{7})"
     action: Paste
     post_processing: true
