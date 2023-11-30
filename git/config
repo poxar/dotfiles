@@ -31,6 +31,7 @@
 [diff]
   algorithm = histogram
   indentHeuristic = true
+  mnemonicPrefix = true
 
 [difftool]
   prompt = false
