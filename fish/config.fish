@@ -1,15 +1,9 @@
 # No need for such formalities
 set -g fish_greeting
 
-if command -q nvim
-  set -xg EDITOR nvim
-  alias vim nvim
-else if command -q vim
-  set -xg EDITOR vim
-else
-  set -xg EDITOR vi
-  alias vim vi
-end
+set -xg EDITOR nvim
+abbr -ag v nvim
+abbr -ag vs nvim -S Session.vim
 
 # Use a sane browser
 set -xg BROWSER firefox

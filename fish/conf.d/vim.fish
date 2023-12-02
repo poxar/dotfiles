@@ -1,2 +1,2 @@
-abbr -ag vs vim -S Session.vim
-abbr -ag vt vim term://$SHELL
+abbr -ag v nvim
+abbr -ag vs nvim -S Session.vim
