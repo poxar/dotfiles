@@ -9,6 +9,10 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> <leader>mr :Start -wait=never cargo run<cr>
   nnoremap <buffer> <leader>md :Termdebug target/debug/
 
+  nnoremap <buffer> <leader>ec :edit Cargo.toml<cr>
+
+  command -buffer Doc :Make doc --open
+
   setlocal path+=./src
 
   let g:termdebugger = "rust-gdb"
