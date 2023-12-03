@@ -12,7 +12,7 @@ abbr -ag gco git checkout
 abbr -ag gbr git branch
 abbr -ag gf git fetch
 abbr -ag gfo git fetch origin
-abbr -ag gr git rebase
+abbr -ag grb git rebase
 abbr -ag gsu git submodule
 
 # new style checkout
@@ -20,7 +20,7 @@ abbr -ag gs git switch
 abbr -ag gsw git switch
 abbr -ag gsm git switch main
 abbr -ag gsd git switch dev
-abbr -ag grs git restore
+abbr -ag gr git restore
 
 function git \
   --description "Shorthand for git status" \
