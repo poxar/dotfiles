@@ -105,3 +105,6 @@
 [submodule "nvim/pack/misc/start/leap.nvim"]
 	path = nvim/pack/misc/start/leap.nvim
 	url = https://github.com/ggandor/leap.nvim
+[submodule "nvim/pack/misc/start/open.nvim"]
+	path = nvim/pack/misc/start/open.nvim
+	url = https://github.com/ofirgall/open.nvim
