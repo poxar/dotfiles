@@ -95,12 +95,6 @@
 [submodule "nvim/pack/misc/start/vim-dirvish"]
 	path = nvim/pack/misc/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
-[submodule "nvim/pack/dap/start/nvim-dap"]
-	path = nvim/pack/dap/start/nvim-dap
-	url = https://github.com/mfussenegger/nvim-dap
-[submodule "nvim/pack/dap/start/telescope-dap.nvim"]
-	path = nvim/pack/dap/start/telescope-dap.nvim
-	url = https://github.com/nvim-telescope/telescope-dap.nvim
 [submodule "nvim/pack/misc/start/ale"]
 	path = nvim/pack/misc/start/ale
 	url = https://github.com/dense-analysis/ale
