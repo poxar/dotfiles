@@ -230,14 +230,6 @@ vnoremap g\, :Tabularize /,\zs<cr>
 nnoremap g\= :Tabularize /=<cr>
 vnoremap g\= :Tabularize /=<cr>
 
-" Execute tests (vim-test)
-let test#strategy = "dispatch"
-nnoremap <leader>tn :TestNearest<cr>
-nnoremap <leader>tf :TestFile<cr>
-nnoremap <leader>ta :TestSuite<cr>
-nnoremap <leader>tl :TestLast<cr>
-nnoremap <leader>tg :TestVisit<cr>
-
 " Visual undotree
 let g:undotree_ShortIndicators = 1
 nnoremap yot :UndotreeToggle<cr>

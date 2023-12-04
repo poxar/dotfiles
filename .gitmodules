@@ -53,9 +53,6 @@
 [submodule "nvim/pack/misc/start/tabular"]
 	path = nvim/pack/misc/start/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "nvim/pack/misc/start/vim-test"]
-	path = nvim/pack/misc/start/vim-test
-	url = https://github.com/vim-test/vim-test
 [submodule "nvim/pack/misc/start/undotree"]
 	path = nvim/pack/misc/start/undotree
 	url = https://github.com/mbbill/undotree
