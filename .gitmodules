@@ -4,9 +4,6 @@
 [submodule "nvim/pack/tpope/start/vim-abolish"]
 	path = nvim/pack/tpope/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish
-[submodule "nvim/pack/tpope/start/vim-capslock"]
-	path = nvim/pack/tpope/start/vim-capslock
-	url = https://github.com/tpope/vim-capslock
 [submodule "nvim/pack/tpope/start/vim-obsession"]
 	path = nvim/pack/tpope/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession
