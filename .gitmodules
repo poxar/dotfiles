@@ -29,9 +29,6 @@
 [submodule "nvim/pack/telescope/start/telescope-symbols.nvim"]
 	path = nvim/pack/telescope/start/telescope-symbols.nvim
 	url = https://github.com/nvim-telescope/telescope-symbols.nvim
-[submodule "nvim/pack/telescope/start/cheatsheet.nvim"]
-	path = nvim/pack/telescope/start/cheatsheet.nvim
-	url = https://github.com/sudormrfbin/cheatsheet.nvim
 [submodule "nvim/pack/lsp/start/nvim-lspconfig"]
 	path = nvim/pack/lsp/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
