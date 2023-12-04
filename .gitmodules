@@ -28,12 +28,6 @@
 [submodule "nvim/pack/tpope/start/vim-fugitive"]
 	path = nvim/pack/tpope/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "nvim/pack/tpope/start/vim-dadbod"]
-	path = nvim/pack/tpope/start/vim-dadbod
-	url = https://github.com/tpope/vim-dadbod
-[submodule "nvim/pack/tpope/start/vim-dadbod-ui"]
-	path = nvim/pack/tpope/start/vim-dadbod-ui
-	url = https://github.com/kristijanhusak/vim-dadbod-ui
 [submodule "nvim/pack/telescope/start/telescope.nvim"]
 	path = nvim/pack/telescope/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
