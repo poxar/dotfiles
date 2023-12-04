@@ -25,6 +25,7 @@ nmap('<leader>fS', ts_builtin.spell_suggest, '[F]ind [S]pelling')
 nmap('<leader>fk', ts_builtin.keymaps, '[F]ind [K]eymappings')
 nmap('<leader>ft', ts_builtin.builtin, '[F]ind [T]elescope builtin')
 nmap('<leader>fe', ts_builtin.symbols, '[F]ind [E]moji')
+nmap('<leader>fr', ts_builtin.registers, '[F]ind [R]egister')
 
 nmap('<leader>fn', function() ts_builtin.find_files { cwd = '$HOME/Notes' } end, '[F]ind [N]otes')
 nmap('<leader>fc', function() ts_builtin.find_files { cwd = '$HOME/.config'} end, '[F]ind [C]onfiguration file')
