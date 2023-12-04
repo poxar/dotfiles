@@ -108,3 +108,6 @@
 [submodule "nvim/pack/misc/start/open.nvim"]
 	path = nvim/pack/misc/start/open.nvim
 	url = https://github.com/ofirgall/open.nvim
+[submodule "nvim/pack/lang/start/crates.nvim"]
+	path = nvim/pack/lang/start/crates.nvim
+	url = https://github.com/Saecki/crates.nvim
