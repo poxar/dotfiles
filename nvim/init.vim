@@ -241,10 +241,12 @@ vnoremap <silent> go <esc><cmd>Sort<cr>
 nnoremap <silent> go" vi"<esc><cmd>Sort<cr>
 nnoremap <silent> go' vi'<esc><cmd>Sort<cr>
 nnoremap <silent> go( vi(<esc><cmd>Sort<cr>
+nnoremap <silent> gob vib<esc><cmd>Sort<cr>
 nnoremap <silent> go) vi)<esc><cmd>Sort<cr>
 nnoremap <silent> go[ vi[<esc><cmd>Sort<cr>
 nnoremap <silent> go] vi]<esc><cmd>Sort<cr>
 nnoremap <silent> go{ vi{<esc><cmd>Sort<cr>
+nnoremap <silent> goB viB<esc><cmd>Sort<cr>
 nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
 nnoremap <silent> gop vip<esc><cmd>Sort<cr>
 
