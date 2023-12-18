@@ -3,6 +3,7 @@ window:
     x: 5
     y: 5
   dynamic_padding: true
+  opacity: .95
 
   dimensions:
     columns: 90

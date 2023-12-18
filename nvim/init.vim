@@ -58,7 +58,6 @@ set shortmess=tToOc
 set notimeout
 set termguicolors
 set guicursor+=a:Cursor
-set cursorline
 colorscheme poxar
 
 " Highlight git conflict markers

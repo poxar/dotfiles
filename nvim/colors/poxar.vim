@@ -38,7 +38,7 @@ let g:colors_name = "poxar"
 " }}}
 " General {{{
 
-hi Normal       guifg=#000000 guibg=#f4e4e1
+hi Normal       guifg=#000000 guibg=none
 hi Folded       guifg=#726b6a guibg=none
 hi Comment      guifg=#726b6a guibg=none
 hi Directory    guifg=#005fd7 guibg=none
