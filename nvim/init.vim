@@ -73,8 +73,8 @@ set spelllang=en_gb,de_20
 
 " Completion
 set omnifunc=syntaxcomplete#Complete
-set wildoptions=fuzzy,tagfile
-set wildmode=lastused:full
+set wildoptions=pum,tagfile
+set wildmode=lastused:longest:full
 set wildignorecase
 
 " Enable mouse in normal and visual modes and when viewing help files
