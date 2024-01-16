@@ -4,6 +4,11 @@ function fish_prompt
   # cwd
   echo -n (prompt_pwd)
 
+  # hostname if connected through ssh
+  if test -n "$SSH_CLIENT"
+    echo -n " $(hostname -f)"
+  end
+
   # the prompt character
   set -l prompt_char
   if fish_is_root_user
