@@ -81,18 +81,43 @@ end
 -- List of available servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
-local servers = {
-  "clangd", -- pacman -S clang
-  "rust_analyzer", -- pacman -S rust-analyzer
-  "lua_ls", -- pacman -S lua-language-server
-  "tsserver", -- pacman -S typescript-language-server
-  "marksman", -- pacman -S marksman
-  -- python
-  -- pacman -S --needed ruff-lsp python-lsp-server python-lsp-black
+local servers = {}
+
+if vim.fn.executable("clangd") == 1 then
+  -- pacman -S clang
+  table.insert(servers, "clangd");
+end
+
+if vim.fn.executable("rust-analyzer") == 1 then
+  -- pacman -S rust-analyzer
+  table.insert(servers, "rust_analyzer");
+end
+
+if vim.fn.executable("lua-language-server") == 1 then
+  -- pacman -S lua-language-server
+  table.insert(servers, "lua_ls");
+end
+
+if vim.fn.executable("tsserver") == 1 then
+  -- pacman -S typescript-language-server
+  table.insert(servers, "tsserver");
+end
+
+if vim.fn.executable("marksman") == 1 then
+  -- pacman -S marksman
+  table.insert(servers, "marksman");
+end
+
+if vim.fn.executable("ruff-lsp") == 1 then
+  -- pacman -S --needed ruff-lsp
+  table.insert(servers, "ruff_lsp");
+end
+
+if vim.fn.executable("pylsp") == 1 then
+  -- pacman -S --needed python-lsp-server python-lsp-black
   -- pacman -S --needed --asdeps python-pydocstyle python-rope flake8
-  "ruff_lsp",
-  "pylsp",
-}
+  table.insert(servers, "pylsp");
+end
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
