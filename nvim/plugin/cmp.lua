@@ -42,13 +42,13 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 snippy.setup({
-    mappings = {
-        is = {
-            ['<Tab>'] = 'expand_or_advance',
-            ['<S-Tab>'] = 'previous',
-        },
-        nx = {
-            ['<leader>x'] = 'cut_text',
-        },
+  mappings = {
+    is = {
+      ['<Tab>'] = 'expand_or_advance',
+      ['<S-Tab>'] = 'previous',
     },
+    nx = {
+      ['<leader>x'] = 'cut_text',
+    },
+  },
 })

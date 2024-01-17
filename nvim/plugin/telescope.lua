@@ -29,7 +29,7 @@ nmap('<leader>fr', ts_builtin.registers, '[F]ind [R]egister')
 
 nmap('<leader>fn', function() ts_builtin.find_files { cwd = '$HOME/Notes' } end, '[F]ind [N]otes')
 nmap('<leader>gn', function() ts_builtin.live_grep { cwd = '$HOME/Notes' } end, '[G]rep [N]otes')
-nmap('<leader>fc', function() ts_builtin.find_files { cwd = '$HOME/.config'} end, '[F]ind [C]onfiguration file')
+nmap('<leader>fc', function() ts_builtin.find_files { cwd = '$HOME/.config' } end, '[F]ind [C]onfiguration file')
 
 nmap('<leader>fv', function()
   ts_builtin.git_files {
