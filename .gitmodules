@@ -90,7 +90,7 @@
 	path = nvim/pack/misc/start/sort.nvim
 	url = https://github.com/sQVe/sort.nvim
 [submodule "nvim/pack/misc/start/dressing.nvim"]
-	path = nvim/pack/lsp/start/dressing.nvim
+	path = nvim/pack/lsp/opt/dressing.nvim/dressing.nvim
 	url = https://github.com/stevearc/dressing.nvim
 [submodule "nvim/pack/misc/start/vim-dirvish"]
 	path = nvim/pack/misc/start/vim-dirvish
