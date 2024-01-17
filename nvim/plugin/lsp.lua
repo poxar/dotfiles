@@ -79,6 +79,14 @@ local on_attach = function(client, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+-- Automatically format some filetypes
+local group = vim.api.nvim_create_augroup("lsp_autoformat", {})
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern  = { "*.rs", "*.lua", "*.py" },
+  group    = group,
+  callback = function() vim.lsp.buf.format() end,
+})
+
 -- List of available servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
