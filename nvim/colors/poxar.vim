@@ -183,9 +183,11 @@ lua << EOF
   end
 EOF
 
-hi @lsp.mod.deprecated gui=strikethrough
-hi @lsp.type.decorator guifg=#5f00d7
-hi @lsp.type.macro     guifg=#5f00d7
+if has("nvim-0.9")
+  hi @lsp.mod.deprecated gui=strikethrough
+  hi @lsp.type.decorator guifg=#5f00d7
+  hi @lsp.type.macro     guifg=#5f00d7
+endif
 
 " }}}
 " Languages {{{
