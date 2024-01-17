@@ -48,7 +48,12 @@ set fillchars=fold:\ ,vert:│
 set breakindent
 set breakindentopt=sbr
 
-set diffopt+=vertical,linematch:60
+if has("nvim-0.9")
+  set diffopt+=vertical,linematch:60
+else
+  set diffopt+=vertical
+endif
+
 set scrolloff=1
 set sidescrolloff=5
 set splitright
