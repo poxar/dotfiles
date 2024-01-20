@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+RATPOISON=${RATPOISON:-ratpoison}
+
+groups="$($RATPOISON -c "groups")"
+last_group="$(echo "$groups" | grep -E '^[0-9]+\+' | tr '+' ' ' | awk '{print $1}')"
+curr_group="$(echo "$groups" | grep -E '^[0-9]+\*' | tr '*' ' ' | awk '{print $1}')"
+
+$RATPOISON -c "setenv fg_${last_group} $($RATPOISON -c "fdump")"
+$RATPOISON -c "only"
+$RATPOISON -c "select -"
+layout="$($RATPOISON -c "getenv fg_${curr_group}")"
+if test -n "$layout"; then
+  $RATPOISON -c "frestore $layout"
+fi

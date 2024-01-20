@@ -1,0 +1,81 @@
+# sxhkd
+
+alt + semicolon ; shift + e
+  alacritty -T sxhkd -e /bin/sh -c 'nvim $XDG_CONFIG_HOME/sxhkd/sxhkdrc && pkill -SIGUSR1 sxhkd'
+
+# rofi
+
+alt + semicolon ; {_, alt + }semicolon
+  rofi -show drun
+
+alt + semicolon ; o ; e
+  rofi -show emoji
+
+alt + semicolon ; o ; s
+  rofi -show ssh
+
+alt + semicolon ; o ; v
+  clipcat-menu -f rofi
+
+# media keys
+
+XF86AudioMicMute
+  pamixer --default-source --toggle-mute && wm_notify microphone
+
+XF86AudioMute
+  pamixer --toggle-mute && wm_notify volume
+
+{_,shift + }{XF86AudioLowerVolume,XF86AudioRaiseVolume}
+  pamixer {--decrease 5,--decrease 1,--increase 5,--increase 1} && wm_notify volume
+
+{XF86AudioNext,XF86AudioPrev,XF86AudioPlay}
+  playerctl -i firefox {next,previous,play-pause} && wm_notify media
+
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+  brightnessctl set {+10%,10%-}
+
+{_,shift + }Print
+  cd ~/Pictures/Screenshots && scrot {-fs,_} -e 'xclip -selection clipboard -t image/png -i $f'
+
+# power and login
+
+alt + semicolon ; p ; {d,h,s}
+  systemctl {poweroff,hibernate,suspend}
+
+alt + semicolon ; shift + l
+  pkill dwm || pkill ratpoison
+
+alt + semicolon ; l
+  xsecurelock
+
+# applications
+
+alt + semicolon ; y
+  xcolor | tr -d '\n' | xclip -selection clipboard
+
+alt + semicolon ; c
+  wm_ror Alacritty alacritty
+
+alt + semicolon ; r
+  wm_ror Calc "alacritty --class Calc -T CALCULATOR -e qalc"
+
+alt + semicolon ; n
+  wm_ror Notes "alacritty --class Notes --working-directory $HOME/Notes -e /usr/bin/nvim Eingang.md"
+
+alt + semicolon ; b
+  wm_ror lf "alacritty --class lf -e /usr/bin/lf"
+
+alt + semicolon ; a
+  wm_ror pavucontrol
+
+alt + semicolon ; {w,f}
+  wm_ror firefox
+
+alt + semicolon ; t
+  wm_ror TelegramDesktop telegram-desktop
+
+alt + semicolon ; s
+  wm_ror Signal signal-desktop
+
+alt + semicolon ; d
+  wm_ror discord discord

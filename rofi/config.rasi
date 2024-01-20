@@ -1,0 +1,37 @@
+configuration {
+  dpi: 0;
+  show-icons: true;
+  font: "FiraCode Nerd Font Light 11";
+
+  case-sensitive: false;
+
+  modes: "window,drun,run,ssh,emoji,keys";
+  ssh-command: "{terminal} --title 'SSH: {host}' -e {ssh-client} {host} [-p {port}]";
+  drun-show-actions: true;
+
+  timeout {
+    action: "kb-cancel";
+    delay:  0;
+  }
+
+  filebrowser {
+    directories-first: true;
+    sorting-method:    "name";
+  }
+}
+
+@theme "default"
+
+* {
+  foreground: #000000;
+  background: #f4e4e1;
+
+  lightfg: #000000;
+  lightbg: #eadbd8;
+
+  selected-normal-background: #e3bcb5;
+  selected-normal-foreground: #000000;
+
+  red: #b80000;
+  blue: #005fd7;
+}

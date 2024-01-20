@@ -1,0 +1,58 @@
+#!/bin/sh
+set -eu
+
+usage() {
+  echo "Notify the currently running wm of changes in the environment"
+  echo "$0 [microphone|volume|media]"
+}
+
+wm_name() {
+  xprop -root -notype -len 100 -f _NET_WM_NAME 8t | grep '^_NET_WM_NAME' | cut -d\" -f 2
+}
+
+has_ratpoison() {
+  test "$(wm_name)" = "ratpoison"
+}
+
+notify_dwmstatus() {
+  pkill --signal USR1 dwmstatus.sh
+}
+
+microphone() {
+  if has_ratpoison; then
+    if test "$(pamixer --default-source --get-mute)" = "true"; then
+      ratpoison -c "echo Microphone muted"
+    else
+      ratpoison -c "echo Microphone LIVE"
+    fi
+  else
+    notify_dwmstatus
+  fi
+}
+
+volume() {
+  if has_ratpoison; then
+    ratpoison -c "echo Volume: $(pamixer --get-volume-human)"
+  else
+    notify_dwmstatus
+  fi
+}
+
+media() {
+  if has_ratpoison; then
+    cmd="playerctl -i firefox"
+    artist="$($cmd metadata artist)"
+    title="$($cmd metadata title)"
+    ratpoison -c "echo $artist -- $title"
+  fi
+}
+
+case "$1" in
+  "microphone") microphone ;;
+  "volume") volume ;;
+  "media") media ;;
+  *)
+    echo "Invalid argument: $1"
+    exit 1
+    ;;
+esac

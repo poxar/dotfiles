@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+RATPOISON=${RATPOISON:-ratpoison}
+
+if test -z "$1"; then
+  exit 1
+fi
+
+group="$($RATPOISON -c "groups" | grep -E '^[0-9]+\*' | tr '*' ' ' | awk '{print $1}')"
+layout="$($RATPOISON -c "getenv fs${1}g${group}")"
+$RATPOISON -c "frestore $layout"

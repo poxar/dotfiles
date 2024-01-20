@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+
+ratpoison -c "windows %n %t" \
+  | rofi -dmenu -p 'window' -i \
+  | awk '{ print $1 }' \
+  | xargs -I '{}' ratpoison -c 'select {}'
