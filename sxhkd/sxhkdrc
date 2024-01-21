@@ -1,22 +1,3 @@
-# sxhkd
-
-alt + semicolon ; shift + e
-  alacritty -T sxhkd -e /bin/sh -c 'nvim $XDG_CONFIG_HOME/sxhkd/sxhkdrc && pkill -SIGUSR1 sxhkd'
-
-# rofi
-
-alt + semicolon ; {_, alt + }semicolon
-  rofi -show drun
-
-alt + semicolon ; o ; e
-  rofi -show emoji
-
-alt + semicolon ; o ; s
-  rofi -show ssh
-
-alt + semicolon ; o ; v
-  clipcat-menu -f rofi
-
 # media keys
 
 XF86AudioMicMute
@@ -36,46 +17,3 @@ XF86AudioMute
 
 {_,shift + }Print
   cd ~/Pictures/Screenshots && scrot {-fs,_} -e 'xclip -selection clipboard -t image/png -i $f'
-
-# power and login
-
-alt + semicolon ; p ; {d,h,s}
-  systemctl {poweroff,hibernate,suspend}
-
-alt + semicolon ; shift + l
-  pkill dwm || pkill ratpoison
-
-alt + semicolon ; l
-  xsecurelock
-
-# applications
-
-alt + semicolon ; y
-  xcolor | tr -d '\n' | xclip -selection clipboard
-
-alt + semicolon ; c
-  wm_ror Alacritty alacritty
-
-alt + semicolon ; r
-  wm_ror Calc "alacritty --class Calc -T CALCULATOR -e qalc"
-
-alt + semicolon ; n
-  wm_ror Notes "alacritty --class Notes --working-directory $HOME/Notes -e /usr/bin/nvim Eingang.md"
-
-alt + semicolon ; b
-  wm_ror lf "alacritty --class lf -e /usr/bin/lf"
-
-alt + semicolon ; a
-  wm_ror pavucontrol
-
-alt + semicolon ; {w,f}
-  wm_ror firefox
-
-alt + semicolon ; t
-  wm_ror TelegramDesktop telegram-desktop
-
-alt + semicolon ; s
-  wm_ror Signal signal-desktop
-
-alt + semicolon ; d
-  wm_ror discord discord

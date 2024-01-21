@@ -39,6 +39,9 @@ bind C-j exchangedown
 bind C-k exchangeup
 bind C-l exchangeright
 
+bind o other
+bind O cother
+bind C-o iother
 bind n next
 bind N cnext
 bind C-n inext
@@ -59,7 +62,6 @@ bind C-a date
 bind L redisplay
 bind K delete
 bind z windows
-bind o only
 bind d remove
 bind R resize
 
@@ -87,6 +89,8 @@ bind t exec rp_layout_restore 5
 
 bind b exec ratpoison -c "echo $(acpi)"
 bind v exec rp_select_window
+bind apostrophe exec rp_select_window
+bind C-apostrophe exec rp_select_window
 
 definekey top M-Tab other
 definekey top M-Escape focus
@@ -101,10 +105,48 @@ addhook switchgroup exec rp_group_layout
 # apply window rules
 addhook newwindow exec rp_window_rules
 
+# run or raise
+alias ror exec rp_ror
+
+# application shortcuts
+newkmap app
+definekey app Escape abort
+
+definekey top M-semicolon readkey app
+definekey app M-semicolon exec rofi -show drun
+definekey app semicolon exec rofi -show drun
+
+definekey app p exec rofi -show drun
+definekey app P exec rofi -show run
+definekey app e exec rofi -show emoji
+definekey app S exec rofi -show ssh
+definekey app v exec clipcat-menu -f rofi
+definekey app y exec xcolor -s clipboard
+
+definekey app c ror Alacritty alacritty
+definekey app r ror calc
+definekey app n ror notes
+definekey app b ror glf
+definekey app a ror pavucontrol
+definekey app w ror firefox
+definekey app f ror firefox
+definekey app t ror TelegramDesktop telegram-desktop
+definekey app s ror Signal signal-desktop
+definekey app d ror discord
+
+# power & logout
+alias poweroff exec systemctl poweroff
+alias hibernate exec systemctl hibernate
+alias suspend exec systemctl suspend
+alias logout quit
+alias lock exec xsecurelock
+
+# window manager management
 alias dwm tmpwm $HOME/Code/dwm/dwm
 alias edit exec alacritty -T ratpoisonrc -e /usr/bin/nvim $HOME/.ratpoisonrc
 # we need to use exec to resolve $HOME
-alias reload exec ratpoison -c "source $HOME/.ratpoisonrc"
+alias reload exec ratpoison -c "source $XDG_CONFIG_HOME/ratpoisonrc"
 bind r reload
 
+exec rp_sloppymove
 echo init done

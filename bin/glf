@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+
+exec alacritty --class glf --title lf --command lf
