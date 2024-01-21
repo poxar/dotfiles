@@ -5,9 +5,11 @@ configuration {
 
   case-sensitive: false;
 
-  modes: "window,drun,run,ssh,emoji,keys";
-  ssh-command: "{terminal} --title 'SSH: {host}' -e {ssh-client} {host} [-p {port}]";
+  modes: "combi,emoji,ssh";
+  combi-modes: "drun,run";
   drun-show-actions: true;
+
+  ssh-command: "{terminal} --title 'SSH: {host}' -e {ssh-client} {host} [-p {port}]";
 
   timeout {
     action: "kb-cancel";
@@ -18,6 +20,11 @@ configuration {
     directories-first: true;
     sorting-method:    "name";
   }
+
+  kb-mode-next: "Tab";
+  kb-mode-prev: "";
+  kb-element-next: "";
+  kb-element-prev: "";
 }
 
 @theme "default"
