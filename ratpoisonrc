@@ -131,6 +131,7 @@ definekey app f ror firefox
 definekey app t ror TelegramDesktop telegram-desktop
 definekey app s ror Signal signal-desktop
 definekey app d ror discord
+definekey app m ror Spotify spotify-launcher
 
 # power & logout
 alias poweroff exec systemctl poweroff
