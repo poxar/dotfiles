@@ -97,9 +97,6 @@ definekey top M-Escape focus
 definekey top M-q cnext
 definekey top M-w inext
 
-# show more info on switch
-addhook switchwin info [%n] %t
-addhook switchframe info [%n] %t
 # save layout for each group and restore on switch
 addhook switchgroup exec rp_group_layout
 # apply window rules
