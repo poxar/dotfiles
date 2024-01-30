@@ -110,6 +110,7 @@ definekey top M-semicolon readkey app
 definekey app M-semicolon exec rofi -show combi
 definekey app semicolon exec rofi -show combi
 
+definekey app j exec warpd --hint
 definekey app p exec rofi -show combi
 definekey app e exec rofi -show emoji
 definekey app S exec rofi -show ssh
