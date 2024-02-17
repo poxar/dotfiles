@@ -5,28 +5,9 @@
 [github]
   user = poxar
 
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-  interactive = auto
-  ui = true
-  pager = true
-
 [status]
   short = true
   branch = true
-
-[advice]
-  pushNonFastForward = false
-  statusHints = false
-  commitBeforeMerge = false
-  resolveConflict = false
-  implicitIdentity = false
-  detachedHead = false
-
-[core]
-  autocrlf = input
 
 [diff]
   algorithm = histogram
@@ -50,10 +31,6 @@
 
 [fetch]
   parallel = 0
-
-[include]
-  path = tokens
-  path = local.config
 
 [alias]
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
