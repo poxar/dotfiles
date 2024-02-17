@@ -49,6 +49,7 @@ bind p prev
 bind P cprev
 bind C-p iprev
 
+bind m only
 bind s hsplit
 bind C-s hsplit 2/3
 bind S vsplit
@@ -76,15 +77,15 @@ definekey gee c gselect chat
 bind bracketleft gprev
 bind bracketright gnext
 
-bind C-q exec rp_layout_store 1
+bind Q exec rp_layout_store 1
 bind q exec rp_layout_restore 1
-bind C-w exec rp_layout_store 2
+bind W exec rp_layout_store 2
 bind w exec rp_layout_restore 2
-bind C-e exec rp_layout_store 3
+bind E exec rp_layout_store 3
 bind e exec rp_layout_restore 3
-bind C-r exec rp_layout_store 4
+bind R exec rp_layout_store 4
 bind r exec rp_layout_restore 4
-bind C-t exec rp_layout_store 5
+bind T exec rp_layout_store 5
 bind t exec rp_layout_restore 5
 
 bind b exec ratpoison -c "echo $(acpi)"
