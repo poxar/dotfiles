@@ -49,7 +49,7 @@ regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|g
 command = "xdg-open"
 hyperlinks = true
 post_processing = true
-binding = { key = "J", mods = "Control" }
+binding = { key = "J", mods = "Alt" }
 mouse = { enabled = true, mods = "None" }
 
 # quickly paste git sha on screen
