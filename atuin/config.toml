@@ -6,4 +6,6 @@ history_filter = [
   "^ls ",
   "^cd$",
   "^cd ",
+  "^c$",
+  "^c ",
 ]
