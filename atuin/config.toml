@@ -1,0 +1,9 @@
+show_help = false
+sync_frequency = "10m"
+
+history_filter = [
+  "^ls$",
+  "^ls ",
+  "^cd$",
+  "^cd ",
+]
