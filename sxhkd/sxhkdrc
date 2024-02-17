@@ -16,4 +16,4 @@ XF86AudioMute
   brightnessctl set {+10%,10%-}
 
 {_,shift + }Print
-  cd ~/Pictures/Screenshots && scrot {-fs,_} -e 'xclip -selection clipboard -t image/png -i $f'
+  flameshot {gui,full}
