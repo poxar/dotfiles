@@ -9,10 +9,26 @@
   short = true
   branch = true
 
+[branch]
+  sort = -committerdate
+
+[rerere]
+  enabled = true
+
+[merge]
+  conflictStyle = zdiff3
+  keepBackup = false
+  tool = nvimdiff
+
+[rebase]
+  autoSquash = true
+  missingCommitsCheck = error
+
 [diff]
   algorithm = histogram
   indentHeuristic = true
   mnemonicPrefix = true
+  tool = nvimdiff
 
 [difftool]
   prompt = false
@@ -25,12 +41,15 @@
 
 [push]
   autoSetupRemote = true
+  followTags = true
 
 [commit]
   verbose = true
 
 [fetch]
   parallel = 0
+  writeCommitGraph = true
+  prune = true
 
 [alias]
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
