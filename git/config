@@ -53,6 +53,7 @@
 
 [alias]
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
+  ll = log --pretty=oneline --abbrev-commit --decorate=auto
   ls = ls-files
   pub = push -u origin
   undo = reset --soft HEAD~1
