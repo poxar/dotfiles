@@ -1,0 +1,17 @@
+set shell sh
+set cursorpreviewfmt ""
+
+set previewer pistol
+
+cmd mkdir %IFS=" "; mkdir -- "$*"
+map a push :mkdir<space>
+
+setlocal ~/Downloads sortby time
+setlocal ~/Downloads reverse
+
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+map C edit-config
