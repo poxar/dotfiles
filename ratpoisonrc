@@ -141,7 +141,7 @@ alias lock exec xsecurelock
 
 # window manager management
 alias dwm tmpwm $HOME/Code/dwm/dwm
-alias edit exec alacritty -T ratpoisonrc -e /usr/bin/nvim $HOME/.ratpoisonrc
+alias edit exec alacritty -T ratpoisonrc -e /usr/bin/nvim $XDG_CONFIG_HOME/.ratpoisonrc
 # we need to use exec to resolve $HOME
 alias reload exec ratpoison -c "source $XDG_CONFIG_HOME/ratpoisonrc"
 
