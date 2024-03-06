@@ -64,7 +64,7 @@ bind L redisplay
 bind K delete
 bind z windows
 bind d remove
-bind R resize
+bind U redo
 
 newkmap gee
 bind g readkey gee
