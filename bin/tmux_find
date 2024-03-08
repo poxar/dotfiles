@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+
+project="$(find ~/Code -mindepth 1 -maxdepth 1 -type d | sk)"
+
+if test -z "$project"; then
+  exit 0
+fi
+
+name="$(basename "$project" | tr . _)"
+
+if test -z "$TMUX"; then
+  tmux new-session -s "$name" -c "$project"
+  exit 0
+fi
+
+if ! tmux has-session -t="$name" 2> /dev/null; then
+  tmux new-session -ds "$name" -c "$project" 
+fi
+
+tmux switch-client -t "$name"
