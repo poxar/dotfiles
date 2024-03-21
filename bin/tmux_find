@@ -9,6 +9,14 @@ fi
 
 name="$(basename "$project" | tr . _)"
 
+if test -f "$project/.tmuxp.yaml" \
+  || test -f "$project/.tmuxp.yml" \
+  || test -f "$project/.tmuxp.json"
+then
+  tmuxp load -y "$project"
+  exit 0
+fi
+
 if test -z "$TMUX"; then
   tmux new-session -s "$name" -c "$project"
   exit 0
