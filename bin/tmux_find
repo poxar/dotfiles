@@ -1,5 +1,12 @@
 #!/bin/sh
-set -eu
+set -e
+
+if test -z "$TMUX"; then
+  echo "Launch the default session first: tmux new-session -As default"
+  exit 1
+fi
+
+set -u
 
 project="$(find ~/Code -mindepth 1 -maxdepth 1 -type d | sk)"
 
@@ -17,13 +24,13 @@ then
   exit 0
 fi
 
-if test -z "$TMUX"; then
-  tmux new-session -s "$name" -c "$project"
-  exit 0
-fi
-
+# session does not exist, create a new one
 if ! tmux has-session -t="$name" 2> /dev/null; then
   tmux new-session -ds "$name" -c "$project" 
+
+  if test -f "$project/Session.vim"; then
+    tmux send-keys -lt "$name:1" "nvim -S Session.vim"
+  fi
 fi
 
-tmux switch-client -t "$name"
+exec tmux switch-client -t "$name"
