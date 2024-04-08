@@ -86,6 +86,14 @@ set wildignorecase
 " Enable mouse in normal and visual modes and when viewing help files
 set mouse=nvh
 
+" Autosave
+set autoread
+set autowriteall
+augroup autowrite
+  au! InsertLeave * silent! write
+  au! TextChanged * silent! write
+augroup END
+
 " Mappings {{{1
 
 inoremap <c-f> <c-x><c-f>
