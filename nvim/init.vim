@@ -273,5 +273,7 @@ iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
 iabbrev shrg ¯\_(ツ)_/¯
 
+cabbrev Q quit
+
 cabbrev dg diffget
 cabbrev dp diffput
