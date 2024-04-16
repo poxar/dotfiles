@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local snippy = require('snippy')
+local autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup({
   snippet = {
@@ -37,6 +38,9 @@ cmp.setup({
     { name = 'nvim_lsp_signature_help' },
   }),
 })
+
+-- Insert ( after select function or method item
+cmp.event:on('confirm_done', autopairs.on_confirm_done())
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
