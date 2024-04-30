@@ -11,3 +11,6 @@ history_filter = [
   "^c$",
   "^c ",
 ]
+
+[sync]
+records = true
