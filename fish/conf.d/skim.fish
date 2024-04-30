@@ -40,4 +40,16 @@ if command -q sk
     end
   end
   bind \er __skim_history
+
+  # search through git history
+  function __skim_git_history
+    set -l hash ( \
+      git log --date=short --color=always --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" \
+      | sk --ansi --preview 'echo {} | grep -o "[a-f0-9]\{7,\}" | head -n 1 | xargs git show --color=always' \
+      | awk 'match($0, /[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]*/) { print substr($0, RSTART, RLENGTH) }' \
+    )
+
+    commandline --append $hash
+  end
+  bind \eh __skim_git_history
 end
