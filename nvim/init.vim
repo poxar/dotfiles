@@ -5,6 +5,8 @@
 "
 
 " Settings {{{1
+scriptencoding utf-8
+
 set undofile
 set nomodeline
 
@@ -48,7 +50,7 @@ set fillchars=fold:\ ,vert:│
 set breakindent
 set breakindentopt=sbr
 
-if has("nvim-0.9")
+if has('nvim-0.9')
   set diffopt+=vertical,linematch:60
 else
   set diffopt+=vertical
@@ -230,8 +232,8 @@ nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>g<space> :Git<space>
 
 " snippets
-let g:snips_author = "Philipp Millar"
-let g:snips_email = "philipp.millar@poxar.net"
+let g:snips_author = 'Philipp Millar'
+let g:snips_email = 'philipp.millar@poxar.net'
 
 " operate on tables (godlygeek/tabular)
 nnoremap g= :Tabularize /

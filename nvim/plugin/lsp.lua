@@ -36,7 +36,7 @@ vim.cmd('sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn lineh
 vim.cmd('sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo linehl= numhl=')
 vim.cmd('sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint linehl= numhl=')
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local function nmap(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
