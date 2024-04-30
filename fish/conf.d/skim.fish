@@ -20,7 +20,7 @@ if command -q sk
       commandline --is-valid; and commandline -f execute
     end
   end
-  bind \cg __skim_grep
+  bind \eg __skim_grep
 
   # quickly cd into directory
   function __skim_cd
