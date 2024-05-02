@@ -43,6 +43,5 @@ nmap('<leader>fsn', function()
 end, '[F]ind [Sn]ippets')
 
 nmap('<leader>gb', ts_builtin.git_branches, 'find [G]it [B]ranches')
-nmap('<leader>gB', ts_builtin.git_branches, 'find [G]it [B]ranches for current file')
 nmap('<leader>gh', ts_builtin.git_commits, 'find [G]it [H]istory')
 nmap('<leader>gf', ts_builtin.git_status, 'find [G]it changed [F]iles')

@@ -229,6 +229,7 @@ let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gdiffsplit<cr>
 nnoremap <leader>gc :Git commit<cr>
+nnoremap <leader>gl :Git ll<cr>
 nnoremap <leader>g<space> :Git<space>
 
 " snippets
@@ -251,7 +252,6 @@ nnoremap yot :UndotreeToggle<cr>
 
 " Better :sort
 lua require('sort').setup {}
-nnoremap <silent> go <cmd>Sort<cr>
 vnoremap <silent> go <esc><cmd>Sort<cr>
 nnoremap <silent> go" vi"<esc><cmd>Sort<cr>
 nnoremap <silent> go' vi'<esc><cmd>Sort<cr>
