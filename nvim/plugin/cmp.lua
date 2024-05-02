@@ -37,6 +37,7 @@ cmp.setup({
     { name = 'snippy' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'crates' },
+    { name = 'path' },
   }),
 })
 
