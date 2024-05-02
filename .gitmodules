@@ -32,9 +32,6 @@
 [submodule "nvim/pack/lsp/start/nvim-lspconfig"]
 	path = nvim/pack/lsp/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
-[submodule "nvim/pack/lsp/start/neodev.nvim"]
-	path = nvim/pack/lsp/start/neodev.nvim
-	url = https://github.com/folke/neodev.nvim
 [submodule "nvim/pack/misc/start/plenary.nvim"]
 	path = nvim/pack/misc/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
