@@ -105,12 +105,6 @@
 [submodule "nvim/pack/lang/start/crates.nvim"]
 	path = nvim/pack/lang/start/crates.nvim
 	url = https://github.com/Saecki/crates.nvim
-[submodule "nvim/pack/lang/start/nvim-treesitter"]
-	path = nvim/pack/lang/opt/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter
-[submodule "nvim/pack/lang/start/playground"]
-	path = nvim/pack/lang/opt/playground
-	url = https://github.com/nvim-treesitter/playground
 [submodule "nvim/pack/cmp/start/cmp-nvim-lsp-signature-help"]
 	path = nvim/pack/cmp/start/cmp-nvim-lsp-signature-help
 	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
