@@ -96,6 +96,13 @@ augroup autowrite
   au! TextChanged * silent! write
 augroup END
 
+" Helpers {{{1
+
+" Only expand abbreviation in : prompts, and not for example in a search prompt
+function! Cabbrev(lhs, rhs) abort
+  exe 'cnoreabbrev <expr> '.a:lhs.' (getcmdtype() == ":") ? "'.a:rhs.'" : "'.a:lhs'"'
+endfunction
+
 " Mappings {{{1
 
 inoremap <c-f> <c-x><c-f>
@@ -177,7 +184,7 @@ cnoremap <c-a> <home>
 cnoremap <c-x><c-a> <c-a>
 
 " toggles
-function! s:toggle_map(letter, option) abort
+function s:toggle_map(letter, option) abort
   let set_on = '"setlocal '.a:option.'"'
   let set_off = '"setlocal no'.a:option.'"'
   exe 'nnoremap yo'.a:letter.' :<c-u><c-r>=&'.a:option.' ? '.set_off.' : '.set_on.'<cr><cr>'

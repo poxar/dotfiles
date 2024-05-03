@@ -27,10 +27,10 @@ command! -nargs=+ -complete=file_in_path -bar Grep  cgetexpr Grep(<f-args>)
 command! -nargs=+ -complete=file_in_path -bar LGrep lgetexpr Grep(<f-args>)
 
 " Automatically use the silent grep version
-cnoreabbrev grep Grep
-cnoreabbrev gr Grep
-cnoreabbrev lgrep LGrep
-cnoreabbrev lgr LGrep
+call Cabbrev('grep', 'Grep')
+call Cabbrev('gr', 'Grep')
+call Cabbrev('lgrep', 'LGrep')
+call Cabbrev('lgr', 'LGrep')
 
 " Open the quickfix window automatically
 " This only opens the window if there are valid entries
