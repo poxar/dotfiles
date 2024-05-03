@@ -218,6 +218,7 @@ command! -range=% XmlPP :<line1>,<line2>!xmllint --format -
 
 " Plugins {{{1
 
+call Cabbrev('man', 'Man')
 let $MANWIDTH = 80
 let g:man_hardwrap = 1
 let g:termdebug_wide = 1
