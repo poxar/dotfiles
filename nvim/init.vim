@@ -230,8 +230,19 @@ let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gdiffsplit<cr>
 nnoremap <leader>gc :Git commit<cr>
+nnoremap <leader>ga :Git commit --amend<cr>
 nnoremap <leader>gl :Git ll<cr>
-nnoremap <leader>g<space> :Git<space>
+
+call Cabbrev('g', 'Git')
+call Cabbrev('gc', 'Git commit')
+call Cabbrev('gca', 'Git commit --amend')
+call Cabbrev('gd', 'Gitdiffsplit')
+call Cabbrev('gdo', 'Git diff origin')
+call Cabbrev('gco', 'Git checkout')
+call Cabbrev('gp', 'Git pull')
+call Cabbrev('gP', 'Git push')
+call Cabbrev('gs', 'Git switch')
+call Cabbrev('gsm', 'Git switch main')
 
 " snippets
 let g:snips_author = 'Philipp Millar'
