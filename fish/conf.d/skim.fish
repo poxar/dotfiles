@@ -49,7 +49,7 @@ if command -q sk
       | awk 'match($0, /[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]*/) { print substr($0, RSTART, RLENGTH) }' \
     )
 
-    commandline --append $hash
+    commandline --insert $hash
   end
   bind \eh __skim_git_history
 end
