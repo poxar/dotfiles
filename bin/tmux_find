@@ -27,7 +27,8 @@ fi
 # session does not exist, create a new one
 if ! tmux has-session -t="$name" 2> /dev/null; then
   if test -f "$project/Session.vim"; then
-    tmux new-session -ds "$name" -c "$project" "nvim -S Session.vim"
+    tmux new-session -ds "$name" -c "$project"
+    tmux send-keys -t "$name" "nvim -S Session.vim"
   else
     tmux new-session -ds "$name" -c "$project"
   fi
