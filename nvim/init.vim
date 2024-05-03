@@ -140,14 +140,15 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 
 " Quickly edit notes inbox
 nnoremap <leader>en :edit ~/Notes/Eingang.md<cr>
-nnoremap <leader>cn :lcd ~/Notes<cr>
 
 " Operate on the directory of the current file
 nnoremap <leader>e.  :edit <c-r>=expand("%:p:h") . "/" <cr>
 cabbrev <expr> %% expand('%:p:h')
 
-" Close all temporary windows (quickfix, locationlist, preview)
+" Close/open temporary windows (quickfix, locationlist, preview)
 nnoremap <leader>q :pclose\|cclose\|lclose<cr>
+nnoremap <leader>c :botright copen<cr>
+nnoremap <leader>l :botright lopen<cr>
 
 nnoremap [Q :cfirst<cr>
 nnoremap ]Q :clast<cr>
@@ -188,13 +189,6 @@ call <sid>toggle_map('r', 'relativenumber')
 call <sid>toggle_map('s', 'spell')
 
 nnoremap yod :<c-u><c-r>=&diff ? "diffoff" : "diffthis"<cr><cr>
-
-" show highlighting group under cursor
-function! SynGroup()
-    let l:s = synID(line('.'), col('.'), 1)
-    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
-nnoremap <leader>cc :call SynGroup()<cr>
 
 " Commands {{{1
 

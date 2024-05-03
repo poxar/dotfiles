@@ -13,7 +13,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>l', function()
   vim.diagnostic.setloclist()
-  vim.cmd("lopen")
+  vim.cmd("botright lopen")
 end)
 
 vim.diagnostic.config({
@@ -58,9 +58,8 @@ local on_attach = function(_, bufnr)
   nmap('<leader>sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols in [D]ocument')
   nmap('<leader>sw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols in [W]orkspace')
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-  nmap('ga', vim.lsp.buf.code_action, 'Code [A]ction')
+  nmap('cd', vim.lsp.buf.rename, 'Rename symbol')
+  nmap('ga', vim.lsp.buf.code_action, 'Run code action')
 
   nmap('K', vim.lsp.buf.hover, 'Hover documentation')
   nmap('gK', 'K', 'keywordprg documentation')
