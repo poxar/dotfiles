@@ -26,6 +26,7 @@ tags
 .envrc
 .direnv
 .vimrc.local
+.rgrc
 
 # other
 TODO
