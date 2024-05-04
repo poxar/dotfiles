@@ -108,9 +108,6 @@ endfunction
 inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
-nnoremap gh 0
-nnoremap gl $
-nnoremap gs _
 
 " Simpler redo
 nnoremap U <c-r>
