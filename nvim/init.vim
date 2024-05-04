@@ -196,6 +196,9 @@ nnoremap yod :<c-u><c-r>=&diff ? "diffoff" : "diffthis"<cr><cr>
 
 " Commands {{{1
 
+" Fix :Q typo
+command! Q q
+
 " Strip trailing whitespace
 command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
@@ -284,8 +287,6 @@ let g:ale_virtualtext_cursor = 'disabled'
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
 iabbrev shrg ¯\_(ツ)_/¯
-
-cabbrev Q quit
 
 cabbrev dg diffget
 cabbrev dp diffput
