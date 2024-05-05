@@ -277,6 +277,7 @@ nnoremap <silent> go{ vi{<esc><cmd>Sort<cr>
 nnoremap <silent> goB viB<esc><cmd>Sort<cr>
 nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
 nnoremap <silent> gop vip<esc><cmd>Sort<cr>
+nnoremap <silent> goi vii<esc><cmd>Sort<cr>
 
 " Automatically run linters
 let g:ale_disable_lsp = 1
