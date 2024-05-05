@@ -232,12 +232,12 @@ nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gdiffsplit<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>ga :Git commit --amend<cr>
-nnoremap <leader>gl :Git ll<cr>
+nnoremap <leader>gl :Git ll %<cr>
 
-call Cabbrev('g', 'Git')
 call Cabbrev('gc', 'Git commit')
 call Cabbrev('gca', 'Git commit --amend')
 call Cabbrev('gd', 'Gitdiffsplit')
+call Cabbrev('gll', 'Git ll')
 call Cabbrev('gdo', 'Git diff origin')
 call Cabbrev('gco', 'Git checkout')
 call Cabbrev('gp', 'Git pull')
