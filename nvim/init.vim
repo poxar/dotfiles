@@ -279,11 +279,6 @@ nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
 nnoremap <silent> gop vip<esc><cmd>Sort<cr>
 nnoremap <silent> goi vii<esc><cmd>Sort<cr>
 
-" Automatically run linters
-let g:ale_disable_lsp = 1
-let g:ale_use_neovim_diagnostics_api = 1
-let g:ale_virtualtext_cursor = 'disabled'
-
 " Abbreviations {{{1
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ

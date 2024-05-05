@@ -89,9 +89,6 @@
 [submodule "nvim/pack/misc/start/vim-dirvish"]
 	path = nvim/pack/misc/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
-[submodule "nvim/pack/misc/start/ale"]
-	path = nvim/pack/misc/start/ale
-	url = https://github.com/dense-analysis/ale
 [submodule "nvim/pack/lsp/start/fidget.nvim"]
 	path = nvim/pack/lsp/start/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
@@ -120,3 +117,6 @@
 [submodule "nvim/pack/misc/start/vim-indent-object"]
 	path = nvim/pack/misc/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
+[submodule "nvim/pack/lsp/start/none-ls.nvim"]
+	path = nvim/pack/lsp/start/none-ls.nvim
+	url = https://github.com/nvimtools/none-ls.nvim

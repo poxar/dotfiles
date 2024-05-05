@@ -11,7 +11,7 @@ require('fidget').setup {
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>l', function()
+vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.setloclist()
   vim.cmd("botright lopen")
 end)
@@ -70,17 +70,27 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
 end
+
+vim.api.nvim_create_user_command('Format', function(_)
+  vim.lsp.buf.format()
+end, { desc = 'Format current buffer with LSP' })
+vim.keymap.set('n', 'f<cr>', vim.lsp.buf.format)
 
 -- Automatically format some filetypes
 local group = vim.api.nvim_create_augroup("lsp_autoformat", {})
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern  = { "*.rs", "*.lua", "*.py" },
+  pattern  = {
+    "*.rs",
+    "*.lua",
+    "*.py",
+    "*.sh",
+    "*.bash",
+    "*.html",
+    "*.js",
+    "*.ts",
+    "*.css",
+  },
   group    = group,
   callback = function() vim.lsp.buf.format() end,
 })
@@ -90,40 +100,44 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 local servers = {}
 
+-- c family
 if vim.fn.executable("clangd") == 1 then
-  -- pacman -S clang
   table.insert(servers, "clangd");
 end
 
+-- rust
 if vim.fn.executable("rust-analyzer") == 1 then
-  -- pacman -S rust-analyzer
   table.insert(servers, "rust_analyzer");
 end
 
+-- lua
 if vim.fn.executable("lua-language-server") == 1 then
-  -- pacman -S lua-language-server
   table.insert(servers, "lua_ls");
 end
 
-if vim.fn.executable("tsserver") == 1 then
-  -- pacman -S typescript-language-server
+-- typescript
+if vim.fn.executable("typescript-language-server") == 1 then
   table.insert(servers, "tsserver");
 end
 
+-- javascript/typescript
+if vim.fn.executable("vscode-eslint-language-server") == 1 then
+  table.insert(servers, "eslint");
+end
+
+-- markdown
 if vim.fn.executable("marksman") == 1 then
-  -- pacman -S marksman
   table.insert(servers, "marksman");
 end
 
+-- python
 if vim.fn.executable("ruff-lsp") == 1 then
-  -- pacman -S --needed ruff-lsp
   table.insert(servers, "ruff_lsp");
 end
 
-if vim.fn.executable("pylsp") == 1 then
-  -- pacman -S --needed python-lsp-server python-lsp-black
-  -- pacman -S --needed --asdeps python-pydocstyle python-rope flake8
-  table.insert(servers, "pylsp");
+-- sh/bash
+if vim.fn.executable("bash-language-server") == 1 then
+  table.insert(servers, "bashls");
 end
 
 for _, lsp in ipairs(servers) do
@@ -137,6 +151,21 @@ for _, lsp in ipairs(servers) do
       ["Lua"] = {
         diagnostics = { globals = { 'vim' } }
       },
+      ["eslint"] = {
+        format = false,
+      },
     },
   }
 end
+
+local null_ls = require('null-ls')
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.alex,        -- rude wording
+    null_ls.builtins.diagnostics.fish,
+    null_ls.builtins.diagnostics.trail_space, -- trailing spaces in lines
+    null_ls.builtins.diagnostics.vint,        -- vimL
+    null_ls.builtins.formatting.prettier,     -- html/css/js/ts
+    null_ls.builtins.formatting.shfmt,        -- sh/bash
+  }
+})
