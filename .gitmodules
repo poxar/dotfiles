@@ -1,58 +1,33 @@
-[submodule "nvim/pack/tpope/start/vim-eunuch"]
-	path = nvim/pack/tpope/start/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch
-[submodule "nvim/pack/tpope/start/vim-obsession"]
-	path = nvim/pack/tpope/start/vim-obsession
-	url = https://github.com/tpope/vim-obsession
-[submodule "nvim/pack/tpope/start/vim-surround"]
-	path = nvim/pack/tpope/start/vim-surround
-	url = https://github.com/tpope/vim-surround
-[submodule "nvim/pack/tpope/start/vim-endwise"]
-	path = nvim/pack/tpope/start/vim-endwise
-	url = https://github.com/tpope/vim-endwise
-[submodule "nvim/pack/tpope/start/vim-repeat"]
-	path = nvim/pack/tpope/start/vim-repeat
-	url = https://github.com/tpope/vim-repeat
-[submodule "nvim/pack/tpope/start/vim-commentary"]
-	path = nvim/pack/tpope/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
-[submodule "nvim/pack/tpope/start/vim-dispatch"]
-	path = nvim/pack/tpope/start/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch
-[submodule "nvim/pack/tpope/start/vim-fugitive"]
-	path = nvim/pack/tpope/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "nvim/pack/telescope/start/telescope.nvim"]
-	path = nvim/pack/telescope/start/telescope.nvim
-	url = https://github.com/nvim-telescope/telescope.nvim
-	branch = 0.1.x
-[submodule "nvim/pack/telescope/start/telescope-symbols.nvim"]
-	path = nvim/pack/telescope/start/telescope-symbols.nvim
-	url = https://github.com/nvim-telescope/telescope-symbols.nvim
-[submodule "nvim/pack/lsp/start/nvim-lspconfig"]
-	path = nvim/pack/lsp/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
-[submodule "nvim/pack/misc/start/plenary.nvim"]
-	path = nvim/pack/misc/start/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim
-[submodule "nvim/pack/cmp/start/nvim-cmp"]
-	path = nvim/pack/cmp/start/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp
+## Autocompletion framework & snippet engine
 [submodule "nvim/pack/cmp/start/cmp-nvim-lsp"]
 	path = nvim/pack/cmp/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
-[submodule "nvim/pack/cmp/start/nvim-snippy"]
-	path = nvim/pack/cmp/start/nvim-snippy
-	url = https://github.com/dcampos/nvim-snippy
+[submodule "nvim/pack/cmp/start/cmp-nvim-lsp-signature-help"]
+	path = nvim/pack/cmp/start/cmp-nvim-lsp-signature-help
+	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+[submodule "nvim/pack/cmp/start/cmp-nvim-lua"]
+	path = nvim/pack/cmp/start/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua
+[submodule "nvim/pack/cmp/start/cmp-path"]
+	path = nvim/pack/cmp/start/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
 [submodule "nvim/pack/cmp/start/cmp-snippy"]
 	path = nvim/pack/cmp/start/cmp-snippy
 	url = https://github.com/dcampos/cmp-snippy
-[submodule "nvim/pack/misc/start/tabular"]
-	path = nvim/pack/misc/start/tabular
-	url = https://github.com/godlygeek/tabular
-[submodule "nvim/pack/misc/start/undotree"]
-	path = nvim/pack/misc/start/undotree
-	url = https://github.com/mbbill/undotree
+[submodule "nvim/pack/cmp/start/nvim-cmp"]
+	path = nvim/pack/cmp/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "nvim/pack/cmp/start/nvim-snippy"]
+	path = nvim/pack/cmp/start/nvim-snippy
+	url = https://github.com/dcampos/nvim-snippy
+
+## Language support
+[submodule "nvim/pack/lang/start/crates.nvim"]
+	path = nvim/pack/lang/start/crates.nvim
+	url = https://github.com/Saecki/crates.nvim
+[submodule "nvim/pack/lang/start/vala-lang"]
+	path = nvim/pack/lang/start/vala-lang
+	url = https://github.com/vala-lang/vala.vim
 [submodule "nvim/pack/lang/start/vim-caddyfile"]
 	path = nvim/pack/lang/start/vim-caddyfile
 	url = https://github.com/isobit/vim-caddyfile
@@ -74,52 +49,109 @@
 [submodule "nvim/pack/lang/start/vim-systemd-syntax"]
 	path = nvim/pack/lang/start/vim-systemd-syntax
 	url = https://github.com/wgwoods/vim-systemd-syntax
-[submodule "nvim/pack/lang/start/vala-lang"]
-	path = nvim/pack/lang/start/vala-lang
-	url = https://github.com/vala-lang/vala.vim
-[submodule "nvim/pack/misc/start/direnv.vim"]
-	path = nvim/pack/misc/start/direnv.vim
-	url = https://github.com/direnv/direnv.vim
-[submodule "nvim/pack/misc/start/nvim-autopairs"]
-	path = nvim/pack/misc/start/nvim-autopairs
-	url = https://github.com/windwp/nvim-autopairs
-[submodule "nvim/pack/misc/start/sort.nvim"]
-	path = nvim/pack/misc/start/sort.nvim
-	url = https://github.com/sQVe/sort.nvim
-[submodule "nvim/pack/misc/start/vim-dirvish"]
-	path = nvim/pack/misc/start/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish
+
+## LSP support
+[submodule "nvim/pack/lsp/opt/dressing.nvim"]
+	path = nvim/pack/lsp/opt/dressing.nvim
+	url = https://github.com/stevearc/dressing.nvim
 [submodule "nvim/pack/lsp/start/fidget.nvim"]
 	path = nvim/pack/lsp/start/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
 	branch = legacy
-[submodule "nvim/pack/misc/start/leap.nvim"]
-	path = nvim/pack/misc/start/leap.nvim
-	url = https://github.com/ggandor/leap.nvim
-[submodule "nvim/pack/misc/start/open.nvim"]
-	path = nvim/pack/misc/start/open.nvim
-	url = https://github.com/ofirgall/open.nvim
-[submodule "nvim/pack/lang/start/crates.nvim"]
-	path = nvim/pack/lang/start/crates.nvim
-	url = https://github.com/Saecki/crates.nvim
-[submodule "nvim/pack/cmp/start/cmp-nvim-lsp-signature-help"]
-	path = nvim/pack/cmp/start/cmp-nvim-lsp-signature-help
-	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
-[submodule "nvim/pack/lsp/opt/dressing.nvim"]
-	path = nvim/pack/lsp/opt/dressing.nvim
-	url = https://github.com/stevearc/dressing.nvim
-[submodule "nvim/pack/cmp/start/cmp-path"]
-	path = nvim/pack/cmp/start/cmp-path
-	url = https://github.com/hrsh7th/cmp-path
-[submodule "nvim/pack/cmp/start/cmp-nvim-lua"]
-	path = nvim/pack/cmp/start/cmp-nvim-lua
-	url = https://github.com/hrsh7th/cmp-nvim-lua
-[submodule "nvim/pack/misc/start/vim-indent-object"]
-	path = nvim/pack/misc/start/vim-indent-object
-	url = https://github.com/michaeljsmith/vim-indent-object
 [submodule "nvim/pack/lsp/start/none-ls.nvim"]
 	path = nvim/pack/lsp/start/none-ls.nvim
 	url = https://github.com/nvimtools/none-ls.nvim
+[submodule "nvim/pack/lsp/start/nvim-lspconfig"]
+	path = nvim/pack/lsp/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+
+## Other plugins (misc)
+# Integrate direnv for automatic .env loading
+[submodule "nvim/pack/misc/start/direnv.vim"]
+	path = nvim/pack/misc/start/direnv.vim
+	url = https://github.com/direnv/direnv.vim
+# Improve vertical movement
+[submodule "nvim/pack/misc/start/leap.nvim"]
+	path = nvim/pack/misc/start/leap.nvim
+	url = https://github.com/ggandor/leap.nvim
+# Automatically insert matching pairs
+[submodule "nvim/pack/misc/start/nvim-autopairs"]
+	path = nvim/pack/misc/start/nvim-autopairs
+	url = https://github.com/windwp/nvim-autopairs
+# Open links with various tools
+[submodule "nvim/pack/misc/start/open.nvim"]
+	path = nvim/pack/misc/start/open.nvim
+	url = https://github.com/ofirgall/open.nvim
+# Helper functions required for many plugins
+[submodule "nvim/pack/misc/start/plenary.nvim"]
+	path = nvim/pack/misc/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+# An improved :sort
+[submodule "nvim/pack/misc/start/sort.nvim"]
+	path = nvim/pack/misc/start/sort.nvim
+	url = https://github.com/sQVe/sort.nvim
+# Align tabular data
+[submodule "nvim/pack/misc/start/tabular"]
+	path = nvim/pack/misc/start/tabular
+	url = https://github.com/godlygeek/tabular
+# Zen mode
 [submodule "nvim/pack/misc/start/true-zen.nvim"]
 	path = nvim/pack/misc/start/true-zen.nvim
 	url = https://github.com/pocco81/true-zen.nvim
+# Visualize change tree
+[submodule "nvim/pack/misc/start/undotree"]
+	path = nvim/pack/misc/start/undotree
+	url = https://github.com/mbbill/undotree
+# A simpler file explorer
+[submodule "nvim/pack/misc/start/vim-dirvish"]
+	path = nvim/pack/misc/start/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish
+# Provides a indent text object (cii)
+[submodule "nvim/pack/misc/start/vim-indent-object"]
+	path = nvim/pack/misc/start/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object
+
+## Telescope fuzzy finder
+[submodule "nvim/pack/telescope/start/telescope.nvim"]
+	path = nvim/pack/telescope/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+	branch = 0.1.x
+[submodule "nvim/pack/telescope/start/telescope-symbols.nvim"]
+	path = nvim/pack/telescope/start/telescope-symbols.nvim
+	url = https://github.com/nvim-telescope/telescope-symbols.nvim
+
+## Tim Pope master class
+# Comment stuff out quickly
+[submodule "nvim/pack/tpope/start/vim-commentary"]
+	path = nvim/pack/tpope/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+# Async command dispatcher
+[submodule "nvim/pack/tpope/start/vim-dispatch"]
+	path = nvim/pack/tpope/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+# Automatically end blocks
+[submodule "nvim/pack/tpope/start/vim-endwise"]
+	path = nvim/pack/tpope/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise
+# Filesystem manipulation
+[submodule "nvim/pack/tpope/start/vim-eunuch"]
+	path = nvim/pack/tpope/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+# Git integration
+[submodule "nvim/pack/tpope/start/vim-fugitive"]
+	path = nvim/pack/tpope/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+# Simplified session management
+[submodule "nvim/pack/tpope/start/vim-obsession"]
+	path = nvim/pack/tpope/start/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+# Allow . repeats on custom maps
+[submodule "nvim/pack/tpope/start/vim-repeat"]
+	path = nvim/pack/tpope/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+# Change/Add surrounding characters
+[submodule "nvim/pack/tpope/start/vim-surround"]
+	path = nvim/pack/tpope/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+
+## New plugins
