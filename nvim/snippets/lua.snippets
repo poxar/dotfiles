@@ -1,0 +1,14 @@
+snippet fn
+	function($1)
+		$2
+	end
+snippet fni
+	function($1) $2 end
+snippet req
+	require('${1:module}')
+snippet setup
+	require('${1:module}').setup {
+		$2
+	}
+snippet map
+	vim.keymap.set('${1:n}', '${2:map}', ${3:function})

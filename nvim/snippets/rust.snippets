@@ -1,5 +1,17 @@
 snippet fn
-	${2}fn ${1:name}(${3})${4} {
+	fn ${1:name}(${3})${4} {
+		${0:${VISUAL}}
+	}
+snippet fnp
+	pub fn ${1:name}(${3})${4} {
+		${0:${VISUAL}}
+	}
+snippet fna
+	async fn ${1:name}(${3})${4} {
+		${0:${VISUAL}}
+	}
+snippet fnpa
+	pub async fn ${1:name}(${3})${4} {
 		${0:${VISUAL}}
 	}
 snippet for
@@ -7,7 +19,27 @@ snippet for
 		${0:${VISUAL}}
 	}
 snippet match
-	match ${1:option} {
-		Some(${2:value}) => ${3:do_something(value)},
-		None => ${4:handle_none()}
-	}${0}
+	match ${1} {
+		${2} => ${3}
+	}
+snippet opt "Option<T>"
+	Option<${1:i32}>
+snippet res "Result<T, E>"
+	Result<${1:&str}, ${2:()}>
+snippet fmt
+	#[rustfmt::skip]
+snippet cfg
+	#[cfg(${1:test})]
+snippet der
+	#[derive(${1:Debug})]
+snippet templ
+	#[derive(Template)]
+	#[template(path = "${1:name.html}")]
+snippet serde
+	#[derive(Serialize, Deserialize)]
+snippet serde-rename
+	#[serde(rename_all = "${1:kebab-case}")]
+snippet box
+	Box::new(${0:${VISUAL}})
+snippet rc
+	Rc::new(${0:${VISUAL}})
