@@ -284,5 +284,5 @@ iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
 iabbrev shrg ¯\_(ツ)_/¯
 
-cabbrev dg diffget
-cabbrev dp diffput
+call Cabbrev('dg', 'diffget')
+call Cabbrev('dp', 'diffput')
