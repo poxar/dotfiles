@@ -120,3 +120,6 @@
 [submodule "nvim/pack/lsp/start/none-ls.nvim"]
 	path = nvim/pack/lsp/start/none-ls.nvim
 	url = https://github.com/nvimtools/none-ls.nvim
+[submodule "nvim/pack/misc/start/true-zen.nvim"]
+	path = nvim/pack/misc/start/true-zen.nvim
+	url = https://github.com/pocco81/true-zen.nvim
