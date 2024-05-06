@@ -96,13 +96,6 @@ augroup autowrite
   au! TextChanged * silent! write
 augroup END
 
-" Helpers {{{1
-
-" Only expand abbreviation in : prompts, and not for example in a search prompt
-function! Cabbrev(lhs, rhs) abort
-  exe 'cnoreabbrev <expr> '.a:lhs.' (getcmdtype() == ":") ? "'.a:rhs.'" : "'.a:lhs'"'
-endfunction
-
 " Mappings {{{1
 
 inoremap <c-f> <c-x><c-f>
@@ -218,7 +211,6 @@ command! -range=% XmlPP :<line1>,<line2>!xmllint --format -
 
 " Plugins {{{1
 
-call Cabbrev('man', 'Man')
 let $MANWIDTH = 80
 let g:man_hardwrap = 1
 let g:termdebug_wide = 1
@@ -233,17 +225,7 @@ nnoremap <leader>gd :Gdiffsplit<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>ga :Git commit --amend<cr>
 nnoremap <leader>gl :Git ll %<cr>
-
-call Cabbrev('gc', 'Git commit')
-call Cabbrev('gca', 'Git commit --amend')
-call Cabbrev('gd', 'Gitdiffsplit')
-call Cabbrev('gll', 'Git ll')
-call Cabbrev('gdo', 'Git diff origin')
-call Cabbrev('gco', 'Git checkout')
-call Cabbrev('gp', 'Git pull')
-call Cabbrev('gP', 'Git push')
-call Cabbrev('gs', 'Git switch')
-call Cabbrev('gsm', 'Git switch main')
+nnoremap <leader>gi :Git<space>
 
 " snippets
 let g:snips_author = 'Philipp Millar'
@@ -283,6 +265,3 @@ nnoremap <silent> goi vii<esc><cmd>Sort<cr>
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
 iabbrev shrg ¯\_(ツ)_/¯
-
-call Cabbrev('dg', 'diffget')
-call Cabbrev('dp', 'diffput')
