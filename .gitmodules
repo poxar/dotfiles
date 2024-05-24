@@ -78,10 +78,6 @@
 [submodule "nvim/pack/misc/start/nvim-autopairs"]
 	path = nvim/pack/misc/start/nvim-autopairs
 	url = https://github.com/windwp/nvim-autopairs
-# Open links with various tools
-[submodule "nvim/pack/misc/start/open.nvim"]
-	path = nvim/pack/misc/start/open.nvim
-	url = https://github.com/ofirgall/open.nvim
 # Helper functions required for many plugins
 [submodule "nvim/pack/misc/start/plenary.nvim"]
 	path = nvim/pack/misc/start/plenary.nvim
