@@ -155,10 +155,9 @@ end
 local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
-    null_ls.builtins.diagnostics.alex,        -- rude wording
     null_ls.builtins.diagnostics.fish,
-    null_ls.builtins.diagnostics.vint,        -- vimL
-    null_ls.builtins.formatting.prettier,     -- html/css/js/ts
-    null_ls.builtins.formatting.shfmt,        -- sh/bash
+    null_ls.builtins.diagnostics.vint,    -- vimL
+    null_ls.builtins.formatting.prettier, -- html/css/js/ts
+    null_ls.builtins.formatting.shfmt,    -- sh/bash
   }
 })
