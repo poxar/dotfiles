@@ -99,14 +99,21 @@ if vim.fn.executable("lua-language-server") == 1 then
   table.insert(servers, "lua_ls");
 end
 
--- typescript
+-- web technology
 if vim.fn.executable("typescript-language-server") == 1 then
   table.insert(servers, "tsserver");
 end
-
--- javascript/typescript
 if vim.fn.executable("vscode-eslint-language-server") == 1 then
   table.insert(servers, "eslint");
+end
+if vim.fn.executable("vscode-css-language-server") == 1 then
+  table.insert(servers, "cssls")
+end
+if vim.fn.executable("vscode-html-language-server") == 1 then
+  table.insert(servers, "html")
+end
+if vim.fn.executable("vscode-json-language-server") == 1 then
+  table.insert(servers, "jsonls")
 end
 
 -- markdown
