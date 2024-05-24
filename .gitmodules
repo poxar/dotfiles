@@ -121,10 +121,6 @@
 	url = https://github.com/nvim-telescope/telescope-symbols.nvim
 
 ## Tim Pope master class
-# Comment stuff out quickly
-[submodule "nvim/pack/tpope/start/vim-commentary"]
-	path = nvim/pack/tpope/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary
 # Async command dispatcher
 [submodule "nvim/pack/tpope/start/vim-dispatch"]
 	path = nvim/pack/tpope/start/vim-dispatch
