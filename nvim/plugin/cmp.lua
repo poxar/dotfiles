@@ -11,8 +11,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    -- ['<C-y>'] = cmp.mapping.confirm(),
-    -- ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-y>'] = cmp.mapping.confirm(),
+    ['<C-e>'] = cmp.mapping.abort(),
     ['<C-n>'] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() then
@@ -52,11 +52,11 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 snippy.setup({
   mappings = {
     is = {
-      ['<Tab>'] = 'expand_or_advance',
-      ['<S-Tab>'] = 'previous',
+      ['<C-y>'] = 'expand_or_advance',
+      ['<C-h>'] = 'previous',
     },
     nx = {
-      ['<Tab>'] = 'cut_text',
+      ['<C-s>'] = 'cut_text',
     },
   },
 })
