@@ -1,7 +1,7 @@
 set shell sh
 set cursorpreviewfmt ""
 
-set previewer pistol
+set previewer ~/.config/lf/preview.sh
 
 cmd mkdir %IFS=" "; mkdir -- "$*"
 map a push :mkdir<space>
