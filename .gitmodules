@@ -71,10 +71,6 @@
 [submodule "nvim/pack/misc/start/sort.nvim"]
 	path = nvim/pack/misc/start/sort.nvim
 	url = https://github.com/sQVe/sort.nvim
-# Align tabular data
-[submodule "nvim/pack/misc/start/tabular"]
-	path = nvim/pack/misc/start/tabular
-	url = https://github.com/godlygeek/tabular
 # Zen mode
 [submodule "nvim/pack/misc/start/true-zen.nvim"]
 	path = nvim/pack/misc/start/true-zen.nvim

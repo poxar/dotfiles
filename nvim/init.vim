@@ -231,16 +231,6 @@ nnoremap <leader>gi :Git<space>
 let g:snips_author = 'Philipp Millar'
 let g:snips_email = 'philipp.millar@poxar.net'
 
-" operate on tables (godlygeek/tabular)
-nnoremap g= :Tabularize /
-vnoremap g= :Tabularize /
-nnoremap g\: :Tabularize /:\zs<cr>
-vnoremap g\: :Tabularize /:\zs<cr>
-nnoremap g\, :Tabularize /,\zs<cr>
-vnoremap g\, :Tabularize /,\zs<cr>
-nnoremap g\= :Tabularize /=<cr>
-vnoremap g\= :Tabularize /=<cr>
-
 " Visual undotree
 let g:undotree_ShortIndicators = 1
 nnoremap yot :UndotreeToggle<cr>
