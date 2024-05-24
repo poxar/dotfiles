@@ -201,6 +201,22 @@ command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 command! Ftedit execute ":edit ". stdpath('config') ."/ftplugin/".&ft.".vim"
 nnoremap <leader>ef :Ftedit<cr>
 
+" Helper for debugging syntax highlighting
+" It shows the current highlighting group under the cursor
+function! ToggleSynShow()
+  if !exists('#SynShow#CursorMoved')
+    augroup SynShow
+      au!
+      au! CursorMoved * echo synIDattr(synID(line("."),col("."),1),"name")
+    augroup END
+  else
+    augroup SynShow
+      au!
+    augroup END
+  endif
+endfunction
+command! ToggleSyntax call ToggleSynShow()
+
 " Plugins {{{1
 
 let $MANWIDTH = 80
