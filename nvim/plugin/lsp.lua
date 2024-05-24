@@ -10,7 +10,6 @@ require('fidget').setup {
 
 vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.setloclist()
-  vim.cmd("botright lopen")
 end)
 
 vim.diagnostic.config({
