@@ -37,9 +37,6 @@
 [submodule "nvim/pack/lang/start/vim-log-highlighting"]
 	path = nvim/pack/lang/start/vim-log-highlighting
 	url = https://github.com/MTDL9/vim-log-highlighting
-[submodule "nvim/pack/lang/start/vim-markdown"]
-	path = nvim/pack/lang/start/vim-markdown
-	url = https://github.com/preservim/vim-markdown
 [submodule "nvim/pack/lang/start/vim-nftables"]
 	path = nvim/pack/lang/start/vim-nftables
 	url = https://github.com/nfnty/vim-nftables
