@@ -48,20 +48,22 @@ hi Bold         guifg=none    guibg=none    gui=bold
 
 hi Visual                     guibg=#e3bcb5
 hi VisualNOS                  guibg=#e3bcb5
-hi Search                     guibg=#e3bcb5
+hi Search       guifg=fg      guibg=#e3bcb5
 hi IncSearch                  guibg=#e3bcb5
+hi CurSearch    guifg=#f4e4e1 guibg=#000000 gui=none
 hi MatchParen                 guibg=#e3bcb5
 
 hi NonText      guifg=#c4b7b5 guibg=none    gui=none
 hi SpecialKey   guifg=#726b6a guibg=none    gui=none
 
+hi Conceal      guifg=#726b6a
 hi Underlined   guifg=none    guibg=none    gui=none
 hi Tag          guifg=#005fd7 guibg=none    gui=none
 
-hi SpellCap     gui=underline guisp=#d75f00 guifg=#d75f00
-hi SpellBad     gui=underline guisp=#b80000
-hi SpellLocal   gui=underline guisp=#005f00
-hi SpellRare    gui=underline guisp=#5f00d7 guifg=#5f00d7
+hi SpellCap     gui=undercurl guisp=#d75f00 guifg=#d75f00
+hi SpellBad     gui=undercurl guisp=#b80000
+hi SpellLocal   gui=undercurl guisp=#005f00
+hi SpellRare    gui=undercurl guisp=#5f00d7 guifg=#5f00d7
 
 match TrailWhitespace /\s\+$/
 hi TrailWhitespace guifg=bg guibg=#b80000
@@ -70,9 +72,12 @@ hi TrailWhitespace guifg=bg guibg=#b80000
 " UI {{{
 
 hi Cursor       gui=reverse
-hi StatusLine   gui=reverse
+hi StatusLine   guifg=#f4e4e1 guibg=#000000
 hi StatusLineNC guifg=fg      guibg=#c4b7b5 gui=none
+hi WinBar       guifg=#f4e4e1 guibg=#000000
+hi WinBarNC     guifg=fg      guibg=#c4b7b5 gui=none
 hi WildMenu                   guibg=#e3bcb5
+hi QuickFixLine guifg=none guibg=none gui=bold
 
 hi User1        guifg=fg      guibg=bg
 hi User2        guifg=fg      guibg=#e3bcb5
@@ -107,6 +112,7 @@ hi PmenuSbar                  guibg=#000000
 hi PmenuThumb                 guibg=#e3bcb5
 hi NormalFloat  guifg=fg      guibg=bg
 
+hi DiagnosticOk    guifg=#005f00
 hi DiagnosticError guifg=#b80000
 hi DiagnosticWarn  guifg=#d75f00
 hi DiagnosticInfo  guifg=#726b6a
@@ -117,10 +123,12 @@ hi DiagnosticFloatingWarn  guifg=#d75f00
 hi DiagnosticFloatingInfo  guifg=fg
 hi DiagnosticFloatingHint  guifg=fg
 
-hi DiagnosticUnderlineError gui=undercurl guisp=#b80000
-hi DiagnosticUnderlineWarn gui=undercurl guisp=#d75f00
-hi DiagnosticUnderlineHint gui=undercurl
-hi DiagnosticUnderlineInfo gui=undercurl
+hi DiagnosticUnderlineError gui=underline guisp=#b80000
+hi DiagnosticUnderlineWarn gui=underline guisp=#d75f00
+hi DiagnosticUnderlineHint gui=underline guisp=#726b6a
+hi DiagnosticUnderlineInfo gui=underline guisp=#726b6a
+hi DiagnosticUnderlineOk   gui=underline guisp=#726b6a
+hi DiagnosticDeprecated    gui=strikethrough guisp=none
 
 " }}}
 " Plugins {{{
@@ -159,6 +167,9 @@ hi Include    guifg=none guibg=none gui=bold
 hi Define     guifg=none guibg=none gui=bold
 hi Boolean    guifg=none guibg=none gui=bold
 hi Debug      guifg=none guibg=none gui=bold
+hi Function   guifg=none guibg=none gui=none
+hi Delimiter  guifg=none guibg=none gui=none
+hi @variable guifg=none
 
 hi String     guifg=#005f00 guibg=none gui=none
 hi Namespace  guifg=#726b6a guibg=none gui=none
@@ -175,6 +186,9 @@ hi Special    guifg=none guibg=none gui=none
 hi Todo           guifg=#726b6a guibg=none gui=bold
 hi SpecialComment guifg=#726b6a guibg=none gui=bold
 
+hi Added      guifg=bg   guibg=#005f00 gui=none
+hi Removed    guifg=bg   guibg=#b80000 gui=none
+hi Changed    guifg=fg   guibg=#d75f00 gui=none
 hi DiffAdd    guifg=bg   guibg=#005f00 gui=none
 hi DiffDelete guifg=bg   guibg=#b80000 gui=none
 hi DiffChange guifg=none guibg=none    gui=none
