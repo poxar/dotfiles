@@ -45,6 +45,7 @@ set signcolumn=number
 
 set linebreak
 set showbreak=↪
+set list
 set listchars=tab:⇥\ ,trail:·,extends:⇉,precedes:⇇,nbsp:␣
 set fillchars=fold:\ ,vert:│
 set breakindent
@@ -233,7 +234,7 @@ let g:snips_email = 'philipp.millar@poxar.net'
 
 " Visual undotree
 let g:undotree_ShortIndicators = 1
-nnoremap yot :UndotreeToggle<cr>
+nnoremap you :UndotreeToggle<cr>
 
 " Better :sort
 lua require('sort').setup {}

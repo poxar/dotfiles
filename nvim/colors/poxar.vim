@@ -63,6 +63,9 @@ hi SpellBad     gui=underline guisp=#b80000
 hi SpellLocal   gui=underline guisp=#005f00
 hi SpellRare    gui=underline guisp=#5f00d7 guifg=#5f00d7
 
+match TrailWhitespace /\s\+$/
+hi TrailWhitespace guifg=bg guibg=#b80000
+
 " }}}
 " UI {{{
 
