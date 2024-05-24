@@ -115,10 +115,6 @@ inoremap <c-x>o <c-x><c-o>
 inoremap <c-x>n <c-x><c-o>
 inoremap <c-x><c-n> <c-x><c-o>
 
-" Quicksave
-inoremap <c-s> <c-\><c-o>:w<cr>
-nnoremap <c-s> :w<cr>
-
 " Open last/alternate buffer
 nnoremap <c-w><leader> <c-^>
 
