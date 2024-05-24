@@ -8,9 +8,6 @@ require('fidget').setup {
   fmt = { max_messages = 4 },
 }
 
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.setloclist()
   vim.cmd("botright lopen")
@@ -36,34 +33,28 @@ vim.cmd('sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo lineh
 vim.cmd('sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint linehl= numhl=')
 
 local on_attach = function(_, bufnr)
-  local function nmap(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-
+  local function nmap(keys, func)
     vim.keymap.set('n', keys, func, {
       buffer = bufnr,
-      desc = desc,
       noremap = true,
       silent = true
     })
   end
 
-  nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efintion')
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('gT', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+  nmap('gd', require('telescope.builtin').lsp_definitions)
+  nmap('gD', vim.lsp.buf.declaration)
+  nmap('gr', require('telescope.builtin').lsp_references)
+  nmap('gI', require('telescope.builtin').lsp_implementations)
+  nmap('gT', require('telescope.builtin').lsp_type_definitions)
 
-  nmap('<leader>sd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols in [D]ocument')
-  nmap('<leader>sw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols in [W]orkspace')
+  nmap('<leader>sd', require('telescope.builtin').lsp_document_symbols)
+  nmap('<leader>sw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
-  nmap('cd', vim.lsp.buf.rename, 'Rename symbol')
-  nmap('ga', vim.lsp.buf.code_action, 'Run code action')
+  nmap('cd', vim.lsp.buf.rename)
+  nmap('ga', vim.lsp.buf.code_action)
 
-  nmap('K', vim.lsp.buf.hover, 'Hover documentation')
-  nmap('gK', 'K', 'keywordprg documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature documentation')
+  nmap('gK', 'K')
+  nmap('<C-k>', vim.lsp.buf.signature_help)
 end
 
 vim.api.nvim_create_user_command('Format', function(_)
