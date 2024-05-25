@@ -1,0 +1,4 @@
+# I only use dunst to stop programs from inventing their own notification popups
+[skip-display]
+    skip_display = yes
+    history_ignore = yes
