@@ -15,3 +15,6 @@ cmd edit-config ${{
 }}
 
 map C edit-config
+
+map J :updir;down;open
+map K :updir;up;open
