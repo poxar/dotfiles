@@ -1,7 +1,3 @@
-[shell]
-program = "tmux"
-args = ["new-session", "-As", "default"]
-
 [window]
 dynamic_padding = true
 opacity = 1
