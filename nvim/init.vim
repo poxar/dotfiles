@@ -67,7 +67,14 @@ set notimeout
 set termguicolors
 set guicursor+=a:Cursor
 set cursorline
-colorscheme poxar
+
+if $TERM ==# 'linux'
+  set background=dark
+  colorscheme default
+else
+  set background=light
+  colorscheme poxar
+endif
 
 " Highlight git conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
