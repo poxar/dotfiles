@@ -59,23 +59,27 @@ mouse = { enabled = true, mods = "None" }
 regex = "([a-f0-9]{40})|([a-f0-9]{12})|([a-f0-9]{7})"
 action = "Paste"
 post_processing = true
-binding = { key = "G", mods = "Control" }
+binding = { key = "G", mods = "Alt" }
 
 [keyboard]
 bindings = [
+  { key = "Up",            mods = "Shift", action = "ScrollLineUp"     },
+  { key = "Down",          mods = "Shift", action = "ScrollLineDown"   },
+  { key = "PageUp",        mods = "Shift", action = "ScrollPageUp"     },
+  { key = "PageDown",      mods = "Shift", action = "ScrollPageDown"   },
+  { key = "Home",          mods = "Shift", action = "ScrollToTop"      },
+  { key = "End",           mods = "Shift", action = "ScrollToBottom"   },
+
   { key = "N",     mods = "Control|Shift", action = "CreateNewWindow"  },
-
-  { key = "J",     mods = "Control|Shift", action = "ScrollLineDown"   },
-  { key = "K",     mods = "Control|Shift", action = "ScrollLineUp"     },
-  { key = "F",     mods = "Control|Shift", action = "ScrollPageDown"   },
-  { key = "B",     mods = "Control|Shift", action = "ScrollPageUp"     },
-
   { key = "O",     mods = "Control|Shift", action = "ToggleViMode"     },
-  { key = "S",     mods = "Control|Shift", action = "SearchBackward"   },
+  { key = "L",     mods = "Control|Shift", action = "ClearSelection"   },
 
-  { key = "Plus",  mods = "Control",       action = "IncreaseFontSize" },
-  { key = "Minus", mods = "Control",       action = "DecreaseFontSize" },
-  { key = "0",     mods = "Control",       action = "ResetFontSize"    },
+  { key = "R",     mods = "Control|Shift", action = "SearchBackward"   },
+  { key = "S",     mods = "Control|Shift", action = "SearchForward"    },
+
+  { key = ">",     mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "<",     mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "?",     mods = "Control|Shift", action = "ResetFontSize"    },
 ]
 
 [mouse]
