@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+cmd=shotgun
+arg=${1:-""}
+
+if test -n "$arg"; then
+  cmd="$cmd -g $arg"
+else
+  cmd="$cmd -s"
+fi
+
+$cmd - \
+  | tee "$HOME/Pictures/Screenshots/$(date '+%F_%H-%M-%S').png" \
+  | xclip -selection clipboard -target image/png

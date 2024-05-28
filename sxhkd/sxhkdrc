@@ -16,5 +16,8 @@ XF86AudioMute
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
   brightnessctl set {+10%,10%-}
 
-{_,shift + }Print
-  flameshot {gui,full}
+Print
+  screenshot (hacksaw --colour '#e3bcb5' -s 4 -g 2)
+
+shift + Print
+  screenshot
