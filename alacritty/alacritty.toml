@@ -1,7 +1,7 @@
 [window]
 dynamic_padding = true
 opacity = 1
-padding = { x = 5, y = 5 }
+padding = { x = 20, y = 16 }
 dimensions = { columns = 90, lines = 30 }
 startup_mode = "Maximized"
 decorations = "None"
