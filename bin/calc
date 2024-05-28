@@ -1,4 +1,0 @@
-#!/bin/sh
-set -eu
-
-exec alacritty --class calc --title Calculator --command qalc

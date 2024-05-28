@@ -1,8 +1,0 @@
-#!/bin/sh
-set -eu
-
-exec alacritty \
-  --class notes \
-  --title Notes \
-  --working-directory "$HOME/Notes" \
-  --command nvim Eingang.md
