@@ -229,6 +229,7 @@ command! ToggleSyntax call ToggleSynShow()
 let $MANWIDTH = 80
 let g:man_hardwrap = 1
 let g:termdebug_wide = 1
+let g:suda_smart_edit = 1
 
 " dirvish, a replacement for netrw
 let g:loaded_netrwPlugin = 1
