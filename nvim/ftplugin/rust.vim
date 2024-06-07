@@ -6,7 +6,7 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> <leader>mc :Make clean<cr>
   nnoremap <buffer> <leader>mb :Make build<cr>
   nnoremap <buffer> <leader>mf :Make fmt<cr>
-  nnoremap <buffer> <leader>mr :Start -wait=never cargo run<cr>
+  nnoremap <buffer> <leader>mr :Start -wait=always cargo run<cr>
   nnoremap <buffer> <leader>md :Termdebug target/debug/
 
   nnoremap <buffer> <leader>ec :edit Cargo.toml<cr>
@@ -15,7 +15,7 @@ if filereadable('Cargo.toml')
 
   setlocal path+=./src
 
-  let g:termdebugger = "rust-gdb"
+  let g:termdebugger = 'rust-gdb'
   packadd termdebug
 endif
 
