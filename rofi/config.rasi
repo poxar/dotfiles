@@ -5,7 +5,7 @@ configuration {
 
   case-sensitive: false;
 
-  modes: "combi,emoji,ssh";
+  modes: "drun,run,emoji,ssh";
   combi-modes: "drun,run";
   drun-show-actions: true;
 
