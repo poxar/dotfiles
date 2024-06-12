@@ -61,24 +61,6 @@ vim.api.nvim_create_user_command('Format', function(_)
 end, { desc = 'Format current buffer with LSP' })
 vim.keymap.set('n', 'f<cr>', vim.lsp.buf.format)
 
--- Automatically format some filetypes
-local group = vim.api.nvim_create_augroup("lsp_autoformat", {})
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern  = {
-    "*.rs",
-    "*.lua",
-    "*.py",
-    "*.sh",
-    "*.bash",
-    "*.html",
-    "*.js",
-    "*.ts",
-    "*.css",
-  },
-  group    = group,
-  callback = function() vim.lsp.buf.format() end,
-})
-
 -- List of available servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
