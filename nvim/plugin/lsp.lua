@@ -113,6 +113,11 @@ if vim.fn.executable("bash-language-server") == 1 then
   table.insert(servers, "bashls");
 end
 
+-- slint ui framework
+if vim.fn.executable("slint-lsp") == 1 then
+  table.insert(servers, "slint_lsp")
+end
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

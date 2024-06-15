@@ -131,3 +131,6 @@
 [submodule "nvim/pack/misc/start/vim-suda"]
 	path = nvim/pack/misc/start/vim-suda
 	url = https://github.com/lambdalisue/vim-suda
+[submodule "nvim/pack/lang/start/vim-slint"]
+	path = nvim/pack/lang/start/vim-slint
+	url = https://github.com/slint-ui/vim-slint
