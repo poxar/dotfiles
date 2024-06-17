@@ -6,6 +6,7 @@ if filereadable('Cargo.toml')
   nnoremap <buffer> <leader>mc :Make clean<cr>
   nnoremap <buffer> <leader>mb :Make build<cr>
   nnoremap <buffer> <leader>mf :Make fmt<cr>
+  nnoremap <buffer> <leader>mt :Make test<cr>
   nnoremap <buffer> <leader>mr :Start -wait=always cargo run<cr>
   nnoremap <buffer> <leader>md :Termdebug target/debug/
 
