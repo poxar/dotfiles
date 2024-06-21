@@ -1,0 +1,28 @@
+daemonize = true
+primary_threshold_ms = 5000
+max_history = 50
+synchronize_selection_with_clipboard = false
+
+[watcher]
+enable_clipboard = true
+enable_primary = false
+enable_secondary = false
+sensitive_x11_atoms = ["x-kde-passwordManagerHint"]
+filter_text_min_length = 1
+filter_text_max_length = 20000000
+denied_text_regex_patterns = []
+capture_image = true
+filter_image_max_size = 5242880
+
+[grpc]
+enable_http = false
+enable_local_socket = true
+
+[dbus]
+enable = true
+
+[metrics]
+enable = false
+
+[desktop_notification]
+enable = false

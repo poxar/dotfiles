@@ -1,0 +1,8 @@
+finder = "rofi"
+preview_length = 80
+
+[rofi]
+line_length = 100
+menu_length = 30
+menu_prompt = "Clipcat"
+extra_arguments = []

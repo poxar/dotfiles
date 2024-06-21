@@ -27,3 +27,9 @@ super + Print
 
 super + shift + Print
   pkill ffmpeg
+
+super + v
+  clipcat-menu
+
+super + shift + v
+  clipcat-menu delete
