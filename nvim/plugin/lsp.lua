@@ -1,4 +1,3 @@
-if vim.fn.has("nvim-0.9") == 1 then vim.cmd.packadd("dressing.nvim"); end
 local nvim_lsp = require('lspconfig')
 
 require('fidget').setup {

@@ -37,7 +37,7 @@
 
 ## LSP support
 [submodule "nvim/pack/lsp/opt/dressing.nvim"]
-	path = nvim/pack/lsp/opt/dressing.nvim
+	path = nvim/pack/lsp/start/dressing.nvim
 	url = https://github.com/stevearc/dressing.nvim
 [submodule "nvim/pack/lsp/start/fidget.nvim"]
 	path = nvim/pack/lsp/start/fidget.nvim

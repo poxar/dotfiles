@@ -169,7 +169,7 @@ hi Boolean    guifg=none guibg=none gui=bold
 hi Debug      guifg=none guibg=none gui=bold
 hi Function   guifg=none guibg=none gui=none
 hi Delimiter  guifg=none guibg=none gui=none
-hi @variable guifg=none
+hi @variable  guifg=none
 
 hi String     guifg=#005f00 guibg=none gui=none
 hi Namespace  guifg=#726b6a guibg=none gui=none
@@ -200,11 +200,9 @@ lua << EOF
   end
 EOF
 
-if has("nvim-0.9")
-  hi @lsp.mod.deprecated gui=strikethrough
-  hi @lsp.type.decorator guifg=#5f00d7
-  hi @lsp.type.macro     guifg=#5f00d7
-endif
+hi @lsp.mod.deprecated gui=strikethrough
+hi @lsp.type.decorator guifg=#5f00d7
+hi @lsp.type.macro     guifg=#5f00d7
 
 " }}}
 " Languages {{{
