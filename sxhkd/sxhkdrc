@@ -11,7 +11,7 @@ XF86AudioMute
   pamixer {--decrease 5,--decrease 1,--increase 5,--increase 1} && wm_notify
 
 {XF86AudioNext,XF86AudioPrev,XF86AudioPlay}
-  playerctl -i firefox {next,previous,play-pause} && wm_notify
+  playerctl {next,previous,play-pause} && wm_notify
 
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
   brightnessctl set {+10%,10%-}
