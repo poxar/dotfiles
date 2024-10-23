@@ -1,3 +1,5 @@
 --ignore=README.md
---ignore=^\..*$
+--ignore=.envrc
+--ignore=.rgrc
+--ignore=.stowrc
 --target=$HOME/.config
