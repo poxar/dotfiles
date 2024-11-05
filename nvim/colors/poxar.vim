@@ -1,22 +1,19 @@
 " A simple neovim colorscheme
 
 " Palette {{{
-" For now the colors are hardcoded, we could try to use cterm colors instead and match from the
-" terminal, but that limits the use of grays and the highlight color too much.
 "
 " foreground  #000000
-" background  #f4e4e1
+" background  #fafafa
 "
-" light gray  #eadbd8
-" medium gray #c4b7b5
-" dark gray   #726b6a
+" light gray  #ededed
+" medium gray #d8d3d3
+" dark gray   #6a6868
 "
-" highlight   #e3bcb5
+" highlight   #dc9e6c
 "
 " red         #b80000
 " green       #005f00
 " blue        #005fd7
-"
 " orange      #d75f00
 " purple      #5f00d7
 "
@@ -38,25 +35,25 @@ let g:colors_name = "poxar"
 " }}}
 " General {{{
 
-hi Normal       guifg=#000000 guibg=#f4e4e1
-hi Folded       guifg=#726b6a guibg=none
-hi Comment      guifg=#726b6a guibg=none
+hi Normal       guifg=#000000 guibg=#fafafa
+hi Folded       guifg=#6a6868 guibg=none
+hi Comment      guifg=#6a6868 guibg=none
 hi Directory    guifg=#005fd7 guibg=none
 
 hi None         guifg=none    guibg=none    gui=none
 hi Bold         guifg=none    guibg=none    gui=bold
 
-hi Visual                     guibg=#e3bcb5
-hi VisualNOS                  guibg=#e3bcb5
-hi Search       guifg=fg      guibg=#e3bcb5
-hi IncSearch                  guibg=#e3bcb5
-hi CurSearch    guifg=#f4e4e1 guibg=#000000 gui=none
-hi MatchParen                 guibg=#e3bcb5
+hi Visual                     guibg=#d8d3d3
+hi VisualNOS                  guibg=#d8d3d3
+hi Search       guifg=fg      guibg=#dc9e6c
+hi IncSearch                  guibg=#dc9e6c
+hi CurSearch    guifg=#fafafa guibg=#000000 gui=none
+hi MatchParen                 guibg=#dc9e6c
 
-hi NonText      guifg=#c4b7b5 guibg=none    gui=none
-hi SpecialKey   guifg=#726b6a guibg=none    gui=none
+hi NonText      guifg=#d8d3d3 guibg=none    gui=none
+hi SpecialKey   guifg=#6a6868 guibg=none    gui=none
 
-hi Conceal      guifg=#726b6a
+hi Conceal      guifg=#6a6868
 hi Underlined   guifg=none    guibg=none    gui=none
 hi Tag          guifg=#005fd7 guibg=none    gui=none
 
@@ -72,28 +69,28 @@ hi TrailWhitespace guifg=bg guibg=#b80000
 " UI {{{
 
 hi Cursor       gui=reverse
-hi StatusLine   guifg=#f4e4e1 guibg=#000000
-hi StatusLineNC guifg=fg      guibg=#c4b7b5 gui=none
-hi WinBar       guifg=#f4e4e1 guibg=#000000
-hi WinBarNC     guifg=fg      guibg=#c4b7b5 gui=none
-hi WildMenu                   guibg=#e3bcb5
+hi StatusLine   guifg=#fafafa guibg=#000000
+hi StatusLineNC guifg=fg      guibg=#d8d3d3 gui=none
+hi WinBar       guifg=#fafafa guibg=#000000
+hi WinBarNC     guifg=fg      guibg=#d8d3d3 gui=none
+hi WildMenu                   guibg=#dc9e6c
 hi QuickFixLine guifg=none guibg=none gui=bold
 
 hi User1        guifg=fg      guibg=bg
-hi User2        guifg=fg      guibg=#e3bcb5
+hi User2        guifg=bg      guibg=fg
 hi User3        guifg=bg      guibg=#d75f00
 hi User4        guifg=bg      guibg=#005f00
-hi User5        guifg=fg      guibg=#c4b7b5
+hi User5        guifg=fg      guibg=#d8d3d3
 
-hi VertSplit    guifg=#726b6a
-hi LineNr       guifg=#726b6a
-hi CursorLineNr guifg=#726b6a guibg=#eadbd8 gui=bold
-hi CursorLine                 guibg=#eadbd8
-hi CursorColumn               guibg=#eadbd8
-hi ColorColumn                guibg=#eadbd8
+hi VertSplit    guifg=#6a6868
+hi LineNr       guifg=#6a6868
+hi CursorLineNr guifg=#6a6868 guibg=#ededed gui=bold
+hi CursorLine                 guibg=#ededed
+hi CursorColumn               guibg=#ededed
+hi ColorColumn                guibg=#ededed
 
-hi SignColumn   guifg=#726b6a guibg=bg
-hi FoldColumn   guifg=#726b6a guibg=bg
+hi SignColumn   guifg=#6a6868 guibg=bg
+hi FoldColumn   guifg=#6a6868 guibg=bg
 
 hi TabLine      guifg=fg      guibg=bg      gui=none
 hi TabLineFill  guifg=fg      guibg=bg      gui=none
@@ -106,17 +103,17 @@ hi MoreMsg      guifg=none    guibg=none    gui=bold
 hi ModeMsg      guifg=none    guibg=none    gui=bold
 hi Question     guifg=none    guibg=none    gui=none
 
-hi Pmenu        guifg=#f4e4e1 guibg=#000000
-hi PmenuSel     guifg=#000000 guibg=#e3bcb5
-hi PmenuSbar                  guibg=#000000
-hi PmenuThumb                 guibg=#e3bcb5
-hi NormalFloat  guifg=fg      guibg=bg
+hi Pmenu        guifg=fg      guibg=#ededed
+hi PmenuSel     guifg=bg      guibg=fg
+hi PmenuSbar                  guibg=#ededed
+hi PmenuThumb                 guibg=#000000
+hi NormalFloat  guifg=fg      guibg=#ededed
 
 hi DiagnosticOk    guifg=#005f00
 hi DiagnosticError guifg=#b80000
 hi DiagnosticWarn  guifg=#d75f00
-hi DiagnosticInfo  guifg=#726b6a
-hi DiagnosticHint  guifg=#726b6a
+hi DiagnosticInfo  guifg=#6a6868
+hi DiagnosticHint  guifg=#6a6868
 
 hi DiagnosticFloatingError guifg=#b80000
 hi DiagnosticFloatingWarn  guifg=#d75f00
@@ -125,9 +122,9 @@ hi DiagnosticFloatingHint  guifg=fg
 
 hi DiagnosticUnderlineError gui=underline guisp=#b80000
 hi DiagnosticUnderlineWarn gui=underline guisp=#d75f00
-hi DiagnosticUnderlineHint gui=underline guisp=#726b6a
-hi DiagnosticUnderlineInfo gui=underline guisp=#726b6a
-hi DiagnosticUnderlineOk   gui=underline guisp=#726b6a
+hi DiagnosticUnderlineHint gui=underline guisp=#6a6868
+hi DiagnosticUnderlineInfo gui=underline guisp=#6a6868
+hi DiagnosticUnderlineOk   gui=underline guisp=#6a6868
 hi DiagnosticDeprecated    gui=strikethrough guisp=none
 
 " }}}
@@ -143,7 +140,7 @@ hi! link TelescopePreviewBorder Comment
 " }}}
 " Leap {{{
 
-hi LeapLabelPrimary   guifg=fg guibg=#e3bcb5
+hi LeapLabelPrimary   guifg=fg guibg=#dc9e6c
 hi LeapLabelSecondary guifg=fg guibg=#d75f00
 hi LeapLabelSelected  guifg=bg guibg=fg
 
@@ -172,7 +169,7 @@ hi Delimiter  guifg=none guibg=none gui=none
 hi @variable  guifg=none
 
 hi String     guifg=#005f00 guibg=none gui=none
-hi Namespace  guifg=#726b6a guibg=none gui=none
+hi Namespace  guifg=#6a6868 guibg=none gui=none
 hi PreProc    guifg=#5f00d7 guibg=none gui=none
 hi Number     guifg=#005fd7 guibg=none gui=none
 
@@ -183,8 +180,8 @@ hi Identifier guifg=none guibg=none gui=none
 hi Constant   guifg=none guibg=none gui=none
 hi Special    guifg=none guibg=none gui=none
 
-hi Todo           guifg=#726b6a guibg=none gui=bold
-hi SpecialComment guifg=#726b6a guibg=none gui=bold
+hi Todo           guifg=#6a6868 guibg=none gui=bold
+hi SpecialComment guifg=#6a6868 guibg=none gui=bold
 
 hi Added      guifg=bg   guibg=#005f00 gui=none
 hi Removed    guifg=bg   guibg=#b80000 gui=none
@@ -194,15 +191,20 @@ hi DiffDelete guifg=bg   guibg=#b80000 gui=none
 hi DiffChange guifg=none guibg=none    gui=none
 hi DiffText   guifg=fg   guibg=#d75f00 gui=none
 
-lua << EOF
+lua << ENDLUA
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
   end
-EOF
+ENDLUA
 
 hi @lsp.mod.deprecated gui=strikethrough
 hi @lsp.type.decorator guifg=#5f00d7
 hi @lsp.type.macro     guifg=#5f00d7
+
+hi @markup.link           guifg=#005fd7
+hi @markup.link.label     guifg=#005fd7 gui=bold
+hi! link @markup.link.url @markup.link
+hi @markup.list.checked   gui=strikethrough
 
 " }}}
 " Languages {{{
@@ -231,8 +233,8 @@ hi diffRemoved guifg=#b80000
 " }}}
 " Markdown {{{
 
-hi mkdHeading guifg=#726b6a gui=bold
-hi mkdUrl guifg=#726b6a
+hi mkdHeading guifg=#6a6868 gui=bold
+hi mkdUrl guifg=#6a6868
 
 " }}}
 " HTML {{{

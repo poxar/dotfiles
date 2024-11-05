@@ -15,8 +15,8 @@ italic      = { family = "FiraCode Nerd Font", style = "Light Italic" }
 bold_italic = { family = "FiraCode Nerd Font", style = "Medium Italic" }
 
 [colors]
-primary = { foreground = "#000000", background = "#f4e4e1" }
-selection = { text = "#000000", background = "#e3bcb5" }
+primary = { foreground = "#000000", background = "#fafafa" }
+selection = { text = "#000000", background = "#d8d3d3" }
 
 [colors.normal]
 black = "#000000"
@@ -39,8 +39,8 @@ white = "#b2b2b2"
 yellow = "#d75f00"
 
 [colors.hints]
-start = { foreground = "#e3bcb5", background = "#1d1f21" }
-end   = { foreground = "#1d1f21", background = "#e3bcb5" }
+start = { foreground = "#fafafa", background = "#000000" }
+end   = { foreground = "#000000", background = "#fafafa" }
 
 [selection]
 save_to_clipboard = true
@@ -63,13 +63,6 @@ binding = { key = "G", mods = "Alt" }
 
 [keyboard]
 bindings = [
-  { key = "Up",            mods = "Shift", action = "ScrollLineUp"     },
-  { key = "Down",          mods = "Shift", action = "ScrollLineDown"   },
-  { key = "PageUp",        mods = "Shift", action = "ScrollPageUp"     },
-  { key = "PageDown",      mods = "Shift", action = "ScrollPageDown"   },
-  { key = "Home",          mods = "Shift", action = "ScrollToTop"      },
-  { key = "End",           mods = "Shift", action = "ScrollToBottom"   },
-
   { key = "N",     mods = "Control|Shift", action = "CreateNewWindow"  },
   { key = "O",     mods = "Control|Shift", action = "ToggleViMode"     },
   { key = "L",     mods = "Control|Shift", action = "ClearSelection"   },
