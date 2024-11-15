@@ -100,6 +100,9 @@ set mouse=nvh
 set autoread
 
 " Mappings {{{1
+" Swap ; and :
+nnoremap ; :
+nnoremap : ;
 
 inoremap <c-f> <c-x><c-f>
 
