@@ -96,13 +96,8 @@ set wildignorecase
 " Enable mouse in normal and visual modes and when viewing help files
 set mouse=nvh
 
-" Autosave
+" Automatically load changes to open files
 set autoread
-set autowriteall
-augroup autowrite
-  au! InsertLeave * silent! write
-  au! TextChanged * silent! write
-augroup END
 
 " Mappings {{{1
 
