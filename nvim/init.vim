@@ -66,7 +66,7 @@ set shortmess=tToOc
 set notimeout
 set termguicolors
 set guicursor+=a:Cursor
-set cursorline
+set nocursorline
 
 if $TERM ==# 'linux'
   set background=dark
