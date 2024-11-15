@@ -12,8 +12,9 @@ local function nmap(keys, func, desc)
   })
 end
 
-nmap('<M-f>', ts_builtin.find_files, 'Find Files')
+nmap('<M-f>', ts_builtin.find_files, 'Find [F]iles')
 nmap('<leader>ff', ts_builtin.find_files, '[F]ind [F]iles')
+nmap('<M-b>', ts_builtin.buffers, 'Find [B]uffers')
 nmap('<leader>fb', ts_builtin.buffers, '[F]ind [B]uffers')
 nmap('<leader>fg', ts_builtin.live_grep, '[F]ind with [G]rep')
 
