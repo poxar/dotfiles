@@ -105,6 +105,10 @@ inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
 
+" Quicksave
+nnoremap <c-s> :w<cr>
+inoremap <c-s> :w<cr>
+
 " Simpler redo
 nnoremap U <c-r>
 
