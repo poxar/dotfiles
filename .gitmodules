@@ -134,3 +134,6 @@
 [submodule "nvim/pack/lang/start/vim-slint"]
 	path = nvim/pack/lang/start/vim-slint
 	url = https://github.com/slint-ui/vim-slint
+[submodule "nvim/pack/cmp/start/lspkind.nvim"]
+	path = nvim/pack/cmp/start/lspkind.nvim
+	url = https://github.com/onsails/lspkind.nvim

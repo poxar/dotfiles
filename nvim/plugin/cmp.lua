@@ -1,8 +1,19 @@
 local cmp = require('cmp')
 local snippy = require('snippy')
 local autopairs = require('nvim-autopairs.completion.cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol',
+      maxwidth = {
+        menu = 50,
+        abbr = 50,
+      },
+      ellipsis_char = '…'
+    }),
+  },
   snippet = {
     expand = function(args)
       require('snippy').expand_snippet(args.body)
