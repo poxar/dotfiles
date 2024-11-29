@@ -152,6 +152,11 @@ hi healthWarning guifg=#d75f00
 hi healthError   guifg=#b80000
 
 " }}}
+" Illuminate {{{
+hi def IlluminatedWordText guibg=#ededed
+hi def IlluminatedWordRead guibg=#ededed
+hi def IlluminatedWordWrite guibg=#ededed
+" }}}
 
 " }}}
 " Syntax {{{

@@ -137,3 +137,6 @@
 [submodule "nvim/pack/cmp/start/lspkind.nvim"]
 	path = nvim/pack/cmp/start/lspkind.nvim
 	url = https://github.com/onsails/lspkind.nvim
+[submodule "nvim/pack/misc/start/vim-illuminate"]
+	path = nvim/pack/misc/start/vim-illuminate
+	url = https://github.com/RRethy/vim-illuminate
