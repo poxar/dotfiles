@@ -53,6 +53,15 @@ local on_attach = function(_, bufnr)
 
   nmap('gK', 'K')
   nmap('<C-k>', vim.lsp.buf.signature_help)
+
+  vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged"}, {
+    pattern = "*",
+    group = "autowrite",
+    callback = function()
+      vim.lsp.buf.format()
+      vim.api.nvim_command("silent! write")
+    end,
+  })
 end
 
 vim.api.nvim_create_user_command('Format', function(_)
