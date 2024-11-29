@@ -107,7 +107,7 @@ hi Pmenu        guifg=fg      guibg=#ededed
 hi PmenuSel     guifg=bg      guibg=fg
 hi PmenuSbar                  guibg=#ededed
 hi PmenuThumb                 guibg=#000000
-hi NormalFloat  guifg=fg      guibg=#ededed
+hi NormalFloat  guifg=fg      guibg=bg
 
 hi DiagnosticOk    guifg=#005f00
 hi DiagnosticError guifg=#b80000
