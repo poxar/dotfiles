@@ -11,6 +11,7 @@ set -xg BROWSER firefox
 # Make chmod u=rwX,g=rX,o= the default
 umask 0027
 
+abbr -ag ltr ls -ltr
 abbr -ag less less -FqX
 set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE -
