@@ -12,6 +12,8 @@ local function nmap(keys, func, desc)
   })
 end
 
+nmap('z=', ts_builtin.spell_suggest, 'List spelling suggestions')
+nmap('<M-s>', ts_builtin.current_buffer_fuzzy_find, 'Find location in buffer')
 nmap('<leader>:', ':Telescope cmdline<cr>', 'Use telescope for the cmdline')
 nmap('<leader>;', ':Telescope cmdline<cr>', 'Use telescope for the cmdline')
 
@@ -27,6 +29,9 @@ nmap('<leader>fe', ts_builtin.symbols, '[F]ind [E]moji')
 nmap('<leader>fq', ts_builtin.quickfix, '[F]ind [Q]uickfix')
 nmap('<leader>fl', ts_builtin.loclist, '[F]ind from [L]ocationlist')
 nmap('<leader>fd', ts_builtin.diagnostics, '[F]ind in [D]iagnostics')
+
+nmap('<leader>ft', ts_builtin.builtin, '[F]ind [T]elescope lenses')
+nmap('<leader>fm', ts_builtin.man_pages, '[F]ind [M]an page')
 
 nmap('<leader>fn', function() ts_builtin.find_files { cwd = '$HOME/Notes' } end, '[F]ind [N]otes')
 nmap('<leader>gn', function() ts_builtin.live_grep { cwd = '$HOME/Notes' } end, '[G]rep [N]otes')
