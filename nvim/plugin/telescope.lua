@@ -12,6 +12,9 @@ local function nmap(keys, func, desc)
   })
 end
 
+nmap('<leader>:', ':Telescope cmdline<cr>', 'Use telescope for the cmdline')
+nmap('<leader>;', ':Telescope cmdline<cr>', 'Use telescope for the cmdline')
+
 nmap('<M-f>', ts_builtin.find_files, 'Find [F]iles')
 nmap('<leader>ff', ts_builtin.find_files, '[F]ind [F]iles')
 nmap('<M-b>', ts_builtin.buffers, 'Find [B]uffers')

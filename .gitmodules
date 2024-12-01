@@ -140,3 +140,6 @@
 [submodule "nvim/pack/misc/start/vim-illuminate"]
 	path = nvim/pack/misc/start/vim-illuminate
 	url = https://github.com/RRethy/vim-illuminate
+[submodule "nvim/pack/telescope/start/telescope-cmdline.nvim"]
+	path = nvim/pack/telescope/start/telescope-cmdline.nvim
+	url = https://github.com/jonarrien/telescope-cmdline.nvim
