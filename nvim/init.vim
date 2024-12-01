@@ -258,6 +258,7 @@ let g:loaded_netrwPlugin = 1
 let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
 
 " open git status (tpope/fugitive)
+nnoremap g<space> :Git<space>
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gdiffsplit<cr>
 nnoremap <leader>gc :Git commit<cr>
