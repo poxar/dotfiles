@@ -139,3 +139,7 @@
 [submodule "nvim/pack/telescope/start/telescope-cmdline.nvim"]
 	path = nvim/pack/telescope/start/telescope-cmdline.nvim
 	url = https://github.com/jonarrien/telescope-cmdline.nvim
+[submodule "nvim/pack/misc/start/mini.ai"]
+	path = nvim/pack/misc/start/mini.ai
+	url = https://github.com/echasnovski/mini.ai
+	branch = stable

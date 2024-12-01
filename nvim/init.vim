@@ -290,6 +290,9 @@ nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
 nnoremap <silent> gop vip<esc><cmd>Sort<cr>
 nnoremap <silent> goi vii<esc><cmd>Sort<cr>
 
+" mini.ai, adds more a/i textobjects
+lua require('mini.ai').setup()
+
 " Abbreviations {{{1
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
