@@ -55,11 +55,6 @@ local on_attach = function(_, bufnr)
   nmap('<C-k>', vim.lsp.buf.signature_help)
 end
 
-vim.api.nvim_create_user_command('Format', function(_)
-  vim.lsp.buf.format()
-end, { desc = 'Format current buffer with LSP' })
-vim.keymap.set('n', 'f<cr>', vim.lsp.buf.format)
-
 -- List of available servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
@@ -134,13 +129,3 @@ for _, lsp in ipairs(servers) do
     },
   }
 end
-
-local null_ls = require('null-ls')
-null_ls.setup({
-  sources = {
-    null_ls.builtins.diagnostics.fish,
-    null_ls.builtins.diagnostics.vint,    -- vimL
-    null_ls.builtins.formatting.prettier, -- html/css/js/ts
-    null_ls.builtins.formatting.shfmt,    -- sh/bash
-  }
-})

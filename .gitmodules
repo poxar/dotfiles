@@ -43,9 +43,6 @@
 	path = nvim/pack/lsp/start/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
 	branch = legacy
-[submodule "nvim/pack/lsp/start/none-ls.nvim"]
-	path = nvim/pack/lsp/start/none-ls.nvim
-	url = https://github.com/nvimtools/none-ls.nvim
 [submodule "nvim/pack/lsp/start/nvim-lspconfig"]
 	path = nvim/pack/lsp/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
@@ -143,3 +140,6 @@
 	path = nvim/pack/misc/start/mini.ai
 	url = https://github.com/echasnovski/mini.ai
 	branch = stable
+[submodule "nvim/pack/misc/start/conform.nvim"]
+	path = nvim/pack/misc/start/conform.nvim
+	url = https://github.com/stevearc/conform.nvim
