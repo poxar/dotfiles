@@ -178,6 +178,7 @@ nnoremap [a :previous<cr>
 tnoremap <esc> <c-\><c-n>
 nnoremap <leader>ts :split<cr>:terminal<cr>:startinsert<cr>
 nnoremap <leader>tv :vsplit<cr>:terminal<cr>:startinsert<cr>
+nnoremap <M-c> :rightbelow terminal<cr>A
 
 augroup terminal_settings
   au! TermOpen,TermEnter * setlocal nonumber|setlocal norelativenumber
