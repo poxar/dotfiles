@@ -7,9 +7,7 @@ require('fidget').setup {
   fmt = { max_messages = 4 },
 }
 
-vim.keymap.set('n', '<leader>d', function()
-  vim.diagnostic.setloclist()
-end)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
 
 vim.diagnostic.config({
   virtual_text = false,
