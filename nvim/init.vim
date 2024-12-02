@@ -33,6 +33,7 @@ set tagcase=followscs
 set noshowmode
 set matchpairs+=<:>
 set pumheight=10
+set laststatus=3
 
 " Automatically Rebalance windows
 augroup balance_windows
@@ -98,6 +99,13 @@ set mouse=nvh
 
 " Automatically load changes to open files
 set autoread
+
+" autosave
+set autowriteall
+augroup autowrite
+  au! InsertLeave * silent! write
+  au! TextChanged * silent! write
+augroup END
 
 " Mappings {{{1
 
@@ -245,13 +253,6 @@ let $MANWIDTH = 80
 let g:man_hardwrap = 1
 let g:termdebug_wide = 1
 let g:suda_smart_edit = 1
-
-" autosave
-set autowriteall
-augroup autowrite
-  au! InsertLeave * silent! write
-  au! TextChanged * silent! write
-augroup END
 
 " dirvish, a replacement for netrw
 let g:loaded_netrwPlugin = 1
