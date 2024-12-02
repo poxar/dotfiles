@@ -143,3 +143,12 @@
 [submodule "nvim/pack/misc/start/conform.nvim"]
 	path = nvim/pack/misc/start/conform.nvim
 	url = https://github.com/stevearc/conform.nvim
+[submodule "nvim/pack/db/start/vim-dadbod"]
+	path = nvim/pack/db/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "nvim/pack/db/start/vim-dadbod-ui"]
+	path = nvim/pack/db/start/vim-dadbod-ui
+	url = https://github.com/kristijanhusak/vim-dadbod-ui
+[submodule "nvim/pack/db/start/vim-dadbod-completion"]
+	path = nvim/pack/db/start/vim-dadbod-completion
+	url = https://github.com/kristijanhusak/vim-dadbod-completion
