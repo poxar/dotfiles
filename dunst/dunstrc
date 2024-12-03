@@ -1,4 +1,26 @@
-# I only use dunst to stop programs from inventing their own notification popups
-[skip-display]
-    skip_display = yes
-    history_ignore = yes
+[global]
+  monitor = 0
+  follow = mouse
+  width = 250
+  height = 60
+  offset = 20x20
+  frame_width = 2
+
+[urgency_low]
+  background = "#000000"
+  foreground = "#fafafa"
+  highlight = "#fafafa"
+  frame_color = "#000000"
+
+[urgency_normal]
+  background = "#000000"
+  foreground = "#fafafa"
+  highlight = "#fafafa"
+  frame_color = "#000000"
+
+[urgency_critical]
+  timeout = 20
+  background = "#900000"
+  foreground = "#fafafa"
+  highlight = "#fafafa"
+  frame_color = "#900000"
