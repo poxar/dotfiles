@@ -5,7 +5,7 @@ configuration {
 
   case-sensitive: false;
 
-  modes: "drun,run,emoji,ssh";
+  modes: "drun,run,ssh";
   combi-modes: "drun,run";
   drun-show-actions: true;
 
@@ -14,11 +14,6 @@ configuration {
   timeout {
     action: "kb-cancel";
     delay:  0;
-  }
-
-  filebrowser {
-    directories-first: true;
-    sorting-method:    "name";
   }
 
   kb-mode-next: "Tab";
@@ -31,14 +26,14 @@ configuration {
 
 * {
   foreground: #000000;
-  background: #f4e4e1;
+  background: #fafafa;
 
   lightfg: #000000;
-  lightbg: #eadbd8;
+  lightbg: #ededed;
 
-  selected-normal-background: #e3bcb5;
-  selected-normal-foreground: #000000;
+  selected-normal-background: #000000;
+  selected-normal-foreground: #fafafa;
 
   red: #b80000;
-  blue: #005fd7;
+  blue: #5f00d7;
 }

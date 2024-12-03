@@ -6,7 +6,7 @@ current=$(date +%F_%H-%M-%S)
 
 mkdir -p "$dir"
 
-hacksaw --colour '#e3bcb5' -s 4 -g 2 -n | {
+hacksaw -s 2 -g 2 -n | {
     IFS=+x read -r w h x y
 
     w=$((w + w % 2))
