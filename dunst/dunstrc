@@ -5,6 +5,7 @@
   height = 60
   offset = 20x20
   frame_width = 2
+  progress_bar_corner_radius = 5
 
 [urgency_low]
   background = "#000000"
