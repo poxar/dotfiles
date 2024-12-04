@@ -27,9 +27,3 @@ Print
 
 shift + Print
   screenshot
-
-super + Print
-  alacritty --class 'Alacritty,screencast' -e screencast
-
-super + shift + Print
-  pkill ffmpeg
