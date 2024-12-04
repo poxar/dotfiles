@@ -19,6 +19,9 @@ XF86AudioMute
 super + shift + d
   px_notify dnd
 
+super + z
+  dunstctl action
+
 Print
   screenshot (hacksaw -s 2 -g 2)
 

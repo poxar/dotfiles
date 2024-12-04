@@ -2,6 +2,7 @@
 set -eu
 
 cmd=shotgun
+file="$HOME/Pictures/Screenshots/$(date '+%F_%H-%M-%S').png"
 arg=${1:-""}
 
 if test -n "$arg"; then
@@ -11,5 +12,11 @@ else
 fi
 
 $cmd - \
-  | tee "$HOME/Pictures/Screenshots/$(date '+%F_%H-%M-%S').png" \
+  | tee "$file" \
   | xclip -selection clipboard -target image/png
+
+action="$(notify-send -i "$file" -A "default=Open screenshot" "Screenshot" "$file")"
+
+if test "$action" = "default"; then
+  alacritty -e lf "$file"
+fi
