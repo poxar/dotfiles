@@ -1,4 +1,0 @@
-#!/bin/sh
-set -eu
-
-pkill --signal USR1 dwmstatus.sh
