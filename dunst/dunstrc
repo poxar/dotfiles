@@ -19,8 +19,11 @@
   frame_color = "#000000"
 
 [urgency_critical]
-  timeout = 20
   background = "#900000"
   foreground = "#fafafa"
   highlight = "#fafafa"
   frame_color = "#900000"
+
+[battery]
+  appname = "battery-notify"
+  default_icon = ~/.config/dunst/icons/battery.png
