@@ -67,12 +67,22 @@ bindings = [
   { key = "O",     mods = "Control|Shift", action = "ToggleViMode"     },
   { key = "L",     mods = "Control|Shift", action = "ClearSelection"   },
 
+  { key = "Up",            mods = "Shift", action = "ScrollLineUp"     },
+  { key = "Down",          mods = "Shift", action = "ScrollLineDown"   },
+  { key = "PageUp",        mods = "Shift", action = "ScrollPageUp"     },
+  { key = "PageDown",      mods = "Shift", action = "ScrollPageDown"   },
+  { key = "Home",          mods = "Shift", action = "ScrollToTop"      },
+  { key = "End",           mods = "Shift", action = "ScrollToBottom"   },
+
   { key = "R",     mods = "Control|Shift", action = "SearchBackward"   },
   { key = "S",     mods = "Control|Shift", action = "SearchForward"    },
 
   { key = ">",     mods = "Control|Shift", action = "IncreaseFontSize" },
   { key = "<",     mods = "Control|Shift", action = "DecreaseFontSize" },
   { key = "?",     mods = "Control|Shift", action = "ResetFontSize"    },
+
+  # quickly step through past prompts with C-S-r A-p
+  { key = "P",     mods = "Alt", mode = "Search", chars = " ❯" },
 ]
 
 [mouse]
