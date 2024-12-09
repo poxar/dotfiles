@@ -1,6 +1,5 @@
 configuration {
   dpi: 0;
-  show-icons: true;
   font: "FiraCode Nerd Font Light 11";
 
   case-sensitive: false;
@@ -22,18 +21,6 @@ configuration {
   kb-element-prev: "";
 }
 
-@theme "default"
+@theme "purple"
 
-* {
-  foreground: #000000;
-  background: #fafafa;
-
-  lightfg: #000000;
-  lightbg: #ededed;
-
-  selected-normal-background: #000000;
-  selected-normal-foreground: #fafafa;
-
-  red: #b80000;
-  blue: #5f00d7;
-}
+window { width: 30%; }
