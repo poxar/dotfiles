@@ -75,7 +75,7 @@ end
 
 -- web technology
 if vim.fn.executable("typescript-language-server") == 1 then
-  table.insert(servers, "tsserver");
+  table.insert(servers, "ts_ls");
 end
 if vim.fn.executable("vscode-eslint-language-server") == 1 then
   table.insert(servers, "eslint");
@@ -97,7 +97,7 @@ end
 
 -- python
 if vim.fn.executable("ruff-lsp") == 1 then
-  table.insert(servers, "ruff_lsp");
+  table.insert(servers, "ruff");
 end
 
 -- sh/bash
