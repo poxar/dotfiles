@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+REPO="${1:-"$HOME/Code/arch-repository"}"
+rsync -av --delete-after "$REPO/" www.poxar.net:/srv/pkgs.poxar.net/

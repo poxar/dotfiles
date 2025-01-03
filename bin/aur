@@ -1,0 +1,40 @@
+#!/bin/sh
+set -eu
+
+aur_clone() {
+  git clone "https://aur.archlinux.org/$1.git"
+  cd "$1"
+  cat PKGBUILD
+
+  fish
+  git clean -fdx
+}
+
+aur_update() {
+  for dir in *; do
+    echo "==> $dir"
+    cd "$dir"
+    git fetch
+    # launch an interactive shell if changes are available
+    git diff --exit-code origin || fish
+    git clean -fdx
+    cd ..
+  done
+}
+
+aur_list() {
+  ls -1
+}
+
+aur_rm() {
+  rm -rf "$1"
+}
+
+cd "$HOME/Code/aur"
+case "$1" in
+  "clone") aur_clone "$2";;
+  "list") aur_list ;;
+  "update") aur_update ;;
+  "rm") aur_rm "$2";;
+  *) aur_update ;;
+esac
