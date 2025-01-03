@@ -56,3 +56,13 @@ gtk-titlebar = false
 
 keybind = shift+up=scroll_page_lines:-1
 keybind = shift+down=scroll_page_lines:1
+
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:bottom
+keybind = ctrl+alt+k=goto_split:top
+keybind = ctrl+alt+l=goto_split:right
+
+keybind = ctrl+cmd+h=new_split:left
+keybind = ctrl+cmd+j=new_split:down
+keybind = ctrl+cmd+k=new_split:up
+keybind = ctrl+cmd+l=new_split:right
