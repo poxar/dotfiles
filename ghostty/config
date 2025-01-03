@@ -1,0 +1,58 @@
+palette = 0=#000000
+palette = 1=#b80000
+palette = 2=#005f00
+palette = 3=#d75f00
+palette = 4=#005fd7
+palette = 5=#5f00d7
+palette = 6=#0087af
+palette = 7=#b2b2b2
+
+palette = 8=#585858
+palette = 9=#b80000
+palette = 10=#005f00
+palette = 11=#d75f00
+palette = 12=#005fd7
+palette = 13=#5f00d7
+palette = 14=#0087af
+palette = 15=#b2b2b2
+
+background = fafafa
+foreground = 000000
+
+selection-background = d8d3d3
+selection-foreground = 000000
+
+cursor-invert-fg-bg = true
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+font-size = 11
+adjust-cell-height = 5%
+adjust-cursor-thickness = 150%
+font-family = FiraCode Nerd Font Light
+font-family-bold = FiraCode Nerd Font Med
+font-family-italic = FiraCode Nerd Font Light Italic
+font-family-bold-italic = FiraCode Nerd Font Med Italic
+font-feature = onum
+font-feature = cv06
+font-feature = ss02
+font-feature = ss03
+font-feature = ss06
+font-feature = ss07
+
+clipboard-read = ask
+clipboard-write = allow
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+shell-integration-features = no-cursor
+
+copy-on-select = true
+
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = false
+gtk-titlebar = false
+
+keybind = shift+up=scroll_page_lines:-1
+keybind = shift+down=scroll_page_lines:1
