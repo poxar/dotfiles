@@ -116,11 +116,6 @@
 	path = nvim/pack/tpope/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
 # Change/Add surrounding characters
-[submodule "nvim/pack/tpope/start/vim-surround"]
-	path = nvim/pack/tpope/start/vim-surround
-	url = https://github.com/tpope/vim-surround
-
-## New plugins
 [submodule "nvim/pack/misc/start/vim-suda"]
 	path = nvim/pack/misc/start/vim-suda
 	url = https://github.com/lambdalisue/vim-suda
@@ -152,3 +147,6 @@
 [submodule "nvim/pack/db/start/vim-dadbod-completion"]
 	path = nvim/pack/db/start/vim-dadbod-completion
 	url = https://github.com/kristijanhusak/vim-dadbod-completion
+[submodule "nvim/pack/misc/start/nvim-surround"]
+	path = nvim/pack/misc/start/nvim-surround
+	url = https://github.com/kylechui/nvim-surround

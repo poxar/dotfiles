@@ -200,20 +200,6 @@ augroup END
 cnoremap <c-a> <home>
 cnoremap <c-x><c-a> <c-a>
 
-" toggles
-function s:toggle_map(letter, option) abort
-  let set_on = '"setlocal '.a:option.'"'
-  let set_off = '"setlocal no'.a:option.'"'
-  exe 'nnoremap yo'.a:letter.' :<c-u><c-r>=&'.a:option.' ? '.set_off.' : '.set_on.'<cr><cr>'
-endfunction
-
-call <sid>toggle_map('l', 'list')
-call <sid>toggle_map('n', 'number')
-call <sid>toggle_map('r', 'relativenumber')
-call <sid>toggle_map('s', 'spell')
-
-nnoremap yod :<c-u><c-r>=&diff ? "diffoff" : "diffthis"<cr><cr>
-
 " Commands {{{1
 
 " Fix :Q typo
@@ -263,6 +249,7 @@ let g:loaded_netrwPlugin = 1
 let g:dirvish_mode = ':silent keeppatterns g@\v/\.[^\/]+/?$@d _'
 
 " open git status (tpope/fugitive)
+let g:fugitive_no_maps = 1 " disable global maps
 nnoremap g<space> :Git<space>
 nnoremap <leader>gs :Git<cr>
 nnoremap <leader>gd :Gdiffsplit<cr>
@@ -277,7 +264,6 @@ let g:snips_email = 'philipp.millar@poxar.net'
 
 " Visual undotree
 let g:undotree_ShortIndicators = 1
-nnoremap you :UndotreeToggle<cr>
 
 " Better :sort
 lua require('sort').setup {}

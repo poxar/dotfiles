@@ -39,14 +39,14 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', require('telescope.builtin').lsp_definitions)
   nmap('gD', vim.lsp.buf.declaration)
-  nmap('gr', require('telescope.builtin').lsp_references)
+  nmap('gR', require('telescope.builtin').lsp_references)
   nmap('gI', require('telescope.builtin').lsp_implementations)
   nmap('gT', require('telescope.builtin').lsp_type_definitions)
 
   nmap('<leader>sd', require('telescope.builtin').lsp_document_symbols)
   nmap('<leader>sw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
-  nmap('cd', vim.lsp.buf.rename)
+  nmap('gr', vim.lsp.buf.rename)
   nmap('ga', vim.lsp.buf.code_action)
 
   nmap('gK', 'K')
@@ -54,7 +54,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- List of available servers
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- https://github.com/neovim/nvim-lspconfig/wiki/Language-specific-plugins
 local servers = {}
 
