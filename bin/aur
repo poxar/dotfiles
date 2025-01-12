@@ -31,7 +31,7 @@ aur_rm() {
 }
 
 cd "$HOME/Code/aur"
-case "$1" in
+case "${1:-"update"}" in
   "clone") aur_clone "$2";;
   "list") aur_list ;;
   "update") aur_update ;;
