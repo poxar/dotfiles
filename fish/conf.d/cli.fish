@@ -1,5 +1,5 @@
-# Use A-W to delete bigword instead of a quick help
-bind \ew backward-kill-bigword
+# Use A-W to delete last shell token instead of a quick help
+bind \ew backward-kill-token
 
 # jump after first word (ignoring sudo/doas)
 function __command_position
