@@ -10,18 +10,12 @@ require('fidget').setup {
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_lines = true,
+  underline = false,
   signs = {
     severity_sort = true,
   }
 })
-
-local _border = "single"
-vim.diagnostic.config { float = { border = _border } }
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, { border = _border })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, { border = _border })
 
 vim.cmd('sign define DiagnosticSignError text=● texthl=DiagnosticSignError linehl= numhl=')
 vim.cmd('sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn linehl= numhl=')
