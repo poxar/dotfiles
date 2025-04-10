@@ -12,8 +12,12 @@
 [branch]
   sort = -committerdate
 
+[column]
+  ui = auto
+
 [rerere]
   enabled = true
+  autoupdate = true
 
 [merge]
   conflictStyle = zdiff3
@@ -21,10 +25,14 @@
   tool = nvimdiff
 
 [rebase]
+  autoStash = true
   autoSquash = true
+  updateRefs = true
   missingCommitsCheck = error
 
 [diff]
+  renames = true
+  colorMoved = plain
   algorithm = histogram
   indentHeuristic = true
   mnemonicPrefix = true
@@ -50,6 +58,8 @@
   parallel = 0
   writeCommitGraph = true
   prune = true
+  pruneTags = true
+  all = true
 
 [alias]
   l = log --pretty=oneline --abbrev-commit --max-count=15 --decorate=auto
@@ -66,3 +76,6 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+
+[tag]
+  sort = version:refname
