@@ -220,6 +220,7 @@ nnoremap <leader>ef :Ftedit<cr>
 " pretty printing
 command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 command! -range=% XmlPP :<line1>,<line2>!xmllint --format -
+command! -range=% HtmlPP :<line1>,<line2>!prettier --html-whitespace-sensitivity=ignore --parser html
 
 " Helper for debugging syntax highlighting
 " It shows the current highlighting group under the cursor
