@@ -2,6 +2,7 @@
 set -g fish_greeting
 
 set -xg EDITOR nvim
+set -xg MANPAGER 'nvim +Man!'
 abbr -ag v nvim
 abbr -ag vs nvim -S Session.vim
 
