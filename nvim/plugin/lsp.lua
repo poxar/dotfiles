@@ -40,18 +40,15 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', require('telescope.builtin').lsp_definitions)
   nmap('gD', vim.lsp.buf.declaration)
-  nmap('gR', require('telescope.builtin').lsp_references)
-  nmap('gI', require('telescope.builtin').lsp_implementations)
-  nmap('gT', require('telescope.builtin').lsp_type_definitions)
 
-  nmap('<leader>sd', require('telescope.builtin').lsp_document_symbols)
-  nmap('<leader>sw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+  nmap('grr', require('telescope.builtin').lsp_references)
+  nmap('gri', require('telescope.builtin').lsp_implementations)
+  nmap('grt', require('telescope.builtin').lsp_type_definitions)
 
-  nmap('gr', vim.lsp.buf.rename)
-  nmap('ga', vim.lsp.buf.code_action)
+  nmap('gO', require('telescope.builtin').lsp_document_symbols)
+  nmap('grw', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
   nmap('gK', 'K')
-  nmap('<C-k>', vim.lsp.buf.signature_help)
 end
 
 -- List of available servers
