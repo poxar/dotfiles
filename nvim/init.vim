@@ -174,19 +174,6 @@ nnoremap <leader>q :pclose\|cclose\|lclose<cr>
 nnoremap <leader>c :botright copen<cr>
 nnoremap <leader>l :botright lopen<cr>
 
-nnoremap [Q :cfirst<cr>
-nnoremap ]Q :clast<cr>
-nnoremap ]q :cnext<cr>
-nnoremap [q :cprevious<cr>
-
-nnoremap [L :lfirst<cr>
-nnoremap ]L :llast<cr>
-nnoremap ]l :lnext<cr>
-nnoremap [l :lprevious<cr>
-
-nnoremap ]a :next<cr>
-nnoremap [a :previous<cr>
-
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
 nnoremap <leader>ts :split<cr>:terminal<cr>:startinsert<cr>
