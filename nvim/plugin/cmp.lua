@@ -4,6 +4,10 @@ local autopairs = require('nvim-autopairs.completion.cmp')
 local lspkind = require('lspkind')
 
 cmp.setup({
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   formatting = {
     format = lspkind.cmp_format({
       mode = 'symbol',
