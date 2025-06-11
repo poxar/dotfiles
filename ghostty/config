@@ -62,6 +62,11 @@ keybind = ctrl+alt+j=goto_split:bottom
 keybind = ctrl+alt+k=goto_split:top
 keybind = ctrl+alt+l=goto_split:right
 
+keybind = alt+left=goto_split:left
+keybind = alt+down=goto_split:bottom
+keybind = alt+up=goto_split:top
+keybind = alt+right=goto_split:right
+
 keybind = ctrl+cmd+h=new_split:left
 keybind = ctrl+cmd+j=new_split:down
 keybind = ctrl+cmd+k=new_split:up
