@@ -1,0 +1,8 @@
+#!/bin/sh
+
+API="https://api.dictionaryapi.dev/api/v2/entries/en"
+
+curl -s --connect-timeout 5 --max-time 10 "$API/$1" \
+  | jq '[.[].meanings[] | {pos: .partOfSpeech, def: .definitions[].definition}]' \
+  | jq '.[]' \
+  | jq -r '"\(.pos). \(.def)\n"'
