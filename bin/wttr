@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+location="${1:-"Berlin"}"
+
+curl "https://v2d.wttr.in/$location"
