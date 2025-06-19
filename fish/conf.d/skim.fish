@@ -52,4 +52,25 @@ if command -q sk
     commandline --insert $hash
   end
   bind \eh __skim_git_history
+
+  # kill process
+  function __skim_kill
+    set -l pid (ps -u "$USER" -o pid=,comm=,%cpu=,%mem= \
+      | sk --no-sort -p "kill > " \
+      | awk '{print $1}')
+
+    test "x$pid" != "x"; and kill -9 $pid
+  end
+  bind \ek __skim_kill
+
+  # kill process by port
+  function __skim_kill_port
+    set -l pid (lsof -iTCP -sTCP:LISTEN -P \
+      | tail -n+2 \
+      | sk --no-sort -p "kill > " \
+      | awk '{print $2}')
+
+    test "x$pid" != "x"; and kill -9 $pid
+  end
+  bind \eK __skim_kill_port
 end
