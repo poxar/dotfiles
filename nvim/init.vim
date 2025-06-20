@@ -133,22 +133,8 @@ nnoremap <c-w><leader> <c-^>
 nnoremap <c-w>; <c-w>p
 
 " Window switching from all modes
-nnoremap <M-h> <c-w>h
-nnoremap <M-j> <c-w>j
-nnoremap <M-k> <c-w>k
-nnoremap <M-l> <c-w>l
 nnoremap <M-o> <c-w>p
-
-inoremap <M-h> <esc><c-w>h
-inoremap <M-j> <esc><c-w>j
-inoremap <M-k> <esc><c-w>k
-inoremap <M-l> <esc><c-w>l
 inoremap <M-o> <esc><c-w>p
-
-tnoremap <M-h> <c-\><c-n><c-w>h
-tnoremap <M-j> <c-\><c-n><c-w>j
-tnoremap <M-k> <c-\><c-n><c-w>k
-tnoremap <M-l> <c-\><c-n><c-w>l
 tnoremap <M-o> <c-\><c-n><c-w>p
 
 " Substitute word under the curser

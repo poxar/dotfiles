@@ -61,7 +61,7 @@ if command -q sk
 
     test "x$pid" != "x"; and kill -9 $pid
   end
-  bind \ek __skim_kill
+  bind \ei __skim_kill
 
   # kill process by port
   function __skim_kill_port
@@ -72,5 +72,5 @@ if command -q sk
 
     test "x$pid" != "x"; and kill -9 $pid
   end
-  bind \eK __skim_kill_port
+  bind \eI __skim_kill_port
 end
