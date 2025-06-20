@@ -20,7 +20,7 @@ if command -q sk
       commandline --is-valid; and commandline -f execute
     end
   end
-  bind \cg __skim_grep
+  bind \eg __skim_grep
 
   # quickly cd into directory
   function __skim_cd
@@ -51,7 +51,7 @@ if command -q sk
 
     commandline --insert $hash
   end
-  bind \eh __skim_git_history
+  bind \eG __skim_git_history
 
   # kill process
   function __skim_kill

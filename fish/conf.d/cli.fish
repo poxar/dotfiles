@@ -29,6 +29,3 @@ function __magic_dot
 end
 
 bind . __magic_dot
-
-# open project with alt+o
-bind \eo op
