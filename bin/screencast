@@ -21,5 +21,5 @@ esac
 action="$(notify-send -i "$file" -A "default=Open screencast" "Screencast" "$file")"
 
 if test "$action" = "default"; then
-  ghostty -e yazi "$file"
+  ghostty -e lf "$file"
 fi

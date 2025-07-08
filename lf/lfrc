@@ -1,6 +1,7 @@
 set shell sh
 set cursorpreviewfmt ""
 
+set cleaner ~/.config/lf/clean.sh
 set previewer ~/.config/lf/preview.sh
 
 cmd mkdir %IFS=" "; mkdir -- "$*"
