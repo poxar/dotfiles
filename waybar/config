@@ -38,7 +38,7 @@
             "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo-muted": "󰟎",
             "tunnel.hifiberry.local.alsa_output.platform-soc_sound.stereo-fallback": "󰜟",
             "default": "󰓃",
-            "muted": "󰓄",
+            "default-muted": "󰓄",
         },
         "format-source": " ",
         "format-source-muted": "",
@@ -53,10 +53,11 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
         "format-alt": "{time} {icon}",
+        "tooltip-format": "{timeTo} ({capacity}%)\nPower: {power}\nHealth: {health}",
         "format-icons": [ "", "", "", "", "" ],
     },
     "custom/weather": {
