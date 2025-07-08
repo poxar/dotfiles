@@ -19,9 +19,4 @@ case "${1:-""}" in
 esac
 
 wl-copy --type image/png < "$file"
-
-action="$(notify-send -i "$file" -A "default=Open screenshot" "Screenshot" "$file")"
-
-if test "$action" = "default"; then
-  ghostty -e lf "$file"
-fi
+swappy -f "$file"
