@@ -93,6 +93,11 @@ if vim.fn.executable("marksman") == 1 then
   table.insert(servers, "marksman");
 end
 
+-- yaml
+if vim.fn.executable("yaml-language-server") == 1 then
+  table.insert(servers, "yamlls")
+end
+
 -- python
 if vim.fn.executable("ruff-lsp") == 1 then
   table.insert(servers, "ruff");
