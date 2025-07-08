@@ -2,24 +2,24 @@
 set -eu
 
 dir="$HOME/Videos/screencasts"
-current=$(date +%F_%H-%M-%S)
+file="$dir/$(date +%F_%H-%M-%S).mp4"
+cmd="wf-recorder -a -f $file"
 
-mkdir -p "$dir"
+case "${1:-""}" in
+  "sel")
+    $cmd -g "$(slurp)"
+    ;;
+  "cur")
+    win="$(hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')"
+    $cmd -g "$win"
+    ;;
+  *)
+    output="$(hyprctl -j activeworkspace | jq -r '.monitor')"
+    $cmd -o "$output"
+esac
 
-hacksaw -s 2 -g 2 -n | {
-    IFS=+x read -r w h x y
+action="$(notify-send -i "$file" -A "default=Open screencast" "Screencast" "$file")"
 
-    w=$((w + w % 2))
-    h=$((h + h % 2))
-
-    ffmpeg \
-        -r 30            \
-        -f x11grab       \
-        -s "${w}x${h}"   \
-        -i ":0.0+$x,$y"  \
-        -preset slow     \
-        -c:v h264        \
-        -pix_fmt yuv420p \
-        -crf 20          \
-        "$dir/$current.mp4"
-}
+if test "$action" = "default"; then
+  ghostty -e yazi "$file"
+fi

@@ -1,0 +1,74 @@
+{
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["systemd-failed-units", "custom/weather", "pulseaudio", "battery", "clock"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5 ]
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "separate-outputs": true
+    },
+    "clock": {
+        "format": "{:L%e. %B  %H:%M} ",
+        "interval": 60,
+        "locale": "de_DE.UTF-8",
+        "tooltip": false,
+    },
+    "pulseaudio": {
+        "format": "{icon}{format_source}",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headphone-muted": "󰟎",
+            "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo": "󰋋",
+            "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo-muted": "󰟎",
+            "tunnel.hifiberry.local.alsa_output.platform-soc_sound.stereo-fallback": "󰜟",
+            "default": "󰓃",
+            "muted": "󰓄",
+        },
+        "format-source": " ",
+        "format-source-muted": "",
+        "on-click": "pamixer --toggle-mute",
+        "on-click-right": "pamixer --default-source --toggle-mute",
+        "on-click-middle": "toggle-sink",
+    },
+    "battery": {
+        "interval":30,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [ "", "", "", "", "" ],
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "$XDG_CONFIG_HOME/waybar/scripts/wttr.py",
+        "return-type": "json"
+    },
+    "systemd-failed-units": {
+        "format": " {nr_failed}",
+        "system": true,
+        "user": true,
+    },
+}

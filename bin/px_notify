@@ -4,10 +4,6 @@ set -eu
 icons="${XDG_CONFIG_HOME:-"$HOME/.config"}/dunst/icons"
 synchint="string:x-canonical-private-synchronous"
 
-notify_statusbar() {
-  pkill --signal USR1 dwmstatus.sh
-}
-
 notify_brightness() {
   brightness="$(brightnessctl get)"
   brightness="$(echo "$brightness/255*100" | bc -ql)"
@@ -34,13 +30,9 @@ notify_dnd() {
     sleep 1
     dunstctl set-paused true
   fi
-
-  notify_statusbar
 }
 
 notify_mic() {
-  notify_statusbar
-
   if test "$(pamixer --default-source --get-mute)" = "true"; then
     notify-send \
       -h "$synchint:mic" \
@@ -55,8 +47,6 @@ notify_mic() {
 }
 
 notify_volume() {
-  notify_statusbar
-
   if test "$(pamixer --get-mute)" = "true"; then
     notify-send \
       -h "$synchint:volume" \
@@ -73,7 +63,6 @@ notify_volume() {
 }
 
 case "${1:-""}" in
-  "statusbar")  notify_statusbar  ;;
   "brightness") notify_brightness ;;
   "dnd")        notify_dnd        ;;
   "mic")        notify_mic        ;;

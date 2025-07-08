@@ -1,22 +1,27 @@
 #!/bin/sh
 set -eu
 
-cmd=shotgun
 file="$HOME/Pictures/Screenshots/$(date '+%F_%H-%M-%S').png"
-arg=${1:-""}
+cmd="grim"
 
-if test -n "$arg"; then
-  cmd="$cmd -g $arg"
-else
-  cmd="$cmd -s"
-fi
+case "${1:-""}" in
+  "sel")
+    $cmd -g "$(slurp)" "$file"
+    ;;
+  "cur")
+    win="$(hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')"
+    $cmd -g "$win" "$file"
+    ;;
+  *)
+    output="$(hyprctl -j activeworkspace | jq -r '.monitor')"
+    $cmd -o "$output" "$file"
+    ;;
+esac
 
-$cmd - \
-  | tee "$file" \
-  | xclip -selection clipboard -target image/png
+wl-copy --type image/png < "$file"
 
 action="$(notify-send -i "$file" -A "default=Open screenshot" "Screenshot" "$file")"
 
 if test "$action" = "default"; then
-  alacritty -e lf "$file"
+  ghostty -e yazi "$file"
 fi

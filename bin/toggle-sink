@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+headphone="alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo"
+speaker="tunnel.hifiberry.local.alsa_output.platform-soc_sound.stereo-fallback"
+
+current="$(pamixer --get-default-sink | awk 'NR >= 2 { print $2 }' | sed 's/\"//g')"
+echo $current
+
+case "$current" in
+  $headphone) pactl set-default-sink $speaker ;;
+  $speaker) pactl set-default-sink $headphone ;;
+esac
