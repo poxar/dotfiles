@@ -152,7 +152,6 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>en :edit ~/Notes/Eingang.md<cr>
 
 " Operate on the directory of the current file
-nnoremap <leader>e.  :edit <c-r>=expand("%:p:h") . "/" <cr>
 cabbrev <expr> %% expand('%:p:h')
 
 " Close/open temporary windows (quickfix, locationlist, preview)
