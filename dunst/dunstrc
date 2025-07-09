@@ -27,7 +27,3 @@
   foreground = "#fafafa"
   highlight = "#fafafa"
   frame_color = "#900000"
-
-[battery]
-  appname = "battery-notify"
-  default_icon = ~/.config/dunst/icons/battery.png
