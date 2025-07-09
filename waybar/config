@@ -34,11 +34,11 @@
     "pulseaudio": {
         "format": "{icon}{format_source}",
         "format-icons": {
-            "headphone": "󰋋",
-            "headphone-muted": "󰟎",
             "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo": "󰋋",
             "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo-muted": "󰟎",
             "tunnel.hifiberry.local.alsa_output.platform-soc_sound.stereo-fallback": "󰜟",
+            "headphone": "󰋋",
+            "headphone-muted": "󰟎",
             "default": "󰓃",
             "default-muted": "󰓄",
         },
