@@ -2,6 +2,8 @@
     "layer": "top",
     "position": "top",
     "reload_style_on_change": true,
+    "expand-left ": true,
+    "no-center": true,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-right": ["systemd-failed-units", "custom/weather", "pulseaudio", "battery", "clock"],
 
