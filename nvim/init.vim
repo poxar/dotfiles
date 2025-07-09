@@ -33,7 +33,6 @@ set tagcase=followscs
 set noshowmode
 set matchpairs+=<:>
 set pumheight=10
-set laststatus=3
 set winborder=rounded
 
 " Automatically Rebalance windows
