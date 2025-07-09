@@ -3,6 +3,7 @@ require('illuminate').configure({
     '',
     'text',
     'markdown',
+    'help',
     'dirbuf',
     'dirvish',
     'fugitive',
