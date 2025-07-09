@@ -12,8 +12,8 @@ Suspend
 sel=$(echo "$OPTIONS" | fuzzel --dmenu)
 
 case "$sel" in
-  "Lock screen") hyprctl 'dispatch exec hyprlock' ;;
-  "Quit") hyprctl 'dispatch exit' ;;
+  "Lock screen") loginctl lock-session ;;
+  "Quit") hyprctl dispatch exit ;;
   "Poweroff") systemctl poweroff ;;
   "Reboot") systemctl reboot ;;
   "Hibernate") systemctl hibernate ;;
