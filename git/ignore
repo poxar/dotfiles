@@ -15,6 +15,10 @@ tags
 # tmux
 .tmuxp.yaml
 
+# mprocs
+mprocs.yaml
+mprocs.log
+
 # Darwin
 .DS_Store
 
