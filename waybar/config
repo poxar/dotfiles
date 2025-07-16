@@ -5,7 +5,7 @@
     "expand-left ": true,
     "no-center": true,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": ["systemd-failed-units", "custom/weather", "pulseaudio", "battery", "clock"],
+    "modules-right": ["systemd-failed-units", "pulseaudio", "battery", "clock"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -61,13 +61,6 @@
         "format-alt": "{time} {icon}",
         "tooltip-format": "{timeTo} ({capacity}%)\nPower: {power}\nHealth: {health}",
         "format-icons": [ "", "", "", "", "" ],
-    },
-    "custom/weather": {
-        "format": "{}",
-        "tooltip": true,
-        "interval": 1800,
-        "exec": "$XDG_CONFIG_HOME/waybar/scripts/wttr.py",
-        "return-type": "json"
     },
     "systemd-failed-units": {
         "format": " {nr_failed}",
