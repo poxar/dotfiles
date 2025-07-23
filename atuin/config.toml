@@ -20,3 +20,6 @@ history_filter = [
 
 [sync]
 records = true
+
+[stats]
+common_prefix = ["sudo ","doas "]
