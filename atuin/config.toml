@@ -2,6 +2,7 @@ style = "full"
 inline_height = 0
 
 show_help = false
+show_tabs = false
 sync_frequency = "10m"
 
 history_filter = [
