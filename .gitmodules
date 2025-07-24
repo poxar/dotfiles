@@ -85,7 +85,6 @@
 [submodule "nvim/pack/telescope/start/telescope.nvim"]
 	path = nvim/pack/telescope/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
-	branch = 0.1.x
 [submodule "nvim/pack/telescope/start/telescope-symbols.nvim"]
 	path = nvim/pack/telescope/start/telescope-symbols.nvim
 	url = https://github.com/nvim-telescope/telescope-symbols.nvim
