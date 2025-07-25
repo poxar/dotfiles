@@ -36,6 +36,8 @@
         "format-icons": {
             "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo": "󰋋",
             "alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo-muted": "󰟎",
+            "bluez_output.74_C6_3B_EC_DB_04.1": "󰓃",
+            "bluez_output.74_C6_3B_EC_DB_04.1-muted": "󰓄",
             "headphone": "󰋋",
             "headphone-muted": "󰟎",
             "default": "󰓃",
