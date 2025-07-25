@@ -109,6 +109,9 @@ augroup END
 
 " Mappings {{{1
 
+inoremap jk <esc>
+cnoremap jk <esc>
+
 inoremap <c-f> <c-x><c-f>
 
 nnoremap gg gg0
