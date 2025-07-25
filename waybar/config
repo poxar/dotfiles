@@ -57,11 +57,11 @@
             "critical": 20
         },
         "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
+        "format-charging": "{icon}",
+        "format-plugged": "{icon}",
         "format-alt": "{time} {icon}",
         "tooltip-format": "{timeTo} ({capacity}%)\nPower: {power}\nHealth: {health}",
-        "format-icons": [ "", "", "", "", "" ],
+        "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
     },
     "systemd-failed-units": {
         "format": " {nr_failed}",
