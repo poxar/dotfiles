@@ -5,7 +5,7 @@
     "expand-left ": true,
     "no-center": true,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": ["systemd-failed-units", "pulseaudio", "battery", "clock"],
+    "modules-right": ["systemd-failed-units", "bluetooth", "pulseaudio", "battery", "clock"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -68,4 +68,10 @@
         "system": true,
         "user": true,
     },
+    "bluetooth": {
+            "format": "",
+            "format-connected": "",
+            "format-connected-battery": " {device_battery_percentage}%",
+            "format-device-preference": [ "Cradio" ],
+    }
 }
