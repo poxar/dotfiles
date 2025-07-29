@@ -4,6 +4,7 @@ abbr -ag gc git commit
 abbr -ag gca git commit --amend
 abbr -ag gP git push
 abbr -ag gp git pull
+abbr -ag gpo git pull origin
 abbr -ag gd git diff
 abbr -ag gdw git diff --word-diff --color-words
 abbr -ag gdo git diff origin
