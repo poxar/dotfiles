@@ -5,9 +5,9 @@ headphone="alsa_output.usb-FIIO_FIIO_KA11-01.analog-stereo"
 speaker="bluez_output.74_C6_3B_EC_DB_04.1"
 
 current="$(pamixer --get-default-sink | awk 'NR >= 2 { print $2 }' | sed 's/\"//g')"
-echo $current
+echo "$current"
 
 case "$current" in
-  $headphone) pactl set-default-sink $speaker ;;
-  $speaker) pactl set-default-sink $headphone ;;
+  "$headphone") pactl set-default-sink $speaker ;;
+  "$speaker") pactl set-default-sink $headphone ;;
 esac
