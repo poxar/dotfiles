@@ -43,7 +43,7 @@
             "default": "󰓃",
             "default-muted": "󰓄",
         },
-        "format-source": " ",
+        "format-source": "",
         "format-source-muted": "",
         "on-click": "pamixer --toggle-mute",
         "on-click-right": "pamixer --default-source --toggle-mute",

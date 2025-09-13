@@ -20,11 +20,15 @@ window#waybar {
 }
 
 #window {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
-#pulseaudio, #battery, #custom-weather {
+#pulseaudio {
     padding: 0 10px;
+}
+
+#battery {
+    padding-right: 8px;
 }
 
 #systemd-failed-units {
