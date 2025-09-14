@@ -54,7 +54,7 @@ window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = false
 gtk-titlebar = false
-window-decoration = false
+window-decoration = true
 
 keybind = shift+up=scroll_page_lines:-1
 keybind = shift+down=scroll_page_lines:1
