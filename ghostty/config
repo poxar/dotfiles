@@ -18,6 +18,7 @@ palette = 15=#b2b2b2
 
 background = fafafa
 foreground = 000000
+unfocused-split-opacity = 1
 
 selection-background = d8d3d3
 selection-foreground = 000000
