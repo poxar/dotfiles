@@ -11,14 +11,18 @@ set -xg BROWSER firefox
 # Make chmod u=rwX,g=rX,o= the default
 umask 0027
 
-abbr -ag ltr ls -ltr
 abbr -ag less less -FqX
 set -xg PAGER 'less -FqX'
 set -xg LESSHISTFILE -
 set -xg LESSOPEN ""
 
-# Automatically fix typos
+# ls
+alias ls 'ls --color=auto'
 abbr -ag sl ls
+abbr -ag ll ls -lh
+abbr -ag la ls -A
+abbr -ag lla ls -lAh
+abbr -ag lt ls -lhtr
 
 # simple piping
 if test (echo $FISH_VERSION | tr -d . | sed 's/-.*//') -ge 360
