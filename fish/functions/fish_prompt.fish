@@ -1,6 +1,11 @@
 function fish_prompt
   set -l last_status $status
 
+  # container ID if in distrobox
+  if test -n "$CONTAINER_ID"
+    echo -n "📦 $CONTAINER_ID"
+  end
+
   # hostname if connected through ssh
   if test -n "$SSH_CLIENT"
     echo -n " $(hostname -f)"
