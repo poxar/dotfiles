@@ -69,3 +69,9 @@ keybind = alt+shift+h=new_split:left
 keybind = alt+shift+j=new_split:down
 keybind = alt+shift+k=new_split:up
 keybind = alt+shift+l=new_split:right
+
+keybind = ctrl+j>h=new_split:left
+keybind = ctrl+j>j=new_split:down
+keybind = ctrl+j>k=new_split:up
+keybind = ctrl+j>l=new_split:right
+keybind = ctrl+j>f=toggle_split_zoom
