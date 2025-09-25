@@ -1,3 +1,7 @@
+snippet print
+	println!(\"${1}\");
+snippet eprint
+	eprintln!(\"${1}\");
 snippet fn
 	fn ${1:name}(${3})${4} {
 		${0:${VISUAL}}
@@ -43,3 +47,40 @@ snippet box
 	Box::new(${0:${VISUAL}})
 snippet rc
 	Rc::new(${0:${VISUAL}})
+snippet allow
+	#![allow(${1:unused})]
+snippet deny
+	#![deny(${1:unsafe_code})]
+snippet derive
+	#[derive(${1})]
+snippet bench
+	#[bench]
+	fn ${1:name}(b: &mut test::Bencher) {
+	    ${2:b.iter(|| ${3:/* benchmark code */})}
+	}
+snippet enum
+	#[derive(Debug)]
+	enum ${1:Name} {
+		${2:Variant1},
+		${3:Variant2},
+	}
+snippet struct
+	#[derive(Debug)]
+	struct ${1:Name} {
+		${2:field}: ${3:Type},
+	}
+snippet modtest
+	#[cfg(test)]
+	mod tests {
+		use super::*;
+
+		#[test]
+		fn ${1:test_name}() {
+			${0:${VISUAL}}
+		}
+	}
+snippet test
+	#[test]
+	fn ${1:test_name}() {
+		${0:${VISUAL}}
+	}

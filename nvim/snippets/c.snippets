@@ -18,3 +18,7 @@ snippet once
 	${0}
 
 	#endif /* $1 */
+snippet print
+	printf("${1:format}\n"${2:, ${3:args}});
+snippet eprint
+	fprintf(stderr, "${1:format}\n"${2:, ${3:args}});
