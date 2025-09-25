@@ -136,6 +136,10 @@
 	path = nvim/pack/telescope/start/telescope-symbols.nvim
 	url = https://github.com/nvim-telescope/telescope-symbols.nvim
 	shallow = true
+[submodule "nvim/pack/telescope/start/telescope-ui-select.nvim"]
+	path = nvim/pack/telescope/start/telescope-ui-select.nvim
+	url = https://github.com/nvim-telescope/telescope-ui-select.nvim.git
+	shallow = true
 
 ## Tim Pope master class
 # Async command dispatcher

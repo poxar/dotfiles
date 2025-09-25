@@ -1,4 +1,5 @@
 local ts_builtin = require('telescope.builtin')
+require("telescope").load_extension("ui-select")
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopeFindPre",
