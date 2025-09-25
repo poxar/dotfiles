@@ -172,10 +172,6 @@
 	path = nvim/pack/db/start/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod
 	shallow = true
-[submodule "nvim/pack/db/start/vim-dadbod-ui"]
-	path = nvim/pack/db/start/vim-dadbod-ui
-	url = https://github.com/kristijanhusak/vim-dadbod-ui
-	shallow = true
 [submodule "nvim/pack/db/start/vim-dadbod-completion"]
 	path = nvim/pack/db/start/vim-dadbod-completion
 	url = https://github.com/kristijanhusak/vim-dadbod-completion
