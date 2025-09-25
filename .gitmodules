@@ -106,11 +106,6 @@
 	path = nvim/pack/misc/start/mini.ai
 	url = https://github.com/echasnovski/mini.ai
 	shallow = true
-# Edit files as root
-[submodule "nvim/pack/misc/start/vim-suda"]
-	path = nvim/pack/misc/start/vim-suda
-	url = https://github.com/lambdalisue/vim-suda
-	shallow = true
 # Automatic formatting
 [submodule "nvim/pack/misc/start/conform.nvim"]
 	path = nvim/pack/misc/start/conform.nvim
