@@ -51,10 +51,6 @@
 	shallow = true
 
 ## LSP support
-[submodule "nvim/pack/lsp/opt/dressing.nvim"]
-	path = nvim/pack/lsp/start/dressing.nvim
-	url = https://github.com/stevearc/dressing.nvim
-	shallow = true
 [submodule "nvim/pack/lsp/start/fidget.nvim"]
 	path = nvim/pack/lsp/start/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
