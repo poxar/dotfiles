@@ -20,6 +20,9 @@
 [submodule "nvim/pack/cmp/start/nvim-snippy"]
 	path = nvim/pack/cmp/start/nvim-snippy
 	url = https://github.com/dcampos/nvim-snippy
+[submodule "nvim/pack/cmp/start/lspkind.nvim"]
+	path = nvim/pack/cmp/start/lspkind.nvim
+	url = https://github.com/onsails/lspkind.nvim
 
 ## Language support
 [submodule "nvim/pack/lang/start/crates.nvim"]
@@ -42,7 +45,6 @@
 [submodule "nvim/pack/lsp/start/fidget.nvim"]
 	path = nvim/pack/lsp/start/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
-	branch = legacy
 [submodule "nvim/pack/lsp/start/nvim-lspconfig"]
 	path = nvim/pack/lsp/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
@@ -80,6 +82,22 @@
 [submodule "nvim/pack/misc/start/vim-indent-object"]
 	path = nvim/pack/misc/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
+# Change/Add surrounding characters
+[submodule "nvim/pack/misc/start/mini.ai"]
+	path = nvim/pack/misc/start/mini.ai
+	url = https://github.com/echasnovski/mini.ai
+# Edit files as root
+[submodule "nvim/pack/misc/start/vim-suda"]
+	path = nvim/pack/misc/start/vim-suda
+	url = https://github.com/lambdalisue/vim-suda
+# Automatic formatting
+[submodule "nvim/pack/misc/start/conform.nvim"]
+	path = nvim/pack/misc/start/conform.nvim
+	url = https://github.com/stevearc/conform.nvim
+#Add/delete/change surrounding pairs
+[submodule "nvim/pack/misc/start/nvim-surround"]
+	path = nvim/pack/misc/start/nvim-surround
+	url = https://github.com/kylechui/nvim-surround
 
 ## Telescope fuzzy finder
 [submodule "nvim/pack/telescope/start/telescope.nvim"]
@@ -114,29 +132,7 @@
 [submodule "nvim/pack/tpope/start/vim-repeat"]
 	path = nvim/pack/tpope/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-# Change/Add surrounding characters
-[submodule "nvim/pack/misc/start/vim-suda"]
-	path = nvim/pack/misc/start/vim-suda
-	url = https://github.com/lambdalisue/vim-suda
-[submodule "nvim/pack/lang/start/vim-slint"]
-	path = nvim/pack/lang/start/vim-slint
-	url = https://github.com/slint-ui/vim-slint
-[submodule "nvim/pack/cmp/start/lspkind.nvim"]
-	path = nvim/pack/cmp/start/lspkind.nvim
-	url = https://github.com/onsails/lspkind.nvim
-[submodule "nvim/pack/misc/start/vim-illuminate"]
-	path = nvim/pack/misc/start/vim-illuminate
-	url = https://github.com/RRethy/vim-illuminate
-[submodule "nvim/pack/telescope/start/telescope-cmdline.nvim"]
-	path = nvim/pack/telescope/start/telescope-cmdline.nvim
-	url = https://github.com/jonarrien/telescope-cmdline.nvim
-[submodule "nvim/pack/misc/start/mini.ai"]
-	path = nvim/pack/misc/start/mini.ai
-	url = https://github.com/echasnovski/mini.ai
-	branch = stable
-[submodule "nvim/pack/misc/start/conform.nvim"]
-	path = nvim/pack/misc/start/conform.nvim
-	url = https://github.com/stevearc/conform.nvim
+# Database client in vim
 [submodule "nvim/pack/db/start/vim-dadbod"]
 	path = nvim/pack/db/start/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod
@@ -146,6 +142,5 @@
 [submodule "nvim/pack/db/start/vim-dadbod-completion"]
 	path = nvim/pack/db/start/vim-dadbod-completion
 	url = https://github.com/kristijanhusak/vim-dadbod-completion
-[submodule "nvim/pack/misc/start/nvim-surround"]
-	path = nvim/pack/misc/start/nvim-surround
-	url = https://github.com/kylechui/nvim-surround
+
+# New plugins
