@@ -116,10 +116,15 @@
 	path = nvim/pack/misc/start/conform.nvim
 	url = https://github.com/stevearc/conform.nvim
 	shallow = true
-#Add/delete/change surrounding pairs
+# Add/delete/change surrounding pairs
 [submodule "nvim/pack/misc/start/nvim-surround"]
 	path = nvim/pack/misc/start/nvim-surround
 	url = https://github.com/kylechui/nvim-surround
+	shallow = true
+# Lsp rename with preview
+[submodule "nvim/pack/misc/start/inc-rename.nvim"]
+	path = nvim/pack/misc/start/inc-rename.nvim
+	url = https://github.com/smjonas/inc-rename.nvim.git
 	shallow = true
 
 ## Telescope fuzzy finder

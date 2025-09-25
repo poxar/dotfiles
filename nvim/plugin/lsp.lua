@@ -1,3 +1,4 @@
+require("inc_rename").setup()
 require('fidget').setup {
   text = { spinner = 'dots' },
   timer = { spinner_rate = 200 },
@@ -30,6 +31,10 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
   callback = function(ev)
+    vim.keymap.set("n", "grn", function()
+      return ":IncRename " .. vim.fn.expand("<cword>")
+    end, { expr = true, buffer = ev.buf, noremap = true, silent = true })
+
     local function nmap(keys, func)
       vim.keymap.set('n', keys, func, {
         buffer = ev.buf,
