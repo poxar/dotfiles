@@ -28,9 +28,6 @@ end
 
 nmap('z=', ts_builtin.spell_suggest, 'List spelling suggestions')
 nmap('<M-s>', ts_builtin.current_buffer_fuzzy_find, 'Find location in buffer')
-nmap('<leader>:', ':Telescope cmdline<cr>', 'Use telescope for the cmdline')
-nmap('<leader>;', ':Telescope cmdline<cr>', 'Use telescope for the cmdline')
-nmap('<leader>e.', ':Telescope cmdline<cr>edit <c-r>=expand("%:p:h") . "/" <cr>')
 
 nmap('<M-f>', ts_builtin.find_files, 'Find [F]iles')
 nmap('<leader>ff', ts_builtin.find_files, '[F]ind [F]iles')
