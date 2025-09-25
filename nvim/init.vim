@@ -108,6 +108,8 @@ augroup autowrite
 augroup END
 
 " Mappings {{{1
+nnoremap : ;
+nnoremap ; :
 
 inoremap jk <esc>
 cnoremap jk <esc>
