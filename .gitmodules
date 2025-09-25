@@ -2,145 +2,183 @@
 [submodule "nvim/pack/cmp/start/cmp-nvim-lsp"]
 	path = nvim/pack/cmp/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
+	shallow = true
 [submodule "nvim/pack/cmp/start/cmp-nvim-lsp-signature-help"]
 	path = nvim/pack/cmp/start/cmp-nvim-lsp-signature-help
 	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+	shallow = true
 [submodule "nvim/pack/cmp/start/cmp-nvim-lua"]
 	path = nvim/pack/cmp/start/cmp-nvim-lua
 	url = https://github.com/hrsh7th/cmp-nvim-lua
+	shallow = true
 [submodule "nvim/pack/cmp/start/cmp-path"]
 	path = nvim/pack/cmp/start/cmp-path
 	url = https://github.com/hrsh7th/cmp-path
+	shallow = true
 [submodule "nvim/pack/cmp/start/cmp-snippy"]
 	path = nvim/pack/cmp/start/cmp-snippy
 	url = https://github.com/dcampos/cmp-snippy
+	shallow = true
 [submodule "nvim/pack/cmp/start/nvim-cmp"]
 	path = nvim/pack/cmp/start/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp
+	shallow = true
 [submodule "nvim/pack/cmp/start/nvim-snippy"]
 	path = nvim/pack/cmp/start/nvim-snippy
 	url = https://github.com/dcampos/nvim-snippy
+	shallow = true
 [submodule "nvim/pack/cmp/start/lspkind.nvim"]
 	path = nvim/pack/cmp/start/lspkind.nvim
 	url = https://github.com/onsails/lspkind.nvim
+	shallow = true
 
 ## Language support
 [submodule "nvim/pack/lang/start/crates.nvim"]
 	path = nvim/pack/lang/start/crates.nvim
 	url = https://github.com/Saecki/crates.nvim
+	shallow = true
 [submodule "nvim/pack/lang/start/vim-caddyfile"]
 	path = nvim/pack/lang/start/vim-caddyfile
 	url = https://github.com/isobit/vim-caddyfile
+	shallow = true
 [submodule "nvim/pack/lang/start/vim-nftables"]
 	path = nvim/pack/lang/start/vim-nftables
 	url = https://github.com/nfnty/vim-nftables
+	shallow = true
 [submodule "nvim/pack/lang/start/vim-systemd-syntax"]
 	path = nvim/pack/lang/start/vim-systemd-syntax
 	url = https://github.com/wgwoods/vim-systemd-syntax
+	shallow = true
 
 ## LSP support
 [submodule "nvim/pack/lsp/opt/dressing.nvim"]
 	path = nvim/pack/lsp/start/dressing.nvim
 	url = https://github.com/stevearc/dressing.nvim
+	shallow = true
 [submodule "nvim/pack/lsp/start/fidget.nvim"]
 	path = nvim/pack/lsp/start/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
+	shallow = true
 [submodule "nvim/pack/lsp/start/nvim-lspconfig"]
 	path = nvim/pack/lsp/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+	shallow = true
 
 ## Other plugins (misc)
 # Integrate direnv for automatic .env loading
 [submodule "nvim/pack/misc/start/direnv.vim"]
 	path = nvim/pack/misc/start/direnv.vim
 	url = https://github.com/direnv/direnv.vim
+	shallow = true
 # Improve vertical movement
 [submodule "nvim/pack/misc/start/leap.nvim"]
 	path = nvim/pack/misc/start/leap.nvim
 	url = https://github.com/ggandor/leap.nvim
+	shallow = true
 # Automatically insert matching pairs
 [submodule "nvim/pack/misc/start/nvim-autopairs"]
 	path = nvim/pack/misc/start/nvim-autopairs
 	url = https://github.com/windwp/nvim-autopairs
+	shallow = true
 # Helper functions required for many plugins
 [submodule "nvim/pack/misc/start/plenary.nvim"]
 	path = nvim/pack/misc/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
+	shallow = true
 # An improved :sort
 [submodule "nvim/pack/misc/start/sort.nvim"]
 	path = nvim/pack/misc/start/sort.nvim
 	url = https://github.com/sQVe/sort.nvim
+	shallow = true
 # Zen mode
 [submodule "nvim/pack/misc/start/undotree"]
 	path = nvim/pack/misc/start/undotree
 	url = https://github.com/mbbill/undotree
+	shallow = true
 # A simpler file explorer
 [submodule "nvim/pack/misc/start/vim-dirvish"]
 	path = nvim/pack/misc/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
+	shallow = true
 # Provides a indent text object (cii)
 [submodule "nvim/pack/misc/start/vim-indent-object"]
 	path = nvim/pack/misc/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
+	shallow = true
 # Change/Add surrounding characters
 [submodule "nvim/pack/misc/start/mini.ai"]
 	path = nvim/pack/misc/start/mini.ai
 	url = https://github.com/echasnovski/mini.ai
+	shallow = true
 # Edit files as root
 [submodule "nvim/pack/misc/start/vim-suda"]
 	path = nvim/pack/misc/start/vim-suda
 	url = https://github.com/lambdalisue/vim-suda
+	shallow = true
 # Automatic formatting
 [submodule "nvim/pack/misc/start/conform.nvim"]
 	path = nvim/pack/misc/start/conform.nvim
 	url = https://github.com/stevearc/conform.nvim
+	shallow = true
 #Add/delete/change surrounding pairs
 [submodule "nvim/pack/misc/start/nvim-surround"]
 	path = nvim/pack/misc/start/nvim-surround
 	url = https://github.com/kylechui/nvim-surround
+	shallow = true
 
 ## Telescope fuzzy finder
 [submodule "nvim/pack/telescope/start/telescope.nvim"]
 	path = nvim/pack/telescope/start/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim
+	shallow = true
 [submodule "nvim/pack/telescope/start/telescope-symbols.nvim"]
 	path = nvim/pack/telescope/start/telescope-symbols.nvim
 	url = https://github.com/nvim-telescope/telescope-symbols.nvim
+	shallow = true
 
 ## Tim Pope master class
 # Async command dispatcher
 [submodule "nvim/pack/tpope/start/vim-dispatch"]
 	path = nvim/pack/tpope/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
+	shallow = true
 # Automatically end blocks
 [submodule "nvim/pack/tpope/start/vim-endwise"]
 	path = nvim/pack/tpope/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise
+	shallow = true
 # Filesystem manipulation
 [submodule "nvim/pack/tpope/start/vim-eunuch"]
 	path = nvim/pack/tpope/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
+	shallow = true
 # Git integration
 [submodule "nvim/pack/tpope/start/vim-fugitive"]
 	path = nvim/pack/tpope/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+	shallow = true
 # Simplified session management
 [submodule "nvim/pack/tpope/start/vim-obsession"]
 	path = nvim/pack/tpope/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession
+	shallow = true
 # Allow . repeats on custom maps
 [submodule "nvim/pack/tpope/start/vim-repeat"]
 	path = nvim/pack/tpope/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+	shallow = true
 # Database client in vim
 [submodule "nvim/pack/db/start/vim-dadbod"]
 	path = nvim/pack/db/start/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod
+	shallow = true
 [submodule "nvim/pack/db/start/vim-dadbod-ui"]
 	path = nvim/pack/db/start/vim-dadbod-ui
 	url = https://github.com/kristijanhusak/vim-dadbod-ui
+	shallow = true
 [submodule "nvim/pack/db/start/vim-dadbod-completion"]
 	path = nvim/pack/db/start/vim-dadbod-completion
 	url = https://github.com/kristijanhusak/vim-dadbod-completion
+	shallow = true
 
 # New plugins
