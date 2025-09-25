@@ -35,6 +35,20 @@ set matchpairs+=<:>
 set pumheight=10
 set winborder=rounded
 
+function! s:set_titlestring()
+  let filename = expand('%:t')
+  let lastdir = fnamemodify(getcwd(), ':~:t')
+  let &titlestring = (filename != '' ? filename . ' :: ' : '') . lastdir . ' :: nvim'
+endfunction
+
+augroup set_title
+  autocmd!
+  autocmd BufEnter * call s:set_titlestring()
+augroup END
+
+call s:set_titlestring()
+set title
+
 " Automatically Rebalance windows
 augroup balance_windows
   au! VimResized * :wincmd =
