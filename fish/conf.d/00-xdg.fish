@@ -18,6 +18,7 @@ contains $CARGO_HOME/bin $PATH
 or set -xgp PATH $CARGO_HOME/bin
 
 # python
+set -xg PYTHON_HISTORY $XDG_STATE_HOME/python_history
 set -xg PYTHON_EGG_CACHE $XDG_CACHE_HOME/python-eggs
 
 # elm
@@ -51,3 +52,7 @@ set -xg DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
 # wget
 set -xg WGETRC $XDG_CONFIG_HOME/wgetrc
+
+# gdb
+set -xg GDBHISTFILE $XDG_DATA_HOME/gdb/history
+set -xg CGDB_DIR $XDG_CONFIG_HOME/cgdb
