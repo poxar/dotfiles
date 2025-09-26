@@ -147,10 +147,10 @@ binds {
     Mod+Down  { focus-window-or-workspace-down; }
     Mod+Up    { focus-window-or-workspace-up; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left-or-last; }
+    Mod+H     { focus-column-left; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
-    Mod+L     { focus-column-right-or-first; }
+    Mod+L     { focus-column-right; }
 
     Mod+M     { focus-window-previous; }
 
