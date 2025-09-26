@@ -135,9 +135,9 @@ binds {
     XF86AudioPlay               allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioPause              allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86MonBrightnessUp         allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "1%+"; }
-    XF86MonBrightnessDown       allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "1%+"; }
+    XF86MonBrightnessDown       allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "1%-"; }
     Shift+XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%+"; }
-    Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%+"; }
+    Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%-"; }
 
     Mod+Q repeat=false { focus-workspace 1; }
     Mod+O repeat=false { toggle-overview; }
