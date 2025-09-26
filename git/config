@@ -38,9 +38,6 @@
   mnemonicPrefix = true
   tool = nvimdiff
 
-[difftool]
-  prompt = false
-
 [init]
   defaultBranch = main
 
@@ -79,3 +76,15 @@
 
 [tag]
   sort = version:refname
+
+[pager]
+  difftool = true
+
+[diff]
+  tool = difftastic
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
