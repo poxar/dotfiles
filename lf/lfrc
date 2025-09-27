@@ -19,3 +19,11 @@ map C edit-config
 
 map J :updir;down;open
 map K :updir;up;open
+
+cmd on-init ${{
+    printf '\033]0;%s :: lf\007' "$PWD"
+}}
+
+cmd on-cd ${{
+    printf '\033]0;%s :: lf\007' "$PWD"
+}}
