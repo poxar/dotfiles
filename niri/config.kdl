@@ -37,6 +37,13 @@ input {
     focus-follows-mouse max-scroll-amount="50%"
 }
 
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    QT_QPA_PLATFORM "wayland"
+    GDK_BACKEND "wayland"
+    MOZ_ENABLE_WAYLAND "1"
+}
+
 // Display output configuration.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "DP-2" {
