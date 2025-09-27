@@ -121,6 +121,7 @@ binds {
     Mod+V repeat=false { spawn "~/.local/phrases/phrases.sh"; }
 
     Mod+E repeat=false { spawn "emoji" "type"; }
+    Mod+Shift+E repeat=false { spawn "handlr" "launch" "inode/directory"; }
     Mod+A repeat=false { spawn "select-audio"; }
     Mod+X repeat=false { spawn "open-file"; }
     Mod+Z repeat=false { spawn "~/.config/niri/scripts/actions.sh"; }
