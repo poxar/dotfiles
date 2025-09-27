@@ -81,16 +81,13 @@ animations {
 // Window rules let you adjust behavior for individual windows.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 window-rule {
-  match app-id=r#"^zen$"#
-  match app-id=r#"^firefox$"#
-  match app-id=r#"^chromium$"#
-  open-maximized true
+  match app-id=r#"^zen$"# title=r#"Zen Browser$"#
   open-fullscreen true
 }
 
 window-rule {
   match app-id=r#"^de.schmidhuberj.tubefeeder$"#
-  open-maximized true
+  open-fullscreen true
 }
 
 window-rule {
@@ -99,7 +96,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 4
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 
@@ -250,8 +247,8 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+F { fullscreen-window; }
+    Mod+Shift+F { maximize-column; }
     Mod+Ctrl+F { expand-column-to-available-width; }
 
     Mod+C { center-column; }
