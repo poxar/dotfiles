@@ -44,6 +44,10 @@ environment {
     MOZ_ENABLE_WAYLAND "1"
 }
 
+cursor {
+    hide-when-typing
+}
+
 // Display output configuration.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 output "DP-2" {
