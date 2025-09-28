@@ -3,6 +3,7 @@
 
 spawn-at-startup "swaybg" "--mode" "fill" "--image" "Wallpaper/4k/coastline-mountain-pass-road.jpg"
 spawn-at-startup "udiskie" "--automount" "--terminal" "ghostty -e"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "~/.config/niri/scripts/idle.sh"
 
 prefer-no-csd
