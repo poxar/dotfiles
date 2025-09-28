@@ -1,0 +1,9 @@
+[Unit]
+Description=Hourly check for Arch Linux vulnerabilities
+
+[Timer]
+OnStartupSec=1min
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target

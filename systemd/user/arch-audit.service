@@ -1,0 +1,9 @@
+[Unit]
+Description=Alert for Arch Linux vulnerabilities
+After=dunst.service
+Requires=dunst.service
+
+[Service]
+Type=oneshot
+ExecStart=fish %E/systemd/bin/arch-audit.fish
+Slice=background.slice
