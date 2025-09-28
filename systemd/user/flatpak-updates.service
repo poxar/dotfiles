@@ -1,0 +1,9 @@
+[Unit]
+Description=Alert for flatpak updates
+After=dunst.service
+Requires=dunst.service
+
+[Service]
+Type=oneshot
+ExecStart=fish %E/systemd/bin/flatpak-updates.fish
+Slice=background.slice
