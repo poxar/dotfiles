@@ -3,12 +3,12 @@ function fish_prompt
 
   # container ID if in distrobox
   if test -n "$CONTAINER_ID"
-    echo -n "📦 $CONTAINER_ID"
+    echo -n "📦$CONTAINER_ID"
   end
 
   # hostname if connected through ssh
   if test -n "$SSH_CLIENT"
-    echo -n " $(hostname -f)"
+    echo -n "$(hostname -f)"
   end
 
   # the prompt character
