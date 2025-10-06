@@ -119,9 +119,9 @@ binds {
 
     Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
     Mod+space hotkey-overlay-title="Run an Application" { spawn "fuzzel"; }
-    Mod+Y repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" "org.gnome.Calculator" "gnome-calculator"; }
     Mod+G repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" "org.signal.Signal" "flatpak run org.signal.Signal"; }
     Mod+T repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" "org.telegram.desktop" "flatpak run org.telegram.desktop"; }
+    Mod+Y repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" "com.discordapp.Discord" "flatpak run com.discordapp.Discord"; }
     Mod+P repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" "org.keepassxc.KeePassXC" "keepassxc"; }
     Mod+B repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" ".* :: todo :: nvim" "edit-todo"; }
     Mod+N repeat=false { spawn "~/.config/niri/scripts/run-or-raise.sh" ".* :: Notes :: nvim" "find-notes"; }
