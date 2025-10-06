@@ -84,10 +84,7 @@ layout {
 // Animation settings.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-  slowdown 0.5
-  workspace-switch {
-    off
-  }
+  off
 }
 
 // Window rules let you adjust behavior for individual windows.
