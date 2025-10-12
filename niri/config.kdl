@@ -51,7 +51,7 @@ cursor {
 
 // Display output configuration.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-output "DP-2" {
+output "Advanced Micro Peripherals Ltd ES07D03 EVE213401165" {
     mode "3840x2160@120"
     scale 2
     variable-refresh-rate
