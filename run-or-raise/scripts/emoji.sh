@@ -3,6 +3,7 @@ set -eu
 
 emoji="$(sed '1,/^### DATA ###$/d' "$0" | sk | cut -d ' ' -f 1 | tr -d '\n')"
 wl-copy "${emoji}"
+keyd do A-tab C-v
 
 exit
 ### DATA ###
