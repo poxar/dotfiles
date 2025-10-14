@@ -1,3 +1,4 @@
+--ignore=Session.vim
 --ignore=README.md
 --ignore=.envrc
 --ignore=.rgrc
