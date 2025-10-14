@@ -12,8 +12,8 @@ sel="$(find . \
     | sort -r -n \
     | awk -F '\t' '{ print $2 }' \
     | sed 's|^\./||' \
-    | fuzzel --dmenu)"
+    | sk)"
 
 if test -n "$sel"; then
-  exec ghostty --working-directory="$HOME/Notes" -e nvim "$sel"
+  exec nvim "$sel"
 fi

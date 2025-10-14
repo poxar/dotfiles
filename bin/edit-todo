@@ -1,7 +1,0 @@
-#!/bin/sh
-set -eu
-
-ghostty \
-  --class=net.poxar.todo \
-  --working-directory="$HOME/Notes/todo" \
-  -e nvim today.md

@@ -9,7 +9,7 @@ sel="$(find Documents Downloads Pictures \
     -printf "%T@\t%p\n" \
     | sort -r -n \
     | awk -F '\t' '{ print $2 }' \
-    | fuzzel --dmenu)"
+    | sk)"
 
 if test -n "$sel"; then
   xdg-open "$HOME/$sel"
