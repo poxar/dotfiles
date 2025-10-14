@@ -54,17 +54,17 @@ if command -q sk
   bind \eG __skim_git_history
 
   # kill process
-  function __skim_kill
+  function killproc
     set -l pid (ps -u "$USER" -o pid=,comm=,%cpu=,%mem= \
       | sk --no-sort -p "kill > " \
       | awk '{print $1}')
 
     test "x$pid" != "x"; and kill -9 $pid
   end
-  bind \ei __skim_kill
+  abbr -ag k killproc
 
   # kill process by port
-  function __skim_kill_port
+  function killport
     set -l pid (lsof -iTCP -sTCP:LISTEN -P \
       | tail -n+2 \
       | sk --no-sort -p "kill > " \
@@ -72,5 +72,5 @@ if command -q sk
 
     test "x$pid" != "x"; and kill -9 $pid
   end
-  bind \eI __skim_kill_port
+  abbr -ag kp killport
 end
