@@ -11,7 +11,7 @@ local hi = function(name, val)
   vim.api.nvim_set_hl(0, name, val)
 end
 
-local col = {
+local c = {
   fg = {
     main = "#000000",
     dim = "#6a6868",
@@ -33,91 +33,94 @@ local col = {
   },
 }
 
+local fg = c.fg.main
+local bg = c.bg.main
+
 -- General
 
 -- custom groups for common presets
 hi("Bold", { fg = "NONE", bg = "NONE", bold = true })
-hi("Dim", { fg = col.fg.dim, bg = "NONE" })
-hi("DimAll", { fg = col.fg.dim, bg = "NONE", bold = false, nocombine = true })
-hi("DimBold", { fg = col.fg.dim, bg = "NONE", bold = true })
+hi("Dim", { fg = c.fg.dim, bg = "NONE" })
+hi("DimAll", { fg = c.fg.dim, bg = "NONE", bold = false, nocombine = true })
+hi("DimBold", { fg = c.fg.dim, bg = "NONE", bold = true })
 
-hi("Normal", { fg = col.fg.main, bg = col.bg.main })
+hi("Normal", { fg = fg, bg = bg })
 hi("Folded", { link = "Dim" })
 hi("Comment", { link = "Dim" })
-hi("Directory", { fg = col.fg.blue, bg = "NONE" })
+hi("Directory", { fg = c.fg.blue, bg = "NONE" })
 
-hi("Visual", { bg = col.bg.medium })
-hi("VisualNOS", { bg = col.bg.medium })
-hi("Search", { fg = col.fg.main, bg = col.bg.yellow })
-hi("IncSearch", { bg = col.bg.yellow })
-hi("CurSearch", { fg = col.fg.main, bg = col.bg.yellow })
-hi("MatchParen", { bg = col.bg.yellow })
+hi("Visual", { bg = c.bg.medium })
+hi("VisualNOS", { bg = c.bg.medium })
+hi("Search", { fg = fg, bg = c.bg.yellow })
+hi("IncSearch", { bg = c.bg.yellow })
+hi("CurSearch", { fg = fg, bg = c.bg.yellow })
+hi("MatchParen", { bg = c.bg.yellow })
 
-hi("NonText", { fg = col.bg.medium, bg = "NONE" })
+hi("NonText", { fg = c.bg.medium, bg = "NONE" })
 hi("SpecialKey", { link = "Dim" })
 
 hi("Conceal", { link = "Dim" })
-hi("Tag", { fg = col.fg.blue, bg = "NONE" })
+hi("Tag", { fg = c.fg.blue, bg = "NONE" })
 
-hi("SpellCap", { undercurl = true, sp = col.fg.orange, fg = col.fg.orange })
-hi("SpellBad", { undercurl = true, sp = col.fg.red })
-hi("SpellLocal", { undercurl = true, sp = col.fg.green })
-hi("SpellRare", { undercurl = true, sp = col.fg.purple, fg = col.fg.purple })
+hi("SpellCap", { undercurl = true, sp = c.fg.orange, fg = c.fg.orange })
+hi("SpellBad", { undercurl = true, sp = c.fg.red })
+hi("SpellLocal", { undercurl = true, sp = c.fg.green })
+hi("SpellRare", { undercurl = true, sp = c.fg.purple, fg = c.fg.purple })
 
-hi("TrailWhitespace", { fg = col.bg.main, bg = col.fg.red })
+hi("TrailWhitespace", { fg = bg, bg = c.fg.red })
 
 -- UI
 
 hi("Cursor", { reverse = true })
-hi("StatusLine", { fg = col.bg.main, bg = col.fg.main })
-hi("StatusLineNC", { fg = col.fg.main, bg = col.bg.medium })
-hi("WinBar", { fg = col.bg.main, bg = col.fg.main })
-hi("WinBarNC", { fg = col.fg.main, bg = col.bg.medium })
-hi("WildMenu", { bg = col.bg.yellow })
+hi("StatusLine", { fg = bg, bg = fg })
+hi("StatusLineNC", { fg = fg, bg = c.bg.medium })
+hi("WinBar", { fg = bg, bg = fg })
+hi("WinBarNC", { fg = fg, bg = c.bg.medium })
+hi("WildMenu", { bg = c.bg.yellow })
 hi("QuickFixLine", { link = "Bold" })
 
 hi("VertSplit", { link = "Dim" })
 hi("LineNr", { link = "Dim" })
 hi("CursorLineNr", { link = "Dim" })
-hi("CursorLine", { bg = col.bg.light })
-hi("CursorColumn", { bg = col.bg.light })
-hi("ColorColumn", { bg = col.bg.light })
+hi("CursorLine", { bg = c.bg.light })
+hi("CursorColumn", { bg = c.bg.light })
+hi("ColorColumn", { bg = c.bg.light })
 
 hi("SignColumn", { link = "Dim" })
 hi("FoldColumn", { link = "Dim" })
 
-hi("TabLine", { fg = col.fg.main, bg = col.bg.main })
-hi("TabLineFill", { fg = col.fg.main, bg = col.bg.main })
-hi("TabLineSel", { fg = col.bg.main, bg = col.fg.main })
+hi("TabLine", { fg = fg, bg = bg })
+hi("TabLineFill", { fg = fg, bg = bg })
+hi("TabLineSel", { fg = bg, bg = fg })
 
-hi("ErrorMsg", { fg = col.bg.main, bg = col.fg.red, bold = true })
-hi("WarningMsg", { fg = col.fg.red, bg = col.bg.main })
+hi("ErrorMsg", { fg = bg, bg = c.fg.red, bold = true })
+hi("WarningMsg", { fg = c.fg.red, bg = bg })
 
 hi("MoreMsg", { link = "Bold" })
 hi("ModeMsg", { link = "Bold" })
 
-hi("Pmenu", { fg = col.fg.main, bg = col.bg.light })
-hi("PmenuSel", { fg = col.bg.main, bg = col.fg.main })
-hi("PmenuSbar", { bg = col.bg.light })
-hi("PmenuThumb", { bg = col.fg.main })
-hi("NormalFloat", { fg = col.fg.main, bg = col.bg.main })
+hi("Pmenu", { fg = fg, bg = c.bg.light })
+hi("PmenuSel", { fg = bg, bg = fg })
+hi("PmenuSbar", { bg = c.bg.light })
+hi("PmenuThumb", { bg = fg })
+hi("NormalFloat", { fg = fg, bg = bg })
 
-hi("DiagnosticOk", { fg = col.fg.green })
-hi("DiagnosticError", { fg = col.fg.red })
-hi("DiagnosticWarn", { fg = col.fg.orange })
+hi("DiagnosticOk", { fg = c.fg.green })
+hi("DiagnosticError", { fg = c.fg.red })
+hi("DiagnosticWarn", { fg = c.fg.orange })
 hi("DiagnosticInfo", { link = "Dim" })
 hi("DiagnosticHint", { link = "Dim" })
 
-hi("DiagnosticFloatingError", { fg = col.fg.red })
-hi("DiagnosticFloatingWarn", { fg = col.fg.orange })
-hi("DiagnosticFloatingInfo", { fg = col.fg.main })
-hi("DiagnosticFloatingHint", { fg = col.fg.main })
+hi("DiagnosticFloatingError", { fg = c.fg.red })
+hi("DiagnosticFloatingWarn", { fg = c.fg.orange })
+hi("DiagnosticFloatingInfo", { fg = fg })
+hi("DiagnosticFloatingHint", { fg = fg })
 
-hi("DiagnosticUnderlineError", { underline = true, sp = col.fg.red })
-hi("DiagnosticUnderlineWarn", { underline = true, sp = col.fg.orange })
-hi("DiagnosticUnderlineHint", { underline = true, sp = col.fg.dim })
-hi("DiagnosticUnderlineInfo", { underline = true, sp = col.fg.dim })
-hi("DiagnosticUnderlineOk", { underline = true, sp = col.fg.dim })
+hi("DiagnosticUnderlineError", { underline = true, sp = c.fg.red })
+hi("DiagnosticUnderlineWarn", { underline = true, sp = c.fg.orange })
+hi("DiagnosticUnderlineHint", { underline = true, sp = c.fg.dim })
+hi("DiagnosticUnderlineInfo", { underline = true, sp = c.fg.dim })
+hi("DiagnosticUnderlineOk", { underline = true, sp = c.fg.dim })
 hi("DiagnosticDeprecated", { strikethrough = true })
 
 -- Syntax
@@ -134,11 +137,11 @@ hi("Function", {})
 hi("Delimiter", { link = "Dim" })
 hi("Namespace", { link = "DimAll" })
 
-hi("String", { fg = col.fg.green, bg = "NONE" })
-hi("PreProc", { fg = col.fg.purple, bg = "NONE" })
-hi("Number", { fg = col.fg.blue, bg = "NONE" })
+hi("String", { fg = c.fg.green, bg = "NONE" })
+hi("PreProc", { fg = c.fg.purple, bg = "NONE" })
+hi("Number", { fg = c.fg.blue, bg = "NONE" })
 
-hi("Error", { fg = col.bg.main, bg = col.fg.red })
+hi("Error", { fg = bg, bg = c.fg.red })
 
 hi("Operator", {})
 hi("Identifier", {})
@@ -148,19 +151,19 @@ hi("Special", {})
 hi("Todo", { link = "DimBold" })
 hi("SpecialComment", { link = "DimBold" })
 
-hi("Added", { fg = col.bg.main, bg = col.fg.green })
-hi("Removed", { fg = col.bg.main, bg = col.fg.red })
-hi("Changed", { fg = col.bg.main, bg = col.fg.orange })
-hi("DiffAdd", { fg = col.bg.main, bg = col.fg.green })
-hi("DiffDelete", { fg = col.bg.main, bg = col.fg.red })
-hi("DiffText", { fg = col.fg.main, bg = col.fg.orange })
+hi("Added", { fg = bg, bg = c.fg.green })
+hi("Removed", { fg = bg, bg = c.fg.red })
+hi("Changed", { fg = bg, bg = c.fg.orange })
+hi("DiffAdd", { fg = bg, bg = c.fg.green })
+hi("DiffDelete", { fg = bg, bg = c.fg.red })
+hi("DiffText", { fg = fg, bg = c.fg.orange })
 
 -- Treesitter/LSP adjustments
 hi("@attribute.builtin", { link = "PreProc" })
 
 hi("@tag.builtin", { bold = true })
-hi("@markup.link", { fg = col.fg.blue })
-hi("@markup.link.label", { fg = col.fg.blue, bold = true })
+hi("@markup.link", { fg = c.fg.blue })
+hi("@markup.link.label", { fg = c.fg.blue, bold = true })
 hi("@markup.link.url", { link = "Dim" })
 hi("@markup.list.checked", { strikethrough = true })
 
@@ -176,8 +179,8 @@ for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 end
 
 hi("@lsp.mod.deprecated", { strikethrough = true })
-hi("@lsp.type.decorator", { fg = col.fg.purple })
-hi("@lsp.type.macro", { fg = col.fg.purple })
+hi("@lsp.type.decorator", { fg = c.fg.purple })
+hi("@lsp.type.macro", { fg = c.fg.purple })
 
 hi("@lsp.type.keyword", { link = "Keyword" })
 hi("@lsp.type.number", { link = "Number" })
@@ -199,8 +202,8 @@ hi("helpHeader", { link = "Bold" })
 hi("helpSectionDelim", {})
 
 -- Git
-hi("diffAdded", { fg = col.fg.green })
-hi("diffRemoved", { fg = col.fg.red })
+hi("diffAdded", { fg = c.fg.green })
+hi("diffRemoved", { fg = c.fg.red })
 
 -- Markdown
 hi("mkdHeading", { link = "DimBold" })
@@ -234,16 +237,16 @@ hi("TelescopeResultsBorder", { link = "Comment" })
 hi("TelescopePreviewBorder", { link = "Comment" })
 
 -- Leap
-hi("LeapLabel", { fg = col.bg.main, bg = col.fg.purple })
-hi("LeapMatch", { fg = col.fg.purple, bg = col.bg.main })
+hi("LeapLabel", { fg = bg, bg = c.fg.purple })
+hi("LeapMatch", { fg = c.fg.purple, bg = bg })
 hi("LeapBackdrop", { link = "Comment" })
 
 -- CheckHealth
-hi("healthSuccess", { fg = col.bg.main, bg = col.fg.green })
-hi("healthWarning", { fg = col.fg.orange })
-hi("healthError", { fg = col.fg.red })
+hi("healthSuccess", { fg = bg, bg = c.fg.green })
+hi("healthWarning", { fg = c.fg.orange })
+hi("healthError", { fg = c.fg.red })
 
 -- Illuminate
-hi("IlluminatedWordText", { bg = col.bg.light })
-hi("IlluminatedWordRead", { bg = col.bg.light })
-hi("IlluminatedWordWrite", { bg = col.bg.light })
+hi("IlluminatedWordText", { bg = c.bg.light })
+hi("IlluminatedWordRead", { bg = c.bg.light })
+hi("IlluminatedWordWrite", { bg = c.bg.light })
