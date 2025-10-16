@@ -17,6 +17,7 @@
 "
 " highlighting
 " yellow      #ffdf64
+" blue        #99c7ff
 "
 " }}}
 
@@ -186,8 +187,8 @@ hi Identifier guifg=none guibg=none gui=none
 hi Constant   guifg=none guibg=none gui=none
 hi Special    guifg=none guibg=none gui=none
 
-hi Todo           guifg=#6a6868 guibg=none gui=bold
-hi SpecialComment guifg=#6a6868 guibg=none gui=bold
+hi Todo           guifg=#6a6868 guibg=none    gui=bold
+hi SpecialComment guifg=fg      guibg=#99c7ff gui=none
 
 hi Added      guifg=bg   guibg=#005f00 gui=none
 hi Removed    guifg=bg   guibg=#b80000 gui=none
@@ -197,6 +198,10 @@ hi DiffDelete guifg=bg   guibg=#b80000 gui=none
 hi DiffChange guifg=none guibg=none    gui=none
 hi DiffText   guifg=fg   guibg=#d75f00 gui=none
 
+" Treesitter/LSP adjustments
+
+hi! link @comment.documentation SpecialComment
+hi! link @string.documentation  SpecialComment
 lua << ENDLUA
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
@@ -206,6 +211,7 @@ ENDLUA
 hi @lsp.mod.deprecated gui=strikethrough
 hi @lsp.type.decorator guifg=#5f00d7
 hi @lsp.type.macro     guifg=#5f00d7
+hi! link @lsp.mod.documentation SpecialComment
 
 hi @markup.link           guifg=#005fd7
 hi @markup.link.label     guifg=#005fd7 gui=bold
