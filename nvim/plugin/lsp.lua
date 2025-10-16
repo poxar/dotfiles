@@ -1,10 +1,5 @@
 require("inc_rename").setup()
-require('fidget').setup {
-  text = { spinner = 'dots' },
-  timer = { spinner_rate = 200 },
-  window = { relative = 'editor' },
-  fmt = { max_messages = 4 },
-}
+require('fidget').setup()
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
 
