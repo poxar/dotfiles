@@ -15,27 +15,27 @@ local fg = {
   std = "#000000",
   dim = "#6a6868",
 
-  red = "#b80000",
+  red = "#b34444",
   green = "#005f00",
   blue = "#005fd7",
   brown = "#2c2500", -- aka dark yellow
-  orange = "#d75f00",
-  purple = "#5f00d7",
+  orange = "#d88b4d",
+  purple = "#6d1ab3",
 }
 
 local bg = {
-  std = "#fafafa",
+  std = "#fdf8f3",
 
   -- gray variations for windows and bars
-  light = "#ededed",
-  medium = "#d8d3d3",
+  light = "#f1eae5",
+  medium = "#ddd3cd",
 
-  red = "#fff0f0",
+  red = "#ffdada",
   green = "#f0fff0",
   blue = "#f0f5ff",
   yellow = "#ffdf64",
   orange = "#fff8f0",
-  purple = "#f8f0ff",
+  purple = "#faf3ff",
 
   -- A slightly darker version of purple for MatchParen
   mauve = "#d2adff",
