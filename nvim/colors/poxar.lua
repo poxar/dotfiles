@@ -46,13 +46,13 @@ local bg = {
 ---------------------------------------------------------------
 
 -- custom groups for common presets
-hi("Bold", { fg = "NONE", bg = "NONE", bold = true })
-hi("Dim", { fg = fg.dim, bg = "NONE" })
-hi("DimAll", { fg = fg.dim, bg = "NONE", bold = false, nocombine = true })
+hi("Bold", { bold = true })
+hi("Dim", { fg = fg.dim })
+hi("DimAll", { fg = fg.dim, bold = false, nocombine = true })
 
 hi("Normal", { fg = fg.std, bg = bg.std })
 hi("Folded", { link = "Dim" })
-hi("Directory", { fg = fg.blue, bg = "NONE" })
+hi("Directory", { fg = fg.blue })
 
 hi("Visual", { bg = bg.medium })
 hi("VisualNOS", { bg = bg.medium })
@@ -63,11 +63,11 @@ hi("IncSearch", { fg = bg.yellow, bg = fg.brown })
 
 hi("MatchParen", { fg = fg.purple, bg = bg.mauve })
 
-hi("NonText", { fg = bg.medium, bg = "NONE" })
+hi("NonText", { fg = bg.medium })
 hi("SpecialKey", { link = "Dim" })
 
 hi("Conceal", { link = "Dim" })
-hi("Tag", { fg = fg.blue, bg = "NONE" })
+hi("Tag", { fg = fg.blue })
 
 hi("SpellCap", { undercurl = true, sp = fg.orange, fg = fg.orange, bg = bg.orange })
 hi("SpellBad", { undercurl = true, sp = fg.red })
@@ -145,8 +145,8 @@ hi("Function", {})
 hi("Delimiter", { link = "Dim" })
 hi("Namespace", { link = "DimAll" })
 
-hi("String", { fg = fg.green, bg = "NONE" })
-hi("PreProc", { fg = fg.purple, bg = "NONE" })
+hi("String", { fg = fg.green })
+hi("PreProc", { fg = fg.purple })
 hi("Number", { fg = fg.blue })
 
 hi("Error", { fg = fg.red, bg = bg.red })
