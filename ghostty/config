@@ -58,6 +58,8 @@ window-show-tab-bar = never
 gtk-titlebar = false
 window-decoration = true
 
+quit-after-last-window-closed = false
+
 keybind = shift+up=scroll_page_lines:-1
 keybind = shift+down=scroll_page_lines:1
 
