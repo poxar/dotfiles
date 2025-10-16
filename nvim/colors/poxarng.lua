@@ -34,12 +34,16 @@ local col = {
 
 -- General
 
-hi("Normal", { fg = col.fg.main, bg = col.bg.main })
-hi("Folded", { fg = col.fg.dim, bg = "NONE" })
-hi("Comment", { fg = col.fg.dim, bg = "NONE" })
-hi("Directory", { fg = col.fg.blue, bg = "NONE" })
-
+-- custom groups for common presets
 hi("Bold", { fg = "NONE", bg = "NONE", bold = true })
+hi("Dim", { fg = col.fg.dim, bg = "NONE" })
+hi("DimAll", { fg = col.fg.dim, bg = "NONE", bold = false, nocombine = true })
+hi("DimBold", { fg = col.fg.dim, bg = "NONE", bold = true })
+
+hi("Normal", { fg = col.fg.main, bg = col.bg.main })
+hi("Folded", { link = "Dim" })
+hi("Comment", { link = "Dim" })
+hi("Directory", { fg = col.fg.blue, bg = "NONE" })
 
 hi("Visual", { bg = col.bg.medium })
 hi("VisualNOS", { bg = col.bg.medium })
@@ -49,9 +53,9 @@ hi("CurSearch", { fg = col.fg.main, bg = col.bg.yellow })
 hi("MatchParen", { bg = col.bg.yellow })
 
 hi("NonText", { fg = col.bg.medium, bg = "NONE" })
-hi("SpecialKey", { fg = col.fg.dim, bg = "NONE" })
+hi("SpecialKey", { link = "Dim" })
 
-hi("Conceal", { fg = col.fg.dim })
+hi("Conceal", { link = "Dim" })
 hi("Tag", { fg = col.fg.blue, bg = "NONE" })
 
 hi("SpellCap", { undercurl = true, sp = col.fg.orange, fg = col.fg.orange })
@@ -71,15 +75,15 @@ hi("WinBarNC", { fg = col.fg.main, bg = col.bg.medium })
 hi("WildMenu", { bg = col.bg.yellow })
 hi("QuickFixLine", { link = "Bold" })
 
-hi("VertSplit", { fg = col.fg.dim })
-hi("LineNr", { fg = col.fg.dim })
-hi("CursorLineNr", { fg = col.fg.dim, bg = col.bg.light, bold = true })
+hi("VertSplit", { link = "Dim" })
+hi("LineNr", { link = "Dim" })
+hi("CursorLineNr", { link = "Dim" })
 hi("CursorLine", { bg = col.bg.light })
 hi("CursorColumn", { bg = col.bg.light })
 hi("ColorColumn", { bg = col.bg.light })
 
-hi("SignColumn", { fg = col.fg.dim, bg = col.bg.main })
-hi("FoldColumn", { fg = col.fg.dim, bg = col.bg.main })
+hi("SignColumn", { link = "Dim" })
+hi("FoldColumn", { link = "Dim" })
 
 hi("TabLine", { fg = col.fg.main, bg = col.bg.main })
 hi("TabLineFill", { fg = col.fg.main, bg = col.bg.main })
@@ -100,8 +104,8 @@ hi("NormalFloat", { fg = col.fg.main, bg = col.bg.main })
 hi("DiagnosticOk", { fg = col.fg.green })
 hi("DiagnosticError", { fg = col.fg.red })
 hi("DiagnosticWarn", { fg = col.fg.orange })
-hi("DiagnosticInfo", { fg = col.fg.dim })
-hi("DiagnosticHint", { fg = col.fg.dim })
+hi("DiagnosticInfo", { link = "Dim" })
+hi("DiagnosticHint", { link = "Dim" })
 
 hi("DiagnosticFloatingError", { fg = col.fg.red })
 hi("DiagnosticFloatingWarn", { fg = col.fg.orange })
@@ -116,7 +120,6 @@ hi("DiagnosticUnderlineOk", { underline = true, sp = col.fg.dim })
 hi("DiagnosticDeprecated", { strikethrough = true })
 
 -- Syntax
-
 hi("Title", { link = "Bold" })
 hi("Statement", { link = "Bold" })
 hi("Keyword", { link = "Bold" })
@@ -130,7 +133,7 @@ hi("Function", {})
 hi("Delimiter", {})
 
 hi("String", { fg = col.fg.green, bg = "NONE" })
-hi("Namespace", { fg = col.fg.dim, bg = "NONE" })
+hi("Namespace", { link = "DimAll" })
 hi("PreProc", { fg = col.fg.purple, bg = "NONE" })
 hi("Number", { fg = col.fg.blue, bg = "NONE" })
 
@@ -141,8 +144,8 @@ hi("Identifier", {})
 hi("Constant", {})
 hi("Special", {})
 
-hi("Todo", { fg = col.fg.dim, bg = "NONE", bold = true })
-hi("SpecialComment", { fg = col.fg.dim, bg = "NONE", bold = true })
+hi("Todo", { link = "DimBold" })
+hi("SpecialComment", { link = "DimBold" })
 
 hi("Added", { fg = col.bg.main, bg = col.fg.green })
 hi("Removed", { fg = col.bg.main, bg = col.fg.red })
@@ -157,9 +160,9 @@ hi("@attribute.builtin", { link = "PreProc" })
 hi("@variable", {})
 
 -- Deemphasize common things
-hi("@variable.builtin", { fg = col.fg.dim })
-hi("@punctuation.delimiter", { fg = col.fg.dim })
-hi("@punctuation.bracket", { fg = col.fg.dim })
+hi("@variable.builtin", { link = "DimAll" })
+hi("@punctuation.delimiter", { link = "DimAll" })
+hi("@punctuation.bracket", { link = "DimAll" })
 hi("@punctuation.special", { fg = col.fg.purple })
 
 hi("@tag.builtin", { bold = true })
@@ -201,8 +204,8 @@ hi("diffAdded", { fg = col.fg.green })
 hi("diffRemoved", { fg = col.fg.red })
 
 -- Markdown
-hi("mkdHeading", { fg = col.fg.dim, bold = true })
-hi("mkdUrl", { fg = col.fg.dim })
+hi("mkdHeading", { link = "DimBold" })
+hi("mkdUrl", { link = "Dim" })
 
 -- HTML
 hi("htmlArg", {})
