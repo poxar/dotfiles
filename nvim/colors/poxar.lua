@@ -3,7 +3,7 @@ if not vim.fn.has("gui_running") and not vim.fn.has("termguicolors") then
 end
 
 vim.cmd.highlight('clear')
-vim.g.colors_name = 'poxarng'
+vim.g.colors_name = 'poxar'
 
 local hi = function(name, val)
   val.force = true
