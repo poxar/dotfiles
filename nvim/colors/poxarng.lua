@@ -39,7 +39,6 @@ hi("Folded", { fg = col.fg.dim, bg = "NONE" })
 hi("Comment", { fg = col.fg.dim, bg = "NONE" })
 hi("Directory", { fg = col.fg.blue, bg = "NONE" })
 
-hi("None", { fg = "NONE", bg = "NONE" })
 hi("Bold", { fg = "NONE", bg = "NONE", bold = true })
 
 hi("Visual", { bg = col.bg.medium })
@@ -127,8 +126,8 @@ hi("Define", { link = "Bold" })
 hi("Boolean", { link = "Bold" })
 hi("Debug", { link = "Bold" })
 
-hi("Function", { link = "None"})
-hi("Delimiter", { link = "None"})
+hi("Function", {})
+hi("Delimiter", {})
 
 hi("String", { fg = col.fg.green, bg = "NONE" })
 hi("Namespace", { fg = col.fg.dim, bg = "NONE" })
@@ -137,10 +136,10 @@ hi("Number", { fg = col.fg.blue, bg = "NONE" })
 
 hi("Error", { fg = col.bg.main, bg = col.fg.red })
 
-hi("Operator", { link = "None"})
-hi("Identifier", { link = "None"})
-hi("Constant", { link = "None"})
-hi("Special", { link = "None"})
+hi("Operator", {})
+hi("Identifier", {})
+hi("Constant", {})
+hi("Special", {})
 
 hi("Todo", { fg = col.fg.dim, bg = "NONE", bold = true })
 hi("SpecialComment", { fg = col.fg.dim, bg = "NONE", bold = true })
@@ -155,7 +154,7 @@ hi("DiffText", { fg = col.fg.main, bg = col.fg.orange })
 -- Treesitter/LSP adjustments
 hi("@type.builtin", { link = "Type" })
 hi("@attribute.builtin", { link = "PreProc" })
-hi("@variable", { link = "None"})
+hi("@variable", {})
 
 -- Deemphasize common things
 hi("@variable.builtin", { fg = col.fg.dim })
@@ -187,15 +186,15 @@ hi("@lsp.mod.documentation", { link = "SpecialComment" })
 -- Languages
 
 -- Vim
-hi("vimGroup", { link = "None" })
-hi("vimHiTerm", { link = "None" })
-hi("vimOption", { link = "None" })
+hi("vimGroup", {})
+hi("vimHiTerm", {})
+hi("vimOption", {})
 hi("vimCommentTitle", { link = "SpecialComment" })
 hi("vimNotation", { bold = true })
 
 -- Help
 hi("helpHeader", { link = "Bold" })
-hi("helpSectionDelim", { link = "None" })
+hi("helpSectionDelim", {})
 
 -- Git
 hi("diffAdded", { fg = col.fg.green })
@@ -206,11 +205,11 @@ hi("mkdHeading", { fg = col.fg.dim, bold = true })
 hi("mkdUrl", { fg = col.fg.dim })
 
 -- HTML
-hi("htmlArg", { link = "None" })
+hi("htmlArg", {})
 hi("htmlLink", { link = "Number" })
 
 -- CSS
-hi("cssProp", { link = "None" })
+hi("cssProp", {})
 hi("cssImportant", { link = "Bold" })
 
 -- Rust
@@ -219,7 +218,7 @@ hi("rustModPathSep", { link = "Namespace" })
 hi("@module.rust", { link = "Namespace" })
 
 -- PHP
-hi("phpComparison", { link = "None" })
+hi("phpComparison", {})
 
 -- Lua
 hi("luaFunction", { link = "Keyword" })
