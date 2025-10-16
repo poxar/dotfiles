@@ -22,6 +22,7 @@ local col = {
     orange = "#d75f00",
     purple = "#5f00d7",
   },
+
   bg = {
     main = "#fafafa",
 
@@ -123,17 +124,17 @@ hi("DiagnosticDeprecated", { strikethrough = true })
 hi("Title", { link = "Bold" })
 hi("Statement", { link = "Bold" })
 hi("Keyword", { link = "Bold" })
-hi("Type", { link = "Bold" })
 hi("Include", { link = "Bold" })
 hi("Define", { link = "Bold" })
 hi("Boolean", { link = "Bold" })
 hi("Debug", { link = "Bold" })
 
+hi("Type", {})
 hi("Function", {})
-hi("Delimiter", {})
+hi("Delimiter", { link = "Dim" })
+hi("Namespace", { link = "DimAll" })
 
 hi("String", { fg = col.fg.green, bg = "NONE" })
-hi("Namespace", { link = "DimAll" })
 hi("PreProc", { fg = col.fg.purple, bg = "NONE" })
 hi("Number", { fg = col.fg.blue, bg = "NONE" })
 
@@ -155,21 +156,19 @@ hi("DiffDelete", { fg = col.bg.main, bg = col.fg.red })
 hi("DiffText", { fg = col.fg.main, bg = col.fg.orange })
 
 -- Treesitter/LSP adjustments
-hi("@type.builtin", { link = "Type" })
 hi("@attribute.builtin", { link = "PreProc" })
-hi("@variable", {})
-
--- Deemphasize common things
-hi("@variable.builtin", { link = "DimAll" })
-hi("@punctuation.delimiter", { link = "DimAll" })
-hi("@punctuation.bracket", { link = "DimAll" })
-hi("@punctuation.special", { fg = col.fg.purple })
 
 hi("@tag.builtin", { bold = true })
 hi("@markup.link", { fg = col.fg.blue })
 hi("@markup.link.label", { fg = col.fg.blue, bold = true })
-hi("@markup.link.url", { link = "@markup.link" })
+hi("@markup.link.url", { link = "Dim" })
 hi("@markup.list.checked", { strikethrough = true })
+
+-- Deemphasize
+hi("@variable.builtin", { link = "DimAll" })
+hi("@punctuation.delimiter", { link = "Dim" })
+hi("@punctuation.bracket", { link = "Dim" })
+hi("@punctuation.special", { link = "Dim" })
 
 -- First disable all LSP groups, then reenable strategically
 for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
