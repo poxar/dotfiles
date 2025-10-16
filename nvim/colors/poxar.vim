@@ -9,13 +9,14 @@
 " medium gray #d8d3d3
 " dark gray   #6a6868
 "
-" highlight   #dc9e6c
-"
 " red         #b80000
 " green       #005f00
 " blue        #005fd7
 " orange      #d75f00
 " purple      #5f00d7
+"
+" highlighting
+" yellow      #ffdf64
 "
 " }}}
 
@@ -45,10 +46,10 @@ hi Bold         guifg=none    guibg=none    gui=bold
 
 hi Visual                     guibg=#d8d3d3
 hi VisualNOS                  guibg=#d8d3d3
-hi Search       guifg=fg      guibg=#dc9e6c
-hi IncSearch                  guibg=#dc9e6c
-hi CurSearch    guifg=#fafafa guibg=#000000 gui=none
-hi MatchParen                 guibg=#dc9e6c
+hi Search       guifg=fg      guibg=#ffdf64
+hi IncSearch                  guibg=#ffdf64
+hi CurSearch    guifg=fg      guibg=#ffdf64
+hi MatchParen                 guibg=#ffdf64
 
 hi NonText      guifg=#d8d3d3 guibg=none    gui=none
 hi SpecialKey   guifg=#6a6868 guibg=none    gui=none
@@ -73,7 +74,7 @@ hi StatusLine   guifg=#fafafa guibg=#000000
 hi StatusLineNC guifg=fg      guibg=#d8d3d3 gui=none
 hi WinBar       guifg=#fafafa guibg=#000000
 hi WinBarNC     guifg=fg      guibg=#d8d3d3 gui=none
-hi WildMenu                   guibg=#dc9e6c
+hi WildMenu                   guibg=#ffdf64
 hi QuickFixLine guifg=none guibg=none gui=bold
 
 hi User1        guifg=fg      guibg=bg
@@ -140,9 +141,9 @@ hi! link TelescopePreviewBorder Comment
 " }}}
 " Leap {{{
 
-hi LeapLabelPrimary   guifg=fg guibg=#dc9e6c
-hi LeapLabelSecondary guifg=fg guibg=#d75f00
-hi LeapLabelSelected  guifg=bg guibg=fg
+hi LeapLabel   guifg=bg      guibg=#5f00d7
+hi LeapMatch   guifg=#5f00d7 guibg=bg
+hi! link LeapBackdrop Comment
 
 " }}}
 " CheckHealth {{{
@@ -190,7 +191,7 @@ hi SpecialComment guifg=#6a6868 guibg=none gui=bold
 
 hi Added      guifg=bg   guibg=#005f00 gui=none
 hi Removed    guifg=bg   guibg=#b80000 gui=none
-hi Changed    guifg=fg   guibg=#d75f00 gui=none
+hi Changed    guifg=bg   guibg=#d75f00 gui=none
 hi DiffAdd    guifg=bg   guibg=#005f00 gui=none
 hi DiffDelete guifg=bg   guibg=#b80000 gui=none
 hi DiffChange guifg=none guibg=none    gui=none
