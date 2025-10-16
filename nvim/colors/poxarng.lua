@@ -164,7 +164,8 @@ hi("Removed", { fg = bg.std, bg = fg.red })
 hi("Changed", { fg = bg.std, bg = fg.orange })
 hi("DiffAdd", { fg = bg.std, bg = fg.green })
 hi("DiffDelete", { fg = bg.std, bg = fg.red })
-hi("DiffText", { fg = fg.std, bg = fg.orange })
+hi("DiffChange", { fg = fg.std, bg = bg.light })
+hi("DiffText", { fg = fg.brown, bg = fg.orange })
 
 -- Treesitter/LSP adjustments
 
