@@ -173,7 +173,6 @@ hi Boolean    guifg=none guibg=none gui=bold
 hi Debug      guifg=none guibg=none gui=bold
 hi Function   guifg=none guibg=none gui=none
 hi Delimiter  guifg=none guibg=none gui=none
-hi @variable  guifg=none
 
 hi String     guifg=#005f00 guibg=none gui=none
 hi Namespace  guifg=#6a6868 guibg=none gui=none
@@ -200,8 +199,27 @@ hi DiffText   guifg=fg   guibg=#d75f00 gui=none
 
 " Treesitter/LSP adjustments
 
+hi @variable         guifg=none
+hi @variable.builtin guifg=#6a6868
+
+hi! link @type.builtin Type
+hi! link @attribute.builtin PreProc
+
+hi @punctuation.delimiter guifg=#6a6868
+hi @punctuation.bracket guifg=#6a6868
+hi @punctuation.special guifg=#5f00d7
+hi @tag.builtin gui=bold
+
 hi! link @comment.documentation SpecialComment
 hi! link @string.documentation  SpecialComment
+
+hi @markup.link           guifg=#005fd7
+hi @markup.link.label     guifg=#005fd7 gui=bold
+hi! link @markup.link.url @markup.link
+hi @markup.list.checked   gui=strikethrough
+
+" First disable all LSP groups, then reenable strategically
+
 lua << ENDLUA
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
@@ -211,12 +229,12 @@ ENDLUA
 hi @lsp.mod.deprecated gui=strikethrough
 hi @lsp.type.decorator guifg=#5f00d7
 hi @lsp.type.macro     guifg=#5f00d7
-hi! link @lsp.mod.documentation SpecialComment
 
-hi @markup.link           guifg=#005fd7
-hi @markup.link.label     guifg=#005fd7 gui=bold
-hi! link @markup.link.url @markup.link
-hi @markup.list.checked   gui=strikethrough
+hi! link @lsp.type.keyword      Keyword
+hi! link @lsp.type.number       Number
+hi! link @lsp.type.namespace    Namespace
+hi! link @lsp.type.string       String
+hi! link @lsp.mod.documentation SpecialComment
 
 " }}}
 " Languages {{{
