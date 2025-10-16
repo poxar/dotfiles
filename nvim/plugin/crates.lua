@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("BufRead", {
     require('cmp').setup.buffer({ sources = { { name = "crates" } } })
 
     map('n', '<leader>cu', crates.upgrade_crate, 'Upgrade crate under cursor to latest version')
-    map('v', '<leader>cu', crates.upgrade_crates, 'Upgrade selected crates to latest version')
+    map('x', '<leader>cu', crates.upgrade_crates, 'Upgrade selected crates to latest version')
 
     map('n', '<leader>ct', crates.toggle, 'Toggle inline crate information')
     map('n', '<leader>ci', crates.show_popup, 'Show basic information on crate under cursor')

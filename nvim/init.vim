@@ -159,7 +159,7 @@ tnoremap <M-o> <c-\><c-n><c-w>p
 nnoremap gS :%s/\<<c-r>=expand('<cword>')<cr>\>/
 
 " Source line or selection
-vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+xnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
 " Edit and reload configuration
@@ -259,7 +259,7 @@ let g:undotree_ShortIndicators = 1
 
 " Better :sort
 lua require('sort').setup {}
-vnoremap <silent> go <esc><cmd>Sort<cr>
+xnoremap <silent> go <esc><cmd>Sort<cr>
 nnoremap <silent> go" vi"<esc><cmd>Sort<cr>
 nnoremap <silent> go' vi'<esc><cmd>Sort<cr>
 nnoremap <silent> go( vi(<esc><cmd>Sort<cr>
