@@ -9,12 +9,12 @@ name='Sessions'
 
 [custom1]
 binding='<Super>e'
-command='ghostty --command="~/.config/bin/find-emoji type"'
+command='ghostty -e find-emoji type'
 name='Emoji Selector'
 
 [custom2]
 binding='<Super>v'
-command='ghostty --command="~/.local/bin/phrases type"'
+command='ghostty -e phrases type'
 name='Snippet Selector'
 EOF
 
