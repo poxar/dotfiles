@@ -17,7 +17,6 @@
 "
 " highlighting
 " yellow      #ffdf64
-" blue        #99c7ff
 "
 " }}}
 
@@ -186,8 +185,8 @@ hi Identifier guifg=none guibg=none gui=none
 hi Constant   guifg=none guibg=none gui=none
 hi Special    guifg=none guibg=none gui=none
 
-hi Todo           guifg=#6a6868 guibg=none    gui=bold
-hi SpecialComment guifg=fg      guibg=#99c7ff gui=none
+hi Todo           guifg=#6a6868 guibg=none gui=bold
+hi SpecialComment guifg=#6a6868 guibg=none gui=bold
 
 hi Added      guifg=bg   guibg=#005f00 gui=none
 hi Removed    guifg=bg   guibg=#b80000 gui=none
@@ -209,9 +208,6 @@ hi @punctuation.delimiter guifg=#6a6868
 hi @punctuation.bracket guifg=#6a6868
 hi @punctuation.special guifg=#5f00d7
 hi @tag.builtin gui=bold
-
-hi! link @comment.documentation SpecialComment
-hi! link @string.documentation  SpecialComment
 
 hi @markup.link           guifg=#005fd7
 hi @markup.link.label     guifg=#005fd7 gui=bold
