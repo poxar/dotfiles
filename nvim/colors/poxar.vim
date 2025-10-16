@@ -198,12 +198,11 @@ hi DiffText   guifg=fg   guibg=#d75f00 gui=none
 
 " Treesitter/LSP adjustments
 
-hi @variable         guifg=none
-hi @variable.builtin guifg=#6a6868
-
 hi! link @type.builtin Type
 hi! link @attribute.builtin PreProc
 
+" Deemphasize common things
+hi @variable.builtin guifg=#6a6868
 hi @punctuation.delimiter guifg=#6a6868
 hi @punctuation.bracket guifg=#6a6868
 hi @punctuation.special guifg=#5f00d7
@@ -279,6 +278,7 @@ hi! link cssImportant Bold
 
 hi! link rustModPath Namespace
 hi! link rustModPathSep Namespace
+hi! link @module.rust Namespace
 
 " }}}
 " PHP {{{
