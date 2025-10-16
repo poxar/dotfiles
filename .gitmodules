@@ -178,3 +178,7 @@
 	shallow = true
 
 # New plugins
+[submodule "nvim/pack/lang/start/nvim-treesitter"]
+	path = nvim/pack/lang/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+	branch = main
