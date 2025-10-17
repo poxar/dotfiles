@@ -125,6 +125,9 @@ nnoremap gg gg0
 xnoremap p P
 xnoremap P p
 
+" Don't you dare open that comandline window
+nnoremap q: :q
+
 " Simpler redo
 nnoremap U <c-r>
 
