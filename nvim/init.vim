@@ -116,7 +116,6 @@ set mouse=nvh
 set autoread
 
 " autosave
-set autowriteall
 augroup autowrite
   au! InsertLeave * silent! write
   au! TextChanged * silent! write
