@@ -77,6 +77,10 @@ hi("SpellRare", { undercurl = true, sp = fg.purple, fg = fg.purple, bg = bg.purp
 
 hi("TrailWhitespace", { fg = fg.red, bg = bg.red })
 
+hi("HighlightBlue", { bg = bg.blue })
+hi("HighlightGreen", { bg = bg.green })
+hi("HighlightPurple", { bg = bg.purple })
+
 ---------------------------------------------------------------
 --- UI
 ---------------------------------------------------------------

@@ -91,9 +91,6 @@ else
   colorscheme poxar
 endif
 
-" Highlight git conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
 " Highlight yanked area
 if has('nvim-0.5.0')
   au TextYankPost * lua vim.hl.on_yank {higroup="YankPost", timeout=250}
@@ -154,6 +151,12 @@ nnoremap <c-w>; <c-w>p
 nnoremap <M-o> <c-w>p
 inoremap <M-o> <esc><c-w>p
 tnoremap <M-o> <c-\><c-n><c-w>p
+
+" Highlight words
+nnoremap <leader>mb :match HighlightBlue /<c-r>=expand('<cword>')<cr>/<cr>
+nnoremap <leader>mg :2match HighlightGreen /<c-r>=expand('<cword>')<cr>/<cr>
+nnoremap <leader>mp :3match HighlightPurple /<c-r>=expand('<cword>')<cr>/<cr>
+nnoremap <leader>mg :3match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'<cr>
 
 " Substitute word under the curser
 nnoremap gS :%s/\<<c-r>=expand('<cword>')<cr>\>/
