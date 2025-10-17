@@ -7,7 +7,7 @@ vim.g.colors_name = 'poxar'
 
 local hi = function(name, val)
   val.force = true
-  val.cterm = val.cterm or {}
+  val.cterm = {}
   vim.api.nvim_set_hl(0, name, val)
 end
 
