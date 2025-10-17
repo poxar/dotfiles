@@ -228,22 +228,6 @@ command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
 command! -range=% XmlPP :<line1>,<line2>!xmllint --format -
 command! -range=% HtmlPP :<line1>,<line2>!prettier --html-whitespace-sensitivity=ignore --parser html
 
-" Helper for debugging syntax highlighting
-" It shows the current highlighting group under the cursor
-function! ToggleSynShow()
-  if !exists('#SynShow#CursorMoved')
-    augroup SynShow
-      au!
-      au! CursorMoved * echo synIDattr(synID(line("."),col("."),1),"name")
-    augroup END
-  else
-    augroup SynShow
-      au!
-    augroup END
-  endif
-endfunction
-command! ToggleSyntax call ToggleSynShow()
-
 " Plugins {{{1
 
 let $MANWIDTH = 80
