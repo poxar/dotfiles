@@ -59,7 +59,8 @@ hi("VisualNOS", { bg = bg.medium })
 
 hi("Search", { fg = fg.brown, bg = bg.yellow })
 hi("CurSearch", { fg = fg.brown, bg = bg.yellow })
-hi("IncSearch", { fg = bg.yellow, bg = fg.brown })
+hi("IncSearch", { reverse = true })
+hi("YankPost", { fg = bg.purple, bg = fg.purple })
 
 hi("MatchParen", { fg = fg.purple, bg = bg.mauve })
 

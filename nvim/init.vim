@@ -96,7 +96,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Highlight yanked area
 if has('nvim-0.5.0')
-  au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
+  au TextYankPost * lua vim.hl.on_yank {higroup="YankPost", timeout=250}
 endif
 
 " Spelling
