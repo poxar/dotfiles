@@ -63,3 +63,5 @@ end, '[F]ind [Sn]ippets')
 
 nmap('<leader>gb', ts_builtin.git_branches, 'find [G]it [B]ranches')
 nmap('<leader>gh', ts_builtin.git_commits, 'find [G]it [H]istory')
+
+nmap('<leader>sr', require('poxar.dispatch-telescope').pick_focus, "Select Dispatch Focus")

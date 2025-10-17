@@ -194,8 +194,6 @@ nnoremap <leader>l :botright lopen<cr>
 
 " Terminal mode
 tnoremap <esc> <c-\><c-n>
-nnoremap <leader>ts :split<cr>:terminal<cr>:startinsert<cr>
-nnoremap <leader>tv :vsplit<cr>:terminal<cr>:startinsert<cr>
 nnoremap <M-c> :rightbelow terminal<cr>A
 
 augroup terminal_settings
@@ -243,6 +241,12 @@ nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>ga :Git commit --amend<cr>
 nnoremap <leader>gl :Git ll %<cr>
 nnoremap <leader>gi :Git<space>
+
+" dispatch stuff
+nnoremap d<space> :Dispatch<space>
+nnoremap <leader>r :Dispatch<cr>
+nnoremap <leader>t :Dispatch <c-r>=b:dispatch_test<cr><cr>
+nnoremap <leader>sd :Focus!<cr>
 
 " snippets
 let g:snips_author = 'Philipp Millar'
