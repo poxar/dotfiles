@@ -58,6 +58,10 @@ set number
 set relativenumber
 set signcolumn=number
 
+set foldmethod=syntax
+set foldlevelstart=3
+set foldnestmax=3
+
 set linebreak
 set showbreak=↪
 set list
