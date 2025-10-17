@@ -121,8 +121,8 @@ hi("PmenuThumb", { bg = fg.std })
 hi("NormalFloat", { fg = fg.std, bg = bg.std })
 
 hi("DiagnosticOk", { fg = fg.green })
-hi("DiagnosticError", { fg = fg.red, bg = bg.red })
-hi("DiagnosticWarn", { fg = fg.orange, bg = bg.orange })
+hi("DiagnosticError", { fg = fg.red })
+hi("DiagnosticWarn", { fg = fg.orange })
 hi("DiagnosticInfo", { link = "Dim" })
 hi("DiagnosticHint", { link = "Dim" })
 
@@ -155,7 +155,7 @@ hi("String", { fg = fg.green })
 hi("PreProc", { fg = fg.purple })
 hi("Number", { fg = fg.blue })
 
-hi("Error", { fg = fg.red, bg = bg.red })
+hi("Error", { fg = fg.red })
 hi("Todo", { fg = fg.std, bold = true })
 
 hi("Operator", {})
