@@ -4,10 +4,12 @@ require('fidget').setup {
 }
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>i', function()
+  vim.diagnostic.open_float(nil, { focus = true, scope = "line" })
+end, { desc = "Show diagnostics for current line" })
 
 vim.diagnostic.config({
-  virtual_lines = true,
-  underline = false,
+  underline = true,
   signs = {
     severity_sort = true,
     text = {
@@ -16,13 +18,7 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.INFO] = '●',
       [vim.diagnostic.severity.HINT] = '●',
     },
-    texthl = {
-      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
-      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
-      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
-      [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
-    }
-  }
+  },
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {

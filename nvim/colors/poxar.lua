@@ -126,11 +126,11 @@ hi("DiagnosticWarn", { fg = fg.orange })
 hi("DiagnosticInfo", { link = "Dim" })
 hi("DiagnosticHint", { link = "Dim" })
 
-hi("DiagnosticSignOk", { fg = fg.green })
-hi("DiagnosticSignError", { fg = fg.red })
-hi("DiagnosticSignWarn", { fg = fg.orange })
-hi("DiagnosticSignInfo", { link = "Dim" })
-hi("DiagnosticSignHint", { link = "Dim" })
+hi("DiagnosticUnderlineOk", { underline = true, sp = fg.green })
+hi("DiagnosticUnderlineError", { underline = true, sp = fg.red })
+hi("DiagnosticUnderlineWarn", { underline = true, sp = fg.orange })
+hi("DiagnosticUnderlineInfo", { underline = true, sp = fg.dim })
+hi("DiagnosticUnderlineHint", { underline = true, sp = fg.dim })
 
 hi("DiagnosticDeprecated", { strikethrough = true })
 
