@@ -223,11 +223,6 @@ command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
 command! Ftedit execute ":edit ". stdpath('config') ."/ftplugin/".&ft.".vim"
 nnoremap <leader>ef :Ftedit<cr>
 
-" pretty printing
-command! -range=% JsonPP :<line1>,<line2>!python -m json.tool
-command! -range=% XmlPP :<line1>,<line2>!xmllint --format -
-command! -range=% HtmlPP :<line1>,<line2>!prettier --html-whitespace-sensitivity=ignore --parser html
-
 " Plugins {{{1
 
 let $MANWIDTH = 80
