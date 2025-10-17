@@ -70,10 +70,10 @@ hi("SpecialKey", { link = "Dim" })
 hi("Conceal", { link = "Dim" })
 hi("Tag", { fg = fg.blue })
 
-hi("SpellCap", { undercurl = true, sp = fg.orange, fg = fg.orange, bg = bg.orange })
+hi("SpellCap", { undercurl = true, sp = fg.orange })
 hi("SpellBad", { undercurl = true, sp = fg.red })
-hi("SpellLocal", { undercurl = true, sp = fg.green })
-hi("SpellRare", { undercurl = true, sp = fg.purple, fg = fg.purple, bg = bg.purple })
+hi("SpellLocal", {})
+hi("SpellRare", {})
 
 hi("TrailWhitespace", { fg = fg.red, bg = bg.red })
 
