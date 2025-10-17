@@ -147,14 +147,18 @@ inoremap <c-x><c-n> <c-x><c-o>
 
 " Open last/alternate buffer
 nnoremap <c-w><leader> <c-^>
+nnoremap <c-space> <c-^>
 
-" Switch to last window
-nnoremap <c-w>; <c-w>p
+" Window switching
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 
 " Window switching from all modes
-nnoremap <M-o> <c-w>p
-inoremap <M-o> <esc><c-w>p
-tnoremap <M-o> <c-\><c-n><c-w>p
+nnoremap <a-o> <c-w>p
+inoremap <a-o> <esc><c-w>p
+tnoremap <a-o> <c-\><c-n><c-w>p
 
 " Highlight words
 nnoremap <leader>mb :match HighlightBlue /<c-r>=expand('<cword>')<cr>/<cr>
