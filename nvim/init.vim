@@ -121,6 +121,10 @@ augroup END
 " Mappings {{{1
 nnoremap gg gg0
 
+" Don't copy by default when pasting
+xnoremap p P
+xnoremap P p
+
 " Simpler redo
 nnoremap U <c-r>
 
