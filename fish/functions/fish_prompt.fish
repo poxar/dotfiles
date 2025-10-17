@@ -28,6 +28,6 @@ function fish_prompt
   if test $last_status -eq 0
     echo -n -s " $prompt_char "
   else
-    echo -n -s (set_color --bold brred) " $prompt_char " (set_color normal)
+    echo -n -s (set_color --bold red) " $prompt_char " (set_color normal)
   end
 end
