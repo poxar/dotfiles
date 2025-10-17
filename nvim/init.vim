@@ -130,6 +130,10 @@ xnoremap P p
 
 " Don't you dare open that comandline window
 nnoremap q: :q
+augroup disablecmdlinewindow
+  au! RecordingEnter * nunmap q:
+  au! RecordingLeave * nnoremap q: :q
+augroup END
 
 " Simpler redo
 nnoremap U <c-r>
