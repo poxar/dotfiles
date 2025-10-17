@@ -119,8 +119,6 @@ augroup autowrite
 augroup END
 
 " Mappings {{{1
-inoremap <c-f> <c-x><c-f>
-
 nnoremap gg gg0
 
 " Simpler redo
@@ -130,7 +128,9 @@ nnoremap U <c-r>
 nnoremap ' `
 nnoremap ` '
 
-" Allow some typos in omni completion
+" Completion short forms
+inoremap <c-f> <c-x><c-f>
+inoremap <c-x>f <c-x><c-f>
 inoremap <c-x>o <c-x><c-o>
 inoremap <c-x>n <c-x><c-o>
 inoremap <c-x><c-n> <c-x><c-o>
