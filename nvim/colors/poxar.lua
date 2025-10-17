@@ -107,6 +107,7 @@ hi("TabLine", {})
 hi("TabLineFill", {})
 hi("TabLineSel", { reverse = true })
 
+hi("Question", {})
 hi("ErrorMsg", { fg = fg.red })
 hi("WarningMsg", { fg = fg.orange })
 
@@ -155,6 +156,7 @@ hi("PreProc", { fg = fg.purple })
 hi("Number", { fg = fg.blue })
 
 hi("Error", { fg = fg.red, bg = bg.red })
+hi("Todo", { fg = fg.std, bold = true })
 
 hi("Operator", {})
 hi("Identifier", {})
