@@ -103,9 +103,9 @@ hi("ColorColumn", { bg = bg.light })
 hi("SignColumn", { link = "Dim" })
 hi("FoldColumn", { link = "Dim" })
 
-hi("TabLine", { fg = fg.std, bg = bg.std })
-hi("TabLineFill", { fg = fg.std, bg = bg.std })
-hi("TabLineSel", { fg = bg.std, bg = fg.std })
+hi("TabLine", {})
+hi("TabLineFill", {})
+hi("TabLineSel", { reverse = true })
 
 hi("ErrorMsg", { fg = fg.red })
 hi("WarningMsg", { fg = fg.orange })
