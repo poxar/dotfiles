@@ -1,5 +1,7 @@
 require("inc_rename").setup()
-require('fidget').setup()
+require('fidget').setup {
+  notification = { override_vim_notify = true }
+}
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
 
