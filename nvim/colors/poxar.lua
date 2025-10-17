@@ -177,6 +177,7 @@ hi("DiffText", { fg = fg.brown, bg = fg.orange })
 -- Treesitter/LSP adjustments
 
 hi("@attribute.builtin", { link = "PreProc" })
+hi("@lsp.mod.attribute", { link = "PreProc" })
 
 hi("@markup.link", { fg = fg.blue })
 hi("@markup.link.label", { fg = fg.blue, bold = true })
