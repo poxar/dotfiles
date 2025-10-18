@@ -1,34 +1,21 @@
 # A dotfile repo
 
-My public configuration files and personal scripts. I change those files a lot
+My configuration files, scripts, and random hacks. I change those files a lot
 and sometimes I break things, so be careful.
 
-The second half of my configuration (installed programs and such) live in my
-[nixfiles](https://github.com/poxar/nixfiles). I've decided against
-home-manager for now, being able to quickly change my dotfiles is preferable
-to me for now.
+Since most tools respect the XDG base directory spec now, I only track
+~/.config here.
 
-# Structure
-
-I made a fresh start in 2022 to only track .config, and I did not carry the
-history over, check out the
-[main_2022-03-12](https://github.com/poxar/dotfiles/tree/main_2022-03-12)
-branch if you're interested in my old approach.
+To deal with SSH I just `Include ~/.config/ssh/defaults` in `~/.ssh/config`,
+most of the ssh config needs to stay private anyways, so it works out nicely.
 
 # Installation
 
-Stow is used to manage the symlinks. Since most tools respect the XDG base
-directory spec now, it's just a matter of `stow -S .`, but traditional dotfiles
-could also be tracked with a little restructuring.
+Stow is used to manage the symlinks and it's just a matter of `stow -S .`, see
+`.stowrc` for details.
 
-To deal with SSH I have a `$HOME/.ssh/config` along these lines:
+# Archive
 
-```
-Include ~/.config/ssh/defaults
-
-Host xyz
-  Port 1337
-  Compression yes
-
-…
-```
+- DWM [coastline](https://github.com/poxar/dotfiles/tree/coastline)
+- Hyprland [2025](https://github.com/poxar/dotfiles/tree/hyprland-2025)
+- Niri [2025](https://github.com/poxar/dotfiles/tree/niri-2025)
