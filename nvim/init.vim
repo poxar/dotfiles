@@ -165,10 +165,10 @@ inoremap <a-o> <esc><c-w>p
 tnoremap <a-o> <c-\><c-n><c-w>p
 
 " Highlight words
-nnoremap <leader>mb :match HighlightBlue /<c-r>=expand('<cword>')<cr>/<cr>
-nnoremap <leader>mg :2match HighlightGreen /<c-r>=expand('<cword>')<cr>/<cr>
-nnoremap <leader>mp :3match HighlightPurple /<c-r>=expand('<cword>')<cr>/<cr>
-nnoremap <leader>mg :3match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'<cr>
+nnoremap <leader>mc :match none \| 2match none \| 3match none<cr>
+nnoremap <leader>mp :match HighlightPurple /<c-r>=expand('<cword>')<cr>/<cr>
+nnoremap <leader>mb :2match HighlightBlue /<c-r>=expand('<cword>')<cr>/<cr>
+nnoremap <leader>mg :3match HighlightGreen /<c-r>=expand('<cword>')<cr>/<cr>
 
 " Substitute word under the curser
 nnoremap gS :%s/\<<c-r>=expand('<cword>')<cr>\>/

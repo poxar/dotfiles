@@ -30,15 +30,12 @@ local bg = {
   light = "#f1eae5",
   medium = "#ddd3cd",
 
-  red = "#ffdada",
-  green = "#f0fff0",
-  blue = "#f0f5ff",
+  red    = "#ffb3b3",
+  green  = "#c8f0c8",
+  blue   = "#c8d6ff",
   yellow = "#ffdf64",
-  orange = "#fff8f0",
-  purple = "#faf3ff",
-
-  -- A slightly darker version of purple for MatchParen
-  mauve = "#d2adff",
+  orange = "#ffe0b8",
+  purple = "#d2adff",
 }
 
 ---------------------------------------------------------------
@@ -62,7 +59,7 @@ hi("CurSearch", { fg = fg.brown, bg = bg.yellow })
 hi("IncSearch", { reverse = true })
 hi("YankPost", { fg = bg.purple, bg = fg.purple })
 
-hi("MatchParen", { fg = fg.purple, bg = bg.mauve })
+hi("MatchParen", { fg = fg.purple, bg = bg.purple })
 
 hi("NonText", { fg = bg.medium })
 hi("SpecialKey", { link = "Dim" })
@@ -77,9 +74,9 @@ hi("SpellRare", {})
 
 hi("TrailWhitespace", { fg = fg.red, bg = bg.red })
 
-hi("HighlightBlue", { bg = bg.blue })
-hi("HighlightGreen", { bg = bg.green })
-hi("HighlightPurple", { bg = bg.purple })
+hi("HighlightBlue", { bg = bg.blue, fg = fg.blue })
+hi("HighlightGreen", { bg = bg.green, fg = fg.green })
+hi("HighlightPurple", { bg = bg.purple, fg = fg.purple })
 
 ---------------------------------------------------------------
 --- UI
