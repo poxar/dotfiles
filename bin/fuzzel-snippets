@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+
+snip="$(cat "$HOME/Notes/snippets.txt" | fuzzel --dmenu | cut -f 2-)"
+
+wl-copy "$snip"
+wtype "$snip"

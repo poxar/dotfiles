@@ -1,0 +1,14 @@
+width=250
+padding=10
+outer-margin=8
+border-radius=6
+
+font=Fira Code 10
+
+background-color=#fdf8f3ff
+text-color=#000000ff
+border-color=#000000ff
+
+icons=0
+max-visible=1
+default-timeout=4000

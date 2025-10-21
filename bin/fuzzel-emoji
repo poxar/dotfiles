@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+FILE="${XDG_CONFIG_HOME:-"$HOME/.config"}/emoji.txt"
+
+emoji="$(cat "$FILE" | fuzzel --dmenu | cut -d ' ' -f 1 | tr -d '\n')"
+
+wl-copy "$emoji"
+wtype "$emoji"
+
+exit

@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+cd ~/Code
+
+sel="$(fd -Is 'Session.vim' | xargs dirname | fuzzel --dmenu)"
+
+matches="$(niri msg -j windows \
+    | jq -r '.[] | "\(.id)\tapp:\(.app_id)\t\(.title)"' \
+    | grep "app:com.mitchellh.ghostty[[:space:]].*zmk-config ::" \
+    || true)"
+
+if test -z "$matches"; then
+  exec ghostty --working-directory="$HOME/Code/$sel" -e nvim -S Session.vim
+else
+  id="$(echo "$matches" | fuzzel --dmenu --with-nth 3 --accept-nth 1 --auto-select)"
+  niri msg action focus-window --id "$id"
+fi

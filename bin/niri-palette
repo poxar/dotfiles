@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+niri msg action help \
+  | head -n-3 \
+  | tail -n+6 \
+  | sed 's/^ *//' \
+  | awk 'NR % 2 == 1 {print $0}' \
+  | fuzzel --dmenu \
+  | xargs niri msg action
