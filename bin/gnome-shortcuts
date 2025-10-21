@@ -14,7 +14,7 @@ name='Emoji Selector'
 
 [custom2]
 binding='<Super>v'
-command='ghostty -e phrases type'
+command='ghostty -e gnome-phrases type'
 name='Snippet Selector'
 EOF
 
