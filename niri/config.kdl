@@ -153,6 +153,8 @@ binds {
     Mod+B       repeat=false { spawn "ghostty" "-e" "edit-todo"; }
     Mod+Shift+G repeat=false { spawn "ghostty" "-e" "lf"; }
 
+    Mod+I       repeat=false { spawn "keepassxc"; }
+
     // Special stuff
     Mod+Backspace repeat=false { close-window; }
     Mod+Shift+Slash            { show-hotkey-overlay; }
