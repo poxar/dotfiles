@@ -154,6 +154,7 @@ binds {
     Mod+Shift+G repeat=false { spawn "ghostty" "-e" "lf"; }
 
     Mod+I       repeat=false { spawn "keepassxc"; }
+    Mod+Shift+Z repeat=false { spawn "wooz" "--map-close" "q" "--invert-scroll"; }
 
     // Special stuff
     Mod+Backspace repeat=false { close-window; }
