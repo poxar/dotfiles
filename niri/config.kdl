@@ -108,15 +108,16 @@ window-rule {
 }
 
 window-rule {
-    match at-startup=true app-id=r#"^discord$"#
-    open-on-workspace "chat"
+    match app-id=r#"^com\.discordapp\.Discord$"#
     open-maximized true
 }
 
 window-rule {
     match at-startup=true app-id=r#"^org\.signal\.Signal$"#
     match at-startup=true app-id=r#"^org\.telegram\.desktop$"#
+    match at-startup=true app-id=r#"^com\.discordapp\.Discord$"#
     open-on-workspace "chat"
+    open-focused false
 }
 
 window-rule {
