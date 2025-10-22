@@ -201,6 +201,8 @@ hi("diffRemoved", { fg = fg.red })
 
 -- Markdown
 hi("markdownUrl", { link = "Dim" })
+hi("markdownCode", { bg = bg.light })
+hi("markdownCodeBlock", { bg = bg.light })
 
 -- HTML
 hi("htmlLink", { fg = fg.blue })
