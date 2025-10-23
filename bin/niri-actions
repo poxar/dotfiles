@@ -6,7 +6,7 @@ Quit
 Poweroff
 Reboot
 Hibernate
-Suspend"
+Suspend | Sleep"
 
 sel=$(echo "$OPTIONS" | fuzzel --dmenu)
 
@@ -16,5 +16,5 @@ case "$sel" in
   "Poweroff") systemctl poweroff ;;
   "Reboot") systemctl reboot ;;
   "Hibernate") systemctl hibernate ;;
-  "Suspend") systemctl suspend ;;
+  "Suspend | Sleep") systemctl suspend ;;
 esac
