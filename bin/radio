@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+# Play me some tunes
+# Inspired by https://evanhahn.com/scripts-i-wrote-that-i-use-all-the-time/
+
+station="${1:-dhr}"
+case "$station" in
+  "house"|"dhr") url='https://c2.radioboss.fm:8429/dhr' ;;
+  "trance") url='http://ubuntu.hbr1.com:19800/trance.ogg' ;;
+  "lofi") url='https://live.hunter.fm/lofi_low' ;;
+  *)
+    echo "don't know $station"
+    exit 1
+    ;;
+esac
+
+exec mpv "$url"
