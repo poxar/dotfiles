@@ -55,7 +55,8 @@ if command -q sk
 
   # kill process
   function killproc
-    set -l pid (ps -u "$USER" -o pid=,comm=,%cpu=,%mem= \
+    set -l pid (ps -u "$USER" -o 'pid %cpu %mem command' \
+      | tail -n+2 \
       | sk --no-sort -p "kill > " \
       | awk '{print $1}')
 
