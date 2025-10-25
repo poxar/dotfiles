@@ -70,6 +70,7 @@ layout {
     gaps 8
     center-focused-column "never"
     always-center-single-column
+    empty-workspace-above-first
     background-color "transparent"
 
     default-column-width { proportion 0.5; }
