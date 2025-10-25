@@ -1,7 +1,7 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
-spawn-at-startup "swaybg" "--mode" "fill" "--image" "Wallpaper/4k/coastline-mountain-pass-road.jpg"
+spawn-at-startup "swaybg" "--mode" "fill" "--image" "Wallpaper/purple.png"
 spawn-at-startup "udiskie" "--automount" "--terminal" "ghostty -e"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "niri-idle"
