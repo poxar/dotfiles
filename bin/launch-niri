@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+# Only run the necessary bits from niri-session
+
+if systemctl --user -q is-active niri.service; then
+  echo 'A niri session is already running.'
+fi
+
+echo "Resetting failed state of user units"
+systemctl --user reset-failed
+
+echo "Importing the login manager environment"
+systemctl --user import-environment
+
+echo "Setting dbus environment"
+if hash dbus-update-activation-environment 2>/dev/null; then
+  dbus-update-activation-environment --all
+fi
+
+echo "Starting niri"
+systemctl --user --wait start niri.service
+
+echo "Stoping niri"
+systemctl --user start --job-mode=replace-irreversibly niri-shutdown.target
+
+echo "Resetting environment"
+systemctl --user unset-environment WAYLAND_DISPLAY DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP NIRI_SOCKET
