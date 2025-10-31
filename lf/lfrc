@@ -7,11 +7,25 @@ set previewer ~/.config/lf/preview.sh
 cmd mkdir %IFS=" "; mkdir -- "$*"
 map a push :mkdir<space>
 
+cmd open &{{
+    edit() {
+        lf -remote "send $id \$nvim \$fx"
+    }
+
+    case $(file --mime-type -Lb $f) in
+        text/*)           edit ;;
+        application/json) edit ;;
+        application/xml)  edit ;;
+        inode/empty)      edit ;;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
 setlocal ~/Downloads sortby time
 setlocal ~/Downloads reverse
 
 cmd edit-config ${{
-    $EDITOR ~/.config/lf/lfrc
+    nvim ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 
