@@ -1,5 +1,6 @@
 (defpoll time :interval "10s" `date "+%H:%M"`)
 (defpoll date :interval "10s" `date "+%e. %B"`)
+(defpoll fail :interval "60s" `systemctl --failed -o json | jq length`)
 
 (defwidget time []
   (box
@@ -8,8 +9,20 @@
     (label :xalign 1 :markup "<span size=\"240%\">${time}</span>")
     (label :xalign 1 :text "${date}")))
 
+(defwidget fail []
+  (box
+    :orientation "v"
+    :spacing -35
+    (label :xalign 1 :text `${fail > 0 ? fail > 1 ? "${fail} failed units" : "${fail} failed unit" : ""}`)))
+
 (defwindow time
   :monitor 0
   :stacking "bg"
   :geometry (geometry :x "32px" :y "12px" :width "500px" :anchor "top right")
   (time))
+
+(defwindow fail
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry :x "32px" :y "12px" :width "150px" :anchor "bottom right")
+  (fail))
