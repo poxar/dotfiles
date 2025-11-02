@@ -6,7 +6,7 @@
   (box
     :orientation "v"
     :spacing -35
-    (label :xalign 1 :markup "<span size=\"240%\">${time}</span>")
+    (label :xalign 1 :markup "<span size=\"280%\">${time}</span>")
     (label :xalign 1 :text "${date}")))
 
 (defwidget fail []
