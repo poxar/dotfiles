@@ -96,6 +96,10 @@ layout {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     slowdown 0.2 // <1 speeds up animations
+
+    workspace-switch {
+        off
+    }
 }
 
 layer-rule {
