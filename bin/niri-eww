@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+
+eww daemon
+eww open time
+eww open fail
+
+if test -L /sys/class/power_supply/BAT1; then
+  eww open battery
+fi

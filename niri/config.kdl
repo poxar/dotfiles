@@ -4,9 +4,9 @@
 spawn-at-startup "swaybg" "--mode" "fill" "--image" "Wallpaper/purple.png"
 spawn-at-startup "udiskie" "--automount" "--terminal" "ghostty -e"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
 spawn-at-startup "niri-idle"
-spawn-at-startup "eww" "open" "time"
-spawn-at-startup "eww" "open" "fail"
+spawn-at-startup "niri-eww"
 
 spawn-at-startup "flatpak" "run" "org.mozilla.firefox"
 spawn-at-startup "flatpak" "run" "org.signal.Signal"

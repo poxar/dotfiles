@@ -15,6 +15,13 @@
     :spacing -35
     (label :xalign 1 :text `${fail > 0 ? fail > 1 ? "${fail} failed units" : "${fail} failed unit" : ""}`)))
 
+(defwidget battery []
+  (box
+    :orientation "v"
+    :spacing 10
+    (label :xalign 0 :text "${EWW_BATTERY?.BAT1.status}")
+    (label :xalign 0 :text "${EWW_BATTERY?.BAT1.capacity}%")))
+
 (defwindow time
   :monitor 0
   :stacking "bg"
@@ -26,3 +33,9 @@
   :stacking "bg"
   :geometry (geometry :x "32px" :y "12px" :width "150px" :anchor "bottom right")
   (fail))
+
+(defwindow battery
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry :x "32px" :y "12px" :width "250px" :anchor "top left")
+  (battery))
