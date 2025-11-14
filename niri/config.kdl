@@ -8,7 +8,7 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "niri-idle"
 spawn-at-startup "niri-eww"
 
-spawn-at-startup "flatpak" "run" "org.mozilla.firefox"
+spawn-at-startup "firefox"
 spawn-at-startup "flatpak" "run" "org.signal.Signal"
 spawn-at-startup "flatpak" "run" "org.telegram.desktop"
 spawn-at-startup "flatpak" "run" "com.discordapp.Discord"
