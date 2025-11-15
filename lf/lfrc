@@ -13,6 +13,7 @@ cmd open &{{
     }
 
     case $(file --mime-type -Lb $f) in
+        image/*)          gimp "$fx" ;;
         text/*)           edit ;;
         application/json) edit ;;
         application/xml)  edit ;;
