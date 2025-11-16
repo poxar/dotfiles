@@ -114,7 +114,7 @@ workspace "chat"
 // Window rules let you adjust behavior for individual windows.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 window-rule {
-    match at-startup=true app-id=r#"^org\.mozilla\.firefox$"# title=r#"Mozilla Firefox$"#
+    match at-startup=true app-id=r#"^firefox$"# title=r#"Mozilla Firefox$"#
     open-maximized true
     open-on-workspace "web"
 }
