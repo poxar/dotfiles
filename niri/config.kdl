@@ -115,7 +115,7 @@ workspace "chat"
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 window-rule {
     match at-startup=true app-id=r#"^firefox$"# title=r#"Mozilla Firefox$"#
-    open-maximized true
+    open-maximized-to-edges true
     open-on-workspace "web"
 }
 
@@ -145,6 +145,24 @@ window-rule {
 hotkey-overlay {
     skip-at-startup
     hide-not-bound
+}
+
+recent-windows {
+  highlight {
+    corner-radius 8
+  }
+
+  binds {
+    Alt+Tab             { next-window; }
+    Alt+Shift+Tab       { previous-window; }
+    Alt+Grave           { next-window filter="app-id"; }
+    Alt+Shift+Grave     { previous-window filter="app-id"; }
+
+    Mod+Tab             { next-window; }
+    Mod+Shift+Tab       { previous-window; }
+    Mod+Grave           { next-window filter="app-id"; }
+    Mod+Shift+Grave     { previous-window filter="app-id"; }
+  }
 }
 
 binds {
@@ -180,9 +198,6 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // Move focus
-    Mod+Tab             { focus-window-previous; }
-    Alt+Tab             { focus-workspace-previous; }
-
     Mod+W               { focus-workspace "web"; }
     Mod+Ctrl+W          { move-column-to-workspace "web"; }
     Mod+Q               { focus-workspace "dev"; }
@@ -250,8 +265,8 @@ binds {
     Mod+R           { switch-preset-column-width; }
     Mod+Shift+R     { switch-preset-window-height; }
     Mod+Ctrl+R      { reset-window-height; }
-    Mod+F           { maximize-column; }
-    Mod+Shift+F     { fullscreen-window; }
+    Mod+F           { maximize-window-to-edges; }
+    Mod+Shift+F     { maximize-column; }
     Mod+Ctrl+F      { expand-column-to-available-width; }
 
     Mod+Shift+space { switch-focus-between-floating-and-tiling; }
