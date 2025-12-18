@@ -138,6 +138,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^steam$"#
+    match title=r#"^Steam"#
+    default-column-width { proportion 0.66667; }
+}
+
+window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
 }
