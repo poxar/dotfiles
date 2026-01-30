@@ -7,14 +7,14 @@ palette =  5=#6d1ab3
 palette =  6=#00a3b3
 palette =  7=#ddd3cd
 
-palette =  8=#6a6868
+palette =  8=#6e6e6e
 palette =  9=#b34444
 palette = 10=#005f00
 palette = 11=#d88b4d
 palette = 12=#005fd7
 palette = 13=#6d1ab3
 palette = 14=#00a3b3
-palette = 15=#fdf8f3
+palette = 15=#ddd3cd
 
 background = fdf8f3
 foreground = 000000
