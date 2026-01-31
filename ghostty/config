@@ -50,6 +50,7 @@ shell-integration-features = no-cursor
 
 copy-on-select = clipboard
 app-notifications = no-clipboard-copy
+resize-overlay = never
 
 window-padding-x = 10
 window-padding-y = 10
