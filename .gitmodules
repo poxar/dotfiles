@@ -147,11 +147,6 @@
 	path = nvim/pack/tpope/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise
 	shallow = true
-# Filesystem manipulation
-[submodule "nvim/pack/tpope/start/vim-eunuch"]
-	path = nvim/pack/tpope/start/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch
-	shallow = true
 # Git integration
 [submodule "nvim/pack/tpope/start/vim-fugitive"]
 	path = nvim/pack/tpope/start/vim-fugitive
