@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+snip="$(cat "$HOME/Notes/snippets.txt" | sk | cut -f 2-)"
+wl-copy "$snip"
+
+if test "${1:-""}" = "type"; then
+  keyd "do" A-esc C-v
+else
+  keyd "do" C-V
+fi
