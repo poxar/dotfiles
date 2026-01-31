@@ -11,5 +11,3 @@ if test "${1:-""}" = "type"; then
 else
   keyd "do" C-V
 fi
-
-exit
