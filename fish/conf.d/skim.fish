@@ -13,7 +13,7 @@ if command -q sk
 
   # grep through all files and open in editor
   function __skim_grep
-    set -l line (rg --color=always --line-number "" | sk --ansi | awk -F: '{ print $1" +"$2 }')
+    set -l line (sk --ansi -i -c 'rg --color=always --line-number {q}' | awk -F: '{ print $1" +"$2 }')
     if test -n "$line"
       commandline --replace "$EDITOR $line"
       commandline --cursor (string length "$EDITOR $line")
