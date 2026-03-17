@@ -24,7 +24,7 @@ if command -q sk
 
   # quickly cd into directory
   function __skim_cd
-    set -l line (fd --type directory --hidden | sk)
+    set -l line (fd --type directory --max-depth 2 | sk)
     if test -n "$line"
       commandline --replace "cd \"$line\""
       commandline --is-valid; and commandline -f execute
