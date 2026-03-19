@@ -18,6 +18,12 @@ history_filter = [
   "^c ",
 ]
 
+search_mode = "daemon-fuzzy"
+
+[daemon]
+enabled = true
+autostart = true
+
 [sync]
 records = true
 
