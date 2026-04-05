@@ -142,11 +142,6 @@
 	path = nvim/pack/tpope/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
 	shallow = true
-# Automatically end blocks
-[submodule "nvim/pack/tpope/start/vim-endwise"]
-	path = nvim/pack/tpope/start/vim-endwise
-	url = https://github.com/tpope/vim-endwise
-	shallow = true
 # Git integration
 [submodule "nvim/pack/tpope/start/vim-fugitive"]
 	path = nvim/pack/tpope/start/vim-fugitive
