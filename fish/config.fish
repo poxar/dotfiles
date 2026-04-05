@@ -12,7 +12,7 @@ set -xg BROWSER firefox
 umask 0027
 
 abbr -ag less less -FqX
-set -xg PAGER 'less -FqX'
+set -xg PAGER 'less'
 set -xg LESSHISTFILE -
 set -xg LESSOPEN ""
 
