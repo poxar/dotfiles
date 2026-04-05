@@ -17,7 +17,7 @@ set -xg LESSHISTFILE -
 set -xg LESSOPEN ""
 
 # ls
-alias ls 'ls --color=auto'
+alias ls "ls --color=auto --group-directories-first"
 abbr -ag sl ls
 abbr -ag ll ls -lh
 abbr -ag la ls -A
