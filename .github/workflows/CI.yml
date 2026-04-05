@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+      actions: write
+      id-token: write
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Install neovim
+      uses: rhysd/action-setup-vim@v1
+      with:
+        neovim: true
+
+
+    - name: Generate types
+      run: make types
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        file_pattern: lua/crates/config/types.lua
+        commit_message: "chore: generate types"
+
+
+    - name: Generate docs
+      run: make doc
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        file_pattern: README.md doc/crates.txt docgen/wiki
+        commit_message: "chore: generate docs"
+
+    - name: Upload Documentation to Wiki
+      if: github.ref == 'refs/heads/main'
+      uses: spenserblack/actions-wiki@v0.3.0
+      with:
+        path: docgen/wiki
+
+
+    - name: Install plenary.nvim
+      uses: actions/checkout@v4
+      with:
+        repository: nvim-lua/plenary.nvim
+        path: plenary.nvim
+
+    - name: Run tests
+      run: make test
+      timeout-minutes: 1
