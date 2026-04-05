@@ -1,20 +1,6 @@
 -- We use operator pending mode (opm) instead of flat mappings.
 -- This fixes guicursor functionality for all opm operations.
-
-require('nvim-surround').setup {
-  keymaps = {
-    -- Disable normal mode mappings
-    normal = false,
-    delete = false,
-    change = false,
-
-    -- Disable cur and line mappings, they are not replaced currently since I don't use them
-    normal_cur = false,
-    normal_line = false,
-    normal_cur_line = false,
-    change_line = false,
-  },
-}
+vim.g.nvim_surround_no_normal_mappings = true
 
 local function op(operation)
   local map = '<esc><Plug>(nvim-surround-'.. operation .. ')'
