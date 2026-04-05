@@ -1,0 +1,259 @@
+Documentation for `crates.nvim` `<VERSION>`
+
+# Features
+- In-process language server (`lsp`)
+    - Complete crate names, versions and features
+    - Code actions
+    - Hover
+- Update crates to newest compatible version
+- Upgrade crates to newest version
+- Respect existing version requirements and update them in an elegant way (`smart_insert`)
+- Show version and upgrade candidates
+    - Show if compatible version is a pre-release or yanked
+    - Show if no version is compatible
+- Open popup with crate info
+    - Open documentation, crates.io, repository and homepage urls
+- Open popup with crate versions
+    - Select a version by pressing enter (`popup.keys.select`)
+- Open popup with crate features
+    - Navigate the feature hierarchy
+    - Enable/disable features
+    - Indicate if a feature is enabled directly or transitively
+- Open popup with crate dependencies
+    - Navigate the dependency hierarchy
+    - Show `normal`, `build` and `dev` dependencies
+    - Show optional dependencies
+- Project-local configuration via [Neoconf](https://github.com/folke/neoconf.nvim)
+
+# Setup
+
+## In-process language server
+The in-process langauge server is disabled by default. It can be enabled
+to support completions, code actions, and hover.
+
+Enable the in-process language server in the setup and select whether to enable
+code actions, auto completion and hover. The `on_attach` function, or the `LspAttach`
+autocmd can be used to setup key mappings, just like for other language servers.
+```lua
+require("crates").setup {
+    ...
+    lsp = {
+        enabled = true,
+        on_attach = function(client, bufnr)
+            -- the same on_attach function as for your other language servers
+            -- can be ommited if you're using the `LspAttach` autocmd
+        end,
+        actions = true,
+        completion = true,
+        hover = true,
+    },
+}
+```
+
+## Auto completion
+Auto completion works through the [in-process language server](#in-process-language-server).
+
+### Crate name completion
+
+Crate names of dependencies can be completed from searches on `crates.io`.
+This has to be enabled seperately:
+
+```lua
+require("crates").setup {
+    ...
+    completion = {
+        crates = {
+            enabled = true -- Disabled by default
+            max_results = 8 -- The maximum number of search results to display
+            min_chars = 3 -- The minimum number of charaters to type before completions begin appearing
+        }
+    }
+}
+```
+
+### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) source
+
+Custom completion kinds are enabled by default, but icons need to be specified
+manually. The default kind names and highlight groups are as follows:
+```lua
+require("crates").setup {
+    ...
+    completion = {
+        ...
+        cmp = {
+            use_custom_kind = true,
+            -- optionally change the text and highlight groups
+            kind_text = {
+                version = "Version",
+                feature = "Feature",
+            },
+            kind_highlight = {
+                version = "CmpItemKindVersion",
+                feature = "CmpItemKindFeature",
+            },
+        },
+    },
+}
+```
+This will set a custom completion `cmp.kind_text` and `cmp.kind_hl_group` attributes
+to completion items for `nvim-cmp`.
+
+<details>
+<summary>Custom nvim-cmp kind icons</summary>
+
+How custom icons can be added depends on how you've set up [the nvim-cmp menu](https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#basic-customisations).
+
+Here's an example of how add custom icons, you might need to adapt some things.
+```lua
+local kind_icons = {
+    ["Class"] = "🅒 ",
+    ["Interface"] = "🅘 ",
+    ["TypeParameter"] = "🅣 ",
+    ["Struct"] = "🅢 ",
+    ["Enum"] = "🅔 ",
+    ["Unit"] = "🅤 ",
+    ["EnumMember"] = "🅔 ",
+    ["Constant"] = "🅒 ",
+    ["Field"] = "🅕 ",
+    ["Property"] = "🅟 ",
+    ["Variable"] = "🅥 ",
+    ["Reference"] = "🅡 ",
+    ["Function"] = "🅕 ",
+    ["Method"] = "🅜 ",
+    ["Constructor"] = "🅒 ",
+    ["Module"] = "🅜 ",
+    ["File"] = "🅕 ",
+    ["Folder"] = "🅕 ",
+    ["Keyword"] = "🅚 ",
+    ["Operator"] = "🅞 ",
+    ["Snippet"] = "🅢 ",
+    ["Value"] = "🅥 ",
+    ["Color"] = "🅒 ",
+    ["Event"] = "🅔 ",
+    ["Text"] = "🅣 ",
+
+    -- crates.nvim extensions
+    ["Version"] = "🅥 ",
+    ["Feature"] = "🅕 ",
+}
+
+require("cmp").setup({
+    formatting = {
+        fields = { "abbr", "kind" },
+        format = function(_, vim_item)
+            vim_item.kind = kind_icons[vim_item.kind] or "  "
+            return vim_item
+        end,
+    },
+})
+```
+</details>
+
+## Code actions
+Code actions work through the [in-process language server](#in-process-language-server).
+But you can also set up key mappings for specific actions. See [key mappings](#key-mappings).
+
+## Hover
+Hover is supported through the [in-process language server](#in-process-language-server).
+But you can also set up key mappings for specific menus. See [key mappings](#key-mappings).
+
+# Config
+For more information about the config types have a look at the vimdoc or [`lua/crates/config/types.lua`](https://github.com/Saecki/crates.nvim/blob/main/lua/crates/config/types.lua).
+
+## Default
+
+The icons in the default configuration require a patched font.<br>
+Any [Nerd Font](https://www.nerdfonts.com/font-downloads) should work.
+```lua
+require("crates").setup {
+    <SHARED:DEFAULT_CONFIGURATION>
+}
+```
+
+## Plain text
+
+Replace these fields if you don"t have a patched font.
+```lua
+require("crates").setup {
+    <SHARED:plain_text_config.lua>
+}
+```
+
+## Functions
+```lua
+<SHARED:FUNCTIONS>
+```
+
+## Command
+```vim
+:Crates <subcmd>
+```
+Run a crates.nvim `<subcmd>`. All `<subcmd>`s are just wrappers around the
+corresponding functions. These are the functions available as commands:
+<SHARED:SUBCOMMANDS>
+
+## Key mappings
+Some examples of key mappings.
+```lua
+<SHARED:keymaps.lua>
+```
+
+<details>
+<summary>In vimscript</summary>
+
+```vim
+<SHARED:keymaps.vim>
+```
+</details>
+
+## Show appropriate documentation in `Cargo.toml`
+> [!NOTE]
+> If you're using the in-process language server and `lsp.hover` is enabled, this isn't necessary.
+
+How you might integrate `show_popup` into your `init.lua`.
+```lua
+<SHARED:show_docs.lua>
+```
+
+<details>
+<summary>How you might integrate `show_popup` into your `init.vim`.</summary>
+
+```vim
+<SHARED:show_docs.vim>
+```
+</details>
+
+## neoconf.nvim integration
+
+You can also set project-local settings if you have [neoconf.nvim](https://github.com/folke/neoconf.nvim)
+installed; all settings are exactly the same, but are by default under the "crates" namespace.
+
+Neoconf integration has to be enabled, and optionally the namespace can be changed.
+```lua
+require("crates").setup {
+    ...
+    neoconf = {
+        enabled = false,
+        namespace = "crates",
+    },
+}
+```
+
+Example:
+
+```jsonc
+// .neoconf.json
+
+{
+    //...
+    "crates": {
+        "smart_insert": false,
+        "max_parallel_requests": 50,
+        "completion": {
+            "crates": {
+                "enabled": false
+            }
+        }
+    }
+}
+```

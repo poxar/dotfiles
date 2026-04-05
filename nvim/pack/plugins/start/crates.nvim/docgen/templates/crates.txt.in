@@ -1,0 +1,118 @@
+*crates.txt* Crates
+*crates.nvim*
+
+Author:   Tobias Schmitz <tobiasschmitz2001@gmail.com>
+Version:  <VERSION>
+Homepage: <https://github.com/saecki/crates.nvim>
+License:  MIT license
+
+==============================================================================
+INTRODUCTION                                                          *crates*
+
+Crates is a plugin that helps managing crates.io dependencies.
+It can display a crate's versions, features and dependencies, allows
+updating/upgrading versions, enabling/disabling features and more.
+
+==============================================================================
+USAGE                                                           *crates-usage*
+
+Basic setup.
+>lua
+    require('crates').setup()
+<
+
+Setup for plain text (without patched font).
+>lua
+    require('crates').setup {
+        <SHARED:plain_text_config.lua>
+    }
+<
+
+Setup with default options.
+
+NOTE: The icons in the default config require a patched font, if you don't have
+one use the plain text config.
+For more information about individual config options see |crates-config|.
+>lua
+    require('crates').setup {
+        <SHARED:DEFAULT_CONFIGURATION>
+    }
+<
+
+==============================================================================
+MAPPINGS                                                     *crates-mappings*
+
+NOTE: Crates doesn't use any global key mappings by default.
+
+But here are some recommended ones.
+For more information about the lua function see |crates-functions|.
+>lua
+    <SHARED:keymaps.lua>
+<
+
+And here are the same ones in vimscript.
+>vim
+    <SHARED:keymaps.vim>
+<
+
+To integrate the crates popup in an idiomatic way into your configuration, you
+might want to use one of the following snippets for contextual documentation.
+
+NOTE: If you're using the in-process language server and |crates-config-lsp-hover|
+is enabled, this isn't necessary.
+
+How you might integrate `show_popup` into your `init.lua`.
+>lua
+    <SHARED:show_docs.lua>
+<
+
+How you might integrate `show_popup` into your `init.vim`.
+>vim
+    <SHARED:show_docs.vim>
+<
+
+==============================================================================
+FUNCTIONS                                                   *crates-functions*
+
+All of these functions are members of the `crates` root module.
+They can be accessed like this.
+>lua
+    require('crates').function_name()
+<
+
+<SHARED:FUNCTIONS>
+==============================================================================
+COMMAND                                                       *crates-command*
+
+:Crates {subcmd}
+
+Run a crates.nvim {subcmd}. All {subcmd}s are just wrappers around the
+corresponding |crates-functions|. These are the functions available as
+commands:
+
+<SHARED:SUBCOMMANDS>
+
+==============================================================================
+CONFIGURATION                                                  *crates-config*
+
+This section describes the configuration table which can be passed to
+`crates.setup()`. The type of this table is available as an EmmyLua annotation
+named `crates.UserConfig`.
+
+NOTE: If a field is labeled `Section` it's a table of subfields and uses their
+default values if not specified. This is different from other fields with
+table types like `string[]`. Non `Section` fields will completely override the
+default value, not extend them.
+
+<SHARED:CONFIGURATION>
+
+==============================================================================
+HIGHLIGHTS                                                 *crates-highlights*
+
+This is a list of the default highlight groups used by crates.nvim. To change
+them, you can either overwrite them or use different ones in
+|crates-config-highlight| and |crates-config-popup-highlight|.
+
+<SHARED:HIGHLIGHTS>
+
+vim:tw=78:ts=8:ft=help:norl:
