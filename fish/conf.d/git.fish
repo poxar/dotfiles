@@ -32,3 +32,7 @@ function git \
     command git status --short
   end
 end
+
+if command -q lazygit
+  abbr -ag lg lazygit
+end
