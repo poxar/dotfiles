@@ -1,9 +1,9 @@
+https://codeberg.org/andyg/leap.nvim
 https://github.com/Saecki/crates.nvim
 https://github.com/dcampos/cmp-snippy
 https://github.com/dcampos/nvim-snippy
 https://github.com/direnv/direnv.vim
 https://github.com/echasnovski/mini.ai
-https://github.com/ggandor/leap.nvim
 https://github.com/hrsh7th/cmp-nvim-lsp
 https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
 https://github.com/hrsh7th/cmp-nvim-lua
