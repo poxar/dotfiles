@@ -11,7 +11,7 @@ spawn-at-startup "niri-eww"
 spawn-at-startup "firefox"
 spawn-at-startup "flatpak" "run" "org.signal.Signal"
 spawn-at-startup "flatpak" "run" "org.telegram.desktop"
-spawn-at-startup "flatpak" "run" "com.discordapp.Discord"
+spawn-at-startup "flatpak" "run" "com.valvesoftware.Steam" "-silent"
 
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
@@ -71,7 +71,6 @@ layout {
     gaps 8
     center-focused-column "never"
     always-center-single-column
-    empty-workspace-above-first
     background-color "transparent"
 
     default-column-width { proportion 0.5; }
@@ -108,8 +107,6 @@ layer-rule {
 }
 
 workspace "web"
-workspace "dev"
-workspace "chat"
 
 // Window rules let you adjust behavior for individual windows.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
@@ -125,14 +122,6 @@ window-rule {
 }
 
 window-rule {
-    match at-startup=true app-id=r#"^org\.signal\.Signal$"#
-    match at-startup=true app-id=r#"^org\.telegram\.desktop$"#
-    match at-startup=true app-id=r#"^com\.discordapp\.Discord$"#
-    open-on-workspace "chat"
-    open-focused false
-}
-
-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     block-out-from "screen-capture"
 }
@@ -143,38 +132,32 @@ window-rule {
     default-column-width { proportion 0.66667; }
 }
 
-window-rule {
-    geometry-corner-radius 8
-    clip-to-geometry true
-}
-
 hotkey-overlay {
     skip-at-startup
     hide-not-bound
 }
 
-recent-windows {
-  highlight {
-    corner-radius 8
-  }
-
-  binds {
-    Alt+Tab             { next-window; }
-    Alt+Shift+Tab       { previous-window; }
-    Alt+Grave           { next-window filter="app-id"; }
-    Alt+Shift+Grave     { previous-window filter="app-id"; }
-
-    Mod+Tab             { next-window; }
-    Mod+Shift+Tab       { previous-window; }
-    Mod+Grave           { next-window filter="app-id"; }
-    Mod+Shift+Grave     { previous-window filter="app-id"; }
-  }
-}
+// recent-windows {
+//   highlight {
+//     corner-radius 8
+//   }
+//
+//   binds {
+//     Alt+Tab             { next-window; }
+//     Alt+Shift+Tab       { previous-window; }
+//     Alt+Grave           { next-window filter="app-id"; }
+//     Alt+Shift+Grave     { previous-window filter="app-id"; }
+//
+//     Mod+Tab             { next-window; }
+//     Mod+Shift+Tab       { previous-window; }
+//     Mod+Grave           { next-window filter="app-id"; }
+//     Mod+Shift+Grave     { previous-window filter="app-id"; }
+//   }
+// }
 
 binds {
     // Launching things
     Mod+space   repeat=false { spawn "fuzzel"; }
-    Mod+D       repeat=false { spawn "fuzzel"; }
     Mod+E       repeat=false { spawn "fuzzel-emoji"; }
     Mod+V       repeat=false { spawn "fuzzel-snippets"; }
     Mod+N       repeat=false { spawn "fuzzel-notes"; }
@@ -182,8 +165,8 @@ binds {
     Mod+A       repeat=false { spawn "fuzzel-audio"; }
 
     Mod+P       repeat=false { spawn "niri-palette"; }
-    Mod+S       repeat=false { spawn "niri-sessions"; }
-    Mod+Shift+S repeat=false { spawn "niri-search"; }
+    Mod+S       repeat=false { spawn "niri-search"; }
+    Mod+Shift+S repeat=false { spawn "niri-sessions"; }
     Mod+Z       repeat=false { spawn "niri-actions"; }
     Mod+C       repeat=false { spawn "ghostty" "+new-window"; }
     Mod+B       repeat=false { spawn "ghostty" "-e" "edit-todo"; }
@@ -191,6 +174,12 @@ binds {
 
     Mod+I       repeat=false { spawn "keepassxc"; }
     Mod+Shift+Z repeat=false { spawn "wooz" "--map-close" "q" "--invert-scroll"; }
+
+    Mod+W       repeat=false { spawn "niri-ror" "firefox" "firefox"; }
+    Mod+Ctrl+W  repeat=false { spawn "firefox"; }
+    Mod+T       repeat=false { spawn "niri-ror" "org.signal.Signal" "flatpak run org.signal.Signal"; }
+    Mod+Shift+T repeat=false { spawn "niri-ror" "org.telegram.desktop" "flatpak run org.telegram.desktop"; }
+    Mod+D       repeat=false { spawn "niri-ror" "com.discordapp.Discord" "flatpak run com.discordapp.Discord"; }
 
     // Special stuff
     Mod+Backspace repeat=false { close-window; }
@@ -204,12 +193,8 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // Move focus
-    Mod+W               { focus-workspace "web"; }
-    Mod+Ctrl+W          { move-column-to-workspace "web"; }
-    Mod+Q               { focus-workspace "dev"; }
-    Mod+Ctrl+Q          { move-column-to-workspace "dev"; }
-    Mod+T               { focus-workspace "chat"; }
-    Mod+Ctrl+T          { move-column-to-workspace "chat"; }
+    Mod+Tab             { focus-workspace-previous; }
+    Alt+Tab             { focus-workspace-previous; }
 
     Mod+H               { focus-column-left; }
     Mod+J               { focus-window-or-workspace-down; }
