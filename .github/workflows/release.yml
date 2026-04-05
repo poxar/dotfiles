@@ -1,0 +1,142 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup date
+        shell: bash
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      
+      - name: Restore Neovim cache
+        id: cache-neovim-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/nvim
+          key: neovim-cache-${{ env.DATE }}-stable
+      
+      - name: Install Neovim
+        if: steps.cache-neovim-restore.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          mkdir -p ${{ runner.temp }}/nvim
+          wget -q https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage -O ${{ runner.temp }}/nvim/nvim.appimage
+          cd ${{ runner.temp }}/nvim
+          chmod a+x ./nvim.appimage
+          ./nvim.appimage --appimage-extract
+      
+      - name: Save Neovim cache
+        if: steps.cache-neovim-restore.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/nvim
+          key: neovim-cache-${{ env.DATE }}-stable
+      
+      - name: Add Neovim to PATH
+        shell: bash
+        run: |
+          echo "${{ runner.temp }}/nvim/squashfs-root/usr/bin/" >> $GITHUB_PATH
+      
+      - name: Neovim version
+        run: nvim --version
+      
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua5.1 liblua5.1-dev luarocks
+      
+      - name: Install Lua dependencies
+        run: |
+          sudo luarocks install luassert
+          sudo luarocks install busted
+
+      - name: Test Cache
+        uses: actions/cache@v4
+        with:
+          path: .tests
+          key: ${{ runner.os }}-tests-${{ hashFiles('tests/minit.lua', 'scripts/test') }}
+
+      - name: Run tests
+        run: |
+          chmod +x scripts/test
+          ./scripts/test
+
+  release:
+    name: Create Release
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get version from tag
+        id: tag_name
+        run: |
+          echo "current_version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_level: error
+          version: ${{ steps.tag_name.outputs.current_version }}
+          path: ./CHANGELOG.md
+      
+      - name: Check if release exists
+        id: check_release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -x  # Enable debug output
+          which gh || echo "gh CLI not found!"
+          echo "Checking for release: ${{ github.ref_name }}"
+          if gh release view "${{ github.ref_name }}" --repo "${{ github.repository }}" 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Release ${{ github.ref_name }} already exists"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Release ${{ github.ref_name }} does not exist"
+          fi
+      
+      - name: Delete existing release if exists
+        if: steps.check_release.outputs.exists == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          echo "Deleting existing release ${{ github.ref_name }}..."
+          gh release delete "${{ github.ref_name }}" --repo "${{ github.repository }}" -y
+
+      - name: Create Archives
+        run: |
+          mkdir -p sort-nvim
+          cp -r lua plugin README.md LICENSE CHANGELOG.md sort-nvim/
+          tar -czf sort-nvim-${{ steps.tag_name.outputs.current_version }}.tar.gz sort-nvim
+          zip -r sort-nvim-${{ steps.tag_name.outputs.current_version }}.zip sort-nvim
+
+      - name: Create Release with Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          name: Release v${{ steps.tag_name.outputs.current_version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
+          prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
+          fail_on_unmatched_files: false
+          files: |
+            LICENSE
+            sort-nvim-${{ steps.tag_name.outputs.current_version }}.tar.gz
+            sort-nvim-${{ steps.tag_name.outputs.current_version }}.zip
