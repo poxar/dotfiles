@@ -1,0 +1,54 @@
+name: CI
+on:
+  push:
+    branches: 'master'
+  pull_request:
+    branches: 'master'
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  linux:
+    strategy:
+      matrix:
+        version: [v0.11.2, v0.7.0, nightly]
+
+    runs-on: ubuntu-latest
+
+    env:
+      NVIM_TEST_VERSION: ${{ matrix.version }}
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Setup luajit
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install luajit libluajit-5.1-dev luarocks
+
+      - name: Setup vusted
+        run: |
+          luarocks install --local vusted
+          echo "$HOME/.luarocks/bin" >> $GITHUB_PATH
+
+      - name: Run functional tests
+        env:
+          NVIM_TEST_VERSION: ${{ matrix.version }}
+          NVIM_RUNNER_VERSION: v0.11.2
+        run: |
+          make functionaltest
+
+      - name: Run unit tests
+        env:
+          VUSTED_USE_LOCAL: 1
+        run: |
+          export VUSTED_NVIM=$HOME/.data/nvim-test/nvim-test-${{ matrix.version }}/bin/nvim
+          make unittest
+
+      - name: Check formatting
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          version: v0.20.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: --check lua/ test/
