@@ -4,4 +4,5 @@ if command -q pacman
   abbr -ag pi sudo pacman -S
   abbr -ag pd sudo pacman -Rs
   abbr -ag pu sudo pacman -Syu
+  abbr -ag pq pacman -Q
 end
