@@ -34,12 +34,17 @@ if command -q sk
 
   # search through history
   function __skim_history
-    set -l line (history | sk)
-    if test -n "$line"
-      commandline --replace "$line"
-    end
+    history merge
+    history -z | sk --read0 --print0 \
+      --tiebreak=index \
+      --query=(commandline) \
+      --preview="echo {} | fish_indent --ansi" \
+      --preview-window="down:5:wrap" \
+      | read -lz cmd
+    and commandline -- (string trim -r $cmd)
+    commandline -f repaint
   end
-  bind \er __skim_history
+  bind \cr __skim_history
 
   # search through git history
   function __skim_git_history
