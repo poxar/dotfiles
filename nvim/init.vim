@@ -258,18 +258,6 @@ let g:undotree_ShortIndicators = 1
 " Better :sort
 lua require('sort').setup {}
 xnoremap <silent> go <esc><cmd>Sort<cr>
-nnoremap <silent> go" vi"<esc><cmd>Sort<cr>
-nnoremap <silent> go' vi'<esc><cmd>Sort<cr>
-nnoremap <silent> go( vi(<esc><cmd>Sort<cr>
-nnoremap <silent> gob vib<esc><cmd>Sort<cr>
-nnoremap <silent> go) vi)<esc><cmd>Sort<cr>
-nnoremap <silent> go[ vi[<esc><cmd>Sort<cr>
-nnoremap <silent> go] vi]<esc><cmd>Sort<cr>
-nnoremap <silent> go{ vi{<esc><cmd>Sort<cr>
-nnoremap <silent> goB viB<esc><cmd>Sort<cr>
-nnoremap <silent> go} vi}<esc><cmd>Sort<cr>
-nnoremap <silent> gop vip<esc><cmd>Sort<cr>
-nnoremap <silent> goi vii<esc><cmd>Sort<cr>
 
 " mini.ai, adds more a/i textobjects
 lua require('mini.ai').setup()
