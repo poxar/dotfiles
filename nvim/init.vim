@@ -274,9 +274,6 @@ nnoremap <silent> goi vii<esc><cmd>Sort<cr>
 " mini.ai, adds more a/i textobjects
 lua require('mini.ai').setup()
 
-" dadbod, database interactions
-command! Database tab DBUI
-
 " Abbreviations {{{1
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
