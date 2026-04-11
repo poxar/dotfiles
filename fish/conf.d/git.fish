@@ -10,7 +10,9 @@ abbr -ag gdw git diff --word-diff --color-words
 abbr -ag gdo git diff origin
 abbr -ag gl git l
 abbr -ag gco git checkout
+abbr -ag gb git branch
 abbr -ag gbr git branch
+abbr -ag gba git branch -a
 abbr -ag gf git fetch
 abbr -ag gfo git fetch origin
 abbr -ag grb git rebase
