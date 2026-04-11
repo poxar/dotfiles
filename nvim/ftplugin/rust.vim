@@ -11,6 +11,7 @@ if filereadable('Cargo.toml')
         \ "cargo build",
         \ "cargo test",
         \ "cargo bench",
+        \ "cargo run",
         \ ]
 
   nnoremap <buffer> <leader>ec :edit Cargo.toml<cr>
