@@ -1,5 +1,8 @@
 let g:rust_bang_comment_leader = 1
 
+nnoremap <buffer> gz :!zeal "rust:<cword>"&<cr><cr>
+xnoremap <buffer> gz y:!zeal "rust:<c-r>0"&<cr><cr>
+
 if filereadable('Cargo.toml')
   compiler cargo
 
