@@ -16,6 +16,7 @@ Stow is used to manage the symlinks and it's just a matter of `stow -S .`, see
 
 # Archive
 
-- DWM [coastline](https://github.com/poxar/dotfiles/tree/coastline)
-- Hyprland [2025](https://github.com/poxar/dotfiles/tree/hyprland-2025)
-- Niri [2025](https://github.com/poxar/dotfiles/tree/niri-2025)
+- DWM [coastline](https://codeberg.org/poxar/dotfiles/src/branch/coastline)
+- Hyprland [2025](https://codeberg.org/poxar/dotfiles/src/branch/hyprland-2025)
+- Niri [2025](https://codeberg.org/poxar/dotfiles/src/branch/niri-2025)
+- [Old](https://codeberg.org/poxar/dotfiles/src/branch/main_2022-03-12)
