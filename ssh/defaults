@@ -1,8 +1,13 @@
 AddKeysToAgent yes
 ExitOnForwardFailure yes
 
+# multiplex connections
+ControlMaster auto
+ControlPath ${HOME}/.ssh/control/%C
+ControlPersist 10m
+
 # retry, spotty connections happen
-ConnectionAttempts 10
+ConnectionAttempts 3
 
 # make sure the connection is still alive
 ServerAliveInterval 1
