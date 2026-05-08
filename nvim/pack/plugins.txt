@@ -22,7 +22,6 @@ https://github.com/nvim-lua/plenary.nvim
 https://github.com/nvim-telescope/telescope-symbols.nvim
 https://github.com/nvim-telescope/telescope-ui-select.nvim
 https://github.com/nvim-telescope/telescope.nvim
-https://github.com/nvim-treesitter/nvim-treesitter
 https://github.com/onsails/lspkind.nvim
 https://github.com/sQVe/sort.nvim
 https://github.com/smjonas/inc-rename.nvim
