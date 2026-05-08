@@ -46,7 +46,7 @@ clipboard-read = ask
 clipboard-write = allow
 clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,ssh-terminfo
 
 copy-on-select = clipboard
 app-notifications = no-clipboard-copy
