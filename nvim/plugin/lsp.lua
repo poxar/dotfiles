@@ -1,4 +1,4 @@
-require("inc_rename").setup()
+require('inc_rename').setup()
 require('fidget').setup()
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)

@@ -2,7 +2,7 @@ if not vim.fn.has("gui_running") and not vim.fn.has("termguicolors") then
   return
 end
 
-vim.cmd.highlight('clear')
+vim.cmd('highlight clear')
 vim.g.colors_name = 'poxar'
 
 local hi = function(name, val)
@@ -15,10 +15,10 @@ local fg = {
   std = "#000000",
   dim = "#6a6868",
 
-  red = "#b34444",
-  green = "#005f00",
-  blue = "#005fd7",
-  brown = "#2c2500", -- aka dark yellow
+  red =    "#b34444",
+  green =  "#005f00",
+  blue =   "#005fd7",
+  brown =  "#2c2500", -- aka dark yellow
   orange = "#d88b4d",
   purple = "#6d1ab3",
 }
@@ -27,7 +27,7 @@ local bg = {
   std = "#fdf8f3",
 
   -- gray variations for windows and bars
-  light = "#f1eae5",
+  light =  "#f1eae5",
   medium = "#ddd3cd",
 
   red    = "#ffb3b3",
