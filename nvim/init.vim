@@ -213,9 +213,9 @@ command! Q q
 command! StripWhitespace normal mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
 " find and show todos
-command! -nargs=? Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\]: <args> | botright cope
-command! -nargs=? Todo grep! TODO:\\|FIXME:\\|XXX: <args> | botright cope
-command! -nargs=? Fixme grep! FIXME:\\|XXX: <args> | botright cope
+command! -nargs=? Note grep! \[Nn\]\[Oo\]\[Tt\]\[Ee\] <args> | botright cope
+command! -nargs=? Todo grep! TODO\\|FIXME\\|XXX <args> | botright cope
+command! -nargs=? Fixme grep! FIXME\\|XXX <args> | botright cope
 
 " edit current filetypeplugin
 command! Ftedit execute ":edit ". stdpath('config') ."/ftplugin/".&ft.".vim"
