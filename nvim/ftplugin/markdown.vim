@@ -10,4 +10,4 @@ setlocal suffixesadd=.md,.markdown,.txt
 nnoremap <buffer> gf vi]gf
 
 iabbrev <buffer> ... …
-iabbrev <buffer> . - [ ]
+iabbrev <buffer> t - [ ]
