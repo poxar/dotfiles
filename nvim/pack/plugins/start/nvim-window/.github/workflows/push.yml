@@ -1,0 +1,21 @@
+---
+name: Push
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  stylua:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v3
+        name: Run StyLua
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 0.18.1
+          args: --check .
