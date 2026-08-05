@@ -33,3 +33,4 @@ https://github.com/tpope/vim-obsession
 https://github.com/tpope/vim-repeat
 https://github.com/wgwoods/vim-systemd-syntax
 https://github.com/windwp/nvim-autopairs
+https://github.com/yorickpeterse/nvim-window

@@ -262,6 +262,9 @@ xnoremap <silent> go <esc><cmd>Sort<cr>
 " mini.ai, adds more a/i textobjects
 lua require('mini.ai').setup()
 
+" quickly select window to focus
+map <silent> <leader>w :lua require('nvim-window').pick()<cr>
+
 " Abbreviations {{{1
 iabbrev (C) ©
 iabbrev ldis ಠ_ಠ
