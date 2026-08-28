@@ -2,3 +2,4 @@
 /nvim/spell/*.spl
 /nvim/spell/*.sug
 /nvim/pack/local
+/nvim/snippets/_/local.snippets
